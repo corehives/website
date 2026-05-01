@@ -5,47 +5,35 @@ import HalfLogo from "./../../assets/logo-half.png";
 import GlobeLogo from "./../../assets/globe-frame.png";
 import * as THREE from "three";
 
-/* ------------------ GLOBE ------------------ */
+/* Globe.jsx — responsive rewrite */
 
 function Globe() {
   const groupRef = useRef();
-
   useFrame(() => {
     groupRef.current.rotation.y += 0.0025;
   });
 
   const geometry = useMemo(() => new THREE.IcosahedronGeometry(2.5, 3), []);
-
   const edges = useMemo(() => new THREE.EdgesGeometry(geometry), [geometry]);
+  const edgePositions = useMemo(() => edges.attributes.position.array, [edges]);
 
-  // extract edge positions (THIS WAS MISSING)
-  const edgePositions = useMemo(() => {
-    return edges.attributes.position.array;
-  }, [edges]);
-
-  // circular dot texture (MUST BE INSIDE COMPONENT)
   const circleTexture = useMemo(() => {
     const canvas = document.createElement("canvas");
     canvas.width = 64;
     canvas.height = 64;
-
     const ctx = canvas.getContext("2d");
     ctx.beginPath();
     ctx.arc(32, 32, 30, 0, Math.PI * 2);
     ctx.fillStyle = "white";
     ctx.fill();
-
     return new THREE.CanvasTexture(canvas);
   }, []);
 
   return (
     <group ref={groupRef}>
-      {/* WIREFRAME */}
       <lineSegments geometry={edges}>
         <lineBasicMaterial color="#01827d" transparent opacity={0.85} />
       </lineSegments>
-
-      {/* NODES (ONLY ON EDGES) */}
       <points>
         <bufferGeometry>
           <bufferAttribute
@@ -55,7 +43,6 @@ function Globe() {
             itemSize={3}
           />
         </bufferGeometry>
-
         <pointsMaterial
           map={circleTexture}
           color="#07BEB8"
@@ -70,32 +57,31 @@ function Globe() {
 }
 
 function CenterGlow() {
-  const material = useMemo(() => {
-    return new THREE.ShaderMaterial({
-      transparent: true,
-      depthWrite: false,
-      uniforms: {
-        color: { value: new THREE.Color("#000000") },
-      },
-      vertexShader: `
-        varying vec3 vNormal;
-        void main() {
-          vNormal = normalize(normalMatrix * normal);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragmentShader: `
-        uniform vec3 color;
-        varying vec3 vNormal;
-        void main() {
-          float intensity = 1.0 - abs(dot(vNormal, vec3(0.0, 0.0, 1.0)));
-          intensity = 1.0 - pow(intensity, 1.5);
-          float alpha = intensity * 0.25;
-          gl_FragColor = vec4(color, alpha);
-        }
-      `,
-    });
-  }, []);
+  const material = useMemo(
+    () =>
+      new THREE.ShaderMaterial({
+        transparent: true,
+        depthWrite: false,
+        uniforms: { color: { value: new THREE.Color("#000000") } },
+        vertexShader: `
+      varying vec3 vNormal;
+      void main() {
+        vNormal = normalize(normalMatrix * normal);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+        fragmentShader: `
+      uniform vec3 color;
+      varying vec3 vNormal;
+      void main() {
+        float intensity = 1.0 - abs(dot(vNormal, vec3(0.0,0.0, 1.0)));
+        intensity = 1.0 - pow(intensity, 1.5);
+        gl_FragColor = vec4(color, intensity * 0.25);
+      }
+    `,
+      }),
+    [],
+  );
 
   return (
     <mesh>
@@ -108,25 +94,18 @@ function CenterGlow() {
 function GlobeCore() {
   return (
     <>
-      {/* CENTER BRIGHT GLOW — makes wireframe lighter in middle */}
       <mesh>
         <sphereGeometry args={[2.5, 64, 64]} />
-        <meshBasicMaterial color="#FFFF" transparent opacity={0} />
+        <meshBasicMaterial color="#FFFFFF" transparent opacity={0} />
       </mesh>
-
-      {/* INNER CORE */}
       <mesh>
         <sphereGeometry args={[2.0, 64, 64]} />
         <meshBasicMaterial color="#000000" transparent opacity={0} />
       </mesh>
-
-      {/* MIDDLE BLEND LAYER */}
       <mesh>
         <sphereGeometry args={[2.2, 64, 64]} />
         <meshBasicMaterial color="#041f22" transparent opacity={0.4} />
       </mesh>
-
-      {/* OUTER CYAN FADE */}
       <mesh>
         <sphereGeometry args={[2.1, 64, 64]} />
         <meshBasicMaterial color="#04ada8" transparent opacity={0.2} />
@@ -135,22 +114,30 @@ function GlobeCore() {
   );
 }
 
-/* ------------------ MAIN ------------------ */
-
+/* ── Main export ── */
 export default function GlobeScene() {
   return (
-    <div style={{ position: "relative", top: "-8rem", height: "700px" }}>
-      {/* BG IMAGE — behind everything */}
+    // ✅ Fill the parent container fully — no fixed heights or negative offsets
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        top: "-15%",
+      }}
+    >
+      {/* Rotating ring image — centered, scales with container */}
       <img
         src={GlobeLogo}
-        alt="background"
+        alt=""
         style={{
           position: "absolute",
           top: "50%",
           left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "400px",
-          height: "400px",
+          transform: "translate(-50%, calc(-50% - 40px))", //
+          width: "clamp(240px,31vw, 350px)", // ✅ responsive
+          height: "auto",
+          aspectRatio: "1",
           objectFit: "cover",
           zIndex: 1,
           pointerEvents: "none",
@@ -159,24 +146,25 @@ export default function GlobeScene() {
         }}
       />
 
-      {/* CANVAS — globe on top of bg */}
+      {/* Three.js Canvas — fills parent */}
       <Canvas
-        camera={{ position: [0, 0, 7] }}
-        style={{ position: "relative", zIndex: 1 }}
+        camera={{ position: [0, -0.8, 7] }}
+        style={{ position: "absolute", inset: 0, zIndex: 1, width:"100%", height:"100%" }} // ✅ absolute fill
       >
         <ambientLight intensity={0.3} />
         <Globe />
         <GlobeCore />
+        <CenterGlow />
         <OrbitControls enableZoom={false} enablePan={false} />
       </Canvas>
 
-      {/* LOGO — on top of everything */}
+      {/* Logo — centered on top */}
       <div
         style={{
           position: "absolute",
           top: "50%",
           left: "50%",
-          transform: "translate(-50%, -50%)",
+          transform: "translate(-50%, -50%)", // ← match the ring
           pointerEvents: "none",
           zIndex: 2,
         }}
@@ -185,7 +173,7 @@ export default function GlobeScene() {
           src={HalfLogo}
           alt="logo"
           style={{
-            width: "140px",
+            width: "clamp(50px,10vw, 120px)", // ✅ responsive
             height: "auto",
             objectFit: "contain",
             opacity: 0.9,

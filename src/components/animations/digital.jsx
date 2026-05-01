@@ -48,7 +48,9 @@ function ElectricPath({ points, speed = 0.016, reversed = true }) {
     }
 
     segmentRef.current.visible = true;
-    const segPoints = [], segColors = [], steps = 40;
+    const segPoints = [],
+      segColors = [],
+      steps = 40;
 
     for (let i = 0; i <= steps; i++) {
       const rawT = segStart + (segEnd - segStart) * (i / steps);
@@ -93,26 +95,26 @@ function mirrorPoints(pts) {
 export default function CircuitScene() {
   const exits = [
     { y: 1.25, endY: 0.55 },
-    { y: 0.97, endY: 0.40 },
-    { y: -0.97, endY: -0.40 },
+    { y: 0.97, endY: 0.4 },
+    { y: -0.97, endY: -0.4 },
     { y: -1.25, endY: -0.55 },
   ];
 
   const STRAIGHT_END = 0.75;
-  const BEND_START   = 1.05;
-  const BEND_MID     = 1.45;
-  const BEND_END     = 1.85;
-  const TIP_X        = 2.9;
+  const BEND_START = 1.05;
+  const BEND_MID = 1.45;
+  const BEND_END = 1.85;
+  const TIP_X = 2.9;
 
   const originalPointSets = exits.map(({ y, endY }) => {
     const mid = (y + endY) / 2;
     return [
-      new THREE.Vector3(-1,         y,    0.0),
-      new THREE.Vector3(STRAIGHT_END, y,    0.0),
-      new THREE.Vector3(BEND_START,   y,    0.0),
-      new THREE.Vector3(BEND_MID,     mid,  0.05),
-      new THREE.Vector3(BEND_END,     endY, 1.5),
-      new THREE.Vector3(TIP_X,        endY, 0.4),
+      new THREE.Vector3(-2, y, 0.0),
+      new THREE.Vector3(STRAIGHT_END, y, 0.0),
+      new THREE.Vector3(BEND_START, y, 0.0),
+      new THREE.Vector3(BEND_MID, mid, 0.05),
+      new THREE.Vector3(BEND_END, endY, 1.5),
+      new THREE.Vector3(TIP_X, endY, 0.4),
     ];
   });
 
@@ -121,7 +123,7 @@ export default function CircuitScene() {
   return (
     <div
       style={{ height: "400px", position: "relative" }}
-      className="absolute -top-265 left-84"
+      className="absolute -top-244 left-78"
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
@@ -143,11 +145,11 @@ export default function CircuitScene() {
         style={{
           // display: "none",
           position: "absolute",
-          right: "20%",
-          top: "49%",
+          right: "19%",
+          top: "50%",
           transform: "translateY(-50%)",
-          width: "280px",
-          height: "190px",
+          width: "250px",
+          height: "170px",
           borderRadius: "24px",
           overflow: "visible",
           background: `url(${bgImage})`,
@@ -156,24 +158,27 @@ export default function CircuitScene() {
           zIndex: 10,
         }}
       >
-        {[{ top: "22%" }, { top: "29%" }, { top: "79.5%" }, { top: "73.5%" }].map(
-          ({ top }, i) => (
-            <div
-              key={`dot-l-${i}`}
-              style={{
-                position: "absolute",
-                left: "-1px",
-                top,
-                width: "4px",
-                height: "4px",
-                borderRadius: "50%",
-                background: "#07BEB8",
-                boxShadow: "0 0 8px #07BEB8, 0 0 10px #07BEB866",
-                zIndex: 10,
-              }}
-            />
-          ),
-        )}
+        {[
+          { top: "16.5%" },
+          { top: "24%" },
+          { top: "73.5%" },
+          { top: "80.5%" },
+        ].map(({ top }, i) => (
+          <div
+            key={`dot-l-${i}`}
+            style={{
+              position: "absolute",
+              left: "-1px",
+              top,
+              width: "4px",
+              height: "4px",
+              borderRadius: "50%",
+              background: "#07BEB8",
+              boxShadow: "0 0 8px #07BEB8, 0 0 10px #07BEB866",
+              zIndex: 10,
+            }}
+          />
+        ))}
 
         <div className="py-2 px-4">
           <h3 style={{ textAlign: "start", fontSize: "15px", lineHeight: 1.4 }}>

@@ -96,16 +96,6 @@ export default function CircuitScene() {
     { y: -1.25, endY: -0.55 },
   ];
 
-  // Build smooth paths with enough intermediate points so Catmull-Rom
-  // has room to build a gradual arc — no kinks, no sharp corners.
-  //
-  //  P0  — exits card horizontally
-  //  P1  — long straight run before any bend (bend won't start until after this)
-  //  P2  — first hint of bend, still mostly horizontal
-  //  P3  — mid-bend, halfway between start Y and end Y
-  //  P4  — two-thirds through the bend
-  //  P5  — fully settled at endY, slight Z push
-  //
   const STRAIGHT_END = 0.75; // x where straight section ends
   const BEND_START = 1.05; // x where bend begins
   const BEND_MID = 1.45; // x at midpoint of arc
@@ -115,7 +105,7 @@ export default function CircuitScene() {
   const paths = exits.map(({ y, endY }) => {
     const mid = (y + endY) / 2; // midpoint Y for smooth arc
     return [
-      new THREE.Vector3(-1, y, 0.0),
+      new THREE.Vector3(-2, y, 0.0),
       new THREE.Vector3(STRAIGHT_END, y, 0.0), // straight
       new THREE.Vector3(BEND_START, y, 0.0), // bend begins
       new THREE.Vector3(BEND_MID, mid, 0.05), // arc midpoint
@@ -127,7 +117,7 @@ export default function CircuitScene() {
   return (
     <div
       style={{ height: "400px", position: "relative" }}
-      className="absolute -top-165 right-80"
+      className="absolute -top-145 right-74"
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
@@ -144,11 +134,11 @@ export default function CircuitScene() {
         style={{
           // display: "none",
           position: "absolute",
-          left: "20%",
-          top: "49%",
+          left: "19%",
+          top: "50%",
           transform: "translateY(-50%)",
-          width: "280px",
-          height: "180px",
+          width: "250px",
+          height: "170px",
           borderRadius: "24px",
           overflow: "visible",
           background: `url(${bgImage})`,
@@ -157,7 +147,7 @@ export default function CircuitScene() {
           zIndex: 10,
         }}
       >
-        {[{ top: "21%" }, { top: "28%" }, { top: "74.5%" }, { top: "81.5%" }].map(
+        {[{ top: "17%" }, { top: "24%" }, { top: "73.5%" }, { top: "80.5%" }].map(
           ({ top }, i) => (
             <div
               key={i}
@@ -200,11 +190,11 @@ export default function CircuitScene() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            padding: "18px 0 14px",
+            padding: "0px 0 14px",
             position: "relative",
           }}
         >
-          {[15, 80, 65].map((size, i) => (
+          {[10, 60, 25].map((size, i) => (
             <div
               key={i}
               style={{
@@ -212,7 +202,6 @@ export default function CircuitScene() {
                 width: size + "px",
                 height: size + "px",
                 borderRadius: "50%",
-                border: `1px solid rgba(0,245,212,${0.12 - i * 0.03})`,
                 background: `radial-gradient(circle, rgba(255,255,255,${1 - i * 0.1}) 0%, transparent 80%)`,
               }}
             />
@@ -223,7 +212,6 @@ export default function CircuitScene() {
               height: "40px",
               borderRadius: "50%",
               background: "rgba(255,255,255,0.1)",
-              border: "1.5px solid rgba(200,255,255,0.1)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -235,17 +223,16 @@ export default function CircuitScene() {
             <Settings
               size={25}
               color="#fff"
-              strokeWidth={1.5}
+              strokeWidth={0.5}
               style={{ fill: "#000" }}
             />
           </div>
         </div>
 
         <div
-          style={{ padding: "30px 14px 16px" }}
-          className="flex justify-around gap-3"
+          className="flex justify-around gap-3 px-4 py-10"
         >
-          <h3 style={{ textAlign: "start", fontSize: "15px", lineHeight: 1.4 }}>
+          <h3 style={{ textAlign: "start", fontSize: "12px", lineHeight: 1.5 }}>
             Quality Assurance And Testing
           </h3>
           <div style={{ display: "flex", alignItems: "center" }}>

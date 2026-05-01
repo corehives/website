@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import bgImage from "../.././assets/bg-data-analytic.png";
-import Devops from "../.././assets/icons/devops.png"; // ← add your actual image path
+import Devops from "../.././assets/icons/devops.png";
 import * as THREE from "three";
 
 function ElectricPath({ points, speed = 0.016 }) {
@@ -11,7 +11,7 @@ function ElectricPath({ points, speed = 0.016 }) {
   const SEGMENT = 0.25;
 
   const curve = useMemo(
-    () => new THREE.CatmullRomCurve3(points, false, "catmullrom", 0.1),
+    () => new THREE.CatmullRomCurve3(points, false, "catmullrom", 0.3),
     [points],
   );
 
@@ -48,9 +48,7 @@ function ElectricPath({ points, speed = 0.016 }) {
     }
 
     segmentRef.current.visible = true;
-    const segPoints = [],
-      segColors = [],
-      steps = 50;
+    const segPoints = [], segColors = [], steps = 50;
 
     for (let i = 0; i <= steps; i++) {
       const t = segStart + (segEnd - segStart) * (i / steps);
@@ -67,106 +65,103 @@ function ElectricPath({ points, speed = 0.016 }) {
   return (
     <>
       <line geometry={fullGeometry}>
-        <lineBasicMaterial
-          vertexColors
-          transparent
-          opacity={0.25}
-          blending={THREE.AdditiveBlending}
-        />
+        <lineBasicMaterial vertexColors transparent opacity={0.25} blending={THREE.AdditiveBlending} />
       </line>
       <line ref={segmentRef}>
         <bufferGeometry />
-        <lineBasicMaterial
-          vertexColors
-          transparent
-          opacity={1}
-          blending={THREE.AdditiveBlending}
-        />
+        <lineBasicMaterial vertexColors transparent opacity={1} blending={THREE.AdditiveBlending} />
       </line>
     </>
   );
 }
 
-export default function CircuitScene() {
+export default function SupportScene() {
   const exits = [
-    { y: 1.3, endY: 0.4 },
-    { y: 0.99, endY: 0.15 },
+    { y: 1.4, endY: 0.5 },
+    { y: 0.99, endY: 0.1 },
   ];
 
+  // Mirror of dataAnalytic: all X negated, Z also negated
   const paths = exits.map(({ y, endY }) => {
     const mid = (y + endY) / 2;
     return [
-      new THREE.Vector3(0.0, y, 0.0),
-      new THREE.Vector3(1.0, y, 0.0),
-      new THREE.Vector3(2.0, y, 0.0),
-      new THREE.Vector3(2.8, mid, 0.12),
-      new THREE.Vector3(3.4, endY, 0.7),
-      new THREE.Vector3(4.1, endY, 0.9),
-      new THREE.Vector3(4.1, endY, 0.95),
-      new THREE.Vector3(6.2, endY, -0.4),
+      new THREE.Vector3( 0.0,  y,    0.0),
+      new THREE.Vector3(-1.2,  y,    0.0),
+      new THREE.Vector3(-2.2,  y,    0.0),
+      new THREE.Vector3(-2.9,  mid,  0.0),
+      new THREE.Vector3(-3.5,  endY, 0.0),
+      new THREE.Vector3(-4.5,  endY, 0.0),
+      new THREE.Vector3(-4.5,  endY, 0.0),  // flat run
+      new THREE.Vector3(-6.0,  endY, 0.7),  // start of final bend
+      new THREE.Vector3(-6.4,  endY - 0.9, 1.5), // bends downward
     ];
   });
 
-  const mirroredPaths = paths.map((path) =>
-    path.map((p) => new THREE.Vector3(-p.x, p.y, p.z)),
-  );
   return (
     <div
-      style={{ height: "400px", position: "relative" }}
-      className="absolute -top-[150rem] left-[25rem]"
+      style={{
+        position: "absolute",
+        bottom: "8%",
+        right: "-8.6%",   // ← mirrored: right instead of left
+        top: "-8%",
+        width: "45%",
+        height: "45%",
+        pointerEvents: "none",
+      }}
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
         gl={{ alpha: true }}
-        style={{ background: "transparent" }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          background: "transparent",
+        }}
       >
-        {[...mirroredPaths].map((pts, i) => (
-          <ElectricPath
-            key={i}
-            points={pts}
-            speed={0.014 + (i % paths.length) * 0.003}
-          />
+        {paths.map((pts, i) => (
+          <ElectricPath key={i} points={pts} speed={0.014 + i * 0.003} />
         ))}
       </Canvas>
 
-      {/* CARD + LABEL wrapper */}
+      {/* Card — mirrored to LEFT side */}
       <div
         style={{
           position: "absolute",
-          left: "46%",
+          left: "44%",       // ← mirrored: left instead of right
           top: "42%",
           transform: "translateY(-50%)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: "10px",
+          gap: "8px",
           zIndex: 10,
         }}
       >
-        {/* CARD */}
         <div
           style={{
-            width: "60px",
-            height: "60px",
+            width: "clamp(44px, 5vw, 60px)",
+            height: "clamp(44px, 5vw, 60px)",
             borderRadius: "24px",
-            overflow: "visible",
             background: `url(${bgImage})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             color: "white",
             position: "relative",
+            flexShrink: 0,
           }}
         >
-          {/* Terminal dots */}
-          {[{ top: "27%" }, { top: "49%" }].map(({ top }, i) => (
+          {/* Terminal dots — LEFT side of card */}
+          {[{ top: "32%" }, { top: "55%" }].map(({ top }, i) => (
             <div
               key={i}
               style={{
                 position: "absolute",
-                left: "0",
+                left: "-2px",   // ← mirrored: left instead of right
                 top,
-                width: "4px",
-                height: "4px",
+                width: "5px",
+                height: "5px",
                 borderRadius: "50%",
                 background: "#07BEB8",
                 boxShadow: "0 0 8px #07BEB8, 0 0 10px #07BEB866",
@@ -175,7 +170,6 @@ export default function CircuitScene() {
             />
           ))}
 
-          {/* Center icon */}
           <div
             style={{
               position: "absolute",
@@ -188,18 +182,14 @@ export default function CircuitScene() {
             <img
               src={Devops}
               alt=""
-              style={{
-                width: "30px",
-                height: "25px",
-                objectFit: "cover",
-              }}
+              style={{ width: "45%", height: "45%", objectFit: "contain" }}
             />
           </div>
         </div>
 
         <span
           style={{
-            fontSize: "12px",
+            fontSize: "clamp(9px, 1.1vw, 12px)",
             fontWeight: 500,
             letterSpacing: "0.02em",
             textAlign: "center",

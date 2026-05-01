@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import bgImage from "../.././assets/bg-data-analytic.png";
-import Analytic from "../.././assets/icons/analytic.png"; // ← add your actual image path
+import Analytic from "../.././assets/icons/analytic.png";
 import * as THREE from "three";
 
 function ElectricPath({ points, speed = 0.016 }) {
@@ -11,7 +11,7 @@ function ElectricPath({ points, speed = 0.016 }) {
   const SEGMENT = 0.25;
 
   const curve = useMemo(
-    () => new THREE.CatmullRomCurve3(points, false, "catmullrom", 0.1),
+    () => new THREE.CatmullRomCurve3(points, false, "catmullrom", 0.3), // was 0.1
     [points],
   );
 
@@ -89,65 +89,81 @@ function ElectricPath({ points, speed = 0.016 }) {
 
 export default function CircuitScene() {
   const exits = [
-    { y: 1.3, endY: 0.4 },
-    { y: 0.99, endY: 0.15 },
+    { y: 1.4, endY: 0.5 },
+    { y: 0.99, endY: 0.1 },
   ];
 
   const paths = exits.map(({ y, endY }) => {
     const mid = (y + endY) / 2;
     return [
       new THREE.Vector3(0.0, y, 0.0),
-      new THREE.Vector3(1.0, y, 0.0),
-      new THREE.Vector3(2.0, y, 0.0),
-      new THREE.Vector3(2.8, mid, 0.12),
-      new THREE.Vector3(3.4, endY, 0.7),
-      new THREE.Vector3(4.1, endY, 0.9),
-      new THREE.Vector3(4.1, endY, 0.95),
-      new THREE.Vector3(6.2, endY, -0.4),
+      new THREE.Vector3(1.2, y, 0.0),
+      new THREE.Vector3(2.2, y, 0.0),
+      new THREE.Vector3(2.9, mid, 0.0),
+      new THREE.Vector3(3.5, endY, 0.0),
+      new THREE.Vector3(4.5, endY, 0.0),
+      new THREE.Vector3(4.5, endY, 0.0), // flat run
+      new THREE.Vector3(6.0, endY, 0.7), // start of final bend
+      new THREE.Vector3(6.4, endY - 0.9, 1.5), // ← bends downward
     ];
   });
 
   return (
+    // ✅ absolute — sits inside the globe wrapper, pinned to bottom-left
     <div
-      style={{ height: "400px", position: "relative" }}
-      className="absolute -top-399 right-102"
+      style={{
+        position: "absolute",
+        bottom: "8%",
+        left: "-8.6%",
+        top: "-8%",
+        width: "45%", // takes left half of the container
+        height: "45%",
+        pointerEvents: "none",
+      }}
     >
+      {/* Canvas fills this box */}
       <Canvas
         camera={{ position: [0, 0, 6] }}
         gl={{ alpha: true }}
-        style={{ background: "transparent" }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          background: "transparent",
+        }}
       >
         {paths.map((pts, i) => (
           <ElectricPath key={i} points={pts} speed={0.014 + i * 0.003} />
         ))}
       </Canvas>
 
-      {/* CARD + LABEL wrapper */}
+      {/* Card + label — positioned relative to THIS div */}
       <div
         style={{
           position: "absolute",
-          left: "46%",
-          top: "41.5%",
+          right: "44%", // card sits at the right edge where lines terminate
+          top: "42%",
           transform: "translateY(-50%)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: "10px",
+          gap: "8px",
           zIndex: 10,
         }}
       >
-        {/* CARD */}
+        {/* Card */}
         <div
           style={{
-            width: "60px",
-            height: "60px",
+            width: "clamp(44px, 5vw, 60px)",
+            height: "clamp(44px, 5vw, 60px)",
             borderRadius: "24px",
-            overflow: "visible",
             background: `url(${bgImage})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             color: "white",
             position: "relative",
+            flexShrink: 0,
           }}
         >
           {/* Terminal dots */}
@@ -156,10 +172,10 @@ export default function CircuitScene() {
               key={i}
               style={{
                 position: "absolute",
-                right: "-1px",
+                right: "-2px",
                 top,
-                width: "4px",
-                height: "4px",
+                width: "5px",
+                height: "5px",
                 borderRadius: "50%",
                 background: "#07BEB8",
                 boxShadow: "0 0 8px #07BEB8, 0 0 10px #07BEB866",
@@ -168,7 +184,7 @@ export default function CircuitScene() {
             />
           ))}
 
-          {/* Center icon */}
+          {/* Icon */}
           <div
             style={{
               position: "absolute",
@@ -181,18 +197,15 @@ export default function CircuitScene() {
             <img
               src={Analytic}
               alt=""
-              style={{
-                width: "30px",
-                height: "25px",
-                objectFit: "cover",
-              }}
+              style={{ width: "45%", height: "45%", objectFit: "contain" }}
             />
           </div>
         </div>
 
+        {/* Label */}
         <span
           style={{
-            fontSize: "12px",
+            fontSize: "clamp(9px, 1.1vw, 12px)",
             fontWeight: 500,
             letterSpacing: "0.02em",
             textAlign: "center",
