@@ -1,22 +1,59 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import HalfLogo from "./../../assets/logo-half.png";
 import GlobeLogo from "./../../assets/globe-frame.png";
 import * as THREE from "three";
 
 /* Globe.jsx — responsive rewrite */
 
+function useHoverRotation() {
+  const offset = useRef({ x: 1, y: 1 });
+  const target = useRef({ x: 1, y: 1 });
+
+  useEffect(() => {
+    const handleMove = (e) => {
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      const y = e.touches ? e.touches[0].clientY : e.clientY;
+      const nx = (x / window.innerWidth - 1) * 4; // -1 to +1
+      const ny = (y / window.innerHeight - 1) * 4; // -1 to +1
+      target.current = { x: nx, y: ny }; 
+    };
+
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("touchmove", handleMove, { passive: true });
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("touchmove", handleMove);
+    };
+  }, []);
+
+  return { offset, target };
+}
+
 function Globe() {
   const groupRef = useRef();
+  const { offset, target } = useHoverRotation();
+  const autoY = useRef(0);
+ 
   useFrame(() => {
-    groupRef.current.rotation.y += 0.0025;
+    // Smoothly lerp hover offset toward mouse position
+    offset.current.x += (target.current.x - offset.current.x) * 0.05;
+    offset.current.y += (target.current.y - offset.current.y) * 0.05;
+ 
+    // Auto-rotate on Y axis
+    autoY.current += 0.0025;
+ 
+    // Combine: auto spin + hover influence
+    groupRef.current.rotation.y = autoY.current + offset.current.x * 0.6;
+    groupRef.current.rotation.x = offset.current.y * 0.3; // subtle up/down tilt
   });
-
+ 
   const geometry = useMemo(() => new THREE.IcosahedronGeometry(2.5, 3), []);
   const edges = useMemo(() => new THREE.EdgesGeometry(geometry), [geometry]);
   const edgePositions = useMemo(() => edges.attributes.position.array, [edges]);
-
+ 
   const circleTexture = useMemo(() => {
     const canvas = document.createElement("canvas");
     canvas.width = 64;
@@ -28,7 +65,7 @@ function Globe() {
     ctx.fill();
     return new THREE.CanvasTexture(canvas);
   }, []);
-
+ 
   return (
     <group ref={groupRef}>
       <lineSegments geometry={edges}>
@@ -55,6 +92,7 @@ function Globe() {
     </group>
   );
 }
+ 
 
 function CenterGlow() {
   const material = useMemo(
@@ -123,7 +161,7 @@ export default function GlobeScene() {
         position: "relative",
         width: "100%",
         height: "100%",
-        top: "-15%",
+        top: "-10%",
       }}
     >
       {/* Rotating ring image — centered, scales with container */}
@@ -149,13 +187,19 @@ export default function GlobeScene() {
       {/* Three.js Canvas — fills parent */}
       <Canvas
         camera={{ position: [0, -0.8, 7] }}
-        style={{ position: "absolute", inset: 0, zIndex: 1, width:"100%", height:"100%" }} // ✅ absolute fill
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+          width: "100%",
+          height: "100%",
+        }} // ✅ absolute fill
       >
         <ambientLight intensity={0.3} />
         <Globe />
         <GlobeCore />
         <CenterGlow />
-        <OrbitControls enableZoom={false} enablePan={false} />
+        {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
       </Canvas>
 
       {/* Logo — centered on top */}

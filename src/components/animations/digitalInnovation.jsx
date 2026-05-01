@@ -22,7 +22,7 @@ function ElectricPath({ points, speed = 0.016 }) {
     const colors = [];
     fullPoints.forEach((_, i) => {
       const t = i / (fullPoints.length - 1);
-      const r = 0.12 * (1 - t);
+      const r = 0.12 * (3 - t);
       colors.push(r, r, r);
     });
     geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
@@ -100,7 +100,7 @@ export default function AnalyticMirrorScene() {
     <div
       style={{
         position: "absolute",
-        bottom: "20%",    // ← pinned to bottom instead of top
+        bottom: "15%",    // ← pinned to bottom instead of top
         right: "-8%",   // ← pinned to right instead of left
         width: "45%",
         height: "45%",

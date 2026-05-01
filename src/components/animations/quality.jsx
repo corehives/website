@@ -1,7 +1,10 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import bgImage from "../.././assets/bg-circuit-chip.png";
-import { Settings } from "lucide-react";
+import Setting from "../.././assets/icons/setting.png";
+import avatar1 from "../.././assets/avatar-1.png";
+import avatar2 from "../.././assets/avatar-2.png";
+import avatar3 from "../.././assets/avatar-3.png";
 import * as THREE from "three";
 
 function ElectricPath({ points, speed = 0.016 }) {
@@ -22,7 +25,7 @@ function ElectricPath({ points, speed = 0.016 }) {
     const colors = [];
     fullPoints.forEach((_, i) => {
       const t = i / (fullPoints.length - 1);
-      const r = 0.09 - t * 0.09;
+      const r = 0.2 - t * 0.09;
       colors.push(r, r, r);
     });
     geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
@@ -117,7 +120,7 @@ export default function CircuitScene() {
   return (
     <div
       style={{ height: "400px", position: "relative" }}
-      className="absolute -top-145 right-74"
+      className="absolute -top-138 right-74"
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
@@ -125,7 +128,7 @@ export default function CircuitScene() {
         style={{ background: "transparent" }}
       >
         {paths.map((pts, i) => (
-          <ElectricPath key={i} points={pts} speed={0.010 + i * 0.00} />
+          <ElectricPath key={i} points={pts} speed={0.01 + i * 0.0} />
         ))}
       </Canvas>
 
@@ -147,24 +150,27 @@ export default function CircuitScene() {
           zIndex: 10,
         }}
       >
-        {[{ top: "17%" }, { top: "24%" }, { top: "73.5%" }, { top: "80.5%" }].map(
-          ({ top }, i) => (
-            <div
-              key={i}
-              style={{
-                position: "absolute",
-                right: "3px",
-                top,
-                width: "4px",
-                height: "4px",
-                borderRadius: "50%",
-                background: "#07BEB8",
-                boxShadow: "0 0 8px #07BEB8, 0 0 10px #07BEB866",
-                zIndex: 10,
-              }}
-            />
-          ),
-        )}
+        {[
+          { top: "17%" },
+          { top: "24%" },
+          { top: "73.5%" },
+          { top: "80.5%" },
+        ].map(({ top }, i) => (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              right: "3px",
+              top,
+              width: "4px",
+              height: "4px",
+              borderRadius: "50%",
+              background: "#07BEB8",
+              boxShadow: "0 0 8px #07BEB8, 0 0 10px #07BEB866",
+              zIndex: 10,
+            }}
+          />
+        ))}
 
         <div style={{ padding: "15px 14px 6px", display: "flex", gap: "6px" }}>
           {[
@@ -190,11 +196,11 @@ export default function CircuitScene() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            padding: "0px 0 14px",
+            padding: "10px 0 14px",
             position: "relative",
           }}
         >
-          {[10, 60, 25].map((size, i) => (
+          {[70, 55, 20].map((size, i) => (
             <div
               key={i}
               style={{
@@ -202,7 +208,7 @@ export default function CircuitScene() {
                 width: size + "px",
                 height: size + "px",
                 borderRadius: "50%",
-                background: `radial-gradient(circle, rgba(255,255,255,${1 - i * 0.1}) 0%, transparent 80%)`,
+                background: `radial-gradient(circle, rgba(255,255,255,${1 - i * 0.5}) 0%, transparent 80%)`,
               }}
             />
           ))}
@@ -220,37 +226,46 @@ export default function CircuitScene() {
               zIndex: 1,
             }}
           >
-            <Settings
-              size={25}
-              color="#fff"
-              strokeWidth={0.5}
-              style={{ fill: "#000" }}
-            />
+            <img src={Setting} alt="icon" height={25} width={25} />
           </div>
         </div>
 
-        <div
-          className="flex justify-around gap-3 px-4 py-10"
-        >
-          <h3 style={{ textAlign: "start", fontSize: "12px", lineHeight: 1.5 }}>
+        <div className="flex justify-around px-4 py-5">
+          <h3
+            style={{
+              textAlign: "start",
+              fontSize: "14px",
+              lineHeight: 1.5,
+              width: "60%",
+            }}
+          >
             Quality Assurance And Testing
           </h3>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            {["#c87", "#7ac", "#ca7"].map((bg, i) => (
-              <div
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+          >
+            {[avatar1, avatar2, avatar3].map((src, i) => (
+              <img
                 key={i}
+                src={src}
+                alt={`avatar-${i}`}
                 style={{
                   width: "26px",
                   height: "26px",
                   borderRadius: "50%",
-                  background: bg,
-                  border: "2px solid rgba(2,10,20,0.9)",
+                  border: "2px solid #FFFF  ",
                   marginLeft: i === 0 ? 0 : "-7px",
                   zIndex: 3 - i,
                   position: "relative",
+                  objectFit: "cover",
                 }}
               />
             ))}
+
             <div
               style={{
                 width: "26px",

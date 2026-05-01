@@ -9,6 +9,7 @@ import AnimationSupport from "./animations/support.jsx";
 import AnimationCloudDevops from "./animations/cloudDevops.jsx";
 import AnimationBlockChain from "./animations/digitalInnovation.jsx";
 import { ShieldCheck } from "lucide-react";
+import { Mouse } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -38,10 +39,9 @@ export default function Hero() {
       />
 
       {/* ── Layer 2: Main content (z-10, above lights) ── */}
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pb-12 pt-24 text-center sm:px-6 sm:pt-32 lg:px-10 lg:pt-28">
-
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pb-12 pt-20 text-center sm:px-6 sm:pt-22 lg:px-10 lg:pt-20">
         {/* Headline */}
-        <h1 className="max-w-5xl text-3xl font-semibold leading-[1.15] text-white sm:text-4xl lg:text-5xl">
+        <h1 className="max-w-5xl text-3xl font-semibold leading-[1.15] text-white sm:text-3xl lg:text-5xl">
           Future-Proof Your{" "}
           <span
             className="relative inline-flex h-10 w-10 items-center justify-center rounded-full align-middle p-[3px] sm:h-14 sm:w-14 lg:h-16 lg:w-16"
@@ -72,17 +72,22 @@ export default function Hero() {
         </p>
 
         {/* ── Globe container — drives its own height responsively ── */}
-        <div className="relative  w-full "
-             style={{ aspectRatio: "18 / 10", minHeight: "400px", }}>
+        <div
+          className="relative  w-full "
+          style={{ aspectRatio: "18 / 10", minHeight: "400px" }}
+        >
           <AnimationGlobe />
-          <AnimationDataAnalytics/>
-          <AnimationQuality/>
-          <AnimationCloudDevops/>
-          <AnimationDigital/>
-          <AnimationBlockChain/>
-          <AnimationSupport/>
+          <AnimationDataAnalytics />
+          <AnimationQuality />
+          <AnimationCloudDevops />
+          <AnimationDigital />
+          <AnimationBlockChain />
+          <AnimationSupport />
         </div>
-
+        <div className="absolute bottom-30 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <Mouse />
+          <h6 className="text-white text-sm tracking-wide">SCROLL DOWN</h6>
+        </div>
       </div>
     </section>
   );

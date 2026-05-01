@@ -1,6 +1,10 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import bgImage from "../.././assets/bg-digital-chip.png";
+import Icon1 from "../.././assets/icons/icon-digi-inov-1.png";
+import Icon2 from "../.././assets/icons/icon-digi-inov-2.png";
+import Icon3 from "../.././assets/icons/icon-digi-inov-3.png";
+
 import { Settings } from "lucide-react";
 import * as THREE from "three";
 
@@ -22,7 +26,7 @@ function ElectricPath({ points, speed = 0.016, reversed = true }) {
     const colors = [];
     fullPoints.forEach((_, i) => {
       const t = i / (fullPoints.length - 1);
-      const r = 0.09 - t * 0.09;
+      const r = 0.2 - t * 0.09;
       colors.push(r, r, r);
     });
     geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
@@ -123,7 +127,7 @@ export default function CircuitScene() {
   return (
     <div
       style={{ height: "400px", position: "relative" }}
-      className="absolute -top-244 left-78"
+      className="absolute -top-237 left-78"
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
@@ -134,7 +138,7 @@ export default function CircuitScene() {
           <ElectricPath
             key={`mirror-${i}`}
             points={pts}
-            speed={0.010 + i * 0.00}
+            speed={0.01 + i * 0.0}
             reversed={false}
           />
         ))}
@@ -180,9 +184,24 @@ export default function CircuitScene() {
           />
         ))}
 
-        <div className="py-2 px-4">
-          <h3 style={{ textAlign: "start", fontSize: "15px", lineHeight: 1.4 }}>
+        <div className="py-3 px-4">
+          <h3 style={{ textAlign: "start", fontSize: "14px", lineHeight: 1.4 }}>
             Digital Innovation
+          </h3>
+
+          <div className="flex justify-around py-3 items-center">
+            <div className="bg-[#FFFF]/46 h-10 w-10 flex items-center justify-center rounded-full">
+              <img src={Icon1} alt="icon" />
+            </div>
+            <div className="bg-[#FFFF] h-14 w-14 flex items-center justify-center rounded-full">
+              <img src={Icon2} alt="icon" />
+            </div>
+            <div className="bg-[#FFFF]/46 h-10 w-10 flex items-center justify-center rounded-full">
+              <img src={Icon3} alt="icon" />
+            </div>
+          </div>
+          <h3 style={{ textAlign: "start", fontSize: "14px", lineHeight: 1.4 }}>
+            Secure. Modernize. Transform your digital future.
           </h3>
         </div>
       </div>
