@@ -134,7 +134,7 @@ export default function CircuitScene() {
           <ElectricPath
             key={`mirror-${i}`}
             points={pts}
-            speed={0.014 + i * 0.003}
+            speed={0.010 + i * 0.00}
             reversed={false}
           />
         ))}

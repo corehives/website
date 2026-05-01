@@ -84,7 +84,7 @@ export default function AnalyticMirrorLeftScene() {
   const paths = exits.map(({ y, endY }) => {
     const mid = (y + endY) / 2;
     return [
-      new THREE.Vector3( 0.0,  y,    0.0),  // ← X positive: flows RIGHT
+      new THREE.Vector3( -1,  y,    0.0),  // ← X positive: flows RIGHT
       new THREE.Vector3( 1.2,  y,    0.0),
       new THREE.Vector3( 2.2,  y,    0.0),
       new THREE.Vector3( 2.9,  mid,  0.0),
@@ -119,7 +119,7 @@ export default function AnalyticMirrorLeftScene() {
         }}
       >
         {paths.map((pts, i) => (
-          <ElectricPath key={i} points={pts} speed={0.014 + i * 0.003} />
+          <ElectricPath key={i} points={pts} speed={0.010 + i * 0.00} />
         ))}
       </Canvas>
 
@@ -127,7 +127,7 @@ export default function AnalyticMirrorLeftScene() {
       <div
         style={{
           position: "absolute",
-          right: "44%",    // ← right instead of left
+          right: "41%",    // ← right instead of left
           top: "68%",
           transform: "translateY(-50%)",
           display: "flex",

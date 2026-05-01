@@ -121,7 +121,7 @@ export default function SupportScene() {
         }}
       >
         {paths.map((pts, i) => (
-          <ElectricPath key={i} points={pts} speed={0.014 + i * 0.003} />
+          <ElectricPath key={i} points={pts} speed={0.010 + i * 0.00} />
         ))}
       </Canvas>
 
