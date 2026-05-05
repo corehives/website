@@ -1,97 +1,14 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useMemo } from "react";
-import bgImage from "../.././assets/bg-circuit-chip.png";
-import Setting from "../.././assets/icons/setting.png";
-import avatar1 from "../.././assets/avatar-1.png";
-import avatar2 from "../.././assets/avatar-2.png";
-import avatar3 from "../.././assets/avatar-3.png";
+import { Canvas } from "@react-three/fiber";
+import { useMemo } from "react";
+import bgImage from "../../assets/bg-circuit-chip.png";
+import Setting from "../../assets/icons/setting.png";
+import avatar1 from "../../assets/avatar-1.png";
+import avatar2 from "../../assets/avatar-2.png";
+import avatar3 from "../../assets/avatar-3.png";
 import * as THREE from "three";
-
-function ElectricPath({ points, speed = 0.016 }) {
-  const segmentRef = useRef();
-  const progress = useRef(Math.random());
-  const delay = useRef(Math.random() * 2);
-  const SEGMENT = 0.3;
-
-  const curve = useMemo(
-    () => new THREE.CatmullRomCurve3(points, false, "catmullrom", 0.1),
-    [points],
-  );
-
-  const fullPoints = useMemo(() => curve.getPoints(120), [curve]);
-
-  const fullGeometry = useMemo(() => {
-    const geo = new THREE.BufferGeometry().setFromPoints(fullPoints);
-    const colors = [];
-    fullPoints.forEach((_, i) => {
-      const t = i / (fullPoints.length - 1);
-      const r = 0.2 - t * 0.09;
-      colors.push(r, r, r);
-    });
-    geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
-    return geo;
-  }, [fullPoints]);
-
-  useFrame((_, delta) => {
-    delay.current -= delta;
-    if (delay.current > 0) return;
-
-    progress.current += speed;
-    if (progress.current >= 1 + SEGMENT) {
-      progress.current = -SEGMENT;
-      delay.current = Math.random() * 2;
-    }
-
-    const segStart = Math.max(progress.current, 0);
-    const segEnd = Math.min(progress.current + SEGMENT, 1);
-
-    if (segStart >= segEnd) {
-      segmentRef.current.visible = false;
-      return;
-    }
-
-    segmentRef.current.visible = true;
-    const segPoints = [],
-      segColors = [],
-      steps = 40;
-
-    for (let i = 0; i <= steps; i++) {
-      const t = segStart + (segEnd - segStart) * (i / steps);
-      segPoints.push(curve.getPointAt(t));
-      const fade = i / steps;
-      segColors.push(0.027 * fade, 0.45 * fade, 0.72 * fade);
-    }
-
-    const geo = segmentRef.current.geometry;
-    geo.setFromPoints(segPoints);
-    geo.setAttribute("color", new THREE.Float32BufferAttribute(segColors, 3));
-  });
-
-  return (
-    <>
-      <line geometry={fullGeometry}>
-        <lineBasicMaterial
-          vertexColors
-          transparent
-          opacity={0.3}
-          blending={THREE.AdditiveBlending}
-        />
-      </line>
-      <line ref={segmentRef}>
-        <bufferGeometry />
-        <lineBasicMaterial
-          vertexColors
-          transparent
-          opacity={1}
-          blending={THREE.AdditiveBlending}
-        />
-      </line>
-    </>
-  );
-}
+import ElectricPath from "./ElectricPath";
 
 export default function CircuitScene() {
-  // Each exit has: y (start), endY (final), sign (direction of bend)
   const exits = [
     { y: 1.25, endY: 0.55 },
     { y: 0.97, endY: 0.4 },
@@ -99,28 +16,31 @@ export default function CircuitScene() {
     { y: -1.25, endY: -0.55 },
   ];
 
-  const STRAIGHT_END = 0.75; // x where straight section ends
-  const BEND_START = 1.05; // x where bend begins
-  const BEND_MID = 1.45; // x at midpoint of arc
-  const BEND_END = 1.85; // x where arc finishes
-  const TIP_X = 2.55; // x of final tip point
+  const STRAIGHT_END = 0.75;
+  const BEND_START = 1.05;
+  const BEND_MID = 1.45;
+  const BEND_END = 1.85;
+  const TIP_X = 2.55;
 
-  const paths = exits.map(({ y, endY }) => {
-    const mid = (y + endY) / 2; // midpoint Y for smooth arc
-    return [
-      new THREE.Vector3(-2, y, 0.0),
-      new THREE.Vector3(STRAIGHT_END, y, 0.0), // straight
-      new THREE.Vector3(BEND_START, y, 0.0), // bend begins
-      new THREE.Vector3(BEND_MID, mid, 0.05), // arc midpoint
-      new THREE.Vector3(BEND_END, endY, 1.5), // arc settled
-      new THREE.Vector3(TIP_X, endY, 0.5), // tip, straight exit
-    ];
-  });
+  const paths = useMemo(() =>
+    exits.map(({ y, endY }) => {
+      const mid = (y + endY) / 2;
+      return [
+        new THREE.Vector3(-1.5, y, 0.0),
+        new THREE.Vector3(STRAIGHT_END, y, 0.0),
+        new THREE.Vector3(BEND_START, y, 0.0),
+        new THREE.Vector3(BEND_MID, mid, 0.05),
+        new THREE.Vector3(BEND_END, endY, 1.5),
+        new THREE.Vector3(TIP_X, endY, 0.5),
+      ];
+    }),
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  []);
 
   return (
     <div
       style={{ height: "400px", position: "relative" }}
-      className="absolute -top-138 right-74"
+      className="absolute -top-125 right-74"
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
@@ -128,16 +48,14 @@ export default function CircuitScene() {
         style={{ background: "transparent" }}
       >
         {paths.map((pts, i) => (
-          <ElectricPath key={i} points={pts} speed={0.01 + i * 0.0} />
+          <ElectricPath key={i} points={pts} speed={0.01} variant="circuit" bgOpacity={0.3} />
         ))}
       </Canvas>
 
-      {/* CARD */}
       <div
         style={{
-          // display: "none",
           position: "absolute",
-          left: "19%",
+          left: "21%",
           top: "50%",
           transform: "translateY(-50%)",
           width: "250px",

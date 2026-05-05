@@ -45,7 +45,7 @@ export default function Header() {
           <div className="hidden items-center gap-3 sm:flex">
             <a
               href="#hire"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[sky-500/25]"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-sky-500/25"
             >
               Hire a Developer
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:rotate-45">

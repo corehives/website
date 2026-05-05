@@ -32,3 +32,7 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(7, 190, 184, 0.3), 0 0 80px rgba(7, 190, 184, 0.12), inset 0 0 40px rgba(7, 190, 184, 0.06);
+}
