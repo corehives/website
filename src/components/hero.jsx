@@ -1,3 +1,5 @@
+import heroSound from "../assets/sound/hero-sound-1.mpeg";
+import heroSound2 from "../assets/sound/hero-sound-2.mpeg";
 import hero_bg from "../assets/hero-bg.png";
 import leftLight from "../assets/left-light.png";
 import rightLight from "../assets/right-light.png";
@@ -9,13 +11,60 @@ import AnimationSupport from "./animations/support.jsx";
 import AnimationCloudDevops from "./animations/cloudDevops.jsx";
 import AnimationBlockChain from "./animations/digitalInnovation.jsx";
 import { ShieldCheck } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
+  const audioRef = useRef(null);
+  const scrollAudioRef = useRef(null);
+  const unlockedRef = useRef(false); // audio context unlocked?
+  const sound1PlayedRef = useRef(false); // sound 1 played?
+  const sound2PlayedRef = useRef(false); // sound 2 played?
+
+  useEffect(() => {
+    const sound1 = audioRef.current;
+    const sound2 = scrollAudioRef.current;
+
+    const handleScroll = () => {
+      if (sound2) {
+        sound2.currentTime = 0;
+        sound2.play().catch(() => {});
+      }
+    };
+
+    const unlockAndPlay = () => {
+      if (unlockedRef.current) return;
+      unlockedRef.current = true;
+
+      // Play sound 1 on first interaction
+      if (!sound1PlayedRef.current && sound1) {
+        sound1PlayedRef.current = true;
+        sound1.play().catch(() => {});
+      }
+
+      // Attach scroll listener after audio is unlocked
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    };
+
+    window.addEventListener("click", unlockAndPlay);
+    window.addEventListener("keydown", unlockAndPlay);
+    window.addEventListener("touchstart", unlockAndPlay);
+
+    return () => {
+      window.removeEventListener("click", unlockAndPlay);
+      window.removeEventListener("keydown", unlockAndPlay);
+      window.removeEventListener("touchstart", unlockAndPlay);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <section
       id="home"
       className="relative z-0 flex min-h-screen items-stretch overflow-hidden"
     >
+      <audio ref={audioRef} src={heroSound} preload="auto" />
+      <audio ref={scrollAudioRef} src={heroSound2} preload="auto" />
+
       {/* ── Layer 0: Background image ── */}
       <div className="absolute inset-0 -top-5 z-0">
         <img
@@ -53,7 +102,6 @@ export default function Hero() {
 
       {/* ── Layer 2: Main content ── */}
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-20 text-center sm:px-6 sm:pt-22 lg:px-10 lg:pt-20">
-        {/* Headline — fades up after lights */}
         <h1
           className="max-w-5xl text-3xl font-semibold leading-[1.15] text-white sm:text-3xl lg:text-5xl"
           style={{
@@ -63,7 +111,9 @@ export default function Hero() {
           Future-Proof Your{" "}
           <span
             className="relative inline-flex h-10 w-10 items-center justify-center rounded-full align-middle p-[3px] sm:h-14 sm:w-14 lg:h-16 lg:w-16"
-            style={{background: "linear-gradient(to bottom, #07BEB8, #33384B)" }}
+            style={{
+              background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+            }}
           >
             <span
               className="flex h-full w-full items-center justify-center rounded-full"
@@ -83,7 +133,6 @@ export default function Hero() {
           Business With our Web & App Solutions
         </h1>
 
-        {/* Subtitle — fades up slightly after headline */}
         <p
           className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg lg:text-xl"
           style={{
@@ -94,13 +143,11 @@ export default function Hero() {
           and accelerate your digital transformation.
         </p>
 
-        {/* ── Globe — scales in after headline ── */}
         <div
           className="relative w-full -top-14"
           style={{
             aspectRatio: "18 / 10",
             minHeight: "480px",
-            // animation: "fadeScaleIn 0.5s cubic-bezier(0.22,1,0.36,1) 1s both",
           }}
         >
           <AnimationGlobe />
@@ -111,21 +158,6 @@ export default function Hero() {
           <AnimationBlockChain />
           <AnimationSupport />
         </div>
-
-        {/* Scroll indicator */}
-        {/* <div
-          className="absolute bottom-20 flex flex-col items-center gap-2"
-          style={{
-            left: "50%",
-            transform: "translateX(-50%)",
-            animation: "fadeIn 0.6s ease 2s both",
-          }}
-        >
-          <div style={{ animation: "bounceY 2s ease-in-out 2.6s infinite" }}>
-            <Mouse className="text-white" />
-          </div>
-          <h6 className="text-white text-sm tracking-wide">SCROLL DOWN</h6>
-        </div> */}
       </div>
     </section>
   );
