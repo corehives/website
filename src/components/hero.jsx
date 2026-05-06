@@ -1,4 +1,4 @@
-import heroSound from "../assets/sound/hero-sound-1.mpeg";
+import heroSound from "../assets/sound/hero-sound-1.mp3";
 import heroSound2 from "../assets/sound/hero-sound-2.mpeg";
 import hero_bg from "../assets/hero-bg.png";
 import leftLight from "../assets/left-light.png";
