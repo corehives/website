@@ -16,38 +16,50 @@ import { useEffect, useRef } from "react";
 export default function Hero() {
   const audioRef = useRef(null);
   const scrollAudioRef = useRef(null);
-  const unlockedRef = useRef(false); // audio context unlocked?
-  const sound1PlayedRef = useRef(false); // sound 1 played?
-  const sound2PlayedRef = useRef(false); // sound 2 played?
+  const unlockedRef = useRef(false);
+  const sound2PlayedRef = useRef(false); // ✅ guard: sound 2 once only
 
   useEffect(() => {
     const sound1 = audioRef.current;
     const sound2 = scrollAudioRef.current;
 
+    // ── Sound 2: once on first scroll ──
     const handleScroll = () => {
-      if (sound2) {
-        sound2.currentTime = 0;
-        sound2.play().catch(() => {});
-      }
+      if (sound2PlayedRef.current) return; // ✅ stop replaying
+      sound2PlayedRef.current = true;
+      if (sound2) sound2.play().catch(() => {});
+      window.removeEventListener("scroll", handleScroll); // detach after first scroll
     };
 
+    // ── Sound 1: play immediately on first user interaction ──
     const unlockAndPlay = () => {
       if (unlockedRef.current) return;
       unlockedRef.current = true;
 
-      // Play sound 1 on first interaction
-      if (!sound1PlayedRef.current && sound1) {
-        sound1PlayedRef.current = true;
-        sound1.play().catch(() => {});
-      }
+      // Play sound 1
+      if (sound1) sound1.play().catch(() => {});
 
-      // Attach scroll listener after audio is unlocked
+      // Now safe to attach scroll for sound 2
       window.addEventListener("scroll", handleScroll, { passive: true });
+
+      // Remove interaction listeners
+      window.removeEventListener("click", unlockAndPlay);
+      window.removeEventListener("keydown", unlockAndPlay);
+      window.removeEventListener("touchstart", unlockAndPlay);
     };
 
-    window.addEventListener("click", unlockAndPlay);
-    window.addEventListener("keydown", unlockAndPlay);
-    window.addEventListener("touchstart", unlockAndPlay);
+    // Try autoplay immediately (works on some browsers)
+    if (sound1) {
+      sound1.play().catch(() => {
+        // Blocked — wait for first interaction
+        window.addEventListener("click", unlockAndPlay);
+        window.addEventListener("keydown", unlockAndPlay);
+        window.addEventListener("touchstart", unlockAndPlay);
+      });
+    }
+
+    // Attach scroll regardless (sound 2 still needs unlock first via handleScroll guard)
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("click", unlockAndPlay);
@@ -76,7 +88,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* ── Layer 1: Left light — slides in from left ── */}
+      {/* ── Layer 1: Left light ── */}
       <img
         src={leftLight}
         alt=""
@@ -88,7 +100,7 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Layer 1: Right light — slides in from right ── */}
+      {/* ── Layer 1: Right light ── */}
       <img
         src={rightLight}
         alt=""
