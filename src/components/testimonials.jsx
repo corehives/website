@@ -192,6 +192,7 @@ export default function TestimonialsSection() {
     slidesToScroll: 1,
     containScroll: false,
     dragFree: false,
+    slidesInView: 1, // ← add this
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -255,8 +256,18 @@ export default function TestimonialsSection() {
             Testimonials
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
-            Here's what <span className="text-[#07BEB8]">our Clients</span> say
-            About us
+            Here's what{" "}
+            <span
+              style={{
+                background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Our Clients
+            </span>{" "}
+            say About us
           </h2>
           <p className="text-white/50 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Don't just take our word for it, hear directly from our clients!
@@ -266,15 +277,15 @@ export default function TestimonialsSection() {
 
         {/* ── Embla Carousel ── */}
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex items-center" style={{ gap: 20 }}>
+          <div className="flex items-center" style={{ marginLeft: "-10px" }}>
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                // Embla needs flex: 0 0 <size> on each slide
                 style={{
-                  flex: "0 0 300px",
-                  // give side cards a smaller visual width via padding
-                  paddingLeft: selectedIndex === index ? 0 : 0,
+                  flex: "0 0 320px",
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                  boxSizing: "border-box",
                 }}
                 onClick={() => {
                   if (index !== selectedIndex) {
@@ -308,7 +319,7 @@ export default function TestimonialsSection() {
             onClick={scrollNext}
             className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
             style={{
-              background: "linear-gradient(135deg, #07BEB8, #046b66)",
+              background: "#058682",
               border: "none",
               color: "#000",
               boxShadow: "0 0 20px rgba(7,190,184,0.35)",

@@ -288,6 +288,20 @@ const CCY = TRUE_CY - VY; // vertical center of bounding box
 export default function PartnersSection() {
   const [slots, setSlots] = useState({});
   const slotsRef = useRef({});
+  const sectionRef = useRef(null);
+  const isVisibleRef = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+      },
+      { threshold: 0.1 },
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     slotsRef.current = slots;
   }, [slots]);
@@ -308,6 +322,7 @@ export default function PartnersSection() {
     const timers = [];
 
     const makeTick = () => () => {
+      if (!isVisibleRef.current) return;
       const curr = slotsRef.current;
       const visible = Object.entries(curr).filter(([, v]) => v.phase === "in");
       if (!visible.length) return;
@@ -358,7 +373,10 @@ export default function PartnersSection() {
   const cR = DRAW_S * 1.45;
 
   return (
-    <section className="relative overflow-hidden bg-[#000405] py-20">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-[#000405] py-20"
+    >
       {/* Grid bg */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -369,16 +387,26 @@ export default function PartnersSection() {
         }}
       />
       {/* Centre radial glow */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[500px] h-[500px] rounded-full bg-[#07beb822] blur-[100px]" />
+      <div className="absolute inset-0 top-40 flex items-center justify-center pointer-events-none">
+        <div className="w-[400px] h-[400px] rounded-full bg-[#07beb853] blur-[100px] animate-pulse" />
       </div>
 
       <div className="relative z-10 w-full">
         {/* Heading */}
         <div className="text-center pt-16 pb-8 px-4">
           <h2 className="text-2xl sm:text-4xl font-bold text-white leading-tight">
-            Tech Staff <span className="text-[#07BEB8]">Outsourcing</span> is
-            Highly
+            Tech Staff{" "}
+            <span
+              style={{
+                background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Outsourcing
+            </span>{" "}
+            is Highly
             <br /> Trusted by the Likes of
           </h2>
         </div>
@@ -427,9 +455,9 @@ export default function PartnersSection() {
 
               // Tilt first card right (inward), last card left (inward)
               const tiltTransform = isFirst
-                ? `translate(${cell.cx}, ${cell.cy}) rotate(15)`
+                ? `translate(${cell.cx}, ${cell.cy})`
                 : isLast
-                  ? `translate(${cell.cx}, ${cell.cy}) rotate(-15)`
+                  ? `translate(${cell.cx}, ${cell.cy})`
                   : `translate(${cell.cx}, ${cell.cy})`;
 
               return (
@@ -478,7 +506,7 @@ export default function PartnersSection() {
               width: 240,
               height: 240,
               borderRadius: "50%",
-              background: "linear-gradient(145deg, #07BEB8, #046b66)",
+              background: "linear-gradient(140deg, #07BEB8, #33384B)",
               padding: 10,
             }}
           >
@@ -488,7 +516,7 @@ export default function PartnersSection() {
                 width: "100%",
                 height: "100%",
                 borderRadius: "50%",
-                background: "linear-gradient(165deg, #07BEB8, #002427)",
+                background: "linear-gradient(70deg, #07BEB8, #33384B)",
                 padding: 8,
               }}
             >
@@ -509,7 +537,7 @@ export default function PartnersSection() {
               >
                 <span
                   style={{
-                    color: "#07BEB8",
+                    color: "#058682",
                     fontSize: 30,
                     fontWeight: 700,
                     lineHeight: 1.2,

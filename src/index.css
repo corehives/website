@@ -36,3 +36,80 @@
 .card-glow:hover {
   box-shadow: 0 0 30px rgba(7, 190, 184, 0.3), 0 0 80px rgba(7, 190, 184, 0.12), inset 0 0 40px rgba(7, 190, 184, 0.06);
 }
+
+/* ── Hero entrance animations ── */
+@keyframes slideInLeft {
+  0%   { transform: translateX(-120px); opacity: 0; }
+  100% { transform: translateX(0px);    opacity: 0.5; }
+}
+@keyframes slideInRight {
+  0%   { transform: translateX(120px);  opacity: 0; }
+  100% { transform: translateX(0px);    opacity: 0.5; }
+}
+@keyframes fadeScaleIn {
+  0%   { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+@keyframes fadeUpIn {
+  0%   { transform: translateY(24px); opacity: 0; }
+  100% { transform: translateY(0px);  opacity: 1; }
+}
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes bounceY {
+  0%, 100% { transform: translateY(0px);  opacity: 1;   }
+  50%       { transform: translateY(6px);  opacity: 0.6; }
+}
+
+/* ── Footer floating logo letters ── */
+@keyframes float-0 {
+  0%,100% { transform: translateY(0px)   rotate(-20deg) scaleX(1);    }
+  30%      { transform: translateY(-18px) rotate(-17deg) scaleX(1.02); }
+  60%      { transform: translateY(-8px)  rotate(-22deg) scaleX(0.99); }
+}
+@keyframes float-1 {
+  0%,100% { transform: translateY(0px)   rotate(-10deg) scaleX(1);    }
+  40%      { transform: translateY(-22px) rotate(-7deg)  scaleX(1.01); }
+  70%      { transform: translateY(-10px) rotate(-13deg) scaleX(0.98); }
+}
+@keyframes float-2 {
+  0%,100% { transform: translateY(0px)   rotate(14deg)  scaleX(1);    }
+  25%      { transform: translateY(-14px) rotate(17deg)  scaleX(1.02); }
+  65%      { transform: translateY(-6px)  rotate(11deg)  scaleX(0.99); }
+}
+@keyframes float-3 {
+  0%,100% { transform: translateY(0px)   rotate(10deg)  scaleX(1);    }
+  35%      { transform: translateY(-20px) rotate(13deg)  scaleX(1.01); }
+  75%      { transform: translateY(-9px)  rotate(7deg)   scaleX(0.98); }
+}
+@keyframes float-4 {
+  0%,100% { transform: translateY(0px)   rotate(-6deg)  scaleX(1);    }
+  45%      { transform: translateY(-16px) rotate(-3deg)  scaleX(1.02); }
+  80%      { transform: translateY(-7px)  rotate(-9deg)  scaleX(0.99); }
+}
+@keyframes float-5 {
+  0%,100% { transform: translateY(0px)   rotate(10deg)  scaleX(1);    }
+  20%      { transform: translateY(-24px) rotate(13deg)  scaleX(1.01); }
+  55%      { transform: translateY(-11px) rotate(7deg)   scaleX(0.98); }
+}
+@keyframes float-6 {
+  0%,100% { transform: translateY(0px)   rotate(-5deg)  scaleX(1);    }
+  50%      { transform: translateY(-19px) rotate(-2deg)  scaleX(1.02); }
+  85%      { transform: translateY(-8px)  rotate(-8deg)  scaleX(0.99); }
+}
+@keyframes float-7 {
+  0%,100% { transform: translateY(0px)   rotate(6deg)   scaleX(1);    }
+  30%      { transform: translateY(-15px) rotate(9deg)   scaleX(1.01); }
+  70%      { transform: translateY(-6px)  rotate(3deg)   scaleX(0.99); }
+}
+@keyframes float-8 {
+  0%,100% { transform: translateY(0px)   rotate(-9deg)  scaleX(1);    }
+  40%      { transform: translateY(-21px) rotate(-6deg)  scaleX(1.02); }
+  75%      { transform: translateY(-10px) rotate(-12deg) scaleX(0.98); }
+}
+@keyframes badge-drift {
+  0%,100% { transform: translateY(0px)  rotate(-3deg); opacity: 0.9; }
+  50%      { transform: translateY(-6px) rotate(2deg);  opacity: 1;   }
+}

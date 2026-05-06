@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import BgOverview from "../assets/bg-overview-1x.png";
 import SliderPreview1 from "../assets/slider-preview-1.png";
@@ -27,27 +27,42 @@ const projects = [
 
 export default function OverviewSection() {
   const [index, setIndex] = useState(0);
+  const sectionRef = useRef(null);
+  const isVisibleRef = useRef(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % projects.length);
-    }, 3000); // change delay here
-
-    return () => clearInterval(interval);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+      },
+      { threshold: 0.1 },
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (isVisibleRef.current) {
+  //       setIndex((prev) => (prev + 1) % projects.length);
+  //     }
+  //   }, 3000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const next = () => setIndex((prev) => (prev + 1) % projects.length);
   const prev = () =>
     setIndex((prev) => (prev - 1 + projects.length) % projects.length);
 
   return (
-    <div className="relative overflow-hidden py-20">
+    <div ref={sectionRef} className="relative overflow-hidden py-20">
       {/* ───── Background ───── */}
       <div className="absolute inset-0 z-0">
         <img
           src={BgOverview}
           className="absolute inset-0 w-full h-full object-center opacity-50"
           alt=""
+          loading="lazy"
         />
       </div>
 
@@ -58,22 +73,32 @@ export default function OverviewSection() {
           <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8 mb-10 md:mb-14 lg:mb-16">
             <div className="flex-shrink-0">
               <h1 className="text-3xl sm:text-4xl font-bold leading-tight max-w-lg">
-                Here's an <span className="text-[#07BEB8]">Overview</span> of
-                Some of our Favorite Projects
+                Here's an{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Overview
+                </span>{" "}
+                of Some of our Favorite Projects
               </h1>
             </div>
 
             <div className="flex flex-col items-start gap-4 md:gap-5 max-w-lg">
-              <p className="text-white/55 text-base md:text-lg leading-relaxed">
+              <p className="text-white text-base md:text-lg leading-relaxed">
                 We've been digitizing businesses for years — from reducing
                 development time through our low-code approach to cutting
                 operational costs at significantly affordable rates.
               </p>
               <button className="group flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-[#07BEB8]/10 border border-[#07BEB8]/40 text-[#FFF] text-sm font-medium hover:bg-[#07BEB8]/20 transition-all duration-300">
                 Explore All Case Studies
-                <span className="w-5 h-5 rounded-full bg-[#07BEB8] text-black flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-                  <ArrowRight size={11} strokeWidth={2.5} />
-                </span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
+                <ArrowRight className="h-4 w-4" />
+              </span>
               </button>
             </div>
           </div>
@@ -93,7 +118,7 @@ export default function OverviewSection() {
 
                   <div className="flex-1 h-[2px] bg-white/10 relative overflow-hidden rounded-full">
                     <div
-                      className="absolute top-0 left-0 h-full bg-[#07BEB8] transition-[width] duration-500 ease-in-out"
+                      className="absolute top-0 left-0 h-full bg-[#058682] transition-[width] duration-500 ease-in-out"
                       style={{
                         width: `${((index + 1) / projects.length) * 100}%`,
                       }}
@@ -112,7 +137,7 @@ export default function OverviewSection() {
 
                   <button
                     onClick={next}
-                    className="w-10 h-10 rounded-full bg-[#07BEB8] text-black flex items-center justify-center"
+                    className="w-10 h-10 rounded-full bg-[#058682] text-black flex items-center justify-center"
                   >
                     <ArrowRight size={16} />
                   </button>
@@ -167,6 +192,7 @@ export default function OverviewSection() {
                           src={p.image}
                           className="w-full h-auto object-cover"
                           alt={p.title}
+                          loading="lazy"
                         />
                         {i !== index && (
                           <div className="absolute inset-0 bg-[#021b1a]/40" />

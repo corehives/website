@@ -1,56 +1,6 @@
 import { ChevronUp, ArrowRight } from "lucide-react";
-
-const floatKeyframes = `
-  @keyframes float-0 {
-    0%,100% { transform: translateY(0px)   rotate(-20deg) scaleX(1);   }
-    30%      { transform: translateY(-18px) rotate(-17deg) scaleX(1.02); }
-    60%      { transform: translateY(-8px)  rotate(-22deg) scaleX(0.99); }
-  }
-  @keyframes float-1 {
-    0%,100% { transform: translateY(0px)   rotate(-10deg) scaleX(1);   }
-    40%      { transform: translateY(-22px) rotate(-7deg)  scaleX(1.01); }
-    70%      { transform: translateY(-10px) rotate(-13deg) scaleX(0.98); }
-  }
-  @keyframes float-2 {
-    0%,100% { transform: translateY(0px)   rotate(14deg)  scaleX(1);   }
-    25%      { transform: translateY(-14px) rotate(17deg)  scaleX(1.02); }
-    65%      { transform: translateY(-6px)  rotate(11deg)  scaleX(0.99); }
-  }
-  @keyframes float-3 {
-    0%,100% { transform: translateY(0px)   rotate(10deg)  scaleX(1);   }
-    35%      { transform: translateY(-20px) rotate(13deg)  scaleX(1.01); }
-    75%      { transform: translateY(-9px)  rotate(7deg)   scaleX(0.98); }
-  }
-  @keyframes float-4 {
-    0%,100% { transform: translateY(0px)   rotate(-6deg)  scaleX(1);   }
-    45%      { transform: translateY(-16px) rotate(-3deg)  scaleX(1.02); }
-    80%      { transform: translateY(-7px)  rotate(-9deg)  scaleX(0.99); }
-  }
-  @keyframes float-5 {
-    0%,100% { transform: translateY(0px)   rotate(10deg)  scaleX(1);   }
-    20%      { transform: translateY(-24px) rotate(13deg)  scaleX(1.01); }
-    55%      { transform: translateY(-11px) rotate(7deg)   scaleX(0.98); }
-  }
-  @keyframes float-6 {
-    0%,100% { transform: translateY(0px)   rotate(-5deg)  scaleX(1);   }
-    50%      { transform: translateY(-19px) rotate(-2deg)  scaleX(1.02); }
-    85%      { transform: translateY(-8px)  rotate(-8deg)  scaleX(0.99); }
-  }
-  @keyframes float-7 {
-    0%,100% { transform: translateY(0px)   rotate(6deg)   scaleX(1);   }
-    30%      { transform: translateY(-15px) rotate(9deg)   scaleX(1.01); }
-    70%      { transform: translateY(-6px)  rotate(3deg)   scaleX(0.99); }
-  }
-  @keyframes float-8 {
-    0%,100% { transform: translateY(0px)   rotate(-9deg)  scaleX(1);   }
-    40%      { transform: translateY(-21px) rotate(-6deg)  scaleX(1.02); }
-    75%      { transform: translateY(-10px) rotate(-12deg) scaleX(0.98); }
-  }
-  @keyframes badge-drift {
-    0%,100% { transform: translateY(0px) rotate(-3deg); opacity: 0.9; }
-    50%      { transform: translateY(-6px) rotate(2deg); opacity: 1;   }
-  }
-`;
+import BgLeftContent from "../../assets/footer-bg-left.png";
+import BgRightContent from "../../assets/footer-bg-right.png";
 
 const navLinks = {
   "QUICK LINKS": ["Home", "Our Services", "Company", "Contacts"],
@@ -83,11 +33,11 @@ const logoLetters = [
     badgePos: "top-left",
     mr: 10,
   },
-  { char: "o", color: "#07BEB8", badge: null, mr: 10 },
+  { char: "o", color: "#058682", badge: null, mr: 10 },
   { char: "r", color: "#fff", badge: null, mr: 10 },
   {
     char: "e",
-    color: "#fff",
+    color: "#058682",
     badge: "Enterprise Grade",
     badgePos: "top-right",
     mr: 10,
@@ -95,16 +45,16 @@ const logoLetters = [
   { char: "H", color: "#fff", badge: null, mr: 10 },
   {
     char: "i",
-    color: "#07BEB8",
+    color: "#058682",
     badge: "Future Focused",
     badgePos: "top-right",
     mr: 10,
   },
   { char: "v", color: "#fff", badge: null, mr: 10 },
-  { char: "e", color: "#07BEB8", badge: null, mr: 10 },
+  { char: "e", color: "#058682", badge: null, mr: 10 },
   {
     char: "s",
-    color: "#07BEB8",
+    color: "#FFF",
     badge: "High Performance",
     badgePos: "top-right",
     mr: 0,
@@ -116,8 +66,8 @@ const badgeStyle = {
   border: "1px solid rgba(7,190,184,0.35)",
   borderRadius: "999px",
   padding: "3px 10px",
-  fontSize: "0.6rem",
-  color: "#07BEB8",
+  fontSize: "0.8rem",
+  color: "#fff",
   whiteSpace: "nowrap",
   backdropFilter: "blur(6px)",
   position: "absolute",
@@ -129,8 +79,6 @@ export default function Footer() {
 
   return (
     <>
-      <style>{floatKeyframes}</style>
-
       <footer className="relative w-full bg-transparent px-5">
         {/* ── Scroll to top button — floats ABOVE the card ── */}
         <div
@@ -141,7 +89,7 @@ export default function Footer() {
             onClick={scrollToTop}
             className="flex h-16 w-16 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
             style={{
-              background: "linear-gradient(135deg, #07BEB8, #00818E)",
+              background: "linear-gradient(135deg, #07BEB8, #33384B)",
               boxShadow:
                 "0 8px 40px rgba(7,190,184,100%), 0 4px 12px rgba(0,129,142,100)",
             }}
@@ -154,39 +102,21 @@ export default function Footer() {
         <div
           className="relative mx-auto w-full overflow-hidden"
           style={{
-            background:
-              "linear-gradient(160deg, rgb(4 185 184 / 35%) 10%, #010e0e 30%, #021510 70%)",
             borderRadius: "45px",
-            border: "1px solid rgba(7,190,184,0.18)",
-            boxShadow: "0 0 80px rgba(7,190,184,0.08)",
+            border: "1px solid #00161B",
           }}
         >
-          {/* Decorative corner arcs */}
-          <div
-            className="pointer-events-none absolute left-4 top-16 w-20 h-20 sm:w-28 sm:h-28"
-            style={{
-              border: "1px solid rgba(7,190,184,0.15)",
-              borderRadius: "50%",
-              opacity: 0.5,
-            }}
+          <img
+            src={BgLeftContent}
+            className="absolute z-0 opacity-50"
+            alt=""
+            loading="lazy"
           />
-          <div
-            className="pointer-events-none absolute right-4 top-16 w-20 h-20 sm:w-28 sm:h-28"
-            style={{
-              border: "1px solid rgba(7,190,184,0.15)",
-              borderRadius: "50%",
-              opacity: 0.5,
-            }}
-          />
-
-          {/* Dot accents */}
-          <div
-            className="pointer-events-none absolute left-10 top-[38%] w-2 h-2 rounded-full"
-            style={{ background: "#07BEB8", boxShadow: "0 0 8px #07BEB8" }}
-          />
-          <div
-            className="pointer-events-none absolute right-10 top-[38%] w-2 h-2 rounded-full"
-            style={{ background: "#07BEB8", boxShadow: "0 0 8px #07BEB8" }}
+          <img
+            src={BgRightContent}
+            className="absolute w-1/3 z-0 right-0 opacity-50"
+            alt=""
+            loading="lazy"
           />
 
           {/* ── Nav Links Grid ── */}
@@ -194,9 +124,12 @@ export default function Footer() {
             className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-8 px-6 py-8 sm:grid-cols-4 sm:px-10 lg:px-14 mt-20 "
             style={{
               paddingTop: "2rem",
-              background: "linear-gradient(rgb(9 36 38 / 44%) 10%, rgb(16 39 41 / 34%) 10%)",
+              background:
+                "linear-gradient(rgb(9 36 38 / 44%) 10%, rgb(16 39 41 / 34%) 10%)",
               borderRadius: "16px",
-              border: "1px solid rgb(0,102,113,45%)",
+              borderTop: "1px solid rgb(0,102,113, 20%)",
+              borderLeft: "1px solid rgb(0,102,113, 20%)",
+              borderRight: "1px solid rgb(0,102,113, 20%)",
             }}
           >
             {Object.entries(navLinks).map(([heading, links]) => (
@@ -212,7 +145,7 @@ export default function Footer() {
                     <li key={link}>
                       <a
                         href="#"
-                        className="text-xs text-white/50 transition-colors duration-200 hover:text-[#07BEB8]"
+                        className="text-xs text-white transition-colors duration-200 hover:text-[#07BEB8]"
                       >
                         {link}
                       </a>
@@ -223,16 +156,20 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* ── Divider ── */}
-          <div
-            className="mx-6 sm:mx-10"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
-          />
-
           {/* ── Headline ── */}
           <div className="px-6 py-10 text-center sm:px-10">
-            <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
-              Let's Build <span style={{ color: "#07BEB8" }}>What's Next.</span>{" "}
+            <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-5xl">
+              Let's Build{" "}
+              <span
+                style={{
+                  background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                What's Next.
+              </span>{" "}
               Together.
             </h2>
             <p className="mt-3 text-xs text-white/40 sm:text-sm">
@@ -286,8 +223,8 @@ export default function Footer() {
                       <div
                         style={{
                           ...(item.badgePos === "top-left"
-                            ? { top: "12px", left: "-8px" }
-                            : { top: "12px", right: "-8px" }),
+                            ? { top: "0px", left: "-8px" }
+                            : { top: "0px", right: "-8px" }),
                           ...badgeStyle,
                           animation: `badge-drift ${parseFloat(dur) + 0.8}s ease-in-out ${delay} infinite`,
                         }}
@@ -301,10 +238,12 @@ export default function Footer() {
                       style={{
                         display: "inline-block",
                         color: item.color,
-                        fontSize: "clamp(9rem, 10vw, 10rem)",
+                        fontSize: "clamp(10rem, 6vw, 10rem)",
                         lineHeight: 1,
+                        letterSpacing: "10px",
                         animation: `float-${i} ${dur} ease-in-out ${delay} infinite`,
                         willChange: "transform",
+                        fontWeight: "600",
                       }}
                     >
                       {item.char}

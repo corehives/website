@@ -8,34 +8,7 @@ import AnimationDataAnalytics from "./animations/dataAnalytic.jsx";
 import AnimationSupport from "./animations/support.jsx";
 import AnimationCloudDevops from "./animations/cloudDevops.jsx";
 import AnimationBlockChain from "./animations/digitalInnovation.jsx";
-import { ShieldCheck, Mouse } from "lucide-react";
-
-const entranceKeyframes = `
-  @keyframes slideInLeft {
-    0%   { transform: translateX(-120px); opacity: 0; }
-    100% { transform: translateX(0px);    opacity: 0.5; }
-  }
-  @keyframes slideInRight {
-    0%   { transform: translateX(120px);  opacity: 0; }
-    100% { transform: translateX(0px);    opacity: 0.5; }
-  }
-  @keyframes fadeScaleIn {
-    0%   { transform: scale(0.92); opacity: 0; }
-    100% { transform: scale(1);    opacity: 1; }
-  }
-  @keyframes fadeUpIn {
-    0%   { transform: translateY(24px); opacity: 0; }
-    100% { transform: translateY(0px);  opacity: 1; }
-  }
-  @keyframes fadeIn {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  @keyframes bounceY {
-    0%, 100% { transform: translateY(0px);  opacity: 1;   }
-    50%       { transform: translateY(6px);  opacity: 0.6; }
-  }
-`;
+import { ShieldCheck } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -43,13 +16,13 @@ export default function Hero() {
       id="home"
       className="relative z-0 flex min-h-screen items-stretch overflow-hidden"
     >
-      <style>{entranceKeyframes}</style>
-
       {/* ── Layer 0: Background image ── */}
       <div className="absolute inset-0 -top-5 z-0">
         <img
           src={hero_bg}
           alt=""
+          loading="eager"
+          fetchpriority="high"
           className="h-full w-full object-cover object-top opacity-50"
         />
       </div>
@@ -58,6 +31,8 @@ export default function Hero() {
       <img
         src={leftLight}
         alt=""
+        loading="eager"
+        fetchpriority="high"
         className="pointer-events-none absolute left-0 top-0 z-[2] h-[18rem] w-auto sm:h-[28rem] lg:h-[50rem]"
         style={{
           animation: "slideInLeft 1s cubic-bezier(0.22,1,0.36,1) 0.1s both",
@@ -68,6 +43,8 @@ export default function Hero() {
       <img
         src={rightLight}
         alt=""
+        loading="eager"
+        fetchpriority="high"
         className="pointer-events-none absolute right-0 top-0 z-[2] h-[18rem] w-auto sm:h-[28rem] lg:h-[50rem]"
         style={{
           animation: "slideInRight 1s cubic-bezier(0.22,1,0.36,1) 0.1s both",
@@ -86,7 +63,7 @@ export default function Hero() {
           Future-Proof Your{" "}
           <span
             className="relative inline-flex h-10 w-10 items-center justify-center rounded-full align-middle p-[3px] sm:h-14 sm:w-14 lg:h-16 lg:w-16"
-            style={{ background: "linear-gradient(135deg, #01090E, #07BEB8)" }}
+            style={{background: "linear-gradient(to bottom, #07BEB8, #33384B)" }}
           >
             <span
               className="flex h-full w-full items-center justify-center rounded-full"

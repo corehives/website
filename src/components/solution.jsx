@@ -59,7 +59,7 @@ const cards = [
           />
           <img
             src={LogoInitals}
-            className="w-25 h-25 object-contain relative z-10"
+            className="w-15 h-15 object-contain relative z-10"
             alt="logo"
           />
           <img
@@ -79,25 +79,25 @@ const cards = [
     title: "Web & App Development",
     desc: "Creating Powerful Web and Mobile Apps for Businesses of all kinds.",
     preview: (
-      <div className="flex items-end justify-center gap-3 w-full p-4 relative h-48 mb-21">
+      <div className="flex items-end justify-center gap-3 w-full p-4 relative h-38 mb-21">
         <div className="absolute top-5 right-0 flex flex-row gap-1 z-20">
-          <div className="w-5 h-[10px] rounded-full bg-white/60" />
-          <div className="w-5 h-[10px] rounded-full bg-white/40" />
-          <div className="w-5 h-[10px] rounded-full bg-white/50" />
+          <div className="w-5 h-[5px] rounded-full bg-white/60" />
+          <div className="w-5 h-[5px] rounded-full bg-white/40" />
+          <div className="w-5 h-[5px] rounded-full bg-white/50" />
         </div>
         <div
-          className="w-40 h-50 rounded-xl absolute left-4 top-1/2"
+          className="w-20 h-30 rounded-xl absolute left-4 top-1/2"
           style={{ background: "rgba(0,245,212,0.08)" }}
         />
         <div
-          className="w-40 h-50 rounded-xl absolute right-4 top-1/2"
+          className="w-20 h-30 rounded-xl absolute right-4 top-1/2"
           style={{ background: "rgba(0,245,212,0.08)" }}
         />
-        <div className="w-60 h-58 absolute top-20 left-1/2 -translate-x-1/2 rounded-xl overflow-hidden flex items-center justify-center">
+        <div className="w-60 h-58 absolute top-5 left-1/2 -translate-x-1/2 rounded-xl overflow-hidden flex items-center justify-center">
           <img
             src={Preview}
             alt="preview"
-            className="w-full h-full object-cover"
+            className="w-[90%] h-[70%] object-cover"
           />
         </div>
       </div>
@@ -109,24 +109,24 @@ const cards = [
     preview: (
       <div className="flex flex-col items-center gap-4 p-4 w-full relative">
         <div
-          className="w-80 h-74 rounded-2xl flex flex-col justify-between p-4"
+          className="w-70 h-56 rounded-2xl flex flex-col justify-between p-4"
           style={{
             background: "rgba(0,245,212,0.08)",
             border: "1px solid rgba(0,245,212,0.15)",
           }}
         >
           <span className="text-white text-sm">Making Post</span>
-          <span className="absolute bg-white/20 top-20 right-10 w-65 h-2 rounded-2xl"></span>
-          <span className="absolute bg-white/20 top-25 right-10 w-65 h-2 rounded-2xl"></span>
-          <div className="absolute bg-white w-45 h-10 rounded-lg top-18 right-5 flex justify-end">
+          <span className="absolute bg-white/20 top-15 right-10 w-45 h-2 rounded-2xl"></span>
+          <span className="absolute bg-white/20 top-20 right-10 w-45 h-2 rounded-2xl"></span>
+          <div className="absolute bg-white w-36 h-12 rounded-lg top-12 right-0 flex justify-end items-center">
             {[avatar4, avatar5, avatar6, menu].map((src, i) => (
               <img
                 key={i}
                 src={src}
                 alt={`avatar-${i}`}
                 style={{
-                  width: "40px",
-                  height: "40px",
+                  width: "45px",
+                  height: "45px",
                   borderRadius: "50%",
                   border: "2px solid #FFFF",
                   marginLeft: i === 0 ? 0 : "-15px",
@@ -139,14 +139,14 @@ const cards = [
           </div>
           <div className="flex items-center justify-between w-full gap-2">
             <div
-              className="absolute left-3 top-52 -translate-y-1/2 w-10 h-40 overflow-hidden rounded-r-lg flex-shrink-0"
+              className="absolute left-8 top-40 -translate-y-1/2 w-6 h-30 overflow-hidden rounded-r-lg flex-shrink-0"
               style={{
                 background: "rgba(225,225,225,0.5)",
                 border: "1px solid rgba(225,225,225,0.12)",
               }}
             />
             <div
-              className="w-45 h-40 rounded-lg flex-shrink-0 absolute left-20 top-32"
+              className="w-45 h-30 rounded-lg flex-shrink-0 absolute left-20 top-26"
               style={{
                 background: "rgba(225,225,225,0.3)",
                 border: "1px solid rgba(225,225,225,0.12)",
@@ -154,11 +154,12 @@ const cards = [
             />
             <img
               src={AvatarReal}
-              className="absolute bottom-10 left-24 h-32"
+              className="absolute bottom-8 left-24 h-28"
               alt=""
+              loading="lazy"
             />
             <div
-              className="absolute right-3 top-52 -translate-y-1/2 w-10 h-40 overflow-hidden rounded-l-lg flex-shrink-0"
+              className="absolute right-8 top-40 -translate-y-1/2 w-6 h-30 overflow-hidden rounded-l-lg flex-shrink-0"
               style={{
                 background: "rgba(225,225,225,0.5)",
                 border: "1px solid rgba(225,225,225,0.12)",
@@ -222,7 +223,7 @@ function GlowCard({ card }) {
       <div className="relative z-10 flex flex-col h-full flex-1">
         <div
           className="rounded-xl mb-6 relative overflow-hidden flex-shrink-0"
-          style={{ height: "315px" }}
+          style={{ height: "250px" }}
         >
           {card.preview}
         </div>
@@ -243,7 +244,7 @@ function GlowCard({ card }) {
               }}
             >
               Read More
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07beb8] text-slate-950">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
                 <ArrowRight className="h-4 w-4" />
               </span>
             </button>
@@ -327,17 +328,20 @@ export default function PartnersSection() {
         <img
           src={BgLeft}
           alt=""
-          className="absolute -top-130 left-0 w-full h-auto opacity-100"
+          className="absolute -top-130 left-0 w-full h-auto opacity-50"
+          loading="lazy"
         />
         <img
           src={BgRight}
           alt=""
           className="absolute -top-1/2 right-0 w-1/2 h-auto opacity-100"
+          loading="lazy"
         />
         <img
           src={BGBoxes}
           alt=""
           className="absolute bottom-0 right-0 w-1/5 h-auto"
+          loading="lazy"
         />
         <div
           className="absolute -left-40 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
@@ -349,7 +353,7 @@ export default function PartnersSection() {
       </div>
 
       {/* ── Cards Section ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
         {/* Top Row */}
         <div className="flex flex-col md:flex-row md:items-baseline-last md:justify-between gap-10 mb-14">
           <div className="flex-1 max-w-lg">
@@ -362,8 +366,12 @@ export default function PartnersSection() {
             <h1 className="text-4xl sm:text-[2.625rem] font-extrabold leading-tight text-white">
               Your{" "}
               <span
-                className="text-[#07BEB8]"
-                style={{ textShadow: "0 0 20px rgba(7,190,184,0.5)" }}
+                style={{
+                  background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
               >
                 Partners
               </span>{" "}
@@ -377,7 +385,7 @@ export default function PartnersSection() {
               future-ready. From{" "}
               <span
                 className="font-medium px-1 rounded"
-                style={{ backgroundColor: "#07BEB8", color: "#0d2535" }}
+                style={{ backgroundColor: "#039994b0", color: "#0d2535" }}
               >
                 Web & Mobile App Development to Artificial Intelligence
               </span>{" "}
@@ -386,16 +394,42 @@ export default function PartnersSection() {
           </div>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {cards.map((card, i) => (
-            <GlowCard key={i} card={card} />
-          ))}
+       {/* Cards Grid — tri-fold mirror tilt */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          style={{ gap: "30px", alignItems: "flex-end", perspective: "2000px" }}
+        >
+          {cards.map((card, i) => {
+            // Left panel tilts away (rotateY positive = left edge goes back)
+            // Centre panel stays flat
+            // Right panel tilts away (rotateY negative = right edge goes back)
+            const rotateY   = [28, 0, -28];
+            const originX   = ["right", "center", "left"];
+            const marginX   = ["-8px", "0px", "-8px"]; // close the gap between panels
+
+            return (
+              <div
+                key={i}
+                style={{
+                  transform: `rotateY(${rotateY[i]}deg)`,
+                  transformOrigin: `${originX[i]} bottom`,
+                  marginLeft:  i === 2 ? marginX[2] : undefined,
+                  marginRight: i === 0 ? marginX[0] : undefined,
+                  transition: "transform 0.45s ease",
+                  zIndex: i === 1 ? 10 : 5,
+                  willChange: "transform",
+                }}
+                className="hover:![transform:rotateY(0deg)] hover:z-20"
+              >
+                <GlowCard card={card} />
+              </div>
+            );
+          })}
         </div>
       </div>
 
       {/* ── Low-Code Section ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20 mt-10 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-20 mt-0 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
           {/* ── Left Column 40% ── */}
           <div className="w-full lg:w-[40%] flex flex-col gap-4">
@@ -407,6 +441,7 @@ export default function PartnersSection() {
                   src={avatarMale}
                   alt="Professional"
                   className="h-80 sm:h-100 w-auto object-contain object-bottom"
+                  loading="lazy"
                 />
               </div>
 
@@ -441,7 +476,12 @@ export default function PartnersSection() {
               >
                 <span
                   className="text-3xl sm:text-4xl font-bold block"
-                  style={{ color: "#07BEB8" }}
+                  style={{
+                    background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
                 >
                   70%
                 </span>
@@ -458,7 +498,12 @@ export default function PartnersSection() {
               >
                 <span
                   className="text-3xl sm:text-4xl font-bold block"
-                  style={{ color: "#07BEB8" }}
+                  style={{
+                    background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
                 >
                   40%
                 </span>
@@ -486,8 +531,17 @@ export default function PartnersSection() {
             {/* Heading */}
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
               How our{" "}
-              <span style={{ color: "#07BEB8" }}>Low-Code Approach</span> helps
-              save Time & Money
+              <span
+                style={{
+                  background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Low-Code Approach
+              </span>{" "}
+              helps save Time & Money
             </h2>
 
             {/* Body */}
@@ -500,18 +554,15 @@ export default function PartnersSection() {
 
             {/* CTA Button */}
             <button
-              className="self-start flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white transition-all duration-300 hover:scale-105"
+              className="self-start flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white cursor-pointer"
               style={{
                 border: "1px solid rgba(255,255,255,0.3)",
                 background: "rgba(255,255,255,0.05)",
               }}
             >
               Read More
-              <span
-                className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                style={{ background: "#07BEB8", color: "#000" }}
-              >
-                ↗
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
+                <ArrowRight className="h-4 w-4" />
               </span>
             </button>
 

@@ -110,8 +110,16 @@ export default function AwardsSection() {
         // fontFamily: "'Georgia', serif",
       }}
     >
-        <img src={BGLeftContent} className="absolute z-0 -top-1/2 w-1/2 left-0 opacity-50" alt="" />
-        <img src={BGRightContent} className="absolute z-0 -top-1/2 w-1/2 right-0 opacity-50" alt="" />
+      <img
+        src={BGLeftContent}
+        className="absolute z-0 -top-1/2 w-1/2 left-0 opacity-50"
+        alt=""
+      />
+      <img
+        src={BGRightContent}
+        className="absolute z-0 -top-1/2 w-1/2 right-0 opacity-50"
+        alt=""
+      />
       {/* Radial glow center */}
       <div
         style={{
@@ -168,10 +176,20 @@ export default function AwardsSection() {
               color: "#fff",
               margin: "0 0 16px",
               lineHeight: 1.2,
-            //   fontFamily: "'Georgia', serif",
+              //   fontFamily: "'Georgia', serif",
             }}
           >
-            Awards &amp; <span style={{ color: "#07BEB8" }}>Recognitions</span>
+            Awards &amp;{" "}
+            <span
+              style={{
+                background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Recognitions
+            </span>
           </h2>
 
           <p
@@ -181,7 +199,7 @@ export default function AwardsSection() {
               maxWidth: 440,
               margin: "0 auto",
               lineHeight: 1.75,
-            //   fontFamily: "sans-serif",
+              //   fontFamily: "sans-serif",
             }}
           >
             We've got some global recognition under our belt too! Serving as a
@@ -375,7 +393,7 @@ export default function AwardsSection() {
                   color: "#fff",
                   fontWeight: 700,
                   fontSize: 17,
-                //   fontFamily: "sans-serif",
+                  //   fontFamily: "sans-serif",
                   display: "block",
                   marginBottom: 5,
                 }}
@@ -431,7 +449,7 @@ export default function AwardsSection() {
                   fontWeight: 700,
                   color: "#fff",
                   letterSpacing: "0.04em",
-                //   fontFamily: "sans-serif",
+                  //   fontFamily: "sans-serif",
                   display: "block",
                 }}
               >
@@ -442,7 +460,7 @@ export default function AwardsSection() {
                   fontSize: 11,
                   fontWeight: 700,
                   color: "#fff",
-                //   fontFamily: "sans-serif",
+                  //   fontFamily: "sans-serif",
                   display: "block",
                 }}
               >

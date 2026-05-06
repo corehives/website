@@ -43,7 +43,7 @@ const contactInfo = [
   {
     icon: <MapPin size={15} className="text-[#001925]" />,
     label: "Address",
-    value: "2nd Floor, 92-C Jami Commercial Street 11, Phase VII Phase 2",
+    value: "1st Floor Office No. 113, Caesar's Tower Main Shahra-E-Faisal Karachi, Pakistan",
   },
 ];
 
@@ -68,7 +68,11 @@ export default function ContactSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#000405] py-60 px-6">
-      <img className="absolute -top-150 z-0 w-1/2 -right-20" src={BGSquare} alt="" />
+      <img
+        className="absolute -top-150 z-0 w-1/2 -right-20"
+        src={BGSquare}
+        alt=""
+      />
       {/* Main content */}
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start">
         {/* ── LEFT COLUMN ── */}
@@ -86,8 +90,8 @@ export default function ContactSection() {
           {/* Let's Talk button */}
           <button className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#07BEB8]/50 text-white text-sm font-medium mb-14 hover:bg-[#07BEB8]/10 hover:border-[#07BEB8] transition-all duration-200">
             Let's Talk
-            <span className="w-7 h-7 rounded-full bg-[#07BEB8] flex items-center justify-center">
-              <ArrowRight size={14} className="text-black" />
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
+              <ArrowRight className="h-4 w-4" />
             </span>
           </button>
 
@@ -100,11 +104,11 @@ export default function ContactSection() {
           <div className="flex flex-col gap-5">
             {contactInfo.map(({ icon, label, value }) => (
               <div key={label} className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8] flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full border border-[#07BEB8]/30 bg-[#058682] flex items-center justify-center flex-shrink-0">
                   {icon}
                 </div>
                 <div>
-                  <p className="text-[#07BEB8] text-[11px] font-semibold uppercase tracking-widest mb-0.5">
+                  <p className="text-[#058682] text-[11px] font-semibold uppercase tracking-widest mb-0.5">
                     {label}
                   </p>
                   <p className="text-white text-sm leading-relaxed">{value}</p>
@@ -115,7 +119,7 @@ export default function ContactSection() {
         </div>
 
         {/* ── RIGHT COLUMN — Form card ── */}
-        <div className="flex-1 min-w-[300px] max-h-[600px] w-full bg-[#0a2826]/75 border border-[#07BEB8]/20 rounded-2xl p-8 sm:p-10 backdrop-blur-md shadow-[0_0_60px_rgba(7,190,184,0.07),0_24px_64px_rgba(0,0,0,0.4)]">
+        <div className="flex-1 min-w-[300px] max-h-[600px] w-full bg-[linear-gradient(200deg,#07beb824,#010a1133)] border border-[#07BEB8]/20 rounded-2xl p-8 sm:p-10 backdrop-blur-md shadow-[0_0_60px_rgba(7,190,184,0.07),0_24px_64px_rgba(0,0,0,0.4)]">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-7 tracking-tight">
             Let's Get in Touch
           </h3>
@@ -174,18 +178,18 @@ export default function ContactSection() {
                 }`}
               >
                 Submit Now
-                <span className="w-7 h-7 rounded-full bg-[#07BEB8] flex items-center justify-center">
-                  <ArrowRight size={14} className="text-black" />
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
+                  <ArrowRight className="h-4 w-4" />
                 </span>
               </button>
 
               {/* 24/7 support */}
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8]/[0.07] flex items-center justify-center flex-shrink-0">
-                  <MessageCircle size={16} className="text-[#07BEB8]" />
+                  <MessageCircle size={16} className="text-[#058682]" />
                 </div>
                 <div>
-                  <p className="text-[#07BEB8] text-[11px] font-semibold uppercase tracking-widest leading-none mb-0.5">
+                  <p className="text-[#058682] text-[11px] font-semibold uppercase tracking-widest leading-none mb-0.5">
                     24/7 Customer Support
                   </p>
                   <p className="text-white text-sm font-semibold leading-none">
