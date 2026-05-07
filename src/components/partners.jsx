@@ -375,20 +375,20 @@ export default function PartnersSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#000405] py-20"
+      className="relative overflow-hidden bg-[#07beb822] py-20"
     >
       {/* Grid bg */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
-            "linear-gradient(#FFF 0.9px, transparent 0.9px), linear-gradient(90deg, #FFF 0.9px, transparent 0.9px)",
-          backgroundSize: "30px 30px",
+            "linear-gradient(#FFF 0.9px, transparent 01px), linear-gradient(90deg, #FFF 0.9px, transparent 0.9px)",
+          backgroundSize: "50px 50px",
         }}
       />
       {/* Centre radial glow */}
       <div className="absolute inset-0 top-40 flex items-center justify-center pointer-events-none">
-        <div className="w-[400px] h-[400px] rounded-full bg-[#07beb853] blur-[100px] animate-pulse" />
+        <div className="w-[400px] h-[400px] rounded-full bg-[#07beb8d4] blur-[100px] animate-pulse" />
       </div>
 
       <div className="relative z-10 w-full">

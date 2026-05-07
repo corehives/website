@@ -2,6 +2,8 @@ import { useFrame } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
 import * as THREE from "three";
 
+const TEAL = [0.027, 0.745, 0.722]; // #07BEB8
+
 const VARIANTS = {
   circuit: {
     tension: 0.1,
@@ -9,7 +11,6 @@ const VARIANTS = {
     segment: 0.3,
     steps: 40,
     delayMax: 2,
-    color: [0.027, 0.45, 0.72],
     trackA: 0.2,
     trackB: 0.09,
   },
@@ -19,7 +20,6 @@ const VARIANTS = {
     segment: 0.25,
     steps: 50,
     delayMax: 1.5,
-    color: [0.01, 0.55, 0.75],
     trackA: 0.36,
     trackB: 0.12,
   },
@@ -27,12 +27,12 @@ const VARIANTS = {
 
 export default function ElectricPath({
   points,
-  speed = 0.016,
-  bgOpacity = 0.25,
+  speed = 1,
+  bgOpacity = 0.2,
   reversed = false,
   variant = "analytic",
 }) {
-  const { tension, resolution, segment, steps, delayMax, color, trackA, trackB } =
+  const { tension, resolution, segment, steps, delayMax, trackA, trackB } =
     VARIANTS[variant];
 
   const segmentRef = useRef();
@@ -83,9 +83,17 @@ export default function ElectricPath({
     for (let i = 0; i <= steps; i++) {
       const rawT = segStart + (segEnd - segStart) * (i / steps);
       const t = reversed ? 1 - rawT : rawT;
+
+      // fade=1 at the leading head → full #07BEB8
+      // fade=0 at the trailing tail → [0,0,0] ≈ #000405 (dark/invisible in additive)
       const fade = reversed ? 1 - i / steps : i / steps;
+
       segPoints.push(curve.getPointAt(t));
-      segColors.push(color[0] * fade, color[1] * fade, color[2] * fade);
+      segColors.push(
+        TEAL[0] * fade,
+        TEAL[1] * fade,
+        TEAL[2] * fade,
+      );
     }
 
     const geo = segmentRef.current.geometry;

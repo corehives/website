@@ -1,6 +1,6 @@
 import heroSound from "../assets/sound/hero-sound-1.mp3";
 import heroSound2 from "../assets/sound/hero-sound-2.mpeg";
-import hero_bg from "../assets/hero-bg.png";
+import hero_bg from "../assets/hero-bgs.webp";
 import leftLight from "../assets/left-light.png";
 import rightLight from "../assets/right-light.png";
 import AnimationGlobe from "./animations/globe.jsx";
@@ -69,34 +69,34 @@ export default function Hero() {
       <div className="absolute inset-0 -top-5 z-0">
         <img
           src={hero_bg}
-          alt=""
+          alt="hero-bg"
           loading="eager"
           fetchpriority="high"
-          className="h-full w-full object-cover object-top opacity-50"
+          className="h-full w-full object-cover object-top opacity-90"
         />
       </div>
 
       {/* ── Layer 1: Left light — slides in from left ── */}
       <img
         src={leftLight}
-        alt=""
+        alt="left-content"
         loading="eager"
         fetchpriority="high"
         className="pointer-events-none absolute left-0 top-0 z-[2] h-[18rem] w-auto sm:h-[28rem] lg:h-[50rem]"
         style={{
-          animation: "slideInLeft 1s cubic-bezier(0.22,1,0.36,1) 0.1s both",
+          animation: "slideInLeft 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
         }}
       />
 
       {/* ── Layer 1: Right light — slides in from right ── */}
       <img
         src={rightLight}
-        alt=""
+        alt="right-content"
         loading="eager"
         fetchpriority="high"
         className="pointer-events-none absolute right-0 top-0 z-[2] h-[18rem] w-auto sm:h-[28rem] lg:h-[50rem]"
         style={{
-          animation: "slideInRight 1s cubic-bezier(0.22,1,0.36,1) 0.1s both",
+          animation: "slideInRight 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
         }}
       />
 
@@ -144,7 +144,7 @@ export default function Hero() {
         </p>
 
         <div
-          className="relative w-full -top-14"
+          className="relative w-full -top-20"
           style={{
             aspectRatio: "18 / 10",
             minHeight: "480px",

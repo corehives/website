@@ -1,8 +1,8 @@
 // Awards.jsx
 import React from "react";
 import { Star } from "lucide-react";
-import BGLeftContent from "../assets/bg-left-content.png";
-import BGRightContent from "../assets/bg-right-content.png";
+import BGLeftContent from "../assets/bg-left-content.webp";
+import BGRightContent from "../assets/bg-right-content.webp";
 
 // — inline SVG badge for the "Clutch Awards" style cards —
 function ClutchBadge({ label, sublabel, color = "#F4A623" }) {
@@ -104,20 +104,17 @@ export default function AwardsSection() {
       style={{
         position: "relative",
         overflow: "hidden",
-        // background:
-        //   "linear-gradient(160deg, #021b1a 0%, #031f1e 60%, #021510 100%)",
         padding: "90px 24px",
-        // fontFamily: "'Georgia', serif",
       }}
     >
       <img
         src={BGLeftContent}
-        className="absolute z-0 -top-1/2 w-1/2 left-0 opacity-50"
+        className="absolute z-0 -top-1/2 w-1/2 left-0 opacity-90"
         alt=""
       />
       <img
         src={BGRightContent}
-        className="absolute z-0 -top-1/2 w-1/2 right-0 opacity-50"
+        className="absolute z-0 -top-1/2 w-1/2 right-0 opacity-90"
         alt=""
       />
       {/* Radial glow center */}

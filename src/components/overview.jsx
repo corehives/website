@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import BgOverview from "../assets/bg-overview-1x.png";
+import BgOverview from "../assets/bg-overview-1x.webp";
 import SliderPreview1 from "../assets/slider-preview-1.png";
 import SliderPreview2 from "../assets/slider-preview-2.png";
 
@@ -41,15 +41,6 @@ export default function OverviewSection() {
     return () => observer.disconnect();
   }, []);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (isVisibleRef.current) {
-  //       setIndex((prev) => (prev + 1) % projects.length);
-  //     }
-  //   }, 3000);
-  //   return () => clearInterval(interval);
-  // }, []);
-
   const next = () => setIndex((prev) => (prev + 1) % projects.length);
   const prev = () =>
     setIndex((prev) => (prev - 1 + projects.length) % projects.length);
@@ -60,7 +51,7 @@ export default function OverviewSection() {
       <div className="absolute inset-0 z-0">
         <img
           src={BgOverview}
-          className="absolute inset-0 w-full h-full object-center opacity-50"
+          className="absolute inset-0 w-full h-full object-center opacity-70"
           alt=""
           loading="lazy"
         />
@@ -104,9 +95,9 @@ export default function OverviewSection() {
           </div>
 
           {/* ── Main Row ── */}
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-center">
             {/* ───── Left Panel ───── */}
-            <div className="w-full lg:w-[30%] flex-shrink-0 h-100">
+            <div className="w-full lg:w-[30%] flex-shrink-0 h-90">
               <div className="flex items-center justify-between gap-6 mb-6 md:mb-8">
                 {/* Left: counter + progress */}
                 <div className="flex items-center gap-4 flex-1 min-w-0">
@@ -175,7 +166,7 @@ export default function OverviewSection() {
               <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{
-                  transform: `translateX(calc(-${index} * 78%))`,
+                  transform: `translateX(calc(-${index} * 72%))`,
                   gap: "24px",
                 }}
               >
@@ -183,7 +174,7 @@ export default function OverviewSection() {
                   <div
                     key={i}
                     className="flex-shrink-0 cursor-pointer"
-                    style={{ width: "calc(78% - 12px)" }}
+                    style={{ width: "calc(72% - 12px)" }}
                     onClick={() => setIndex(i)}
                   >
                     <div className="rounded-2xl overflow-hidden border-[3px] border-[#cccccca1] transition-all duration-500">

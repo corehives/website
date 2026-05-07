@@ -218,14 +218,14 @@ export default function TestimonialsSection() {
   );
 
   return (
-    <section className="relative overflow-hidden bg-[#000405] py-20">
+    <section className="relative overflow-hidden bg-[#07beb826] py-20">
       {/* Radial glow */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none top-50">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none top-40">
         <div
-          className="w-[300px] h-[300px] rounded-full blur-[20px]"
+          className="w-[350px] h-[350px] rounded-full blur-[20px]"
           style={{
             background:
-              "radial-gradient(ellipse, rgba(7,190,184,0.3) 20%, transparent 90%)",
+              "radial-gradient(ellipse, rgba(7,190,184,0.2) 60%, transparent 100%)",
           }}
         />
       </div>
@@ -234,9 +234,9 @@ export default function TestimonialsSection() {
           style={{
             width: 0,
             height: 0,
-            borderLeft: "300px solid transparent",
-            borderRight: "250px solid transparent",
-            borderBottom: "430px solid rgba(7,190,184,0.18)",
+            borderLeft: "500px solid transparent",
+            borderRight: "200px solid transparent",
+            borderBottom: "530px solid rgba(7,190,184,0.25)",
             filter: "blur(60px)",
           }}
         />

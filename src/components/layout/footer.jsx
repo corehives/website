@@ -79,7 +79,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="relative w-full bg-transparent px-5">
+      <footer className="relative w-full bg-transparent">
         {/* ── Scroll to top button — floats ABOVE the card ── */}
         <div
           className="flex justify-center"
@@ -87,7 +87,7 @@ export default function Footer() {
         >
           <button
             onClick={scrollToTop}
-            className="flex h-16 w-16 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+            className="absolute left-50% -top-10 flex h-16 w-16 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
             style={{
               background: "linear-gradient(135deg, #07BEB8, #33384B)",
               boxShadow:
@@ -101,63 +101,22 @@ export default function Footer() {
         {/* ── Outer dark bg card ── */}
         <div
           className="relative mx-auto w-full overflow-hidden"
-          style={{
-            borderRadius: "45px",
-            border: "1px solid #00161B",
-          }}
         >
           <img
             src={BgLeftContent}
-            className="absolute z-0 opacity-50"
+            className="absolute w-1/2 z-0 top-7.5 opacity-90"
             alt=""
             loading="lazy"
           />
           <img
             src={BgRightContent}
-            className="absolute w-1/3 z-0 right-0 opacity-50"
+            className="absolute w-1/3 -top-8 z-0 right-0 opacity-90"
             alt=""
             loading="lazy"
           />
 
-          {/* ── Nav Links Grid ── */}
-          <div
-            className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-8 px-6 py-8 sm:grid-cols-4 sm:px-10 lg:px-14 mt-20 "
-            style={{
-              paddingTop: "2rem",
-              background:
-                "linear-gradient(rgb(9 36 38 / 44%) 10%, rgb(16 39 41 / 34%) 10%)",
-              borderRadius: "16px",
-              borderTop: "1px solid rgb(0,102,113, 20%)",
-              borderLeft: "1px solid rgb(0,102,113, 20%)",
-              borderRight: "1px solid rgb(0,102,113, 20%)",
-            }}
-          >
-            {Object.entries(navLinks).map(([heading, links]) => (
-              <div key={heading}>
-                <h6
-                  className="mb-4 text-[0.65rem] font-bold tracking-widest"
-                  style={{ color: "#ffffff" }}
-                >
-                  {heading}
-                </h6>
-                <ul className="flex flex-col gap-2">
-                  {links.map((link) => (
-                    <li key={link}>
-                      <a
-                        href="#"
-                        className="text-xs text-white transition-colors duration-200 hover:text-[#07BEB8]"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
           {/* ── Headline ── */}
-          <div className="px-6 py-10 text-center sm:px-10">
+          <div className="px-6 pt-20 pb-10 text-center sm:px-10">
             <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-5xl">
               Let's Build{" "}
               <span
@@ -195,7 +154,42 @@ export default function Footer() {
               </span>
             </button>
           </div>
-
+          {/* ── Nav Links Grid ── */}
+          <div
+            className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-8 px-6 py-8 sm:grid-cols-4 sm:px-10 lg:px-14 mb-20 "
+            style={{
+              paddingTop: "2rem",
+              background:
+                "linear-gradient(rgb(9 36 38 / 44%) 10%, rgb(16 39 41 / 34%) 10%)",
+              borderRadius: "16px",
+              borderTop: "1px solid rgb(0,102,113, 20%)",
+              borderLeft: "1px solid rgb(0,102,113, 20%)",
+              borderRight: "1px solid rgb(0,102,113, 20%)",
+            }}
+          >
+            {Object.entries(navLinks).map(([heading, links]) => (
+              <div key={heading}>
+                <h6
+                  className="mb-4 text-[0.65rem] font-bold tracking-widest"
+                  style={{ color: "#ffffff" }}
+                >
+                  {heading}
+                </h6>
+                <ul className="flex flex-col gap-2">
+                  {links.map((link) => (
+                    <li key={link}>
+                      <a
+                        href="#"
+                        className="text-xs text-white transition-colors duration-200 hover:text-[#07BEB8]"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
           {/* ── Giant Floating Logo ── */}
           <div
             className="relative flex items-end justify-center pb-0 px-2"
@@ -256,8 +250,8 @@ export default function Footer() {
         </div>
 
         {/* ── Copyright ── */}
-        <p className="mt-5 text-center text-xs text-white mb-5">
-          © 2026 CoreHives.com | All rights reserved.
+        <p className="my-2 text-center text-xs text-white">
+          © 2025 CoreHives.com | All rights reserved.
         </p>
       </footer>
     </>

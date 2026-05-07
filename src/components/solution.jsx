@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
-import BgLeft from "../assets/bg-left-content.png";
-import BgRight from "../assets/bg-right-content.png";
+import BgLeft from "../assets/bg-left-content.webp";
+import BgRight from "../assets/bg-right-content.webp";
 import LogoInitals from "../assets/logo-initials.png";
 import LineLeft from "../assets/line-left.png";
 import LineRight from "../assets/line-right.png";
@@ -54,7 +54,7 @@ const cards = [
         <div className="relative flex items-center justify-center w-full my-2">
           <img
             src={LineLeft}
-            className="absolute right-1/2 -mt-8 w-30 opacity-70"
+            className="absolute right-1/2 -mt-8 w-30 opacity-90"
             alt=""
           />
           <img
@@ -64,7 +64,7 @@ const cards = [
           />
           <img
             src={LineRight}
-            className="absolute left-1/2 -mt-8 w-30 opacity-70"
+            className="absolute left-1/2 -mt-8 w-30 opacity-90"
             alt=""
           />
         </div>
@@ -322,25 +322,25 @@ export default function PartnersSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="min-h-screen flex flex-col justify-center text-[#e8f0f4] relative overflow-hidden">
+    <section className="min-h-screen flex flex-col justify-center text-[#e8f0f4] ">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src={BgLeft}
           alt=""
-          className="absolute -top-130 left-0 w-full h-auto opacity-50"
+          className="absolute top-0 left-0 w-full h-auto opacity-90"
           loading="lazy"
         />
         <img
           src={BgRight}
           alt=""
-          className="absolute -top-1/2 right-0 w-1/2 h-auto opacity-100"
+          className="absolute top-50 right-0 w-full h-auto opacity-90"
           loading="lazy"
         />
         <img
           src={BGBoxes}
           alt=""
-          className="absolute bottom-0 right-0 w-1/5 h-auto"
+          className="absolute top-6/2 right-0 w-1/5 h-auto"
           loading="lazy"
         />
         <div
@@ -353,7 +353,7 @@ export default function PartnersSection() {
       </div>
 
       {/* ── Cards Section ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pb-40 px-4 sm:px-6 lg:px-8">
         {/* Top Row */}
         <div className="flex flex-col md:flex-row md:items-baseline-last md:justify-between gap-10 mb-14">
           <div className="flex-1 max-w-lg">
@@ -379,7 +379,7 @@ export default function PartnersSection() {
             </h1>
           </div>
           <div className="flex-1 max-w-lg md:pt-14">
-            <p className="text-sm sm:text-base leading-relaxed text-white/60">
+            <p className="text-sm sm:text-base leading-relaxed text-white">
               Our solutions are crafted to help you leverage technology
               effectively, ensuring your operations are efficient, secure, and
               future-ready. From{" "}

@@ -204,7 +204,7 @@ export default function GlobeScene() {
           src={HalfLogo}
           alt="logo"
           style={{
-            width: "clamp(50px,10vw, 120px)",
+            width: "clamp(50px,10vw, 200px)",
             height: "auto",
             objectFit: "contain",
             opacity: 0.9,
