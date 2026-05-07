@@ -375,7 +375,7 @@ export default function PartnersSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#07beb822] py-20"
+      className="relative overflow-hidden bg-[#07beb822]"
     >
       {/* Grid bg */}
       <div
@@ -503,11 +503,11 @@ export default function PartnersSection() {
           <div
             className="absolute z-40 top-85 left-1/2 -translate-x-1/2"
             style={{
-              width: 240,
-              height: 240,
+              width: 250,
+              height: 250,
               borderRadius: "50%",
               background: "linear-gradient(140deg, #07BEB8, #33384B)",
-              padding: 10,
+              padding: 15,
             }}
           >
             {/* Inner ring layer for depth */}
@@ -517,7 +517,7 @@ export default function PartnersSection() {
                 height: "100%",
                 borderRadius: "50%",
                 background: "linear-gradient(70deg, #07BEB8, #33384B)",
-                padding: 8,
+                padding: 10,
               }}
             >
               {/* White inner circle */}
@@ -527,8 +527,9 @@ export default function PartnersSection() {
                   height: "100%",
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(circle at 40% 35%, #ffffff, #dff7f5)",
+                    "radial-gradient(circle at 40% 95%, #ffffff, #dff7f5)",
                   display: "flex",
+                  border: "5px solid #FFF",
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",

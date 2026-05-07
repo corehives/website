@@ -59,7 +59,7 @@ export default function AnalyticMirrorLeftScene() {
       <div
         style={{
           position: "absolute",
-          right: "41%",
+          right: "40%",
           top: "68%",
           transform: "translateY(-50%)",
           display: "flex",

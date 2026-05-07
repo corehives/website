@@ -20,7 +20,7 @@ export default function CircuitScene() {
   const BEND_START = 1.05;
   const BEND_MID = 1.45;
   const BEND_END = 1.85;
-  const TIP_X = 2.55;
+  const TIP_X = 3;
 
   const paths = useMemo(() =>
     exits.map(({ y, endY }) => {
@@ -40,7 +40,7 @@ export default function CircuitScene() {
   return (
     <div
       style={{ height: "400px", position: "relative" }}
-      className="absolute -top-125 right-74"
+      className="absolute -top-125 right-80"
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
@@ -55,7 +55,7 @@ export default function CircuitScene() {
       <div
         style={{
           position: "absolute",
-          left: "21%",
+          left: "25%",
           top: "50%",
           transform: "translateY(-50%)",
           width: "250px",

@@ -99,9 +99,7 @@ export default function Footer() {
         </div>
 
         {/* ── Outer dark bg card ── */}
-        <div
-          className="relative mx-auto w-full overflow-hidden"
-        >
+        <div className="relative mx-auto w-full overflow-hidden">
           <img
             src={BgLeftContent}
             className="absolute w-1/2 z-0 top-7.5 opacity-90"
@@ -110,7 +108,7 @@ export default function Footer() {
           />
           <img
             src={BgRightContent}
-            className="absolute w-1/3 -top-8 z-0 right-0 opacity-90"
+            className="absolute w-1/2 -top-30 z-0 right-0 opacity-90"
             alt=""
             loading="lazy"
           />
@@ -160,7 +158,7 @@ export default function Footer() {
             style={{
               paddingTop: "2rem",
               background:
-                "linear-gradient(rgb(9 36 38 / 44%) 10%, rgb(16 39 41 / 34%) 10%)",
+                "linear-gradient(rgb(9 36 38 / 4%) 10%, rgb(16 39 41 / 4%) 10%)",
               borderRadius: "16px",
               borderTop: "1px solid rgb(0,102,113, 20%)",
               borderLeft: "1px solid rgb(0,102,113, 20%)",

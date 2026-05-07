@@ -67,9 +67,9 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#000405] py-20 px-6">
+    <section className="relative overflow-hidden bg-[#000405] py-40 px-6">
       <img
-        className="absolute -bottom-200 -top-2/2 z-0 w-1/2 -right-20"
+        className="absolute -bottom-200 -top-1/2 z-0 w-1/2 -right-20"
         src={BGSquare}
         alt=""
       />

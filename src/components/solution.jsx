@@ -334,7 +334,7 @@ export default function PartnersSection() {
         <img
           src={BgRight}
           alt=""
-          className="absolute top-50 right-0 w-full h-auto opacity-90"
+          className="absolute top-2/2 right-0 w-1/2 h-auto opacity-90"
           loading="lazy"
         />
         <img
@@ -353,7 +353,7 @@ export default function PartnersSection() {
       </div>
 
       {/* ── Cards Section ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto pb-40 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pb-10 px-4 sm:px-6 lg:px-8">
         {/* Top Row */}
         <div className="flex flex-col md:flex-row md:items-baseline-last md:justify-between gap-10 mb-14">
           <div className="flex-1 max-w-lg">
@@ -400,12 +400,9 @@ export default function PartnersSection() {
           style={{ gap: "30px", alignItems: "flex-end", perspective: "2000px" }}
         >
           {cards.map((card, i) => {
-            // Left panel tilts away (rotateY positive = left edge goes back)
-            // Centre panel stays flat
-            // Right panel tilts away (rotateY negative = right edge goes back)
             const rotateY   = [28, 0, -28];
             const originX   = ["right", "center", "left"];
-            const marginX   = ["-8px", "0px", "-8px"]; // close the gap between panels
+            const marginX   = ["-8px", "0px", "-8px"];
 
             return (
               <div

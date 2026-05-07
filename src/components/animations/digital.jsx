@@ -23,7 +23,7 @@ export default function CircuitScene() {
   const BEND_START = 1.05;
   const BEND_MID = 1.45;
   const BEND_END = 1.85;
-  const TIP_X = 2.9;
+  const TIP_X = 3;
 
   const mirroredPointSets = useMemo(() =>
     exits.map(({ y, endY }) => {
@@ -64,7 +64,7 @@ export default function CircuitScene() {
       <div
         style={{
           position: "absolute",
-          right: "19%",
+          right: "25%",
           top: "50%",
           transform: "translateY(-50%)",
           width: "250px",

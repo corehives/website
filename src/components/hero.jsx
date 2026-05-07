@@ -1,5 +1,3 @@
-import heroSound from "../assets/sound/hero-sound-1.mp3";
-import heroSound2 from "../assets/sound/hero-sound-2.mpeg";
 import hero_bg from "../assets/hero-bgs.webp";
 import leftLight from "../assets/left-light.png";
 import rightLight from "../assets/right-light.png";
@@ -14,56 +12,12 @@ import { ShieldCheck } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 export default function Hero() {
-  const audioRef = useRef(null);
-  const scrollAudioRef = useRef(null);
-  const unlockedRef = useRef(false); // audio context unlocked?
-  const sound1PlayedRef = useRef(false); // sound 1 played?
-  const sound2PlayedRef = useRef(false); // sound 2 played?
-
-  useEffect(() => {
-    const sound1 = audioRef.current;
-    const sound2 = scrollAudioRef.current;
-
-    const handleScroll = () => {
-      if (sound2) {
-        sound2.currentTime = 0;
-        sound2.play().catch(() => {});
-      }
-    };
-
-    const unlockAndPlay = () => {
-      if (unlockedRef.current) return;
-      unlockedRef.current = true;
-
-      // Play sound 1 on first interaction
-      if (!sound1PlayedRef.current && sound1) {
-        sound1PlayedRef.current = true;
-        sound1.play().catch(() => {});
-      }
-
-      // Attach scroll listener after audio is unlocked
-      window.addEventListener("scroll", handleScroll, { passive: true });
-    };
-
-    window.addEventListener("click", unlockAndPlay);
-    window.addEventListener("keydown", unlockAndPlay);
-    window.addEventListener("touchstart", unlockAndPlay);
-
-    return () => {
-      window.removeEventListener("click", unlockAndPlay);
-      window.removeEventListener("keydown", unlockAndPlay);
-      window.removeEventListener("touchstart", unlockAndPlay);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <section
       id="home"
       className="relative z-0 flex min-h-screen items-stretch overflow-hidden"
     >
-      <audio ref={audioRef} src={heroSound} preload="auto" />
-      <audio ref={scrollAudioRef} src={heroSound2} preload="auto" />
 
       {/* ── Layer 0: Background image ── */}
       <div className="absolute inset-0 -top-5 z-0">

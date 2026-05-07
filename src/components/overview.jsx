@@ -46,7 +46,7 @@ export default function OverviewSection() {
     setIndex((prev) => (prev - 1 + projects.length) % projects.length);
 
   return (
-    <div ref={sectionRef} className="relative overflow-hidden py-20">
+    <div ref={sectionRef} className="relative overflow-hidden">
       {/* ───── Background ───── */}
       <div className="absolute inset-0 z-0">
         <img
