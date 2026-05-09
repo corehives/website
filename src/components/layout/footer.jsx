@@ -33,11 +33,11 @@ const logoLetters = [
     badgePos: "top-left",
     mr: 10,
   },
-  { char: "o", color: "#058682", badge: null, mr: 10 },
+  { char: "o", color: "#07BEB8", badge: null, mr: 10 },
   { char: "r", color: "#fff", badge: null, mr: 10 },
   {
     char: "e",
-    color: "#058682",
+    color: "#07BEB8",
     badge: "Enterprise Grade",
     badgePos: "top-right",
     mr: 10,
@@ -45,13 +45,13 @@ const logoLetters = [
   { char: "H", color: "#fff", badge: null, mr: 10 },
   {
     char: "i",
-    color: "#058682",
+    color: "#07BEB8",
     badge: "Future Focused",
     badgePos: "top-right",
     mr: 10,
   },
   { char: "v", color: "#fff", badge: null, mr: 10 },
-  { char: "e", color: "#058682", badge: null, mr: 10 },
+  { char: "e", color: "#07BEB8", badge: null, mr: 10 },
   {
     char: "s",
     color: "#FFF",
@@ -89,7 +89,7 @@ export default function Footer() {
             onClick={scrollToTop}
             className="absolute left-50% -top-10 flex h-16 w-16 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
             style={{
-              background: "linear-gradient(135deg, #07BEB8, #33384B)",
+              background: "linear-gradient(180deg, #07BEB8, #33384B)",
               boxShadow:
                 "0 8px 40px rgba(7,190,184,100%), 0 4px 12px rgba(0,129,142,100)",
             }}
@@ -119,7 +119,7 @@ export default function Footer() {
               Let's Build{" "}
               <span
                 style={{
-                  background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                  background: "#07BEB8",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",

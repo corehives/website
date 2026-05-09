@@ -67,7 +67,7 @@ export default function OverviewSection() {
                 Here's an{" "}
                 <span
                   style={{
-                    background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                    background: "#07BEB8",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -81,13 +81,13 @@ export default function OverviewSection() {
 
             <div className="flex flex-col items-start gap-4 md:gap-5 max-w-lg">
               <p className="text-white text-base md:text-lg leading-relaxed">
-                We've been digitizing businesses for years — from reducing
+                We've been digitizing businesses for years from reducing
                 development time through our low-code approach to cutting
                 operational costs at significantly affordable rates.
               </p>
               <button className="group flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-[#07BEB8]/10 border border-[#07BEB8]/40 text-[#FFF] text-sm font-medium hover:bg-[#07BEB8]/20 transition-all duration-300">
                 Explore All Case Studies
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
                 <ArrowRight className="h-4 w-4" />
               </span>
               </button>
@@ -128,7 +128,7 @@ export default function OverviewSection() {
 
                   <button
                     onClick={next}
-                    className="w-10 h-10 rounded-full bg-[#058682] text-black flex items-center justify-center"
+                    className="w-10 h-10 rounded-full bg-[#07BEB8] text-black flex items-center justify-center"
                   >
                     <ArrowRight size={16} />
                   </button>
@@ -146,7 +146,7 @@ export default function OverviewSection() {
               </h3>
 
               {/* Desc */}
-              <p className="text-sm text-white/50 mb-6 md:mb-8 leading-relaxed">
+              <p className="text-sm text-white mb-6 md:mb-8 leading-relaxed">
                 {projects[index].desc}
               </p>
 

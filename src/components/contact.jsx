@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import BGSquare from "../assets/bg-square.png";
+import BgLeft from "../assets/bg-left-content.webp";
 
 function InputField({ name, placeholder, type = "text", value, onChange }) {
   return (
@@ -69,8 +70,13 @@ export default function ContactSection() {
   return (
     <section className="relative overflow-hidden bg-[#000405] py-40 px-6">
       <img
-        className="absolute -bottom-200 -top-1/2 z-0 w-1/2 -right-20"
+        className="absolute -top-2/2 z-0 w-1/1 -right-20"
         src={BGSquare}
+        alt=""
+      />
+      <img
+        className="absolute -top-1/4 z-0 w-1/2 -left-0"
+        src={BgLeft}
         alt=""
       />
       {/* Main content */}
@@ -90,7 +96,7 @@ export default function ContactSection() {
           {/* Let's Talk button */}
           <button className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#07BEB8]/50 text-white text-sm font-medium mb-14 hover:bg-[#07BEB8]/10 hover:border-[#07BEB8] transition-all duration-200">
             Let's Talk
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
               <ArrowRight className="h-4 w-4" />
             </span>
           </button>
@@ -104,7 +110,7 @@ export default function ContactSection() {
           <div className="flex flex-col gap-5">
             {contactInfo.map(({ icon, label, value }) => (
               <div key={label} className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full border border-[#07BEB8]/30 bg-[#058682] flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8] flex items-center justify-center flex-shrink-0">
                   {icon}
                 </div>
                 <div>
@@ -178,7 +184,7 @@ export default function ContactSection() {
                 }`}
               >
                 Submit Now
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </button>
@@ -186,10 +192,10 @@ export default function ContactSection() {
               {/* 24/7 support */}
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8]/[0.07] flex items-center justify-center flex-shrink-0">
-                  <MessageCircle size={16} className="text-[#058682]" />
+                  <MessageCircle size={16} className="text-[#07BEB8]" />
                 </div>
                 <div>
-                  <p className="text-[#058682] text-[11px] font-semibold uppercase tracking-widest leading-none mb-0.5">
+                  <p className="text-[#07BEB8] text-[11px] font-semibold uppercase tracking-widest leading-none mb-0.5">
                     24/7 Customer Support
                   </p>
                   <p className="text-white text-sm font-semibold leading-none">

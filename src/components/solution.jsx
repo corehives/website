@@ -244,7 +244,7 @@ function GlowCard({ card }) {
               }}
             >
               Read More
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
                 <ArrowRight className="h-4 w-4" />
               </span>
             </button>
@@ -367,7 +367,7 @@ export default function PartnersSection() {
               Your{" "}
               <span
                 style={{
-                  background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                  background: "#07BEB8  ",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -385,7 +385,7 @@ export default function PartnersSection() {
               future-ready. From{" "}
               <span
                 className="font-medium px-1 rounded"
-                style={{ backgroundColor: "#039994b0", color: "#0d2535" }}
+                style={{ backgroundColor: "#07BEB8", color: "#0d2535" }}
               >
                 Web & Mobile App Development to Artificial Intelligence
               </span>{" "}
@@ -474,7 +474,7 @@ export default function PartnersSection() {
                 <span
                   className="text-3xl sm:text-4xl font-bold block"
                   style={{
-                    background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                    background: "#07BEB8",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -496,7 +496,7 @@ export default function PartnersSection() {
                 <span
                   className="text-3xl sm:text-4xl font-bold block"
                   style={{
-                    background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                    background: "#07BEB8",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -530,7 +530,7 @@ export default function PartnersSection() {
               How our{" "}
               <span
                 style={{
-                  background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                  background: "#07BEB8",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -558,7 +558,7 @@ export default function PartnersSection() {
               }}
             >
               Read More
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#058682] text-slate-950">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
                 <ArrowRight className="h-4 w-4" />
               </span>
             </button>

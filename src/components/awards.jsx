@@ -179,7 +179,7 @@ export default function AwardsSection() {
             Awards &amp;{" "}
             <span
               style={{
-                background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                background: "#07BEB8",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -191,12 +191,11 @@ export default function AwardsSection() {
 
           <p
             style={{
-              color: "rgba(255,255,255,0.48)",
+              color: "#FFF",
               fontSize: 14,
               maxWidth: 440,
               margin: "0 auto",
               lineHeight: 1.75,
-              //   fontFamily: "sans-serif",
             }}
           >
             We've got some global recognition under our belt too! Serving as a
@@ -217,7 +216,11 @@ export default function AwardsSection() {
         >
           {/* Clutch Award 1 */}
           <AwardCard
-            style={{ width: 170, height: 110 }}
+            style={{
+              flex: "1 1 220px",
+              minWidth: 220,
+              height: 130,
+            }}
             borderColor="rgba(244,166,35,0.5)"
             glowColor="rgba(244,166,35,0.1)"
           >
@@ -230,7 +233,11 @@ export default function AwardsSection() {
 
           {/* Trustpilot */}
           <AwardCard
-            style={{ width: 200, height: 110 }}
+            style={{
+              flex: "1 1 260px",
+              minWidth: 260,
+              height: 130,
+            }}
             borderColor="rgba(0,182,122,0.45)"
             glowColor="rgba(0,182,122,0.1)"
           >
@@ -250,25 +257,30 @@ export default function AwardsSection() {
                     fill="#00B67A"
                   />
                 </svg>
+
                 <span
                   style={{
                     color: "#fff",
                     fontWeight: 700,
                     fontSize: 20,
-                    // fontFamily: "sans-serif",
                     letterSpacing: "-0.02em",
                   }}
                 >
                   Trustpilot
                 </span>
               </div>
+
               <StarRow count={5} color="#00B67A" />
             </div>
           </AwardCard>
 
           {/* Clutch Award 2 */}
           <AwardCard
-            style={{ width: 170, height: 110 }}
+            style={{
+              flex: "1 1 220px",
+              minWidth: 220,
+              height: 130,
+            }}
             borderColor="rgba(244,166,35,0.5)"
             glowColor="rgba(244,166,35,0.1)"
           >
@@ -279,9 +291,13 @@ export default function AwardsSection() {
             />
           </AwardCard>
 
-          {/* Goodfirms */}
+          {/* GoodFirms */}
           <AwardCard
-            style={{ width: 160, height: 110 }}
+            style={{
+              flex: "1 1 220px",
+              minWidth: 220,
+              height: 130,
+            }}
             borderColor="rgba(7,190,184,0.4)"
             glowColor="rgba(7,190,184,0.08)"
           >
@@ -302,6 +318,7 @@ export default function AwardsSection() {
                   />
                 </svg>
               </div>
+
               <span
                 style={{
                   fontSize: 9,
@@ -313,6 +330,7 @@ export default function AwardsSection() {
               >
                 GoodFirms
               </span>
+
               <div style={{ marginTop: 4 }}>
                 <span
                   style={{
@@ -329,7 +347,7 @@ export default function AwardsSection() {
           </AwardCard>
         </div>
 
-        {/* Row 2 — 3 cards centered */}
+        {/* Row 2 — 3 cards */}
         <div
           style={{
             display: "flex",
@@ -340,7 +358,11 @@ export default function AwardsSection() {
         >
           {/* Clutch Award 3 */}
           <AwardCard
-            style={{ width: 170, height: 110 }}
+            style={{
+              flex: "1 1 260px",
+              minWidth: 260,
+              height: 130,
+            }}
             borderColor="rgba(244,166,35,0.5)"
             glowColor="rgba(244,166,35,0.1)"
           >
@@ -353,13 +375,16 @@ export default function AwardsSection() {
 
           {/* Google Reviews */}
           <AwardCard
-            style={{ width: 200, height: 110 }}
+            style={{
+              flex: "1 1 300px",
+              minWidth: 300,
+              height: 130,
+            }}
             borderColor="rgba(66,133,244,0.4)"
             glowColor="rgba(66,133,244,0.08)"
           >
             <div style={{ textAlign: "center" }}>
               <div style={{ marginBottom: 6 }}>
-                {/* Google G logo */}
                 <svg
                   width="36"
                   height="36"
@@ -385,12 +410,12 @@ export default function AwardsSection() {
                   />
                 </svg>
               </div>
+
               <span
                 style={{
                   color: "#fff",
                   fontWeight: 700,
                   fontSize: 17,
-                  //   fontFamily: "sans-serif",
                   display: "block",
                   marginBottom: 5,
                 }}
@@ -406,13 +431,18 @@ export default function AwardsSection() {
                   Reviews
                 </span>
               </span>
+
               <StarRow count={5} color="#FBBC04" />
             </div>
           </AwardCard>
 
-          {/* G2 High Performer */}
+          {/* G2 */}
           <AwardCard
-            style={{ width: 160, height: 110 }}
+            style={{
+              flex: "1 1 260px",
+              minWidth: 260,
+              height: 130,
+            }}
             borderColor="rgba(255,100,60,0.4)"
             glowColor="rgba(255,100,60,0.08)"
           >
@@ -434,35 +464,35 @@ export default function AwardsSection() {
                     fill="#FF643C"
                     fontSize="14"
                     fontWeight="800"
-                    // fontFamily="sans-serif"
                   >
                     G2
                   </text>
                 </svg>
               </div>
+
               <span
                 style={{
                   fontSize: 11,
                   fontWeight: 700,
                   color: "#fff",
                   letterSpacing: "0.04em",
-                  //   fontFamily: "sans-serif",
                   display: "block",
                 }}
               >
                 High
               </span>
+
               <span
                 style={{
                   fontSize: 11,
                   fontWeight: 700,
                   color: "#fff",
-                  //   fontFamily: "sans-serif",
                   display: "block",
                 }}
               >
                 Performer
               </span>
+
               <span
                 style={{
                   fontSize: 8,

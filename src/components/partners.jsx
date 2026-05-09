@@ -398,7 +398,7 @@ export default function PartnersSection() {
             Tech Staff{" "}
             <span
               style={{
-                background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                background: "#07BEB8",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",

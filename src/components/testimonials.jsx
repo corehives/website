@@ -1,6 +1,4 @@
-// Install: npm install embla-carousel-react
-import React, { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import Avatar4 from "../assets/avatar-4.png";
 import Avatar5 from "../assets/avatar-5.png";
@@ -49,7 +47,15 @@ const testimonials = [
   },
 ];
 
+const CARD_WIDTH = 340;
 const CARD_HEIGHT = 260;
+const CARD_GAP = 16;
+const STEP = CARD_WIDTH + CARD_GAP;
+const N = testimonials.length;
+
+// Single source of truth for timing — change only here
+const TRANSITION_MS = 520;
+const EASE = "cubic-bezier(0.45, 0.05, 0.25, 1)";
 
 function StarRating({ count, max = 5 }) {
   return (
@@ -60,7 +66,7 @@ function StarRating({ count, max = 5 }) {
           size={13}
           className={
             i < count
-              ? "text-[#FFF] fill-[#FFF]"
+              ? "text-[#FFD139] fill-[#FFD139]"
               : "text-white/20 fill-white/20"
           }
         />
@@ -83,12 +89,7 @@ function AvatarImg({ avatar, name, size = 56 }) {
       <img
         src={avatar}
         alt={name}
-        style={{
-          display: "block",
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
+        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
       />
     </div>
   );
@@ -97,16 +98,18 @@ function AvatarImg({ avatar, name, size = 56 }) {
 function TestimonialCard({ testimonial, active }) {
   return (
     <div
-      className="my-5"
       style={{
+        width: CARD_WIDTH,
         height: CARD_HEIGHT,
-        boxSizing: "border-box",
-        overflow: "hidden",
         flexShrink: 0,
         borderRadius: 16,
         padding: active ? 24 : 20,
         position: "relative",
-        transition: "all 0.35s ease",
+        boxSizing: "border-box",
+        overflow: "hidden",
+        // Card style transitions match TRANSITION_MS exactly so they
+        // finish at the same moment the track does — no mid-flight swap
+        transition: `transform ${TRANSITION_MS}ms ${EASE}, opacity ${TRANSITION_MS}ms ${EASE}, box-shadow ${TRANSITION_MS}ms ${EASE}, background ${TRANSITION_MS}ms ${EASE}, border-color ${TRANSITION_MS}ms ${EASE}`,
         background: active
           ? "linear-gradient(145deg, #0d3533, #082e2c)"
           : "rgba(10,46,44,0.6)",
@@ -120,7 +123,6 @@ function TestimonialCard({ testimonial, active }) {
         opacity: active ? 1 : 0.72,
       }}
     >
-      {/* Decorative glow on active */}
       {active && (
         <div
           className="absolute top-0 right-0 w-24 h-24 rounded-tr-2xl pointer-events-none"
@@ -134,25 +136,12 @@ function TestimonialCard({ testimonial, active }) {
       <StarRating count={testimonial.rating} />
 
       <div className="flex items-center gap-3 mb-3">
-        <AvatarImg
-          avatar={testimonial.avatar}
-          name={testimonial.name}
-          size={active ? 64 : 48}
-        />
+        <AvatarImg avatar={testimonial.avatar} name={testimonial.name} size={active ? 64 : 48} />
         <div>
-          <p
-            className="font-bold mb-0.5"
-            style={{ color: "#fff", fontSize: active ? 15 : 13 }}
-          >
+          <p className="font-bold mb-0.5" style={{ color: "#fff", fontSize: active ? 15 : 13 }}>
             {testimonial.name}
           </p>
-          <p
-            style={{
-              fontSize: 11,
-              margin: 0,
-              color: active ? "rgba(7,190,184,0.8)" : "rgba(255,255,255,0.4)",
-            }}
-          >
+          <p style={{ fontSize: 11, margin: 0, color: active ? "rgba(7,190,184,0.8)" : "rgba(255,255,255,0.4)" }}>
             {testimonial.role}
           </p>
         </div>
@@ -186,46 +175,82 @@ function TestimonialCard({ testimonial, active }) {
 }
 
 export default function TestimonialsSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "center",
-    slidesToScroll: 1,
-    containScroll: false,
-    dragFree: false,
-    slidesInView: 1, // ← add this
-  });
+  // Triple the list for seamless infinite loop
+  const allCards = [...testimonials, ...testimonials, ...testimonials];
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  // activeIdx always stays in the middle copy [N .. 2N-1]
+  const [activeIdx, setActiveIdx] = useState(N);
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
+  // trackX is the ABSOLUTE translateX value in pixels (not relative offset).
+  // We compute it from activeIdx each time we settle, so the snap is invisible.
+  const centerX = (idx) => -(idx * STEP) + 0; // will be added to 50% via CSS
+  const [rawOffset, setRawOffset] = useState(0); // extra px during animation
 
-  useEffect(() => {
-    if (!emblaApi) return;
-    emblaApi.on("select", onSelect);
-    onSelect();
-  }, [emblaApi, onSelect]);
+  // Phase: "idle" | "sliding"
+  const sliding = useRef(false);
+  // const autoRef = useRef(null);
+  const timerRef = useRef(null);
 
-  const scrollPrev = useCallback(
-    () => emblaApi && emblaApi.scrollPrev(),
-    [emblaApi],
-  );
-  const scrollNext = useCallback(
-    () => emblaApi && emblaApi.scrollNext(),
-    [emblaApi],
-  );
+  // The track translateX = 50% - activeIdx*STEP - CARD_WIDTH/2 + rawOffset
+  // During slide: rawOffset animates from 0 → ±STEP
+  // After slide : activeIdx updates by ±1, rawOffset snaps back to 0 instantly
+  const trackTransform = `translateX(calc(50% - ${activeIdx * STEP + CARD_WIDTH / 2}px + ${rawOffset}px))`;
+
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const shift = useCallback((dir) => {
+    if (sliding.current) return;
+    sliding.current = true;
+    setIsAnimating(true);
+
+    // 1. Start CSS transition: slide rawOffset by one STEP
+    setRawOffset(-dir * STEP);
+
+    // 2. After the transition finishes:
+    //    a. Disable transition (no flash)
+    //    b. Advance activeIdx by dir
+    //    c. Reset rawOffset to 0
+    //    All three happen in the same synchronous batch → one paint → no flicker
+    timerRef.current = setTimeout(() => {
+      // Batch all state updates together
+      setIsAnimating(false); // kills CSS transition before next paint
+      setActiveIdx((prev) => {
+        let next = prev + dir;
+        if (next < N) next += N;
+        if (next >= 2 * N) next -= N;
+        return next;
+      });
+      setRawOffset(0); // safe — transition is already off
+
+      // Small guard before allowing next slide
+      setTimeout(() => { sliding.current = false; }, 32);
+    }, TRANSITION_MS);
+  }, []);
+
+  const scrollPrev = useCallback(() => shift(-1), [shift]);
+  const scrollNext = useCallback(() => shift(1), [shift]);
+
+  // useEffect(() => {
+  //   autoRef.current = setInterval(() => shift(1), 3800);
+  //   return () => {
+  //     clearInterval(autoRef.current);
+  //     clearTimeout(timerRef.current);
+  //   };
+  // }, [shift]);
+
+  // const pauseAuto = () => clearInterval(autoRef.current);
+  // const resumeAuto = () => {
+  //   autoRef.current = setInterval(() => shift(1), 3800);
+  // };
 
   return (
     <section className="relative overflow-hidden bg-[#07beb826] py-20">
       {/* Radial glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none top-40">
         <div
-          className="w-[350px] h-[350px] rounded-full blur-[20px]"
+          className="w-[350px] h-[350px] rounded-full blur-[100px]"
           style={{
-            background:
-              "radial-gradient(ellipse, rgba(7,190,184,0.2) 60%, transparent 100%)",
+            background: "radial-gradient(ellipse, rgba(7,190,184,0.2) 60%, transparent 100%)",
           }}
         />
       </div>
@@ -237,14 +262,14 @@ export default function TestimonialsSection() {
             borderLeft: "500px solid transparent",
             borderRight: "200px solid transparent",
             borderBottom: "530px solid rgba(7,190,184,0.25)",
-            filter: "blur(60px)",
+            filter: "blur(200px)",
           }}
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full">
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-14 px-4 sm:px-6 lg:px-10">
           <span
             className="inline-block text-[11px] tracking-[0.25em] uppercase mb-5 px-4 py-1.5 rounded-full"
             style={{
@@ -259,7 +284,7 @@ export default function TestimonialsSection() {
             Here's what{" "}
             <span
               style={{
-                background: "linear-gradient(to bottom, #07BEB8, #33384B)",
+                background: "#07BEB8",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -269,41 +294,51 @@ export default function TestimonialsSection() {
             </span>{" "}
             say About us
           </h2>
-          <p className="text-white/50 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-white text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Don't just take our word for it, hear directly from our clients!
             Read on to see how we've helped Businesses like yours Thrive.
           </p>
         </div>
 
-        {/* ── Embla Carousel ── */}
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex items-center" style={{ marginLeft: "-10px" }}>
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={testimonial.id}
-                style={{
-                  flex: "0 0 320px",
-                  paddingLeft: "10px",
-                  paddingRight: "10px",
-                  boxSizing: "border-box",
-                }}
-                onClick={() => {
-                  if (index !== selectedIndex) {
-                    emblaApi && emblaApi.scrollTo(index);
-                  }
-                }}
-              >
-                <TestimonialCard
-                  testimonial={testimonial}
-                  active={selectedIndex === index}
-                />
-              </div>
-            ))}
+        {/* Carousel — overflow:hidden crops outer cards */}
+        <div
+          style={{ width: "100%", overflow: "hidden" }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: CARD_GAP,
+              padding: "20px 0",
+              transform: trackTransform,
+              // Transition only during slide phase — off during snap reset
+              transition: isAnimating
+                ? `transform ${TRANSITION_MS}ms ${EASE}`
+                : "none",
+              willChange: "transform",
+            }}
+          >
+            {allCards.map((testimonial, i) => {
+              const isActive = i === activeIdx;
+              const relPos = i - activeIdx;
+              return (
+                <div
+                  key={i}
+                  onClick={() => {
+                    if (relPos < 0) shift(-1);
+                    else if (relPos > 0) shift(1);
+                  }}
+                  style={{ cursor: isActive ? "default" : "pointer" }}
+                >
+                  <TestimonialCard testimonial={testimonial} active={isActive} />
+                </div>
+              );
+            })}
           </div>
         </div>
 
         {/* Navigation arrows */}
-        <div className="flex items-center justify-center gap-4 mt-12">
+        <div className="flex items-center justify-center gap-4 mt-12 px-4">
           <button
             onClick={scrollPrev}
             className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
@@ -319,7 +354,7 @@ export default function TestimonialsSection() {
             onClick={scrollNext}
             className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
             style={{
-              background: "#058682",
+              background: "#07BEB8",
               border: "none",
               color: "#000",
               boxShadow: "0 0 20px rgba(7,190,184,0.35)",
