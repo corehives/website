@@ -6,6 +6,10 @@ import avatar1 from "../../assets/avatar-1.png";
 import avatar2 from "../../assets/avatar-2.png";
 import avatar3 from "../../assets/avatar-3.png";
 import * as THREE from "three";
+import {
+  DECORATIVE_CANVAS_DPR,
+  DECORATIVE_CANVAS_GL,
+} from "./canvasConfig.js";
 import ElectricPath from "./ElectricPath";
 
 export default function CircuitScene() {
@@ -44,7 +48,8 @@ export default function CircuitScene() {
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
-        gl={{ alpha: true }}
+        dpr={DECORATIVE_CANVAS_DPR}
+        gl={DECORATIVE_CANVAS_GL}
         style={{ background: "transparent" }}
       >
         {paths.map((pts, i) => (

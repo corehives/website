@@ -14,12 +14,25 @@
   body {
     background-color: #020617;
     color: #ffffff;
+    overflow-x: hidden;
   }
 
   #root {
     min-height: 100vh;
     font-family: "Mona Sans", sans-serif;
 
+  }
+}
+
+@layer utilities {
+  .section-auto-render {
+    content-visibility: auto;
+    contain: layout paint style;
+    contain-intrinsic-size: 960px;
+  }
+
+  .paint-isolate {
+    contain: paint;
   }
 }
 
@@ -112,4 +125,19 @@
 @keyframes badge-drift {
   0%,100% { transform: translateY(0px)  rotate(-3deg); opacity: 0.9; }
   50%      { transform: translateY(-6px) rotate(2deg);  opacity: 1;   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

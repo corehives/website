@@ -1,48 +1,69 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useMemo, useEffect } from "react";
+import { useEffect, useMemo, useRef } from "react";
+import * as THREE from "three";
 import HalfLogo from "../../assets/logo-half.png";
 import GlobeLogo from "../../assets/globe-frame.png";
-import * as THREE from "three";
+import {
+  DECORATIVE_CANVAS_DPR,
+  DECORATIVE_CANVAS_GL,
+} from "./canvasConfig.js";
 
-function useHoverRotation() {
-  const offset = useRef({ x: 1, y: 1 });
-  const target = useRef({ x: 1, y: 1 });
+class GlobeMotionController {
+  constructor() {
+    this.offset = { x: 1, y: 1 };
+    this.target = { x: 1, y: 1 };
+    this.autoY = 0;
+  }
 
-  useEffect(() => {
-    const handleMove = (e) => {
-      const x = e.touches ? e.touches[0].clientX : e.clientX;
-      const y = e.touches ? e.touches[0].clientY : e.clientY;
-      const nx = (x / window.innerWidth - 1) * 4;
-      const ny = (y / window.innerHeight - 1) * 4;
-      target.current = { x: nx, y: ny };
+  setTarget(x, y) {
+    this.target = { x, y };
+  }
+
+  step(delta) {
+    const lerp = Math.min(delta * 4.5, 0.18);
+    const nextOffset = {
+      x: this.offset.x + (this.target.x - this.offset.x) * lerp,
+      y: this.offset.y + (this.target.y - this.offset.y) * lerp,
     };
 
-    window.addEventListener("mousemove", handleMove);
+    this.offset = nextOffset;
+    this.autoY += delta * 0.15;
+
+    return {
+      x: nextOffset.y * 0.3,
+      y: this.autoY + nextOffset.x * 0.6,
+    };
+  }
+}
+
+function useHoverRotation() {
+  const controller = useMemo(() => new GlobeMotionController(), []);
+
+  useEffect(() => {
+    const handleMove = (event) => {
+      const x = event.touches ? event.touches[0].clientX : event.clientX;
+      const y = event.touches ? event.touches[0].clientY : event.clientY;
+      const nx = (x / window.innerWidth - 1) * 4;
+      const ny = (y / window.innerHeight - 1) * 4;
+
+      controller.setTarget(nx, ny);
+    };
+
+    window.addEventListener("mousemove", handleMove, { passive: true });
     window.addEventListener("touchmove", handleMove, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("touchmove", handleMove);
     };
-  }, []);
+  }, [controller]);
 
-  return { offset, target };
+  return controller;
 }
 
 function Globe() {
   const groupRef = useRef();
-  const { offset, target } = useHoverRotation();
-  const autoY = useRef(0);
-
-  useFrame(() => {
-    offset.current.x += (target.current.x - offset.current.x) * 0.05;
-    offset.current.y += (target.current.y - offset.current.y) * 0.05;
-
-    autoY.current += 0.0025;
-
-    groupRef.current.rotation.y = autoY.current + offset.current.x * 0.6;
-    groupRef.current.rotation.x = offset.current.y * 0.3;
-  });
+  const controller = useHoverRotation();
 
   const geometry = useMemo(() => new THREE.IcosahedronGeometry(2.5, 3), []);
   const edges = useMemo(() => new THREE.EdgesGeometry(geometry), [geometry]);
@@ -52,13 +73,34 @@ function Globe() {
     const canvas = document.createElement("canvas");
     canvas.width = 64;
     canvas.height = 64;
-    const ctx = canvas.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(32, 32, 30, 0, Math.PI * 2);
-    ctx.fillStyle = "white";
-    ctx.fill();
+    const context = canvas.getContext("2d");
+
+    context.beginPath();
+    context.arc(32, 32, 30, 0, Math.PI * 2);
+    context.fillStyle = "white";
+    context.fill();
+
     return new THREE.CanvasTexture(canvas);
   }, []);
+
+  useEffect(
+    () => () => {
+      geometry.dispose();
+      edges.dispose();
+      circleTexture.dispose();
+    },
+    [circleTexture, edges, geometry],
+  );
+
+  useFrame((_, delta) => {
+    const nextRotation = controller.step(delta);
+    if (!groupRef.current || !nextRotation) {
+      return;
+    }
+
+    groupRef.current.rotation.x = nextRotation.x;
+    groupRef.current.rotation.y = nextRotation.y;
+  });
 
   return (
     <group ref={groupRef}>
@@ -112,6 +154,13 @@ function CenterGlow() {
     `,
       }),
     [],
+  );
+
+  useEffect(
+    () => () => {
+      material.dispose();
+    },
+    [material],
   );
 
   return (
@@ -176,6 +225,8 @@ export default function GlobeScene() {
 
       <Canvas
         camera={{ position: [0, -0.8, 7] }}
+        dpr={DECORATIVE_CANVAS_DPR}
+        gl={DECORATIVE_CANVAS_GL}
         style={{
           position: "absolute",
           inset: 0,

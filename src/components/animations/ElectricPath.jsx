@@ -1,8 +1,8 @@
 import { useFrame } from "@react-three/fiber";
-import { useRef, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 
-const TEAL = [0.027, 0.745, 0.722]; // #07BEB8
+const TEAL = [0.027, 0.745, 0.722];
 
 const VARIANTS = {
   circuit: {
@@ -25,6 +25,45 @@ const VARIANTS = {
   },
 };
 
+class SegmentBuffer {
+  constructor(steps) {
+    this.steps = steps;
+    this.geometry = new THREE.BufferGeometry();
+    this.positions = new Float32Array((steps + 1) * 3);
+    this.colors = new Float32Array((steps + 1) * 3);
+    this.positionAttr = new THREE.BufferAttribute(this.positions, 3);
+    this.colorAttr = new THREE.BufferAttribute(this.colors, 3);
+
+    this.geometry.setAttribute("position", this.positionAttr);
+    this.geometry.setAttribute("color", this.colorAttr);
+    this.geometry.setDrawRange(0, steps + 1);
+  }
+
+  update(curve, segStart, segEnd, reversed, scratchPoint) {
+    for (let index = 0; index <= this.steps; index++) {
+      const rawT = segStart + (segEnd - segStart) * (index / this.steps);
+      const t = reversed ? 1 - rawT : rawT;
+      const fade = reversed ? 1 - index / this.steps : index / this.steps;
+      const offset = index * 3;
+
+      curve.getPointAt(t, scratchPoint);
+      this.positions[offset] = scratchPoint.x;
+      this.positions[offset + 1] = scratchPoint.y;
+      this.positions[offset + 2] = scratchPoint.z;
+      this.colors[offset] = TEAL[0] * fade;
+      this.colors[offset + 1] = TEAL[1] * fade;
+      this.colors[offset + 2] = TEAL[2] * fade;
+    }
+
+    this.positionAttr.needsUpdate = true;
+    this.colorAttr.needsUpdate = true;
+  }
+
+  dispose() {
+    this.geometry.dispose();
+  }
+}
+
 export default function ElectricPath({
   points,
   speed = 1,
@@ -36,33 +75,65 @@ export default function ElectricPath({
     VARIANTS[variant];
 
   const segmentRef = useRef();
-  const progress = useRef(Math.random());
-  const delay = useRef(Math.random() * delayMax);
+  const progress = useRef(0);
+  const delay = useRef(0);
+  const scratchPoint = useRef(new THREE.Vector3());
 
   const curve = useMemo(
     () => new THREE.CatmullRomCurve3(points, false, "catmullrom", tension),
     [points, tension],
   );
 
-  const fullPoints = useMemo(() => curve.getPoints(resolution), [curve, resolution]);
+  const fullPoints = useMemo(
+    () => curve.getPoints(resolution),
+    [curve, resolution],
+  );
 
   const fullGeometry = useMemo(() => {
-    const geo = new THREE.BufferGeometry().setFromPoints(fullPoints);
-    const colors = [];
-    fullPoints.forEach((_, i) => {
-      const t = i / (fullPoints.length - 1);
-      const r = trackA - t * trackB;
-      colors.push(r, r, r);
+    const geometry = new THREE.BufferGeometry().setFromPoints(fullPoints);
+    const colors = new Float32Array(fullPoints.length * 3);
+
+    fullPoints.forEach((_, index) => {
+      const t = index / (fullPoints.length - 1);
+      const channel = trackA - t * trackB;
+      const offset = index * 3;
+
+      colors[offset] = channel;
+      colors[offset + 1] = channel;
+      colors[offset + 2] = channel;
     });
-    geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
-    return geo;
+
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+    return geometry;
   }, [fullPoints, trackA, trackB]);
 
-  useFrame((_, delta) => {
-    delay.current -= delta;
-    if (delay.current > 0) return;
+  const segmentBuffer = useMemo(() => new SegmentBuffer(steps), [steps]);
 
-    progress.current += speed;
+  useEffect(() => {
+    progress.current = Math.random();
+    delay.current = Math.random() * delayMax;
+  }, [delayMax]);
+
+  useEffect(
+    () => () => {
+      fullGeometry.dispose();
+      segmentBuffer.dispose();
+    },
+    [fullGeometry, segmentBuffer],
+  );
+
+  useFrame((_, delta) => {
+    const segmentLine = segmentRef.current;
+    if (!segmentLine) {
+      return;
+    }
+
+    delay.current -= delta;
+    if (delay.current > 0) {
+      return;
+    }
+
+    progress.current += speed * delta * 60;
     if (progress.current >= 1 + segment) {
       progress.current = -segment;
       delay.current = Math.random() * delayMax;
@@ -72,33 +143,18 @@ export default function ElectricPath({
     const segEnd = Math.min(progress.current + segment, 1);
 
     if (segStart >= segEnd) {
-      segmentRef.current.visible = false;
+      segmentLine.visible = false;
       return;
     }
 
-    segmentRef.current.visible = true;
-    const segPoints = [];
-    const segColors = [];
-
-    for (let i = 0; i <= steps; i++) {
-      const rawT = segStart + (segEnd - segStart) * (i / steps);
-      const t = reversed ? 1 - rawT : rawT;
-
-      // fade=1 at the leading head → full #07BEB8
-      // fade=0 at the trailing tail → [0,0,0] ≈ #000405 (dark/invisible in additive)
-      const fade = reversed ? 1 - i / steps : i / steps;
-
-      segPoints.push(curve.getPointAt(t));
-      segColors.push(
-        TEAL[0] * fade,
-        TEAL[1] * fade,
-        TEAL[2] * fade,
-      );
-    }
-
-    const geo = segmentRef.current.geometry;
-    geo.setFromPoints(segPoints);
-    geo.setAttribute("color", new THREE.Float32BufferAttribute(segColors, 3));
+    segmentLine.visible = true;
+    segmentBuffer.update(
+      curve,
+      segStart,
+      segEnd,
+      reversed,
+      scratchPoint.current,
+    );
   });
 
   return (
@@ -111,8 +167,7 @@ export default function ElectricPath({
           blending={THREE.AdditiveBlending}
         />
       </line>
-      <line ref={segmentRef}>
-        <bufferGeometry />
+      <line ref={segmentRef} geometry={segmentBuffer.geometry}>
         <lineBasicMaterial
           vertexColors
           transparent

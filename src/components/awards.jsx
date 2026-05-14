@@ -1,5 +1,3 @@
-// Awards.jsx
-import React from "react";
 import { Star } from "lucide-react";
 import BGLeftContent from "../assets/bg-left-content.webp";
 import BGRightContent from "../assets/bg-right-content.webp";
@@ -101,6 +99,7 @@ function AwardCard({
 export default function AwardsSection() {
   return (
     <section
+      className="section-auto-render"
       style={{
         position: "relative",
         overflow: "hidden",

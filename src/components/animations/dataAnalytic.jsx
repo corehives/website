@@ -3,6 +3,10 @@ import { useMemo } from "react";
 import bgImage from "../../assets/bg-data-analytic.png";
 import Analytic from "../../assets/icons/analytic.png";
 import * as THREE from "three";
+import {
+  DECORATIVE_CANVAS_DPR,
+  DECORATIVE_CANVAS_GL,
+} from "./canvasConfig.js";
 import ElectricPath from "./ElectricPath";
 
 export default function CircuitScene() {
@@ -42,7 +46,8 @@ export default function CircuitScene() {
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
-        gl={{ alpha: true }}
+        dpr={DECORATIVE_CANVAS_DPR}
+        gl={DECORATIVE_CANVAS_GL}
         style={{
           position: "absolute",
           inset: 0,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import BgOverview from "../assets/bg-overview-1x.webp";
 import SliderPreview1 from "../assets/slider-preview-1.png";
@@ -27,26 +27,13 @@ const projects = [
 
 export default function OverviewSection() {
   const [index, setIndex] = useState(0);
-  const sectionRef = useRef(null);
-  const isVisibleRef = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisibleRef.current = entry.isIntersecting;
-      },
-      { threshold: 0.1 },
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const next = () => setIndex((prev) => (prev + 1) % projects.length);
   const prev = () =>
     setIndex((prev) => (prev - 1 + projects.length) % projects.length);
 
   return (
-    <div ref={sectionRef} className="relative overflow-hidden">
+    <div className="section-auto-render relative overflow-hidden">
       {/* ───── Background ───── */}
       <div className="absolute inset-0 z-0">
         <img

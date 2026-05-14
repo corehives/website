@@ -1,21 +1,89 @@
 import hero_bg from "../assets/hero-bgs.webp";
 import leftLight from "../assets/left-light.png";
 import rightLight from "../assets/right-light.png";
-import AnimationGlobe from "./animations/globe.jsx";
-import AnimationQuality from "./animations/quality.jsx";
-import AnimationDigital from "./animations/digital.jsx";
-import AnimationDataAnalytics from "./animations/dataAnalytic.jsx";
-import AnimationSupport from "./animations/support.jsx";
-import AnimationCloudDevops from "./animations/cloudDevops.jsx";
-import AnimationBlockChain from "./animations/digitalInnovation.jsx";
+import GlobeLogo from "../assets/globe-frame.png";
+import HalfLogo from "../assets/logo-half.png";
 import { ShieldCheck } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+
+const HeroVisuals = lazy(() => import("./heroVisuals.jsx"));
+
+function HeroVisualFallback() {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div
+        className="absolute h-[18rem] w-[18rem] rounded-full blur-[80px] sm:h-[24rem] sm:w-[24rem]"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(7,190,184,0.22) 0%, rgba(7,190,184,0.08) 42%, transparent 72%)",
+        }}
+      />
+      <img
+        src={GlobeLogo}
+        alt=""
+        className="absolute h-auto w-[clamp(240px,31vw,350px)] object-cover opacity-95"
+        style={{
+          animation: "rotateSlow 20s linear infinite",
+          filter: "drop-shadow(0 0 25px #07BEB8) drop-shadow(0 0 60px #07BEB8)",
+        }}
+      />
+      <img
+        src={HalfLogo}
+        alt="CoreHives mark"
+        className="relative h-auto w-[clamp(50px,10vw,200px)] object-contain opacity-90"
+      />
+    </div>
+  );
+}
 
 export default function Hero() {
+  const sectionRef = useRef(null);
+  const frameRef = useRef(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [shouldLoadVisuals, setShouldLoadVisuals] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || typeof window === "undefined") {
+      setShouldLoadVisuals(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        rootMargin: "280px 0px",
+        threshold: 0.01,
+      },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || shouldLoadVisuals || typeof window === "undefined") {
+      return undefined;
+    }
+
+    frameRef.current = window.requestAnimationFrame(() => {
+      setShouldLoadVisuals(true);
+    });
+
+    return () => {
+      if (frameRef.current) {
+        window.cancelAnimationFrame(frameRef.current);
+      }
+    };
+  }, [isVisible, shouldLoadVisuals]);
 
   return (
     <section
       id="home"
+      ref={sectionRef}
       className="relative z-0 flex min-h-screen items-stretch overflow-hidden"
     >
 
@@ -104,13 +172,13 @@ export default function Hero() {
             minHeight: "480px",
           }}
         >
-          <AnimationGlobe />
-          <AnimationDataAnalytics />
-          <AnimationQuality />
-          <AnimationCloudDevops />
-          <AnimationDigital />
-          <AnimationBlockChain />
-          <AnimationSupport />
+          {shouldLoadVisuals && isVisible ? (
+            <Suspense fallback={<HeroVisualFallback />}>
+              <HeroVisuals />
+            </Suspense>
+          ) : !shouldLoadVisuals ? (
+            <HeroVisualFallback />
+          ) : null}
         </div>
       </div>
     </section>

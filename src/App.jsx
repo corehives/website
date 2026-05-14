@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/header.jsx";
 import Hero from "./components/hero.jsx";
 
@@ -9,11 +10,13 @@ const Testimonials = lazy(() => import("./components/testimonials.jsx"));
 const Awards = lazy(() => import("./components/awards.jsx"));
 const Contact = lazy(() => import("./components/contact.jsx"));
 const Footer = lazy(() => import("./components/layout/footer.jsx"));
+const WebDevelopment = lazy(() => import("./pages/web-development.jsx"));
+const OurPortfolio = lazy(() => import("./pages/our-portfolio.jsx"));
+const AppDevelopment = lazy(() => import("./pages/app-development.jsx"));
 
-function App() {
+function HomePage() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#000405] text-white">
-      <Header />
+    <>
       <main>
         <Hero />
         <Suspense fallback={null}>
@@ -27,6 +30,22 @@ function App() {
       </main>
       <Suspense fallback={null}>
         <Footer />
+      </Suspense>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <div className="min-h-screen overflow-x-hidden bg-[#000405] text-white">
+      <Header />
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/web-development" element={<WebDevelopment />} />
+          <Route path="/our-portfolio" element={<OurPortfolio />} />
+          <Route path="/mobile-app-development" element={<AppDevelopment />} />
+        </Routes>
       </Suspense>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import Avatar4 from "../assets/avatar-4.png";
 import Avatar5 from "../assets/avatar-5.png";
@@ -176,20 +176,19 @@ function TestimonialCard({ testimonial, active }) {
 
 export default function TestimonialsSection() {
   // Triple the list for seamless infinite loop
-  const allCards = [...testimonials, ...testimonials, ...testimonials];
+  const allCards = useMemo(() => [...testimonials, ...testimonials, ...testimonials], []);
 
   // activeIdx always stays in the middle copy [N .. 2N-1]
   const [activeIdx, setActiveIdx] = useState(N);
 
   // trackX is the ABSOLUTE translateX value in pixels (not relative offset).
   // We compute it from activeIdx each time we settle, so the snap is invisible.
-  const centerX = (idx) => -(idx * STEP) + 0; // will be added to 50% via CSS
   const [rawOffset, setRawOffset] = useState(0); // extra px during animation
 
   // Phase: "idle" | "sliding"
   const sliding = useRef(false);
-  // const autoRef = useRef(null);
   const timerRef = useRef(null);
+  const unlockRef = useRef(null);
 
   // The track translateX = 50% - activeIdx*STEP - CARD_WIDTH/2 + rawOffset
   // During slide: rawOffset animates from 0 → ±STEP
@@ -223,28 +222,29 @@ export default function TestimonialsSection() {
       setRawOffset(0); // safe — transition is already off
 
       // Small guard before allowing next slide
-      setTimeout(() => { sliding.current = false; }, 32);
+      unlockRef.current = setTimeout(() => {
+        sliding.current = false;
+      }, 32);
     }, TRANSITION_MS);
   }, []);
 
   const scrollPrev = useCallback(() => shift(-1), [shift]);
   const scrollNext = useCallback(() => shift(1), [shift]);
 
-  // useEffect(() => {
-  //   autoRef.current = setInterval(() => shift(1), 3800);
-  //   return () => {
-  //     clearInterval(autoRef.current);
-  //     clearTimeout(timerRef.current);
-  //   };
-  // }, [shift]);
-
-  // const pauseAuto = () => clearInterval(autoRef.current);
-  // const resumeAuto = () => {
-  //   autoRef.current = setInterval(() => shift(1), 3800);
-  // };
+  useEffect(
+    () => () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+      if (unlockRef.current) {
+        clearTimeout(unlockRef.current);
+      }
+    },
+    [],
+  );
 
   return (
-    <section className="relative overflow-hidden bg-[#07beb826] py-20">
+    <section className="section-auto-render relative overflow-hidden bg-[#07beb826] py-20">
       {/* Radial glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none top-40">
         <div

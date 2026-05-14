@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import BgLeft from "../assets/bg-left-content.webp";
 import BgRight from "../assets/bg-right-content.webp";
 import LogoInitals from "../assets/logo-initials.png";
@@ -6,7 +6,6 @@ import LineLeft from "../assets/line-left.png";
 import LineRight from "../assets/line-right.png";
 import LineBottom from "../assets/line-bottom.png";
 import Preview from "../assets/preview.png";
-import BGInnerCard from "../assets/bg-inner-card.png";
 import AvatarReal from "../assets/avatar-real.png";
 import avatar4 from "../assets/avatar-4.png";
 import avatar5 from "../assets/avatar-5.png";
@@ -25,20 +24,6 @@ const tagStyle = {
   fontSize: "0.72rem",
   width: "100px",
   color: "#FFF",
-};
-
-const avatarStyle = {
-  width: 40,
-  height: 40,
-  borderRadius: "50%",
-  border: "2px solid rgba(0,245,212,0.3)",
-  background: "linear-gradient(135deg, #1a4a5a, #0d2535)",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  fontSize: "0.65rem",
-  color: "#00f5d4",
-  fontWeight: 700,
 };
 
 const cards = [
@@ -186,19 +171,54 @@ const cards = [
 // ── Glow Card ──
 function GlowCard({ card }) {
   const cardRef = useRef(null);
+  const frameRef = useRef(0);
+  const pointerRef = useRef({ x: -999, y: -999 });
+
+  const flushPointer = () => {
+    frameRef.current = 0;
+    const el = cardRef.current;
+    if (!el) return;
+
+    el.style.setProperty("--x", `${pointerRef.current.x}px`);
+    el.style.setProperty("--y", `${pointerRef.current.y}px`);
+  };
 
   const handleMouseMove = (e) => {
     const el = cardRef.current;
+    if (!el) return;
+
     const rect = el.getBoundingClientRect();
-    el.style.setProperty("--x", `${e.clientX - rect.left}px`);
-    el.style.setProperty("--y", `${e.clientY - rect.top}px`);
+    pointerRef.current = {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    };
+
+    if (!frameRef.current) {
+      frameRef.current = window.requestAnimationFrame(flushPointer);
+    }
   };
 
   const handleMouseLeave = () => {
+    if (frameRef.current) {
+      window.cancelAnimationFrame(frameRef.current);
+      frameRef.current = 0;
+    }
+
     const el = cardRef.current;
+    if (!el) return;
+
     el.style.setProperty("--x", "-999px");
     el.style.setProperty("--y", "-999px");
   };
+
+  useEffect(
+    () => () => {
+      if (frameRef.current) {
+        window.cancelAnimationFrame(frameRef.current);
+      }
+    },
+    [],
+  );
 
   return (
     <div
@@ -211,6 +231,8 @@ function GlowCard({ card }) {
         background: "rgba(7,190,184,0.04)",
         border: "1px solid rgba(7,190,184,0.2)",
         boxShadow: "0 0 20px rgba(7,190,184,0.08)",
+        "--x": "-999px",
+        "--y": "-999px",
       }}
     >
       <div
@@ -322,7 +344,7 @@ export default function PartnersSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="min-h-screen flex flex-col justify-center text-[#e8f0f4] ">
+    <section className="section-auto-render min-h-screen flex flex-col justify-center text-[#e8f0f4]">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img

@@ -5,6 +5,10 @@ import Icon1 from "../../assets/icons/icon-digi-inov-1.png";
 import Icon2 from "../../assets/icons/icon-digi-inov-2.png";
 import Icon3 from "../../assets/icons/icon-digi-inov-3.png";
 import * as THREE from "three";
+import {
+  DECORATIVE_CANVAS_DPR,
+  DECORATIVE_CANVAS_GL,
+} from "./canvasConfig.js";
 import ElectricPath from "./ElectricPath";
 
 function mirrorPoints(pts) {
@@ -47,7 +51,8 @@ export default function CircuitScene() {
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}
-        gl={{ alpha: true }}
+        dpr={DECORATIVE_CANVAS_DPR}
+        gl={DECORATIVE_CANVAS_GL}
         style={{ background: "transparent" }}
       >
         {mirroredPointSets.map((pts, i) => (

@@ -1,5 +1,4 @@
-// Contact.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import BGSquare from "../assets/bg-square.png";
 import BgLeft from "../assets/bg-left-content.webp";
@@ -68,7 +67,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#000405] py-40 px-6">
+    <section className="section-auto-render relative overflow-hidden bg-[#000405] py-40 px-6">
       <img
         className="absolute -top-2/2 z-0 w-1/1 -right-20"
         src={BGSquare}
