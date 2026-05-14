@@ -55,15 +55,58 @@ export default function ContactSection() {
     subject: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [validation, setValidation] = useState({});
 
-  const handleChange = (e) =>
+  const validate = () => {
+    const errors = {};
+    if (!form.firstName.trim()) errors.firstName = "First name is required.";
+    if (!form.email.trim()) {
+      errors.email = "Email is required.";
+    } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
+      errors.email = "Invalid email address.";
+    }
+    if (!form.message.trim()) errors.message = "Message is required.";
+    return errors;
+  };
+
+  const handleChange = (e) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+    setValidation((v) => ({ ...v, [e.target.name]: undefined }));
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setError("");
+    setSuccess("");
+    const errors = validate();
+    setValidation(errors);
+    if (Object.keys(errors).length > 0) return;
+    setLoading(true);
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+      if (response.ok) {
+        setSuccess("Your message has been sent successfully!");
+        setForm({ firstName: "", email: "", phone: "", subject: "", message: "" });
+      } else {
+        setError("Failed to send your message. Please try again later.");
+      }
+    } catch (err) {
+      setError("Failed to send your message. Please check your connection.");
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+    }
   };
 
   return (
@@ -129,22 +172,42 @@ export default function ContactSection() {
             Let's Get in Touch
           </h3>
 
+          {/* Loader and messages */}
+          {loading && (
+            <div className="mb-3 text-[#07BEB8] text-center font-semibold">Sending...</div>
+          )}
+          {success && submitted && (
+            <div className="mb-3 text-green-400 text-center font-semibold">{success}</div>
+          )}
+          {error && submitted && (
+            <div className="mb-3 text-red-400 text-center font-semibold">{error}</div>
+          )}
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <InputField
-                name="firstName"
-                placeholder="First name"
-                value={form.firstName}
-                onChange={handleChange}
-              />
-              <InputField
-                name="email"
-                type="email"
-                placeholder="Email Address"
-                value={form.email}
-                onChange={handleChange}
-              />
+              <div>
+                <InputField
+                  name="firstName"
+                  placeholder="First name"
+                  value={form.firstName}
+                  onChange={handleChange}
+                />
+                {validation.firstName && (
+                  <div className="text-red-400 text-xs mt-1">{validation.firstName}</div>
+                )}
+              </div>
+              <div>
+                <InputField
+                  name="email"
+                  type="email"
+                  placeholder="Email Address"
+                  value={form.email}
+                  onChange={handleChange}
+                />
+                {validation.email && (
+                  <div className="text-red-400 text-xs mt-1">{validation.email}</div>
+                )}
+              </div>
             </div>
 
             {/* Row 2 */}
@@ -164,25 +227,35 @@ export default function ContactSection() {
             </div>
 
             {/* Textarea */}
-            <TextAreaField
-              name="message"
-              placeholder="Type your message"
-              value={form.message}
-              onChange={handleChange}
-            />
+            <div>
+              <TextAreaField
+                name="message"
+                placeholder="Type your message"
+                value={form.message}
+                onChange={handleChange}
+              />
+              {validation.message && (
+                <div className="text-red-400 text-xs mt-1">{validation.message}</div>
+              )}
+            </div>
 
             {/* Bottom actions */}
             <div className="flex items-center gap-5 flex-wrap mt-2">
               {/* Submit button */}
               <button
                 type="submit"
+                disabled={loading}
                 className={`inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200 border border-white/40 ${
-                  submitted
-                    ? "bg-[#07BEB8]/20 text-[#07BEB8]"
+                  loading
+                    ? "bg-[#07BEB8]/20 text-[#07BEB8] cursor-not-allowed"
+                    : submitted && success
+                    ? "bg-green-900/20 text-green-400"
+                    : submitted && error
+                    ? "bg-red-900/20 text-red-400"
                     : "bg-transparent text-white hover:bg-white/5"
                 }`}
               >
-                Submit Now
+                {loading ? "Sending..." : "Submit Now"}
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
                   <ArrowRight className="h-4 w-4" />
                 </span>
