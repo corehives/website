@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"c:/laragon/www/CoreHives/src/components/app-development\")"
+    ],
+    "additionalDirectories": [
+      "c:\\laragon\\www\\CoreHives\\src\\components"
+    ]
+  }
+}

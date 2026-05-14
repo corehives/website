@@ -223,236 +223,231 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ── CONTENT SECTIONS ── */}
-      <div className="w-full bg-black">
-        {/* ───────── MOBILE APP DESIGN FEATURE WITH ACCORDIONS ───────── */}
-        <section className="px-5 sm:px-10 lg:px-20 pt-16 sm:pt-20">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-12 gap-5 rounded-2xl overflow-hidden">
-              {/* Left: col-8 */}
-              <div className="col-span-12 lg:col-span-8 relative flex items-center justify-center min-h-[260px] sm:min-h-[320px]">
-                <img
-                  src={WebCover}
-                  alt="Mobile application design"
-                  className="w-full h-full object-contain max-h-[320px]"
-                />
-              </div>
+      {/* ───────── MOBILE APP DESIGN FEATURE WITH ACCORDIONS ───────── */}
+      <section className="px-5 sm:px-10 lg:px-20 pt-16 sm:pt-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-12 gap-5 rounded-2xl overflow-hidden">
+            {/* Left: col-8 */}
+            <div className="col-span-12 lg:col-span-8 relative flex items-center justify-center min-h-[260px] sm:min-h-[320px]">
+              <img
+                src={WebCover}
+                alt="Mobile application design"
+                className="w-full h-full object-contain max-h-[320px]"
+              />
+            </div>
 
-              {/* Right: col-4 with Accordions */}
-              <div className="col-span-12 lg:col-span-4 p-6 sm:p-8 lg:p-10 flex flex-col justify-start space-y-4">
-                {portfolioCategories.map((category, index) => (
-                  <div key={index} className="group">
-                    {/* Accordion Header */}
-                    <button
-                      onClick={() =>
-                        setExpandedCategory(
-                          expandedCategory === index ? -1 : index,
-                        )
-                      }
-                      className="w-full text-left"
-                    >
-                      <h3
-                        className={`text-lg sm:text-xl font-semibold transition-colors duration-200 pb-3 border-b ${
-                          expandedCategory === index
-                            ? "text-[#07BEB8] border-[#07BEB8]"
-                            : "text-white/40 hover:text-[#07BEB8] border-gray-700 hover:border-[#07BEB8]/50"
-                        }`}
-                      >
-                        {category.title}
-                      </h3>
-                    </button>
-
-                    {/* Accordion Content */}
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
+            {/* Right: col-4 with Accordions */}
+            <div className="col-span-12 lg:col-span-4 p-6 sm:p-8 lg:p-10 flex flex-col justify-start space-y-4">
+              {portfolioCategories.map((category, index) => (
+                <div key={index} className="group">
+                  {/* Accordion Header */}
+                  <button
+                    onClick={() =>
+                      setExpandedCategory(
+                        expandedCategory === index ? -1 : index,
+                      )
+                    }
+                    className="w-full text-left"
+                  >
+                    <h3
+                      className={`text-lg sm:text-xl font-semibold transition-colors duration-200 pb-3 border-b ${
                         expandedCategory === index
-                          ? "max-h-40 opacity-100 pt-4"
-                          : "max-h-0 opacity-0"
+                          ? "text-[#07BEB8] border-[#07BEB8]"
+                          : "text-white/40 hover:text-[#07BEB8] border-gray-700 hover:border-[#07BEB8]/50"
                       }`}
                     >
-                      <ul className="space-y-2.5 text-sm text-gray-400">
-                        {category.items.map((item, idx) => (
-                          <li
-                            key={idx}
-                            className="flex items-center gap-3 hover:text-[#07BEB8] transition-colors"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#07BEB8]" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+                      {category.title}
+                    </h3>
+                  </button>
 
-        {/* ───────── STATS ROW WITH COUNTER ───────── */}
-        <section className="px-5 sm:px-10 lg:px-20 py-16 sm:py-20">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 py-10">
-            {[
-              {
-                num: "100+",
-                label: "Startups Supported",
-                sub: "Launch 2x faster with AI + frameworks.",
-              },
-              {
-                num: "200+",
-                label: "Projects Designed",
-                sub: "Launch 2x faster with AI + frameworks.",
-              },
-              {
-                num: "15+",
-                label: "Years of Experience",
-                sub: "Launch 2x faster with AI + frameworks.",
-              },
-            ].map((s) => (
-              <div key={s.num} className="text-cente mx-auto sm:text-left">
-                <div className="flex items-center gap-2 border-b border-white/40 pb-2">
-                  {/* Number */}
-                  <div className="w-[50%]">
-                    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-none">
-                      <Counter target={s.num} duration={2000} />
-                    </div>
-                  </div>
-
-                  {/* Label */}
-                  <div className="w-[30%]">
-                    <div className="text-[11px] sm:text-xs font-medium text-gray-200 leading-tight">
-                      {s.label}
-                    </div>
+                  {/* Accordion Content */}
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ${
+                      expandedCategory === index
+                        ? "max-h-40 opacity-100 pt-4"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <ul className="space-y-2.5 text-sm text-gray-400">
+                      {category.items.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-center gap-3 hover:text-[#07BEB8] transition-colors"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#07BEB8]" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-                <div className="text-xs text-gray-500 mt-1">{s.sub}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ───────── SOLVE YOUR UI/UX INTRO ───────── */}
-        <section className="px-5 sm:px-10 lg:px-20">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
-              Solve Your <span className="text-[#07BEB8]">UI / UX</span>
-              <br />
-              Roadblocks &amp;
-              <br />
-              Scale Fast.
-            </h2>
-
-            <div className="space-y-6">
-              <p className="text-white leading-relaxed text-sm sm:text-base">
-                We've helped{" "}
-                <span className="text-[#07BEB8] font-semibold">
-                  100+ companies
-                </span>{" "}
-                solve challenges, boost engagement, increase conversions, build
-                MVPs, and raise funds — driving growth and success.
-              </p>
-
-              <div className="flex items-center gap-4">
-                <a
-                  href="#services"
-                  className="group inline-flex items-center gap-2 rounded-full border border-white/30 py-1.5 pl-4 pr-1.5 text-xs font-medium text-white hover:bg-white/5 transition"
-                >
-                  See how we help
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#07BEB8] text-black group-hover:rotate-45 transition-transform">
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </span>
-                </a>
-
-                <div className="flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    <img
-                      src={avatar4}
-                      alt=""
-                      className="w-8 h-8 rounded-full border-2 border-black object-cover"
-                    />
-                    <img
-                      src={avatar5}
-                      alt=""
-                      className="w-8 h-8 rounded-full border-2 border-black object-cover"
-                    />
-                    <img
-                      src={avatar6}
-                      alt=""
-                      className="w-8 h-8 rounded-full border-2 border-black object-cover"
-                    />
+      {/* ───────── STATS ROW WITH COUNTER ───────── */}
+      <section className="px-5 sm:px-10 lg:px-20 py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 py-10">
+          {[
+            {
+              num: "100+",
+              label: "Startups Supported",
+              sub: "Launch 2x faster with AI + frameworks.",
+            },
+            {
+              num: "200+",
+              label: "Projects Designed",
+              sub: "Launch 2x faster with AI + frameworks.",
+            },
+            {
+              num: "15+",
+              label: "Years of Experience",
+              sub: "Launch 2x faster with AI + frameworks.",
+            },
+          ].map((s) => (
+            <div key={s.num} className="text-cente mx-auto sm:text-left">
+              <div className="flex items-center gap-2 border-b border-white/40 pb-2">
+                {/* Number */}
+                <div className="w-[50%]">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-none">
+                    <Counter target={s.num} duration={2000} />
                   </div>
-                  <div>
-                    <div className="text-lg font-bold text-[#07BEB8] leading-none">
-                      80+
-                    </div>
-                    <div className="text-[10px] text-gray-500">
-                      Total Clients
-                    </div>
+                </div>
+
+                {/* Label */}
+                <div className="w-[30%]">
+                  <div className="text-[11px] sm:text-xs font-medium text-gray-200 leading-tight">
+                    {s.label}
                   </div>
                 </div>
               </div>
+              <div className="text-xs text-gray-500 mt-1">{s.sub}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ───────── SOLVE YOUR UI/UX INTRO ───────── */}
+      <section className="px-5 sm:px-10 lg:px-20">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+            Solve Your <span className="text-[#07BEB8]">UI / UX</span>
+            <br />
+            Roadblocks &amp;
+            <br />
+            Scale Fast.
+          </h2>
+
+          <div className="space-y-6">
+            <p className="text-white leading-relaxed text-sm sm:text-base">
+              We've helped{" "}
+              <span className="text-[#07BEB8] font-semibold">
+                100+ companies
+              </span>{" "}
+              solve challenges, boost engagement, increase conversions, build
+              MVPs, and raise funds — driving growth and success.
+            </p>
+
+            <div className="flex items-center gap-4">
+              <a
+                href="#services"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/30 py-1.5 pl-4 pr-1.5 text-xs font-medium text-white hover:bg-white/5 transition"
+              >
+                See how we help
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#07BEB8] text-black group-hover:rotate-45 transition-transform">
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </span>
+              </a>
+
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  <img
+                    src={avatar4}
+                    alt=""
+                    className="w-8 h-8 rounded-full border-2 border-black object-cover"
+                  />
+                  <img
+                    src={avatar5}
+                    alt=""
+                    className="w-8 h-8 rounded-full border-2 border-black object-cover"
+                  />
+                  <img
+                    src={avatar6}
+                    alt=""
+                    className="w-8 h-8 rounded-full border-2 border-black object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-lg font-bold text-[#07BEB8] leading-none">
+                    80+
+                  </div>
+                  <div className="text-[10px] text-gray-500">Total Clients</div>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ───────── PROBLEM CARDS GRID ───────── */}
-        <section className="px-5 sm:px-10 lg:px-20 py-16 sm:py-20">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {/* Slow Launch — TEAL, spans 2 rows on lg */}
-            <div className="lg:row-span-2 rounded-2xl p-7 bg-[#07BEB8] text-[#062E2C] flex flex-col justify-between min-h-[260px] lg:min-h-[420px]">
-              <h3 className="text-2xl sm:text-3xl font-bold">Slow Launch?</h3>
-              <p className="text-sm leading-relaxed text-[#062E2C]/80 mt-6">
-                Tired of delays? Our AI-powered workflows get you 10× faster
-                launch with efficient design processes.
-              </p>
-            </div>
-
-            {/* Budget Concerns — PINK */}
-            <div className="rounded-2xl p-7 bg-[#E5F8F2] text-[#3a1414] min-h-[200px]">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3">
-                Budget Concerns?
-              </h3>
-              <p className="text-sm leading-relaxed">
-                Most top-notch design without overspending? We reduce design
-                &amp; dev costs by 25%, focusing on core features that matter.
-              </p>
-            </div>
-
-            {/* Scaling Issues — CREAM */}
-            <div className="rounded-2xl p-7 bg-[#FFF3DC] text-[#3a2e14] min-h-[200px]">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3">
-                Scaling Issues?
-              </h3>
-              <p className="text-sm leading-relaxed">
-                Need designs that grow with you? Our scalable systems and
-                workflows make scaling 25% more efficient.
-              </p>
-            </div>
-
-            {/* Low User Engagement — WHITE */}
-            <div className="rounded-2xl p-7 bg-[#F5F5F5] text-[#0a0a0a] min-h-[200px]">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3">
-                Low User Engagement?
-              </h3>
-              <p className="text-sm leading-relaxed">
-                Increase retention with intuitive UI/UX that delights users from
-                the first interaction.
-              </p>
-            </div>
-
-            {/* Poor Conversion Rates — WHITE */}
-            <div className="rounded-2xl p-7 bg-[#E6FEFE] text-[#0a0a0a] min-h-[200px]">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3">
-                Poor Conversion Rates?
-              </h3>
-              <p className="text-sm leading-relaxed">
-                Boost conversions with modern, user-focused design that drives
-                action during the visit period.
-              </p>
-            </div>
+      {/* ───────── PROBLEM CARDS GRID ───────── */}
+      <section className="px-5 sm:px-10 lg:px-20 py-16 sm:py-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Slow Launch — TEAL, spans 2 rows on lg */}
+          <div className="lg:row-span-2 rounded-2xl p-7 bg-[#07BEB8] text-[#062E2C] flex flex-col justify-between min-h-[260px] lg:min-h-[420px]">
+            <h3 className="text-2xl sm:text-3xl font-bold">Slow Launch?</h3>
+            <p className="text-sm leading-relaxed text-[#062E2C]/80 mt-6">
+              Tired of delays? Our AI-powered workflows get you 10× faster
+              launch with efficient design processes.
+            </p>
           </div>
-        </section>
-      </div>
+
+          {/* Budget Concerns — PINK */}
+          <div className="rounded-2xl p-7 bg-[#E5F8F2] text-[#3a1414] min-h-[200px]">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3">
+              Budget Concerns?
+            </h3>
+            <p className="text-sm leading-relaxed">
+              Most top-notch design without overspending? We reduce design &amp;
+              dev costs by 25%, focusing on core features that matter.
+            </p>
+          </div>
+
+          {/* Scaling Issues — CREAM */}
+          <div className="rounded-2xl p-7 bg-[#FFF3DC] text-[#3a2e14] min-h-[200px]">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3">
+              Scaling Issues?
+            </h3>
+            <p className="text-sm leading-relaxed">
+              Need designs that grow with you? Our scalable systems and
+              workflows make scaling 25% more efficient.
+            </p>
+          </div>
+
+          {/* Low User Engagement — WHITE */}
+          <div className="rounded-2xl p-7 bg-[#F5F5F5] text-[#0a0a0a] min-h-[200px]">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3">
+              Low User Engagement?
+            </h3>
+            <p className="text-sm leading-relaxed">
+              Increase retention with intuitive UI/UX that delights users from
+              the first interaction.
+            </p>
+          </div>
+
+          {/* Poor Conversion Rates — WHITE */}
+          <div className="rounded-2xl p-7 bg-[#E6FEFE] text-[#0a0a0a] min-h-[200px]">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3">
+              Poor Conversion Rates?
+            </h3>
+            <p className="text-sm leading-relaxed">
+              Boost conversions with modern, user-focused design that drives
+              action during the visit period.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <Suspense fallback={null}>
         <Footer />

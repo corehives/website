@@ -1,7 +1,8 @@
-import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/layout/header.jsx";
 import Hero from "./components/hero.jsx";
+import PageLoader from "./components/PageLoader.jsx";
 
 const Solution = lazy(() => import("./components/solution.jsx"));
 const OverView = lazy(() => import("./components/overview.jsx"));
@@ -35,18 +36,36 @@ function HomePage() {
   );
 }
 
+function AppRoutes() {
+  const location = useLocation();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    // Minimum display time so the loader doesn't flash
+    const minDisplay = setTimeout(() => setLoading(false), 900);
+    return () => clearTimeout(minDisplay);
+  }, [location.pathname]);
+
+  if (loading) return <PageLoader />;
+
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Routes location={location}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/web-development" element={<WebDevelopment />} />
+        <Route path="/our-portfolio" element={<OurPortfolio />} />
+        <Route path="/mobile-app-development" element={<AppDevelopment />} />
+      </Routes>
+    </Suspense>
+  );
+}
+
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#000405] text-white">
       <Header />
-      <Suspense fallback={null}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/web-development" element={<WebDevelopment />} />
-          <Route path="/our-portfolio" element={<OurPortfolio />} />
-          <Route path="/mobile-app-development" element={<AppDevelopment />} />
-        </Routes>
-      </Suspense>
+      <AppRoutes />
     </div>
   );
 }
