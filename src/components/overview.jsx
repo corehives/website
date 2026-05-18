@@ -72,11 +72,12 @@ export default function OverviewSection() {
                 development time through our low-code approach to cutting
                 operational costs at significantly affordable rates.
               </p>
-              <button className="group flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-[#07BEB8]/10 border border-[#07BEB8]/40 text-[#FFF] text-sm font-medium hover:bg-[#07BEB8]/20 transition-all duration-300">
+
+              <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
                 Explore All Case Studies
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-                <ArrowRight className="h-4 w-4" />
-              </span>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
+                  <ArrowRight className="h-4 w-4" />
+                </span>
               </button>
             </div>
           </div>
@@ -108,14 +109,14 @@ export default function OverviewSection() {
                 <div className="flex gap-3 flex-shrink-0">
                   <button
                     onClick={prev}
-                    className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-white"
+                    className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
                   >
                     <ArrowLeft size={16} />
                   </button>
 
                   <button
                     onClick={next}
-                    className="w-10 h-10 rounded-full bg-[#07BEB8] text-black flex items-center justify-center"
+                    className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
                   >
                     <ArrowRight size={16} />
                   </button>
@@ -138,13 +139,12 @@ export default function OverviewSection() {
               </p>
 
               {/* CTA */}
-              <button className="group flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-[#07BEB8]/50 text-[#FFF] text-sm hover:bg-[#07BEB8]/10 transition-all duration-300">
-                View Case Study
-                <ArrowRight
-                  size={14}
-                  strokeWidth={2}
-                  className="group-hover:translate-x-0.5 transition-transform"
-                />
+              {/* Let's Talk button */}
+              <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] mb-10">
+                View Case Studies
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
+                  <ArrowRight className="h-4 w-4" />
+                </span>
               </button>
             </div>
 

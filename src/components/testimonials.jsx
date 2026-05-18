@@ -341,24 +341,14 @@ export default function TestimonialsSection() {
         <div className="flex items-center justify-center gap-4 mt-12 px-4">
           <button
             onClick={scrollPrev}
-            className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
-            style={{
-              border: "1px solid rgba(7,190,184,0.35)",
-              background: "rgba(7,190,184,0.06)",
-              color: "white",
-            }}
+            className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
+     
           >
             <ArrowLeft size={18} />
           </button>
           <button
             onClick={scrollNext}
-            className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105"
-            style={{
-              background: "#07BEB8",
-              border: "none",
-              color: "#000",
-              boxShadow: "0 0 20px rgba(7,190,184,0.35)",
-            }}
+            className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
           >
             <ArrowRight size={18} />
           </button>

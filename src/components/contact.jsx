@@ -43,7 +43,8 @@ const contactInfo = [
   {
     icon: <MapPin size={15} className="text-[#001925]" />,
     label: "Address",
-    value: "1st Floor Office No. 113, Caesar's Tower Main Shahra-E-Faisal Karachi, Pakistan",
+    value:
+      "1st Floor Office No. 113, Caesar's Tower Main Shahra-E-Faisal Karachi, Pakistan",
   },
 ];
 
@@ -87,16 +88,22 @@ export default function ContactSection() {
     if (Object.keys(errors).length > 0) return;
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(form),
       });
       if (response.ok) {
         setSuccess("Your message has been sent successfully!");
-        setForm({ firstName: "", email: "", phone: "", subject: "", message: "" });
+        setForm({
+          firstName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
       } else {
         setError("Failed to send your message. Please try again later.");
       }
@@ -136,9 +143,9 @@ export default function ContactSection() {
           </p>
 
           {/* Let's Talk button */}
-          <button className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-[#07BEB8]/50 text-white text-sm font-medium mb-14 hover:bg-[#07BEB8]/10 hover:border-[#07BEB8] transition-all duration-200">
+          <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] mb-10">
             Let's Talk
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
               <ArrowRight className="h-4 w-4" />
             </span>
           </button>
@@ -174,13 +181,19 @@ export default function ContactSection() {
 
           {/* Loader and messages */}
           {loading && (
-            <div className="mb-3 text-[#07BEB8] text-center font-semibold">Sending...</div>
+            <div className="mb-3 text-[#07BEB8] text-center font-semibold">
+              Sending...
+            </div>
           )}
           {success && submitted && (
-            <div className="mb-3 text-green-400 text-center font-semibold">{success}</div>
+            <div className="mb-3 text-green-400 text-center font-semibold">
+              {success}
+            </div>
           )}
           {error && submitted && (
-            <div className="mb-3 text-red-400 text-center font-semibold">{error}</div>
+            <div className="mb-3 text-red-400 text-center font-semibold">
+              {error}
+            </div>
           )}
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             {/* Row 1 */}
@@ -193,7 +206,9 @@ export default function ContactSection() {
                   onChange={handleChange}
                 />
                 {validation.firstName && (
-                  <div className="text-red-400 text-xs mt-1">{validation.firstName}</div>
+                  <div className="text-red-400 text-xs mt-1">
+                    {validation.firstName}
+                  </div>
                 )}
               </div>
               <div>
@@ -205,7 +220,9 @@ export default function ContactSection() {
                   onChange={handleChange}
                 />
                 {validation.email && (
-                  <div className="text-red-400 text-xs mt-1">{validation.email}</div>
+                  <div className="text-red-400 text-xs mt-1">
+                    {validation.email}
+                  </div>
                 )}
               </div>
             </div>
@@ -235,7 +252,9 @@ export default function ContactSection() {
                 onChange={handleChange}
               />
               {validation.message && (
-                <div className="text-red-400 text-xs mt-1">{validation.message}</div>
+                <div className="text-red-400 text-xs mt-1">
+                  {validation.message}
+                </div>
               )}
             </div>
 
@@ -245,18 +264,18 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200 border border-white/40 ${
+                className={`inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] ${
                   loading
                     ? "bg-[#07BEB8]/20 text-[#07BEB8] cursor-not-allowed"
                     : submitted && success
-                    ? "bg-green-900/20 text-green-400"
-                    : submitted && error
-                    ? "bg-red-900/20 text-red-400"
-                    : "bg-transparent text-white hover:bg-white/5"
+                      ? "bg-green-900/20 text-green-400"
+                      : submitted && error
+                        ? "bg-red-900/20 text-red-400"
+                        : "bg-transparent text-white hover:bg-white/5"
                 }`}
               >
                 {loading ? "Sending..." : "Submit Now"}
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </button>

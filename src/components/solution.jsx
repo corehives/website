@@ -258,15 +258,11 @@ function GlowCard({ card }) {
           </p>
           <div className="mt-auto">
             <button
-              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-[#FFF] w-fit cursor-pointer transition-all hover:brightness-125"
-              style={{
-                background: "rgba(7,190,184,0.09)",
-                border: "1px solid #9D9D9D",
-                boxShadow: "0 0 10px rgba(7,190,184,0.1)",
-              }}
+              href="#"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
             >
               Read More
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
                 <ArrowRight className="h-4 w-4" />
               </span>
             </button>
@@ -416,15 +412,15 @@ export default function PartnersSection() {
           </div>
         </div>
 
-       {/* Cards Grid — tri-fold mirror tilt */}
+        {/* Cards Grid — tri-fold mirror tilt */}
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
           style={{ gap: "30px", alignItems: "flex-end", perspective: "2000px" }}
         >
           {cards.map((card, i) => {
-            const rotateY   = [28, 0, -28];
-            const originX   = ["right", "center", "left"];
-            const marginX   = ["-8px", "0px", "-8px"];
+            const rotateY = [28, 0, -28];
+            const originX = ["right", "center", "left"];
+            const marginX = ["-8px", "0px", "-8px"];
 
             return (
               <div
@@ -432,7 +428,7 @@ export default function PartnersSection() {
                 style={{
                   transform: `rotateY(${rotateY[i]}deg)`,
                   transformOrigin: `${originX[i]} bottom`,
-                  marginLeft:  i === 2 ? marginX[2] : undefined,
+                  marginLeft: i === 2 ? marginX[2] : undefined,
                   marginRight: i === 0 ? marginX[0] : undefined,
                   transition: "transform 0.45s ease",
                   zIndex: i === 1 ? 10 : 5,
@@ -571,14 +567,7 @@ export default function PartnersSection() {
               to take weeks into days.
             </p>
 
-            {/* CTA Button */}
-            <button
-              className="self-start flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-white cursor-pointer"
-              style={{
-                border: "1px solid rgba(255,255,255,0.3)",
-                background: "rgba(255,255,255,0.05)",
-              }}
-            >
+            <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
               Read More
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
                 <ArrowRight className="h-4 w-4" />

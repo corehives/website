@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import Logo from "../../assets/logo.png";
 
 const navItems = [
@@ -143,12 +143,12 @@ export default function Header() {
           {/* Desktop CTA */}
           <div className="hidden items-center gap-3 sm:flex">
             <a
-              href="#hire"
+              href="#"
               className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
             >
               Hire a Developer
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:rotate-45">
-                <ArrowUpRight className="h-4 w-4" />
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
+                <ArrowRight className="h-4 w-4" />
               </span>
             </a>
           </div>
@@ -235,7 +235,7 @@ export default function Header() {
             className="mt-4 group flex items-center gap-2 rounded-full border border-[#07BEB8]/40 bg-[#07BEB8]/10 px-4 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#07BEB8]/20"
           >
             Hire a Developer
-            <ArrowUpRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </div>

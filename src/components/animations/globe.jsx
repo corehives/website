@@ -43,8 +43,8 @@ function useHoverRotation() {
     const handleMove = (event) => {
       const x = event.touches ? event.touches[0].clientX : event.clientX;
       const y = event.touches ? event.touches[0].clientY : event.clientY;
-      const nx = (x / window.innerWidth - 1) * 4;
-      const ny = (y / window.innerHeight - 1) * 4;
+      const nx = (x / window.innerWidth - 1) * 5;
+      const ny = (y / window.innerHeight - 1) * 5;
 
       controller.setTarget(nx, ny);
     };
