@@ -8,7 +8,7 @@ const navItems = [
   // { label: "Portfolio", to: "/our-portfolio" },
   { label: "Our Services", hasMenu: true },
   { label: "Company", to: "#" },
-  { label: "Contact Us", to: "/#contact" },
+  { label: "Contact Us", to: "/contact" },
 ];
 
 const serviceLinks = [

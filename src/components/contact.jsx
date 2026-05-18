@@ -1,9 +1,30 @@
 import { useState } from "react";
-import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import {
+  AlertCircle,
+  ArrowRight,
+  CheckCircle2,
+  LoaderCircle,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import BGSquare from "../assets/bg-square.png";
 import BgLeft from "../assets/bg-left-content.webp";
 
-function InputField({ name, placeholder, type = "text", value, onChange }) {
+const CONTACT_API_URL =
+  import.meta.env.VITE_CONTACT_API_URL || "/api/contact";
+
+function InputField({
+  name,
+  placeholder,
+  type = "text",
+  value,
+  onChange,
+  error,
+  disabled,
+}) {
   return (
     <input
       name={name}
@@ -11,12 +32,18 @@ function InputField({ name, placeholder, type = "text", value, onChange }) {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className="w-full bg-[#000405] border border-white/10 rounded-3xl px-4 py-3 text-white text-sm placeholder-white/30 outline-none focus:border-[#07BEB8]/50 focus:bg-[#000405] transition-all duration-200"
+      disabled={disabled}
+      aria-invalid={Boolean(error)}
+      className={`w-full rounded-3xl border bg-[#000405] px-4 py-3 text-sm text-white outline-none transition-all duration-200 ${
+        error
+          ? "border-red-400/60 bg-red-500/[0.03] focus:border-red-400"
+          : "border-white/10 focus:border-[#07BEB8]/50 focus:bg-[#000405]"
+      } ${disabled ? "cursor-not-allowed opacity-70" : ""} placeholder-white/30`}
     />
   );
 }
 
-function TextAreaField({ name, placeholder, value, onChange }) {
+function TextAreaField({ name, placeholder, value, onChange, error, disabled }) {
   return (
     <textarea
       name={name}
@@ -24,8 +51,71 @@ function TextAreaField({ name, placeholder, value, onChange }) {
       value={value}
       onChange={onChange}
       rows={12}
-      className="w-full bg-[#000405] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-white/30 outline-none focus:border-[#07BEB8]/50 focus:bg-[#000405] transition-all duration-200 resize-none"
+      disabled={disabled}
+      aria-invalid={Boolean(error)}
+      className={`w-full resize-none rounded-xl border bg-[#000405] px-4 py-3 text-sm text-white outline-none transition-all duration-200 ${
+        error
+          ? "border-red-400/60 bg-red-500/[0.03] focus:border-red-400"
+          : "border-white/10 focus:border-[#07BEB8]/50 focus:bg-[#000405]"
+      } ${disabled ? "cursor-not-allowed opacity-70" : ""} placeholder-white/30`}
     />
+  );
+}
+
+function StatusBanner({ status }) {
+  if (!status) return null;
+
+  const variants = {
+    loading: {
+      icon: LoaderCircle,
+      iconClass: "animate-spin text-[#8efcf8]",
+      container:
+        "border-[#07BEB8]/25 bg-[linear-gradient(135deg,rgba(7,190,184,0.18),rgba(1,10,17,0.32))]",
+      eyebrow: "text-[#8efcf8]",
+      body: "text-white/65",
+      label: "Sending",
+    },
+    success: {
+      icon: CheckCircle2,
+      iconClass: "text-emerald-300",
+      container:
+        "border-emerald-400/20 bg-[linear-gradient(135deg,rgba(16,185,129,0.16),rgba(1,10,17,0.32))]",
+      eyebrow: "text-emerald-300",
+      body: "text-white/65",
+      label: "Delivered",
+    },
+    error: {
+      icon: AlertCircle,
+      iconClass: "text-rose-300",
+      container:
+        "border-rose-400/20 bg-[linear-gradient(135deg,rgba(244,63,94,0.16),rgba(1,10,17,0.32))]",
+      eyebrow: "text-rose-300",
+      body: "text-white/65",
+      label: "Attention",
+    },
+  };
+
+  const variant = variants[status.type];
+  if (!variant) return null;
+
+  const Icon = variant.icon;
+
+  return (
+    <div
+      role={status.type === "error" ? "alert" : "status"}
+      className={`mb-6 flex items-start gap-4 rounded-2xl border px-4 py-4 shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-md ${variant.container}`}
+    >
+      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-[#020b0d]/60">
+        <Icon className={`h-5 w-5 ${variant.iconClass}`} />
+      </div>
+      <div className="min-w-0">
+        <p className={`text-[0.65rem] font-semibold uppercase tracking-[0.24em] ${variant.eyebrow}`}>
+          {variant.label}
+        </p>
+        <p className="mt-1 text-base font-semibold text-white">{status.title}</p>
+        <p className={`mt-1 text-sm leading-relaxed ${variant.body}`}>{status.message}</p>
+      </div>
+    </div>
   );
 }
 
@@ -33,18 +123,23 @@ const contactInfo = [
   {
     icon: <Phone size={15} className="text-[#001925]" />,
     label: "Phone",
-    value: "(302) 857 0711",
+    value: "+1 3072008084",
+  },
+  {
+    icon: <FaWhatsapp size={15} className="text-[#001925]" />,
+    label: "WhatsApp",
+    value: "+1 4157189679",
   },
   {
     icon: <Mail size={15} className="text-[#001925]" />,
     label: "Email",
-    value: "connect@CoreHives.com",
+    value: "info@corehives.com",
   },
   {
     icon: <MapPin size={15} className="text-[#001925]" />,
     label: "Address",
     value:
-      "1st Floor Office No. 113, Caesar's Tower Main Shahra-E-Faisal Karachi, Pakistan",
+      "1023 E Lincolnway, Cheyenne, WY 82001, United States",
   },
 ];
 
@@ -57,10 +152,8 @@ export default function ContactSection() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const [validation, setValidation] = useState({});
+  const [status, setStatus] = useState(null);
 
   const validate = () => {
     const errors = {};
@@ -77,26 +170,46 @@ export default function ContactSection() {
   const handleChange = (e) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
     setValidation((v) => ({ ...v, [e.target.name]: undefined }));
+    if (status?.type !== "loading") setStatus(null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
+
     const errors = validate();
     setValidation(errors);
-    if (Object.keys(errors).length > 0) return;
+
+    if (Object.keys(errors).length > 0) {
+      setStatus({
+        type: "error",
+        title: "A few fields need attention",
+        message: "Please review the highlighted fields and submit the form again.",
+      });
+      return;
+    }
+
     setLoading(true);
+    setStatus({
+      type: "loading",
+      title: "Sending your message",
+      message: "We are routing your request to the CoreHives team now.",
+    });
+
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(form),
       });
+
       if (response.ok) {
-        setSuccess("Your message has been sent successfully!");
+        setStatus({
+          type: "success",
+          title: "Message delivered",
+          message: "Thanks for reaching out. Our team will get back to you within 24 hours.",
+        });
         setForm({
           firstName: "",
           email: "",
@@ -104,15 +217,22 @@ export default function ContactSection() {
           subject: "",
           message: "",
         });
+        setValidation({});
       } else {
-        setError("Failed to send your message. Please try again later.");
+        setStatus({
+          type: "error",
+          title: "Submission failed",
+          message: "We could not send your message just now. Please try again in a moment.",
+        });
       }
-    } catch (err) {
-      setError("Failed to send your message. Please check your connection.");
+    } catch {
+      setStatus({
+        type: "error",
+        title: "Contact server unavailable",
+        message: "Could not reach the contact server. Make sure the backend is running and try again.",
+      });
     } finally {
       setLoading(false);
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000);
     }
   };
 
@@ -174,27 +294,12 @@ export default function ContactSection() {
         </div>
 
         {/* ── RIGHT COLUMN — Form card ── */}
-        <div className="flex-1 min-w-[300px] max-h-[600px] w-full bg-[linear-gradient(200deg,#07beb824,#010a1133)] border border-[#07BEB8]/20 rounded-2xl p-8 sm:p-10 backdrop-blur-md shadow-[0_0_60px_rgba(7,190,184,0.07),0_24px_64px_rgba(0,0,0,0.4)]">
+        <div className="flex-1 min-w-[300px] w-full bg-[linear-gradient(200deg,#07beb824,#010a1133)] border border-[#07BEB8]/20 rounded-2xl p-8 sm:p-10 backdrop-blur-md shadow-[0_0_60px_rgba(7,190,184,0.07),0_24px_64px_rgba(0,0,0,0.4)]">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-7 tracking-tight">
             Let's Get in Touch
           </h3>
 
-          {/* Loader and messages */}
-          {loading && (
-            <div className="mb-3 text-[#07BEB8] text-center font-semibold">
-              Sending...
-            </div>
-          )}
-          {success && submitted && (
-            <div className="mb-3 text-green-400 text-center font-semibold">
-              {success}
-            </div>
-          )}
-          {error && submitted && (
-            <div className="mb-3 text-red-400 text-center font-semibold">
-              {error}
-            </div>
-          )}
+          <StatusBanner status={status} />
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -204,6 +309,8 @@ export default function ContactSection() {
                   placeholder="First name"
                   value={form.firstName}
                   onChange={handleChange}
+                  error={validation.firstName}
+                  disabled={loading}
                 />
                 {validation.firstName && (
                   <div className="text-red-400 text-xs mt-1">
@@ -218,6 +325,8 @@ export default function ContactSection() {
                   placeholder="Email Address"
                   value={form.email}
                   onChange={handleChange}
+                  error={validation.email}
+                  disabled={loading}
                 />
                 {validation.email && (
                   <div className="text-red-400 text-xs mt-1">
@@ -234,12 +343,14 @@ export default function ContactSection() {
                 placeholder="Phone No"
                 value={form.phone}
                 onChange={handleChange}
+                disabled={loading}
               />
               <InputField
                 name="subject"
                 placeholder="Subject"
                 value={form.subject}
                 onChange={handleChange}
+                disabled={loading}
               />
             </div>
 
@@ -250,6 +361,8 @@ export default function ContactSection() {
                 placeholder="Type your message"
                 value={form.message}
                 onChange={handleChange}
+                error={validation.message}
+                disabled={loading}
               />
               {validation.message && (
                 <div className="text-red-400 text-xs mt-1">
@@ -264,19 +377,19 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] ${
+                className={`inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium transition-all ${
                   loading
-                    ? "bg-[#07BEB8]/20 text-[#07BEB8] cursor-not-allowed"
-                    : submitted && success
-                      ? "bg-green-900/20 text-green-400"
-                      : submitted && error
-                        ? "bg-red-900/20 text-red-400"
-                        : "bg-transparent text-white hover:bg-white/5"
+                    ? "cursor-not-allowed border-[#07BEB8]/30 bg-[#07BEB8]/12 text-[#8efcf8]"
+                    : "bg-transparent text-white hover:bg-white/5"
                 }`}
               >
-                {loading ? "Sending..." : "Submit Now"}
+                {loading ? "Submitting..." : "Submit Now"}
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-                  <ArrowRight className="h-4 w-4" />
+                  {loading ? (
+                    <LoaderCircle className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <ArrowRight className="h-4 w-4" />
+                  )}
                 </span>
               </button>
 

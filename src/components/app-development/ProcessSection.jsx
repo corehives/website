@@ -14,8 +14,8 @@ export default function ProcessSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            CoreHives <span className="text-[#07BEB8]">Process</span> For
-            Mobile App
+            CoreHives <span className="text-[#07BEB8]">Process</span> For Mobile
+            App
             <br />
             Development
           </h2>
@@ -43,15 +43,11 @@ export default function ProcessSection() {
                 {process.description}
               </p>
               <button
-                className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-[#FFF] w-fit cursor-pointer transition-all hover:brightness-125"
-                style={{
-                  background: "rgba(7,190,184,0.09)",
-                  border: "1px solid #9D9D9D",
-                  boxShadow: "0 0 10px rgba(7,190,184,0.1)",
-                }}
+                href="#"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
               >
                 Read More
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </button>

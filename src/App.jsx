@@ -9,11 +9,12 @@ const OverView = lazy(() => import("./components/overview.jsx"));
 const Partners = lazy(() => import("./components/partners.jsx"));
 const Testimonials = lazy(() => import("./components/testimonials.jsx"));
 const Awards = lazy(() => import("./components/awards.jsx"));
-const Contact = lazy(() => import("./components/contact.jsx"));
+const ContactSection = lazy(() => import("./components/contact.jsx"));
 const Footer = lazy(() => import("./components/layout/footer.jsx"));
 const WebDevelopment = lazy(() => import("./pages/web-development.jsx"));
 const OurPortfolio = lazy(() => import("./pages/our-portfolio.jsx"));
 const AppDevelopment = lazy(() => import("./pages/app-development.jsx"));
+const ContactPage = lazy(() => import("./pages/contact-us.jsx"));
 
 function HomePage() {
   return (
@@ -26,7 +27,7 @@ function HomePage() {
           <Partners />
           <Testimonials />
           <Awards />
-          <Contact />
+          <ContactSection />
         </Suspense>
       </main>
       <Suspense fallback={null}>
@@ -42,8 +43,7 @@ function AppRoutes() {
 
   useEffect(() => {
     setLoading(true);
-    // Minimum display time so the loader doesn't flash
-    const minDisplay = setTimeout(() => setLoading(false), 900);
+    const minDisplay = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(minDisplay);
   }, [location.pathname]);
 
@@ -56,6 +56,12 @@ function AppRoutes() {
         <Route path="/web-development" element={<WebDevelopment />} />
         <Route path="/our-portfolio" element={<OurPortfolio />} />
         <Route path="/mobile-app-development" element={<AppDevelopment />} />
+        <Route path="/contact" element={
+          <Suspense fallback={<PageLoader />}>
+            <ContactPage />
+            <Footer />
+          </Suspense>
+        } />
       </Routes>
     </Suspense>
   );

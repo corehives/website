@@ -14,6 +14,7 @@ import avatar6 from "../assets/avatar-9.png";
 import { SiJavascript, SiFlutter, SiNextdotjs } from "react-icons/si";
 import BgApp from "../assets/bg-app.png";
 import { lazy, Suspense } from "react";
+import { ArrowRight } from "lucide-react";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
@@ -84,7 +85,7 @@ export default function WebDevelopment() {
             src={hero_bg}
             alt="hero-bg"
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
             className="h-full w-full object-cover object-center opacity-90"
           />
         </div>
@@ -95,7 +96,7 @@ export default function WebDevelopment() {
           alt=""
           aria-hidden="true"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           className="pointer-events-none absolute left-0 top-0 z-[2] h-auto max-w-[100%] object-left"
         />
 
@@ -105,7 +106,7 @@ export default function WebDevelopment() {
           alt=""
           aria-hidden="true"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           className="pointer-events-none absolute right-0 top-0 z-[2] h-auto max-w-[100%] object-right"
         />
 
@@ -211,12 +212,12 @@ export default function WebDevelopment() {
 
             <div className="flex items-center gap-4 pt-4">
               <a
-                href="#hire"
+                href="#"
                 className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
               >
-                More Explore
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:rotate-45">
-                  <ArrowUpRight className="h-4 w-4" />
+                Hire a Developer
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
+                  <ArrowRight className="h-4 w-4" />
                 </span>
               </a>
               <div className="flex items-center gap-8">
@@ -427,7 +428,7 @@ export default function WebDevelopment() {
               </div>
 
               {/* Stats card with avatars */}
-              <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-5 flex items-center justify-between">
+              <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="flex items-center">
                     <img
@@ -456,12 +457,12 @@ export default function WebDevelopment() {
                   </div>
                 </div>
                 <a
-                  href="#portfolio"
-                  className="flex items-center gap-2 text-white text-sm font-medium group"
+                  href="#"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
                 >
-                  View Portolio
-                  <span className="flex items-center justify-center w-9 h-9 rounded-full bg-[#07BEB8] group-hover:rotate-45 transition-transform">
-                    <ArrowUpRight className="w-4 h-4 text-black" />
+                  View Portfoilo
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
+                    <ArrowRight className="h-4 w-4" />
                   </span>
                 </a>
               </div>

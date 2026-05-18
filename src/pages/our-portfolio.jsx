@@ -142,7 +142,7 @@ export default function Portfolio() {
             src={hero_bg}
             alt="hero-bg"
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
             className="h-full w-full object-cover object-center opacity-90"
           />
         </div>
@@ -153,7 +153,7 @@ export default function Portfolio() {
           alt=""
           aria-hidden="true"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           className="pointer-events-none absolute left-0 top-0 z-[2] h-auto max-w-[100%] object-left"
         />
 
@@ -163,7 +163,7 @@ export default function Portfolio() {
           alt=""
           aria-hidden="true"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           className="pointer-events-none absolute right-0 top-0 z-[2] h-auto max-w-[100%] object-right"
         />
 

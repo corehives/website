@@ -74,19 +74,31 @@ const badgeStyle = {
 };
 
 export default function Footer() {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = () => {
+    const behavior =
+      "scrollBehavior" in document.documentElement.style ? "smooth" : "auto";
+
+    window.scrollTo({ top: 0, behavior });
+    document.documentElement.scrollTo?.({ top: 0, behavior });
+    document.body.scrollTo?.({ top: 0, behavior });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
 
   return (
     <>
-      <footer className="relative w-full bg-transparent">
+
+      <footer className="relative isolate z-10 w-full bg-transparent">
         {/* ── Scroll to top button ── */}
         <div
-          className="flex justify-center"
-          style={{ position: "relative", zIndex: 10, marginBottom: "-30px" }}
+          className="pointer-events-none flex justify-center z-[9999]"
+          style={{ position: "relative", zIndex: 9999, marginBottom: "-30px" }}
         >
           <button
+            type="button"
             onClick={scrollToTop}
-            className="absolute left-50% -top-10 flex h-16 w-16 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+            aria-label="Scroll to top"
+            className="pointer-events-auto absolute left-1/2 top-0 z-[9999] flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
             style={{
               background: "linear-gradient(180deg, #07BEB8, #33384B)",
               boxShadow: "0 8px 40px rgba(7,190,184,100%), 0 4px 12px rgba(0,129,142,100)",

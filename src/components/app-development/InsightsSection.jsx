@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import BgApp from "../../assets/bg-app.png";
 import { insightsData } from "./data";
+import { ArrowRight } from "lucide-react";
 
 export default function InsightsSection() {
   const trackRef = useRef(null);
@@ -134,15 +135,12 @@ export default function InsightsSection() {
 
                 <div className="mt-4">
                   <button
-                    className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-white transition-all hover:brightness-125"
-                    style={{
-                      background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.15)",
-                    }}
+                    href="#"
+                    className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
                   >
                     Read More
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#07BEB8] text-black text-[10px]">
-                      ↗
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
+                      <ArrowRight className="h-4 w-4" />
                     </span>
                   </button>
                 </div>

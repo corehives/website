@@ -96,7 +96,7 @@ export default function Hero() {
           src={hero_bg}
           alt="hero-bg"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           className="h-full w-full object-cover object-top opacity-90"
           decoding="async"
         />
@@ -107,7 +107,7 @@ export default function Hero() {
         src={leftLight}
         alt="left-content"
         loading="eager"
-        fetchpriority="high"
+        fetchPriority="high"
         className="pointer-events-none absolute left-0 top-0 z-[2] h-[18rem] w-auto sm:h-[28rem] lg:h-[50rem]"
         style={{
           animation: "slideInLeft 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
@@ -121,7 +121,7 @@ export default function Hero() {
         src={rightLight}
         alt="right-content"
         loading="eager"
-        fetchpriority="high"
+        fetchPriority="high"
         className="pointer-events-none absolute right-0 top-0 z-[2] h-[18rem] w-auto sm:h-[28rem] lg:h-[50rem]"
         style={{
           animation: "slideInRight 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
