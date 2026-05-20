@@ -1,0 +1,94 @@
+[
+  {
+    "id": "mvp",
+    "name": "MVP Launch",
+    "eyebrow": "For new product ideas",
+    "description": "Perfect for startups validating a concept with a fast, focused mobile release.",
+    "features": [
+      "Single-platform iOS or Android app",
+      "Core user flows and onboarding",
+      "Clickable prototype to production build",
+      "API integration for essential features",
+      "Launch support and QA testing"
+    ],
+    "buttonText": "Launch Your MVP",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$2,490",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "A lean build lane for teams moving from idea to first release."
+      },
+      "yearly": {
+        "price": "$23,900",
+        "billing": "/year",
+        "discountBadge": "2 months free",
+        "caption": "Best for founders planning post-launch improvements without re-scoping every sprint."
+      }
+    }
+  },
+  {
+    "id": "growth-app",
+    "name": "Growth App",
+    "eyebrow": "Most requested",
+    "description": "Built for product teams that need richer functionality, stronger UX, and ongoing release support.",
+    "features": [
+      "Cross-platform or dual-platform delivery",
+      "Advanced UI system and micro-interactions",
+      "Admin panel or CMS integration",
+      "Push notifications and analytics events",
+      "App store deployment support",
+      "Priority fixes and release iterations"
+    ],
+    "buttonText": "Choose Growth App",
+    "buttonHref": "/contact",
+    "popular": true,
+    "billing": {
+      "monthly": {
+        "price": "$4,290",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Ideal for scaling mobile products with active user acquisition and retention goals."
+      },
+      "yearly": {
+        "price": "$41,200",
+        "billing": "/year",
+        "discountBadge": "Save 20%",
+        "caption": "The strongest fit for teams shipping consistently across product, UX, and growth."
+      }
+    }
+  },
+  {
+    "id": "product-partner",
+    "name": "Product Partner",
+    "eyebrow": "For serious scale",
+    "description": "A dedicated mobile product partnership for complex apps, deep integrations, and roadmap ownership.",
+    "features": [
+      "Multi-role squad for ongoing sprints",
+      "Complex backend or third-party integrations",
+      "Performance, security, and crash monitoring",
+      "Feature experimentation and retention flows",
+      "Dedicated release planning and reporting",
+      "Priority communication channel"
+    ],
+    "buttonText": "Talk To Product Team",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$6,990",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Best for established apps that need a reliable partner embedded in the roadmap."
+      },
+      "yearly": {
+        "price": "$67,100",
+        "billing": "/year",
+        "discountBadge": "Annual partner rate",
+        "caption": "Designed for continuous feature delivery, optimization, and long-term product support."
+      }
+    }
+  }
+]

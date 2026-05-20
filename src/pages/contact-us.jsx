@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, MapPin, Mail, Phone, Clock } from "lucide-react";
+import { ArrowRight, MapPin, Mail, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -44,49 +44,46 @@ const tealMarker = new L.DivIcon({
   popupAnchor: [0, -40],
 });
 
-const LOCATION_NAME = "CoreHives HQ";
-const LOCATION_ADDRESS = "1023 E Lincolnway, Cheyenne, WY 82001, United States";
-const LOCATION_LINK = "https://maps.google.com/?q=1023+E+Lincolnway+Cheyenne+WY+82001";
 const CONTACT_API_URL =
   import.meta.env.VITE_CONTACT_API_URL || "/api/contact";
-const POSITION = [41.1399, -104.8202];
-const MAP_METRICS = [
-  { label: "Node", value: "Cheyenne, WY" },
-  { label: "Focus", value: "HQ Campus" },
-  { label: "View", value: "Dark Grid" },
+const OFFICE_LOCATIONS = [
+  {
+    id: "hq",
+    badge: "Head Office",
+    name: "CoreHives HQ",
+    city: "Cheyenne, WY",
+    address: "1023 E Lincolnway, Cheyenne, WY 82001, United States",
+    addressLines: ["1023 E Lincolnway", "Cheyenne, WY 82001", "United States"],
+    link: "https://maps.google.com/?q=1023+E+Lincolnway+Cheyenne+WY+82001",
+    position: [41.1399, -104.8202],
+    title: "Visit Our Main Office",
+    description:
+      "Tap into our Wyoming location, inspect the area, and jump to directions right from the map.",
+  },
+  {
+    id: "production",
+    badge: "Production Hub",
+    name: "CoreHives Production Office",
+    city: "Karachi, Pakistan",
+    address: "Caesars Tower, Floor 1, Office 113, Shahrah-e-Faisal, Karachi, Pakistan",
+    addressLines: [
+      "Caesars Tower, Floor 1, Office 113",
+      "Shahrah-e-Faisal",
+      "Karachi, Pakistan",
+    ],
+    link:
+      "https://maps.google.com/?q=Caesars+Tower+Floor+1+Office+113+Shahrah-e-Faisal+Karachi+Pakistan",
+    position: [24.8578, 67.0456],
+    title: "Visit Our Production Office",
+    description:
+      "Switch to our Karachi production office and open directions straight from the map.",
+  },
 ];
 const MAP_CORNERS = [
   { top: 0, left: 0, borderTop: true, borderLeft: true, borderRadius: "28px 0 0 0" },
   { top: 0, right: 0, borderTop: true, borderRight: true, borderRadius: "0 28px 0 0" },
   { bottom: 0, left: 0, borderBottom: true, borderLeft: true, borderRadius: "0 0 0 28px" },
   { bottom: 0, right: 0, borderBottom: true, borderRight: true, borderRadius: "0 0 28px 0" },
-];
-
-const contactInfo = [
-  {
-    icon: MapPin,
-    label: "Our Office",
-    value: LOCATION_ADDRESS,
-    href: LOCATION_LINK,
-  },
-  {
-    icon: Mail,
-    label: "Email Us",
-    value: "info@corehives.com",
-    href: "mailto:info@corehives.com",
-  },
-  {
-    icon: FaWhatsapp,
-    label: "WhatsApp",
-    value: "+1 4157189679",
-    href: "tel:+14157189679",
-  },
-  {
-    icon: Phone,
-    label: "Call center",
-    value: "+1 3072008084",
-    href: "tel:+13072008084",
-  },
 ];
 
 function ContactInfoCard({ icon: Icon, label, value, href }) {
@@ -112,8 +109,8 @@ function ContactInfoCard({ icon: Icon, label, value, href }) {
           {label}
         </p>
         {href ? (
-          
-           <a href={href}
+          <a
+            href={href}
             target={href.startsWith("http") ? "_blank" : undefined}
             rel="noopener noreferrer"
             className="text-white text-sm leading-snug transition-colors duration-200 hover:text-[#07BEB8]"
@@ -128,7 +125,7 @@ function ContactInfoCard({ icon: Icon, label, value, href }) {
   );
 }
 
-function ThemedMap() {
+function ThemedMap({ activeLocation, onLocationChange }) {
   return (
     <div className="relative left-1/2 w-screen -translate-x-1/2 px-4 sm:px-8 lg:px-12">
       <div className="group relative isolate mx-auto h-[380px] w-full max-w-[1440px] sm:h-[460px] lg:h-[560px]">
@@ -141,7 +138,8 @@ function ThemedMap() {
           }}
         >
           <MapContainer
-            center={POSITION}
+            key={activeLocation.id}
+            center={activeLocation.position}
             zoom={15}
             scrollWheelZoom={false}
             style={{ width: "100%", height: "100%" }}
@@ -153,7 +151,7 @@ function ThemedMap() {
               attribution='&copy; <a href="https://carto.com/">CARTO</a>'
             />
             <ZoomControl position="topright" />
-            <Marker position={POSITION} icon={tealMarker}>
+            <Marker position={activeLocation.position} icon={tealMarker}>
               <Popup className="corehives-popup">
                 <div
                   style={{
@@ -175,12 +173,12 @@ function ThemedMap() {
                       marginBottom: "4px",
                     }}
                   >
-                    {LOCATION_NAME}
+                    {activeLocation.name}
                   </p>
                   <p style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.85)", lineHeight: 1.5 }}>
-                    1023 E Lincolnway<br />
-                    Cheyenne, WY 82001<br />
-                    United States
+                    {activeLocation.addressLines[0]}<br />
+                    {activeLocation.addressLines[1]}<br />
+                    {activeLocation.addressLines[2]}
                   </p>
                 </div>
               </Popup>
@@ -234,35 +232,45 @@ function ThemedMap() {
         <div className="pointer-events-none absolute left-5 top-5 z-30 max-w-[260px] rounded-2xl border border-[#07BEB8]/20 bg-[#031112]/70 p-4 backdrop-blur-md sm:left-6 sm:top-6 sm:p-5">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#07BEB8]/20 bg-[#07BEB8]/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-[#8efcf8]">
             <span className="h-2 w-2 rounded-full bg-[#07BEB8]" />
-            Live Geo Node
+            {activeLocation.badge}
           </div>
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
-            {LOCATION_NAME}
+            {activeLocation.name}
           </p>
           <p className="mt-2 text-xl font-bold text-white sm:text-2xl">
-            Visit Our Main Office
+            {activeLocation.title}
           </p>
           <p className="mt-2 text-sm leading-relaxed text-white/60">
-            Tap into our Wyoming location, inspect the area, and jump to directions right from the map.
+            {activeLocation.description}
           </p>
         </div>
 
-        <div className="pointer-events-none absolute bottom-5 left-5 z-30 hidden flex-wrap gap-3 sm:flex sm:left-6 sm:bottom-6">
-          {MAP_METRICS.map((item) => (
-            <div
-              key={item.label}
-              className="min-w-[120px] rounded-2xl border border-white/10 bg-[#031112]/72 px-4 py-3 backdrop-blur-md"
-            >
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#07BEB8]">
-                {item.label}
-              </p>
-              <p className="mt-1 text-sm font-medium text-white/85">{item.value}</p>
-            </div>
-          ))}
+        <div className="absolute bottom-20 left-5 right-5 z-30 flex flex-col gap-3 sm:bottom-6 sm:left-6 sm:right-auto sm:flex-row sm:flex-wrap">
+          {OFFICE_LOCATIONS.map((location) => {
+            const isActive = location.id === activeLocation.id;
+
+            return (
+              <button
+                key={location.id}
+                type="button"
+                onClick={() => onLocationChange(location.id)}
+                className={`min-w-[160px] rounded-2xl border px-4 py-3 text-left backdrop-blur-md transition-all duration-300 ${
+                  isActive
+                    ? "border-[#07BEB8]/50 bg-[#062527]/90 shadow-[0_16px_36px_rgba(7,190,184,0.18)]"
+                    : "border-white/10 bg-[#031112]/72 hover:border-[#07BEB8]/30 hover:bg-[#04191b]/88"
+                }`}
+              >
+                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#07BEB8]">
+                  {location.badge}
+                </p>
+                <p className="mt-1 text-sm font-medium text-white/85">{location.city}</p>
+              </button>
+            );
+          })}
         </div>
 
         <a
-          href={LOCATION_LINK}
+          href={activeLocation.link}
           target="_blank"
           rel="noopener noreferrer"
           className="absolute bottom-5 right-5 z-30 inline-flex items-center gap-3 rounded-full border border-[#07BEB8]/35 bg-[#031112]/80 py-2 pl-5 pr-2 text-sm font-medium text-white shadow-[0_14px_40px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all duration-300 hover:border-[#07BEB8]/60 hover:bg-[#062527]/95 hover:text-[#8efcf8] lg:translate-y-4 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus-within:translate-y-0 lg:group-focus-within:opacity-100"
@@ -282,6 +290,7 @@ function ThemedMap() {
 }
 
 export default function Contact() {
+  const [activeLocationId, setActiveLocationId] = useState(OFFICE_LOCATIONS[0].id);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -292,6 +301,41 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [validation, setValidation] = useState({});
+
+  const activeLocation =
+    OFFICE_LOCATIONS.find((location) => location.id === activeLocationId) || OFFICE_LOCATIONS[0];
+  const contactInfo = [
+    {
+      icon: MapPin,
+      label: "Head Office",
+      value: OFFICE_LOCATIONS[0].address,
+      href: OFFICE_LOCATIONS[0].link,
+    },
+    {
+      icon: MapPin,
+      label: "Production Office",
+      value: OFFICE_LOCATIONS[1].address,
+      href: OFFICE_LOCATIONS[1].link,
+    },
+    {
+      icon: Mail,
+      label: "Email Us",
+      value: "info@corehives.com",
+      href: "mailto:info@corehives.com",
+    },
+    {
+      icon: FaWhatsapp,
+      label: "WhatsApp",
+      value: "+1 4157189679",
+      href: "tel:+14157189679",
+    },
+    {
+      icon: Phone,
+      label: "Call center",
+      value: "+1 3072008084",
+      href: "tel:+13072008084",
+    },
+  ];
 
   const validate = () => {
     const errors = {};
@@ -633,17 +677,20 @@ export default function Contact() {
                     Find Us
                   </p>
                   <p className="text-white/40 text-xs mt-0.5">
-                    {LOCATION_ADDRESS}
+                    {activeLocation.address}
                   </p>
                 </div>
               </div>
 
               <p className="max-w-md text-xs leading-relaxed text-white/45 sm:text-left sm:text-sm">
-                A wider live map panel with on-hover actions, dark grid overlays, and built-in zoom controls to match the CoreHives look.
+                Switch between our two office locations, explore the live map, and open directions for the branch you need.
               </p>
             </div>
 
-            <ThemedMap />
+            <ThemedMap
+              activeLocation={activeLocation}
+              onLocationChange={setActiveLocationId}
+            />
           </div>
         </div>
       </section>

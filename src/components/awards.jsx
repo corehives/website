@@ -63,12 +63,18 @@ function StarRow({ count = 5, color = "#00B67A" }) {
 // Card wrapper with glowing border
 function AwardCard({
   children,
+  href = "#",
   borderColor = "rgba(244,166,35,0.45)",
   glowColor = "rgba(244,166,35,0.12)",
   style = {},
 }) {
+  const isExternalLink = href !== "#";
+
   return (
-    <div
+    <a
+      href={href}
+      target={isExternalLink ? "_blank" : undefined}
+      rel={isExternalLink ? "noreferrer" : undefined}
       style={{
         borderRadius: 14,
         border: `1.5px solid ${borderColor}`,
@@ -79,7 +85,9 @@ function AwardCard({
         justifyContent: "center",
         padding: "20px 18px",
         transition: "transform 0.25s ease, box-shadow 0.25s ease",
-        cursor: "default",
+        cursor: "pointer",
+        textDecoration: "none",
+        color: "inherit",
         ...style,
       }}
       onMouseEnter={(e) => {
@@ -92,7 +100,7 @@ function AwardCard({
       }}
     >
       {children}
-    </div>
+    </a>
   );
 }
 
@@ -215,6 +223,7 @@ export default function AwardsSection() {
         >
           {/* Clutch Award 1 */}
           <AwardCard
+            href="#"
             style={{
               flex: "1 1 220px",
               minWidth: 220,
@@ -232,6 +241,7 @@ export default function AwardsSection() {
 
           {/* Trustpilot */}
           <AwardCard
+            href="https://www.trustpilot.com/review/corehives.com"
             style={{
               flex: "1 1 260px",
               minWidth: 260,
@@ -275,6 +285,7 @@ export default function AwardsSection() {
 
           {/* Clutch Award 2 */}
           <AwardCard
+            href="#"
             style={{
               flex: "1 1 220px",
               minWidth: 220,
@@ -292,6 +303,7 @@ export default function AwardsSection() {
 
           {/* GoodFirms */}
           <AwardCard
+            href="https://www.goodfirms.co/company/corehives"
             style={{
               flex: "1 1 220px",
               minWidth: 220,
@@ -357,6 +369,7 @@ export default function AwardsSection() {
         >
           {/* Clutch Award 3 */}
           <AwardCard
+            href="#"
             style={{
               flex: "1 1 260px",
               minWidth: 260,
@@ -374,6 +387,7 @@ export default function AwardsSection() {
 
           {/* Google Reviews */}
           <AwardCard
+            href="https://g.page/r/Ccl1CDMeIfgIEBM/review"
             style={{
               flex: "1 1 300px",
               minWidth: 300,
@@ -437,6 +451,7 @@ export default function AwardsSection() {
 
           {/* G2 */}
           <AwardCard
+            href="#"
             style={{
               flex: "1 1 260px",
               minWidth: 260,

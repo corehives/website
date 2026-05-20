@@ -137,9 +137,15 @@ const contactInfo = [
   },
   {
     icon: <MapPin size={15} className="text-[#001925]" />,
-    label: "Address",
+    label: "Head Office",
     value:
       "1023 E Lincolnway, Cheyenne, WY 82001, United States",
+  },
+  {
+    icon: <MapPin size={15} className="text-[#001925]" />,
+    label: "Production Office",
+    value:
+      "Office Number 113 1st Floor, Caesar's Tower, Karachi, 75050, Pakistan",
   },
 ];
 

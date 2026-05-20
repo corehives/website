@@ -5,16 +5,16 @@ import Logo from "../../assets/logo.png";
 
 const navItems = [
   { label: "Home", to: "/" },
-  // { label: "Portfolio", to: "/our-portfolio" },
+  { label: "About Us", to: "#" },
   { label: "Our Services", hasMenu: true },
-  { label: "Company", to: "#" },
+  { label: "Portfolio", to: "/our-portfolio" },
   { label: "Contact Us", to: "/contact" },
 ];
 
 const serviceLinks = [
   { label: "Web Development", href: "/web-development" },
   { label: "Mobile App Development", href: "/mobile-app-development" },
-  { label: "Our Portfolio", href: "/our-portfolio" },
+  // { label: "Our Portfolio", href: "/our-portfolio" },
 ];
 
 export default function Header() {

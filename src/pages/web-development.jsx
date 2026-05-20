@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
 import WebCover from "../assets/web-cover.jpg";
 import WebWork from "../assets/work.png";
@@ -13,8 +13,8 @@ import avatar4 from "../assets/avatar-8.png";
 import avatar6 from "../assets/avatar-9.png";
 import { SiJavascript, SiFlutter, SiNextdotjs } from "react-icons/si";
 import BgApp from "../assets/bg-app.png";
-import { lazy, Suspense } from "react";
 import { ArrowRight } from "lucide-react";
+import PricingSection from "../components/pricing/PricingSection.jsx";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
@@ -31,13 +31,6 @@ import {
 } from "react-icons/fa";
 
 import {
-  ArrowUpRight,
-  Code2,
-  Smartphone,
-  Zap,
-  Shield,
-  Database,
-  Palette,
   ChevronDown,
 } from "lucide-react";
 
@@ -505,6 +498,17 @@ export default function WebDevelopment() {
           </div>
         </div>
       </section>
+
+      <PricingSection
+        eyebrow="Transparent delivery retainers"
+        title="Premium pricing for teams that care about quality and momentum"
+        description="Each plan is structured for a different growth stage, with the same focus on clean execution, fast communication, and measurable business impact."
+        savingsLabel="Save up to 20% with annual partnerships"
+        footerNote="Need a custom roadmap instead of a fixed package?"
+        footerDescription="We also quote enterprise websites, app plus web bundles, and ongoing white-label product partnerships for agencies and in-house teams."
+        footerCtaText="Talk through your scope"
+        footerCtaHref="/contact"
+      />
 
       {/* Tech Expertise */}
       <section className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32">
