@@ -247,7 +247,7 @@ export default function Footer() {
                       style={{
                         display: "inline-block",
                         color: item.color,
-                        fontSize: "clamp(3.5rem, 12vw, 20rem)",
+                        fontSize: "clamp(4.5rem, 12vw, 20rem)",
                         lineHeight: 1,
                         letterSpacing: "10px",
                         animation: `float-${i} ${dur} ease-in-out ${delay} infinite`,
