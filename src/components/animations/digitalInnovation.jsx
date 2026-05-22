@@ -38,7 +38,7 @@ export default function AnalyticMirrorScene() {
       style={{
         position: "absolute",
         bottom: "5%",
-        right: "-8%",
+        right: "-7%",
         width: "45%",
         height: "45%",
         pointerEvents: "none",

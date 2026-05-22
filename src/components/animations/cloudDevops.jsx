@@ -37,7 +37,7 @@ export default function SupportScene() {
     <div
       style={{
         position: "absolute",
-        right: "-7.8%",
+        right: "-7%",
         top: "5%",
         width: "45%",
         height: "45%",

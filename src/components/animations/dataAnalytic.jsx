@@ -37,7 +37,7 @@ export default function CircuitScene() {
     <div
       style={{
         position: "absolute",
-        left: "-7.6%",
+        left: "-7%",
         top: "5%",
         width: "45%",
         height: "45%",

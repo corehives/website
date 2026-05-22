@@ -6,7 +6,11 @@ import AnimationSupport from "./animations/support.jsx";
 import AnimationCloudDevops from "./animations/cloudDevops.jsx";
 import AnimationBlockChain from "./animations/digitalInnovation.jsx";
 
-export default function HeroVisuals() {
+export default function HeroVisuals({ isMobile }) {
+  if (isMobile) {
+    return <AnimationGlobe />;
+  }
+
   return (
     <>
       <AnimationGlobe />

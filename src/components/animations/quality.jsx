@@ -44,7 +44,7 @@ export default function CircuitScene() {
   return (
     <div
       style={{ height: "400px", position: "relative" }}
-      className="absolute -top-125 right-80"
+      className="absolute -top-125 right-77"
     >
       <Canvas
         camera={{ position: [0, 0, 6] }}

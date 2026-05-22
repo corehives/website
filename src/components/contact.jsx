@@ -50,7 +50,7 @@ function TextAreaField({ name, placeholder, value, onChange, error, disabled }) 
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      rows={12}
+      rows={6}
       disabled={disabled}
       aria-invalid={Boolean(error)}
       className={`w-full resize-none rounded-xl border bg-[#000405] px-4 py-3 text-sm text-white outline-none transition-all duration-200 ${
@@ -243,7 +243,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="section-auto-render relative overflow-hidden bg-[#000405] py-40 px-6">
+    <section className="section-auto-render relative overflow-hidden bg-[#000405] py-16 px-4 sm:px-6 lg:py-40">
       <img
         className="absolute -top-2/2 z-0 w-1/1 -right-20"
         src={BGSquare}
@@ -255,21 +255,21 @@ export default function ContactSection() {
         alt=""
       />
       {/* Main content */}
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start">
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
         {/* ── LEFT COLUMN ── */}
-        <div className="flex-1 min-w-[260px]">
+        <div className="flex-1 w-full">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-5 leading-tight tracking-tight">
             Contact Us
           </h2>
 
-          <p className="text-white text-sm leading-relaxed mb-10 max-w-sm">
+          <p className="text-white text-sm leading-relaxed mb-6 lg:mb-10 max-w-sm">
             Whether you're ready to start or just exploring your options — we'd
             love to hear from you. Fill out the form and one of our expert
             agents will get back to you shortly.
           </p>
 
           {/* Let's Talk button */}
-          <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] mb-10">
+          <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] mb-6 lg:mb-10">
             Let's Talk
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
               <ArrowRight className="h-4 w-4" />
@@ -300,7 +300,7 @@ export default function ContactSection() {
         </div>
 
         {/* ── RIGHT COLUMN — Form card ── */}
-        <div className="flex-1 min-w-[300px] w-full bg-[linear-gradient(200deg,#07beb824,#010a1133)] border border-[#07BEB8]/20 rounded-2xl p-8 sm:p-10 backdrop-blur-md shadow-[0_0_60px_rgba(7,190,184,0.07),0_24px_64px_rgba(0,0,0,0.4)]">
+        <div className="flex-1 w-full bg-[linear-gradient(200deg,#07beb824,#010a1133)] border border-[#07BEB8]/20 rounded-2xl p-5 sm:p-8 lg:p-10 backdrop-blur-md shadow-[0_0_60px_rgba(7,190,184,0.07),0_24px_64px_rgba(0,0,0,0.4)]">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-7 tracking-tight">
             Let's Get in Touch
           </h3>

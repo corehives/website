@@ -212,7 +212,7 @@ export default function GlobeScene() {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, calc(-50% - 40px))",
-          width: "clamp(240px,31vw, 350px)",
+          width: "clamp(220px, 32vw, 330px)",
           height: "auto",
           aspectRatio: "1",
           objectFit: "cover",
@@ -255,7 +255,7 @@ export default function GlobeScene() {
           src={HalfLogo}
           alt="logo"
           style={{
-            width: "clamp(50px,10vw, 200px)",
+            width: "clamp(70px, 12vw, 200px)",
             height: "auto",
             objectFit: "contain",
             opacity: 0.9,

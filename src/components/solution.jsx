@@ -92,29 +92,34 @@ const cards = [
     title: "Tech Staff Outsourcing",
     desc: "Hire Skilled Tech Professionals for less than half the Price!",
     preview: (
-      <div className="flex flex-col items-center gap-4 p-4 w-full relative">
+      <div className="w-full h-full p-2 relative">
         <div
-          className="w-70 h-56 rounded-2xl flex flex-col justify-between p-4"
+          className="w-full h-full rounded-2xl p-4 relative overflow-hidden"
           style={{
             background: "rgba(0,245,212,0.08)",
             border: "1px solid rgba(0,245,212,0.15)",
           }}
         >
+          {/* Title */}
           <span className="text-white text-sm">Making Post</span>
-          <span className="absolute bg-white/20 top-15 right-10 w-45 h-2 rounded-2xl"></span>
-          <span className="absolute bg-white/20 top-20 right-10 w-45 h-2 rounded-2xl"></span>
-          <div className="absolute bg-white w-36 h-12 rounded-lg top-12 right-0 flex justify-end items-center">
+
+          {/* Faint content lines */}
+          <span className="absolute bg-white/20 top-14 right-8 w-[38%] h-2 rounded-2xl" />
+          <span className="absolute bg-white/20 top-20 right-8 w-[38%] h-2 rounded-2xl" />
+
+          {/* Avatar group bar — anchored to right edge */}
+          <div className="absolute bg-white h-11 rounded-lg top-10 right-0 flex justify-end items-center px-1">
             {[avatar4, avatar5, avatar6, menu].map((src, i) => (
               <img
                 key={i}
                 src={src}
                 alt={`avatar-${i}`}
                 style={{
-                  width: "45px",
-                  height: "45px",
+                  width: "34px",
+                  height: "34px",
                   borderRadius: "50%",
-                  border: "2px solid #FFFF",
-                  marginLeft: i === 0 ? 0 : "-15px",
+                  border: "2px solid #fff",
+                  marginLeft: i === 0 ? 0 : "-12px",
                   zIndex: 3 - i,
                   position: "relative",
                   objectFit: "cover",
@@ -122,47 +127,60 @@ const cards = [
               />
             ))}
           </div>
-          <div className="flex items-center justify-between w-full gap-2">
-            <div
-              className="absolute left-8 top-40 -translate-y-1/2 w-6 h-30 overflow-hidden rounded-r-lg flex-shrink-0"
-              style={{
-                background: "rgba(225,225,225,0.5)",
-                border: "1px solid rgba(225,225,225,0.12)",
-              }}
-            />
-            <div
-              className="w-45 h-30 rounded-lg flex-shrink-0 absolute left-20 top-26"
-              style={{
-                background: "rgba(225,225,225,0.3)",
-                border: "1px solid rgba(225,225,225,0.12)",
-              }}
-            />
-            <img
-              src={AvatarReal}
-              className="absolute bottom-8 left-24 h-28"
-              alt=""
-              loading="lazy"
-            />
-            <div
-              className="absolute right-8 top-40 -translate-y-1/2 w-6 h-30 overflow-hidden rounded-l-lg flex-shrink-0"
-              style={{
-                background: "rgba(225,225,225,0.5)",
-                border: "1px solid rgba(225,225,225,0.12)",
-              }}
-            />
-          </div>
+
+          {/* Left sidebar strip */}
+          <div
+            className="absolute left-2 top-1/2 -translate-y-1/4 w-5 h-[42%] rounded-r-lg overflow-hidden"
+            style={{
+              background: "rgba(225,225,225,0.5)",
+              border: "1px solid rgba(225,225,225,0.12)",
+            }}
+          />
+
+          {/* Central content panel — % based so it scales with card width */}
+          <div
+            className="absolute rounded-lg"
+            style={{
+              left: "18%",
+              top: "42%",
+              width: "56%",
+              height: "42%",
+              background: "rgba(225,225,225,0.3)",
+              border: "1px solid rgba(225,225,225,0.12)",
+            }}
+          />
+
+          {/* Standing avatar — % left so it stays centred in the panel */}
+          <img
+            src={AvatarReal}
+            className="absolute bottom-0 h-[56%]"
+            style={{ left: "28%" }}
+            alt=""
+            loading="lazy"
+          />
+
+          {/* Right sidebar strip */}
+          <div
+            className="absolute right-2 top-1/2 -translate-y-1/4 w-5 h-[42%] rounded-l-lg overflow-hidden"
+            style={{
+              background: "rgba(225,225,225,0.5)",
+              border: "1px solid rgba(225,225,225,0.12)",
+            }}
+          />
+
+          {/* Expert team badge */}
+          <span
+            className="absolute bottom-2 left-0"
+            style={{
+              ...tagStyle,
+              width: "110px",
+              color: "#FFF",
+              background: "rgba(7,190,184,0.2)",
+            }}
+          >
+            Expert team
+          </span>
         </div>
-        <span
-          style={{
-            ...tagStyle,
-            width: "110px",
-            color: "#FFF",
-            background: "rgba(7,190,184,0.2)",
-          }}
-          className="absolute bottom-10 left-0"
-        >
-          Expert team
-        </span>
       </div>
     ),
   },
@@ -335,9 +353,23 @@ function AccordionItem({ item, isOpen, onClick }) {
   );
 }
 
+function useIsLargeScreen() {
+  const [isLarge, setIsLarge] = useState(
+    () => typeof window !== "undefined" && window.innerWidth >= 1024,
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = (e) => setIsLarge(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return isLarge;
+}
+
 // ── Main Section ──
 export default function PartnersSection() {
   const [openIndex, setOpenIndex] = useState(0);
+  const isLargeScreen = useIsLargeScreen();
 
   return (
     <section className="section-auto-render min-h-screen flex flex-col justify-center text-[#e8f0f4]">
@@ -412,29 +444,36 @@ export default function PartnersSection() {
           </div>
         </div>
 
-        {/* Cards Grid — tri-fold mirror tilt */}
+        {/* Cards Grid — tri-fold mirror tilt on desktop, flat stack on mobile */}
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-          style={{ gap: "30px", alignItems: "flex-end", perspective: "2000px" }}
+          style={{
+            gap: "30px",
+            alignItems: "flex-end",
+            ...(isLargeScreen ? { perspective: "2000px" } : {}),
+          }}
         >
           {cards.map((card, i) => {
             const rotateY = [28, 0, -28];
             const originX = ["right", "center", "left"];
-            const marginX = ["-8px", "0px", "-8px"];
 
             return (
               <div
                 key={i}
-                style={{
-                  transform: `rotateY(${rotateY[i]}deg)`,
-                  transformOrigin: `${originX[i]} bottom`,
-                  marginLeft: i === 2 ? marginX[2] : undefined,
-                  marginRight: i === 0 ? marginX[0] : undefined,
-                  transition: "transform 0.45s ease",
-                  zIndex: i === 1 ? 10 : 5,
-                  willChange: "transform",
-                }}
-                className="hover:![transform:rotateY(0deg)] hover:z-20"
+                style={
+                  isLargeScreen
+                    ? {
+                        transform: `rotateY(${rotateY[i]}deg)`,
+                        transformOrigin: `${originX[i]} bottom`,
+                        marginLeft: i === 2 ? "-8px" : undefined,
+                        marginRight: i === 0 ? "-8px" : undefined,
+                        transition: "transform 0.45s ease",
+                        zIndex: i === 1 ? 10 : 5,
+                        willChange: "transform",
+                      }
+                    : { transition: "transform 0.3s ease" }
+                }
+                className={isLargeScreen ? "hover:transform-[rotateY(0deg)]! hover:z-20" : ""}
               >
                 <GlowCard card={card} />
               </div>

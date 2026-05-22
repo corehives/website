@@ -47,15 +47,42 @@ const testimonials = [
   },
 ];
 
-const CARD_WIDTH = 340;
-const CARD_HEIGHT = 260;
+const CARD_WIDTH_MAX = 340;
+const CARD_HEIGHT_MAX = 260;
 const CARD_GAP = 16;
-const STEP = CARD_WIDTH + CARD_GAP;
 const N = testimonials.length;
 
-// Single source of truth for timing — change only here
 const TRANSITION_MS = 520;
 const EASE = "cubic-bezier(0.45, 0.05, 0.25, 1)";
+
+function useCardDimensions() {
+  const [dims, setDims] = useState(() => {
+    if (typeof window === "undefined")
+      return { width: CARD_WIDTH_MAX, height: CARD_HEIGHT_MAX };
+    const vw = window.innerWidth;
+    if (vw < 640) {
+      const w = Math.min(Math.round(vw * 0.84), CARD_WIDTH_MAX);
+      return { width: w, height: Math.round((w / CARD_WIDTH_MAX) * CARD_HEIGHT_MAX) };
+    }
+    return { width: CARD_WIDTH_MAX, height: CARD_HEIGHT_MAX };
+  });
+
+  useEffect(() => {
+    const onResize = () => {
+      const vw = window.innerWidth;
+      if (vw < 640) {
+        const w = Math.min(Math.round(vw * 0.84), CARD_WIDTH_MAX);
+        setDims({ width: w, height: Math.round((w / CARD_WIDTH_MAX) * CARD_HEIGHT_MAX) });
+      } else {
+        setDims({ width: CARD_WIDTH_MAX, height: CARD_HEIGHT_MAX });
+      }
+    };
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  return dims;
+}
 
 function StarRating({ count, max = 5 }) {
   return (
@@ -95,20 +122,22 @@ function AvatarImg({ avatar, name, size = 56 }) {
   );
 }
 
-function TestimonialCard({ testimonial, active }) {
+function TestimonialCard({ testimonial, active, cw, ch }) {
+  const compact = cw < 310;
+  const pad = active ? (compact ? 16 : 24) : (compact ? 12 : 20);
+  const avatarSize = active ? (compact ? 52 : 64) : (compact ? 40 : 48);
+
   return (
     <div
       style={{
-        width: CARD_WIDTH,
-        height: CARD_HEIGHT,
+        width: cw,
+        height: ch,
         flexShrink: 0,
         borderRadius: 16,
-        padding: active ? 24 : 20,
+        padding: pad,
         position: "relative",
         boxSizing: "border-box",
         overflow: "hidden",
-        // Card style transitions match TRANSITION_MS exactly so they
-        // finish at the same moment the track does — no mid-flight swap
         transition: `transform ${TRANSITION_MS}ms ${EASE}, opacity ${TRANSITION_MS}ms ${EASE}, box-shadow ${TRANSITION_MS}ms ${EASE}, background ${TRANSITION_MS}ms ${EASE}, border-color ${TRANSITION_MS}ms ${EASE}`,
         background: active
           ? "linear-gradient(145deg, #0d3533, #082e2c)"
@@ -136,7 +165,7 @@ function TestimonialCard({ testimonial, active }) {
       <StarRating count={testimonial.rating} />
 
       <div className="flex items-center gap-3 mb-3">
-        <AvatarImg avatar={testimonial.avatar} name={testimonial.name} size={active ? 64 : 48} />
+        <AvatarImg avatar={testimonial.avatar} name={testimonial.name} size={avatarSize} />
         <div>
           <p className="font-bold mb-0.5" style={{ color: "#fff", fontSize: active ? 15 : 13 }}>
             {testimonial.name}
@@ -153,7 +182,7 @@ function TestimonialCard({ testimonial, active }) {
           lineHeight: 1.7,
           color: active ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.52)",
           display: "-webkit-box",
-          WebkitLineClamp: active ? 5 : 4,
+          WebkitLineClamp: active ? (compact ? 4 : 5) : (compact ? 3 : 4),
           WebkitBoxOrient: "vertical",
           overflow: "hidden",
           margin: 0,
@@ -175,25 +204,26 @@ function TestimonialCard({ testimonial, active }) {
 }
 
 export default function TestimonialsSection() {
+  const { width: cardWidth, height: cardHeight } = useCardDimensions();
+  const step = cardWidth + CARD_GAP;
+  // keep a ref so the shift callback always reads the latest step without
+  // being recreated on every resize
+  const stepRef = useRef(step);
+  useEffect(() => { stepRef.current = step; }, [step]);
+
   // Triple the list for seamless infinite loop
   const allCards = useMemo(() => [...testimonials, ...testimonials, ...testimonials], []);
 
   // activeIdx always stays in the middle copy [N .. 2N-1]
   const [activeIdx, setActiveIdx] = useState(N);
 
-  // trackX is the ABSOLUTE translateX value in pixels (not relative offset).
-  // We compute it from activeIdx each time we settle, so the snap is invisible.
-  const [rawOffset, setRawOffset] = useState(0); // extra px during animation
+  const [rawOffset, setRawOffset] = useState(0);
 
-  // Phase: "idle" | "sliding"
   const sliding = useRef(false);
   const timerRef = useRef(null);
   const unlockRef = useRef(null);
 
-  // The track translateX = 50% - activeIdx*STEP - CARD_WIDTH/2 + rawOffset
-  // During slide: rawOffset animates from 0 → ±STEP
-  // After slide : activeIdx updates by ±1, rawOffset snaps back to 0 instantly
-  const trackTransform = `translateX(calc(50% - ${activeIdx * STEP + CARD_WIDTH / 2}px + ${rawOffset}px))`;
+  const trackTransform = `translateX(calc(50% - ${activeIdx * step + cardWidth / 2}px + ${rawOffset}px))`;
 
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -202,8 +232,7 @@ export default function TestimonialsSection() {
     sliding.current = true;
     setIsAnimating(true);
 
-    // 1. Start CSS transition: slide rawOffset by one STEP
-    setRawOffset(-dir * STEP);
+    setRawOffset(-dir * stepRef.current);
 
     // 2. After the transition finishes:
     //    a. Disable transition (no flash)
@@ -330,7 +359,7 @@ export default function TestimonialsSection() {
                   }}
                   style={{ cursor: isActive ? "default" : "pointer" }}
                 >
-                  <TestimonialCard testimonial={testimonial} active={isActive} />
+                  <TestimonialCard testimonial={testimonial} active={isActive} cw={cardWidth} ch={cardHeight} />
                 </div>
               );
             })}
