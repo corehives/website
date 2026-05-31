@@ -16,13 +16,13 @@
     "popular": false,
     "billing": {
       "monthly": {
-        "price": "$2,490",
+        "price": "$499",
         "billing": "/month",
         "discountBadge": null,
         "caption": "A lean build lane for teams moving from idea to first release."
       },
       "yearly": {
-        "price": "$23,900",
+        "price": "$3,999",
         "billing": "/year",
         "discountBadge": "2 months free",
         "caption": "Best for founders planning post-launch improvements without re-scoping every sprint."
@@ -47,13 +47,13 @@
     "popular": true,
     "billing": {
       "monthly": {
-        "price": "$4,290",
+        "price": "$799",
         "billing": "/month",
         "discountBadge": null,
         "caption": "Ideal for scaling mobile products with active user acquisition and retention goals."
       },
       "yearly": {
-        "price": "$41,200",
+        "price": "$5,499",
         "billing": "/year",
         "discountBadge": "Save 20%",
         "caption": "The strongest fit for teams shipping consistently across product, UX, and growth."
@@ -78,13 +78,13 @@
     "popular": false,
     "billing": {
       "monthly": {
-        "price": "$6,990",
+        "price": "$999",
         "billing": "/month",
         "discountBadge": null,
         "caption": "Best for established apps that need a reliable partner embedded in the roadmap."
       },
       "yearly": {
-        "price": "$67,100",
+        "price": "$6,999",
         "billing": "/year",
         "discountBadge": "Annual partner rate",
         "caption": "Designed for continuous feature delivery, optimization, and long-term product support."

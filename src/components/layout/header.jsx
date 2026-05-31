@@ -5,7 +5,7 @@ import Logo from "../../assets/logo.png";
 
 const navItems = [
   { label: "Home", to: "/" },
-  { label: "About Us", to: "#" },
+  { label: "About Us", to: "/about" },
   { label: "Our Services", hasMenu: true },
   { label: "Portfolio", to: "/our-portfolio" },
   { label: "Contact Us", to: "/contact" },
@@ -14,7 +14,11 @@ const navItems = [
 const serviceLinks = [
   { label: "Web Development", href: "/web-development" },
   { label: "Mobile App Development", href: "/mobile-app-development" },
-  // { label: "Our Portfolio", href: "/our-portfolio" },
+  { label: "Branding", href: "/services/branding" },
+  { label: "Illustration & Animation", href: "/services/illustration-animation" },
+  { label: "Tech Staff Outsourcing", href: "/services/tech-staff-outsourcing" },
+  { label: "AI Market Optimization", href: "/services/ai-market-optimization" },
+  { label: "Blockchain", href: "/services/blockchain" },
 ];
 
 export default function Header() {

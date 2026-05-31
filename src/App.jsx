@@ -15,6 +15,12 @@ const WebDevelopment = lazy(() => import("./pages/web-development.jsx"));
 const OurPortfolio = lazy(() => import("./pages/our-portfolio.jsx"));
 const AppDevelopment = lazy(() => import("./pages/app-development.jsx"));
 const ContactPage = lazy(() => import("./pages/contact-us.jsx"));
+const AboutUs = lazy(() => import("./pages/about-us.jsx"));
+const Branding = lazy(() => import("./pages/branding.jsx"));
+const IllustrationAnimation = lazy(() => import("./pages/illustration-animation.jsx"));
+const TechStaffOutsourcing = lazy(() => import("./pages/tech-staff-outsourcing.jsx"));
+const AIMarketOptimization = lazy(() => import("./pages/ai-market-optimization.jsx"));
+const Blockchain = lazy(() => import("./pages/blockchain.jsx"));
 
 function HomePage() {
   return (
@@ -60,6 +66,36 @@ function AppRoutes() {
           <Suspense fallback={<PageLoader />}>
             <ContactPage />
             <Footer />
+          </Suspense>
+        } />
+        <Route path="/about" element={
+          <Suspense fallback={<PageLoader />}>
+            <AboutUs />
+          </Suspense>
+        } />
+        <Route path="/services/branding" element={
+          <Suspense fallback={<PageLoader />}>
+            <Branding />
+          </Suspense>
+        } />
+        <Route path="/services/illustration-animation" element={
+          <Suspense fallback={<PageLoader />}>
+            <IllustrationAnimation />
+          </Suspense>
+        } />
+        <Route path="/services/tech-staff-outsourcing" element={
+          <Suspense fallback={<PageLoader />}>
+            <TechStaffOutsourcing />
+          </Suspense>
+        } />
+        <Route path="/services/ai-market-optimization" element={
+          <Suspense fallback={<PageLoader />}>
+            <AIMarketOptimization />
+          </Suspense>
+        } />
+        <Route path="/services/blockchain" element={
+          <Suspense fallback={<PageLoader />}>
+            <Blockchain />
           </Suspense>
         } />
       </Routes>

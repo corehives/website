@@ -16,13 +16,13 @@
     "popular": false,
     "billing": {
       "monthly": {
-        "price": "$1,490",
+        "price": "$399",
         "billing": "/month",
         "discountBadge": null,
         "caption": "Flexible monthly delivery and support for fast launches."
       },
       "yearly": {
-        "price": "$14,300",
+        "price": "$1,100",
         "billing": "/year",
         "discountBadge": "2 months free",
         "caption": "Annual partnership for continuous iteration at a lower effective rate."
@@ -47,13 +47,13 @@
     "popular": true,
     "billing": {
       "monthly": {
-        "price": "$2,990",
+        "price": "$999",
         "billing": "/month",
         "discountBadge": null,
         "caption": "Built for teams scaling marketing, content, and lead generation."
       },
       "yearly": {
-        "price": "$28,700",
+        "price": "$1,700",
         "billing": "/year",
         "discountBadge": "Save 20%",
         "caption": "The best balance of delivery speed, flexibility, and retained value."
@@ -78,13 +78,13 @@
     "popular": false,
     "billing": {
       "monthly": {
-        "price": "$5,490",
+        "price": "$499",
         "billing": "/month",
         "discountBadge": null,
         "caption": "A senior delivery lane for complex products and enterprise growth initiatives."
       },
       "yearly": {
-        "price": "$52,700",
+        "price": "$2,000",
         "billing": "/year",
         "discountBadge": "Annual retainer savings",
         "caption": "Designed for long-term build velocity across product, content, and experimentation."
