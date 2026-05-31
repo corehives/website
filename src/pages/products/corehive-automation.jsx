@@ -1,0 +1,96 @@
+import ProductPageTemplate from "../../components/shared/ProductPageTemplate";
+import overviewImg from "../../assets/work.png";
+import {
+  Zap, GitBranch, Shield, Database, Bell,
+  Settings, Code2, Globe, Layers,
+} from "lucide-react";
+import {
+  FaNodeJs, FaDocker, FaAws,
+} from "react-icons/fa";
+import {
+  SiRabbitmq, SiRedis, SiKubernetes, SiPostgresql,
+  SiApachekafka, SiMongodb,
+} from "react-icons/si";
+
+const data = {
+  banner: {
+    badge: "CoreHives Product",
+    title: "CoreHive Automation —",
+    titleAccent: "Eliminate Manual Work at Scale",
+    subtitle:
+      "A no-code/low-code business process automation platform that connects your apps, automates repetitive workflows, and frees your team to focus on high-value work.",
+  },
+  overview: {
+    image: overviewImg,
+    accentHeading: "Automate Everything",
+    heading: "from Simple Tasks to Complex Enterprise Workflows",
+    paragraphs: [
+      "CoreHive Automation is a visual workflow engine that sits between all the tools your business already uses. With a drag-and-drop builder, pre-built action library, and conditional logic blocks, your operations team can automate multi-step processes without touching a single line of code.",
+      "From lead routing and invoice generation to data synchronisation and compliance reporting, CoreHive Automation executes workflows reliably at any scale — processing millions of events per day with built-in error handling, retry logic, and full audit trails.",
+    ],
+  },
+  features: [
+    { Icon: GitBranch, title: "Visual Workflow Builder", description: "Build multi-step automation flows with a drag-and-drop canvas. Branch logic, parallel execution, and delay nodes included." },
+    { Icon: Zap, title: "Trigger Library", description: "400+ pre-built triggers across apps, webhooks, schedules, database events, email conditions, and form submissions." },
+    { Icon: Code2, title: "Custom Code Blocks", description: "Drop a JavaScript or Python code block anywhere in your workflow when pre-built actions do not cover your edge case." },
+    { Icon: Shield, title: "Error Handling", description: "Automatic retries with exponential back-off, dead-letter queues, and Slack/email alerts when workflows encounter failures." },
+    { Icon: Database, title: "Data Transformation", description: "Map, filter, and transform data between steps using a formula editor with 200+ built-in functions — no ETL tool required." },
+    { Icon: Bell, title: "Real-Time Monitoring", description: "Live execution logs, step-level timing, and payload inspection let you debug and optimise every workflow run." },
+    { Icon: Globe, title: "API & Webhook Engine", description: "Turn any workflow into a callable HTTP endpoint or subscribe to external webhooks with automatic payload validation." },
+    { Icon: Settings, title: "Version Control", description: "Full workflow versioning with one-click rollback, environment promotion (dev → staging → prod), and change history." },
+    { Icon: Layers, title: "Reusable Sub-Flows", description: "Package common logic into reusable sub-flows that any team in your organisation can drop into their own automations." },
+  ],
+  processHeading:
+    "From process mapping to fully automated production workflow in two weeks.",
+  process: [
+    { number: "01", title: "Process Mapping", description: "Workshop your most time-consuming manual processes, identify automation candidates, and prioritise by ROI impact." },
+    { number: "02", title: "Connector Setup", description: "Connect CoreHive Automation to your existing stack — CRM, ERP, billing, support desk, communication tools — using native connectors." },
+    { number: "03", title: "Workflow Design", description: "Build the automation flows on the visual canvas, configure conditional logic, and set up data transformation rules." },
+    { number: "04", title: "Testing & Validation", description: "Run each workflow against real test data in a sandboxed environment, validate outputs, and tune error handling rules." },
+    { number: "05", title: "Production Deployment", description: "Promote tested workflows to production, activate triggers, and confirm end-to-end execution with live monitoring." },
+    { number: "06", title: "Optimise & Expand", description: "Review execution metrics monthly, identify new automation candidates, and iterate based on team feedback and volume growth." },
+  ],
+  technologies: [
+    { name: "Node.js", Icon: FaNodeJs },
+    { name: "RabbitMQ", Icon: SiRabbitmq },
+    { name: "Redis", Icon: SiRedis },
+    { name: "PostgreSQL", Icon: SiPostgresql },
+    { name: "MongoDB", Icon: SiMongodb },
+    { name: "Kafka", Icon: SiApachekafka },
+    { name: "Docker", Icon: FaDocker },
+    { name: "Kubernetes", Icon: SiKubernetes },
+    { name: "AWS", Icon: FaAws },
+  ],
+  benefits: [
+    { title: "Save 40+ Hours Per Week", description: "Automating repetitive tasks across your ops, finance, and HR teams frees dozens of hours that go straight back into strategic work." },
+    { title: "Zero Human Errors", description: "Rules-based automation executes processes exactly the same way every time — no copy-paste mistakes, missed steps, or forgotten follow-ups." },
+    { title: "Scale Without Headcount", description: "Handle 10× the volume of requests, orders, or tickets without proportionally growing your operations team." },
+    { title: "Instant Process Visibility", description: "Every workflow run is logged with full payload and timing data. Auditors and managers get complete transparency with zero effort." },
+    { title: "Connect Any Tool", description: "With 400+ pre-built connectors and a custom HTTP action, CoreHive Automation integrates with virtually every tool in your stack." },
+    { title: "Non-Technical Ownership", description: "Operations managers and business analysts build and modify automations independently — no engineering tickets required." },
+  ],
+  stats: [
+    { number: "40+", label: "Hours Saved Per Week", description: "Average time reclaimed per operations team after full workflow automation deployment." },
+    { number: "400+", label: "Native Connectors", description: "Pre-built integrations covering every major SaaS tool, database, and communication platform." },
+    { number: "99.99%", label: "Execution Reliability", description: "Retry logic and dead-letter queues ensure no workflow event is ever permanently lost." },
+    { number: "0", label: "Code Required", description: "Business teams build and maintain production automations entirely in the visual canvas." },
+  ],
+  faq: [
+    { question: "Can non-technical team members build automations?", answer: "Yes. CoreHive Automation is designed so operations managers, business analysts, and project managers can build and maintain complex workflows without engineering support. The visual canvas and pre-built action library handle the complexity." },
+    { question: "What happens when a workflow fails?", answer: "Failed steps are automatically retried with configurable back-off intervals. After the maximum retry count is reached, the event is moved to a dead-letter queue and your team is alerted via Slack or email with full payload and error details." },
+    { question: "How does CoreHive Automation connect to our existing tools?", answer: "We have 400+ native connectors for popular SaaS tools. For anything not in the library, you can use the universal HTTP action to call any REST API, or we can build a custom connector as part of your onboarding." },
+    { question: "Is there a limit on how many workflows we can run?", answer: "No hard limits. CoreHive Automation is priced on execution volume, not workflow count. You can build unlimited workflows and activate them as needed based on your plan's monthly execution quota." },
+    { question: "Can we run CoreHive Automation on our own infrastructure?", answer: "Yes. An on-premise or BYOC (Bring Your Own Cloud) deployment option is available for enterprise customers who require data residency or air-gapped operation." },
+  ],
+  cta: {
+    heading: "Automate Your Business",
+    subtitle: "Tell us your three biggest manual processes and we will show you exactly how to automate them — live, in 30 minutes.",
+    highlights: ["Free process audit", "14-day trial", "No engineering required"],
+    buttonText: "Book a Free Audit",
+    buttonHref: "/contact",
+  },
+};
+
+export default function CoreHiveAutomation() {
+  return <ProductPageTemplate data={data} />;
+}
