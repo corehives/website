@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { Target, Eye } from "lucide-react";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import BgRight from "../../assets/bg-right-content.webp";
@@ -32,16 +33,81 @@ const cards = [
 function MissionCard({ card, delay }) {
   const ref = useScrollReveal(delay);
 
+  const cardRef = useRef(null);
+
+  const [transform, setTransform] = useState(
+    "perspective(1000px) rotateX(0deg) rotateY(0deg)",
+  );
+
+  const [glow, setGlow] = useState({
+    x: 50,
+    y: 50,
+    opacity: 0,
+  });
+
+  const handleMouseMove = (e) => {
+    const rect = cardRef.current.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateY = ((x - rect.width / 2) / rect.width) * 16;
+    const rotateX = -((y - rect.height / 2) / rect.height) * 16;
+
+    setTransform(
+      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+    );
+
+    setGlow({
+      x: (x / rect.width) * 100,
+      y: (y / rect.height) * 100,
+      opacity: 1,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg)");
+
+    setGlow((prev) => ({
+      ...prev,
+      opacity: 0,
+    }));
+  };
+
   return (
     <div
-      ref={ref}
-      className="relative flex flex-col rounded-3xl p-8 sm:p-10 overflow-hidden transition-all duration-500 hover:-translate-y-1"
+      ref={(el) => {
+        cardRef.current = el;
+        if (typeof ref === "function") ref(el);
+        else if (ref) ref.current = el;
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative flex flex-col rounded-3xl p-8 sm:p-10 overflow-hidden transition-all duration-300 will-change-transform"
       style={{
+        transform,
+        transformStyle: "preserve-3d",
         background: "rgba(7,190,184,0.03)",
         border: `1px solid ${card.borderColor}`,
-        boxShadow: `0 0 40px ${card.glowColor}`,
+        boxShadow: `
+          0 0 40px ${card.glowColor},
+          0 20px 50px rgba(0,0,0,0.25)
+        `,
       }}
     >
+      {/* Pointer Glow */}
+      <div
+        className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+        style={{
+          opacity: glow.opacity,
+          background: `radial-gradient(
+            circle at ${glow.x}% ${glow.y}%,
+            rgba(7,190,184,0.28),
+            transparent 35%
+          )`,
+        }}
+      />
+
       {/* Top accent line */}
       <div
         className="absolute top-0 left-8 right-8 h-px"
@@ -52,37 +118,40 @@ function MissionCard({ card, delay }) {
 
       {/* Icon */}
       <div
-        className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 flex-shrink-0"
+        className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 flex-shrink-0 relative z-10"
         style={{ background: card.iconBg }}
       >
-        <card.icon className="h-6 w-6" style={{ color: card.iconColor }} strokeWidth={1.5} />
+        <card.icon
+          className="h-6 w-6"
+          style={{ color: card.iconColor }}
+          strokeWidth={1.5}
+        />
       </div>
 
-      {/* Tag */}
       <span
-        className="text-xs font-bold tracking-widest uppercase mb-3"
+        className="text-xs font-bold tracking-widest uppercase mb-3 relative z-10"
         style={{ color: "#07BEB8" }}
       >
         {card.tag}
       </span>
 
-      {/* Headline */}
-      <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-tight">
+      <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-tight relative z-10">
         {card.headline}
       </h3>
 
-      {/* Divider */}
       <div
-        className="w-10 h-px mb-5"
+        className="w-10 h-px mb-5 relative z-10"
         style={{ background: card.accentLine }}
       />
 
-      {/* Body */}
-      <p className="text-sm sm:text-base leading-relaxed flex-1" style={{ color: "#8ca0b0" }}>
+      <p
+        className="text-sm sm:text-base leading-relaxed flex-1 relative z-10"
+        style={{ color: "#8ca0b0" }}
+      >
         {card.body}
       </p>
 
-      {/* Bottom glow blob */}
+      {/* Bottom glow */}
       <div
         className="pointer-events-none absolute -bottom-16 -right-16 w-48 h-48 rounded-full"
         style={{
@@ -92,13 +161,12 @@ function MissionCard({ card, delay }) {
     </div>
   );
 }
-
 export default function AboutMissionVision() {
   const labelRef = useScrollReveal(0);
   const headRef = useScrollReveal(120);
 
   return (
-    <section className="section-auto-render relative overflow-hidden py-20 sm:py-28">
+    <section className="section-auto-render relative overflow-hidden py-10 sm:py-18">
       <img
         src={BgRight}
         alt=""

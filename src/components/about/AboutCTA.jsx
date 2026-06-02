@@ -22,7 +22,7 @@ export default function AboutCTA() {
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur-sm">
           <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
           <span className="text-xs font-medium tracking-widest text-white uppercase">
-            Ready to Start?
+            Start A Strategic Consultation Today
           </span>
           <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
         </div>
@@ -32,7 +32,7 @@ export default function AboutCTA() {
           ref={headRef}
           className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-5"
         >
-          Let's Build{" "}
+          Let's Talk About{" "}
           <span
             style={{
               background: "#07BEB8",
@@ -41,20 +41,25 @@ export default function AboutCTA() {
               backgroundClip: "text",
             }}
           >
-            Something Great
-          </span>{" "}
-          Together
+            Your Project
+          </span>
         </h2>
 
         {/* Sub */}
         <p
           ref={paraRef}
-          className="mx-auto max-w-xl text-sm sm:text-base leading-relaxed mb-10"
+          className="mx-auto max-w-xl text-sm sm:text-base leading-relaxed mb-3"
           style={{ color: "#8ca0b0" }}
         >
-          Whether you have a fully defined brief or just an early-stage idea,
-          our team is ready to help you move from concept to launch with speed,
-          quality, and transparency.
+          Share your goals with us and identify the areas where smarter systems can grow your business.
+        </p>
+
+        {/* Agency description */}
+        <p
+          className="mx-auto max-w-2xl text-xs sm:text-sm leading-relaxed mb-10"
+          style={{ color: "#8ca0b0" }}
+        >
+          This Design And Development Agency In USA Delivers Precision Engineering And Scalable Infrastructure For Modern Enterprises.
         </p>
 
         {/* CTA buttons */}
@@ -83,7 +88,7 @@ export default function AboutCTA() {
 
         {/* Trust note */}
         <p className="mt-8 text-xs" style={{ color: "#8ca0b0" }}>
-          No commitment required · 48-hour response guarantee · Free project scoping
+          Established Technical Teams Built To Handle Your Complex Digital Needs
         </p>
       </div>
     </section>

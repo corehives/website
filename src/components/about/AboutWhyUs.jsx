@@ -141,7 +141,7 @@ export default function AboutWhyUs() {
   const paraRef = useScrollReveal(220);
 
   return (
-    <section className="section-auto-render relative overflow-hidden py-20 sm:py-28">
+    <section className="section-auto-render relative overflow-hidden py-10 sm:py-18">
       <img
         src={BgLeft}
         alt=""

@@ -29,12 +29,16 @@ function GlowValueCard({ item, delay }) {
   const cardRef = useRef(null);
   const frameRef = useRef(0);
   const pointerRef = useRef({ x: -999, y: -999 });
+  const tiltRef = useRef({ rotX: 0, rotY: 0 });
   const revealRef = useScrollReveal(delay);
 
-  const flushPointer = () => {
+  const MAX_TILT = 12;
+
+  const flush = () => {
     frameRef.current = 0;
     const el = cardRef.current;
     if (!el) return;
+    el.style.transform = `rotateX(${tiltRef.current.rotX}deg) rotateY(${tiltRef.current.rotY}deg) translateZ(8px)`;
     el.style.setProperty("--mx", `${pointerRef.current.x}px`);
     el.style.setProperty("--my", `${pointerRef.current.y}px`);
   };
@@ -43,9 +47,17 @@ function GlowValueCard({ item, delay }) {
     const el = cardRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    pointerRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    pointerRef.current = { x, y };
+    tiltRef.current = {
+      rotX: -((y - cy) / cy) * MAX_TILT,
+      rotY:  ((x - cx) / cx) * MAX_TILT,
+    };
     if (!frameRef.current) {
-      frameRef.current = window.requestAnimationFrame(flushPointer);
+      frameRef.current = window.requestAnimationFrame(flush);
     }
   };
 
@@ -56,8 +68,11 @@ function GlowValueCard({ item, delay }) {
     }
     const el = cardRef.current;
     if (!el) return;
+    el.style.transition = "transform 0.5s cubic-bezier(0.23,1,0.32,1), box-shadow 0.3s ease";
+    el.style.transform = "rotateX(0deg) rotateY(0deg) translateZ(0px)";
     el.style.setProperty("--mx", "-999px");
     el.style.setProperty("--my", "-999px");
+    setTimeout(() => { el.style.transition = ""; }, 500);
   };
 
   useEffect(
@@ -68,16 +83,18 @@ function GlowValueCard({ item, delay }) {
   );
 
   return (
-    <div ref={revealRef}>
+    <div ref={revealRef} style={{ perspective: "800px" }}>
       <div
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="group relative flex flex-col rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+        className="group relative flex flex-col rounded-2xl p-7 overflow-hidden"
         style={{
           background: "rgba(7,190,184,0.04)",
           border: "1px solid rgba(7,190,184,0.18)",
           boxShadow: "0 0 20px rgba(7,190,184,0.06)",
+          transformStyle: "preserve-3d",
+          willChange: "transform",
           "--mx": "-999px",
           "--my": "-999px",
         }}
@@ -138,7 +155,7 @@ export default function AboutValues() {
   const paraRef = useScrollReveal(220);
 
   return (
-    <section className="section-auto-render relative overflow-hidden py-20 sm:py-28">
+    <section className="section-auto-render relative overflow-hidden py-10 sm:py-18">
       {/* Center teal glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full z-0"

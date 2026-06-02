@@ -19,7 +19,7 @@ export default function AboutUs() {
       <AboutMissionVision />
       <AboutValues />
       <AboutWhyUs />
-      <AboutTeam />
+      {/* <AboutTeam />  */}
       <AboutCTA />
       <Suspense fallback={null}>
         <Footer />

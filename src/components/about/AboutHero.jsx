@@ -65,8 +65,8 @@ export default function AboutHero() {
           style={{ animation: "fadeIn 0.6s ease 0.2s both" }}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
-          <span className="text-xs font-medium tracking-widest text-white uppercase">
-            About CoreHives
+          <span className="text-xs font-medium text-white">
+            Multiple Teams & Ideas Working Together To Build Better Digital Solutions
           </span>
           <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
         </div>
@@ -79,7 +79,7 @@ export default function AboutHero() {
             animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.5s both",
           }}
         >
-          We Are{" "}
+          A Passionate Team Building High-Quality Digital Solutions{" "}
           <span
             style={{
               background: "#07BEB8",
@@ -88,24 +88,33 @@ export default function AboutHero() {
               backgroundClip: "text",
             }}
           >
-            CoreHives
+            With Precision
           </span>
-          {" "}—{" "}
-          <br className="hidden sm:block" />
-          Your Digital Transformation Partner
         </h1>
+
+        {/* Sub-headline */}
+        <p
+          className="mx-auto mt-4 max-w-4xl font-semibold text-white"
+          style={{
+            fontSize: "clamp(0.95rem, 1.3vw + 0.3rem, 1.15rem)",
+            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.65s both",
+          }}
+        >
+          Dedicated Experts Building Quality Digital Solutions For Your Project Needs
+        </p>
 
         {/* Subtext */}
         <p
-          className="mx-auto mt-5 max-w-2xl leading-relaxed text-white/75"
+          className="mx-auto mt-5 max-w-4xl leading-relaxed text-white/80"
           style={{
-            fontSize: "clamp(0.9375rem, 1.2vw + 0.35rem, 1.2rem)",
+            fontSize: "clamp(0.9375rem, 1.2vw, 1.2rem)",
             animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.75s both",
           }}
         >
-          Since 2019, CoreHives has been helping businesses across the globe unlock
-          their digital potential — from enterprise-grade web & app development to
-          AI, blockchain, and staff outsourcing solutions.
+          We are a dedicated group of professionals focused on turning complex ideas
+          into simple, high-quality digital solutions. By combining our technical
+          knowledge with a deep understanding of your goals, we ensure that every
+          project we build is reliable, functional, and ready for the real world.
         </p>
 
         {/* Stat pills */}
