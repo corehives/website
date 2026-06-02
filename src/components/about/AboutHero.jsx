@@ -103,20 +103,6 @@ export default function AboutHero() {
           Dedicated Experts Building Quality Digital Solutions For Your Project Needs
         </p>
 
-        {/* Subtext */}
-        <p
-          className="mx-auto mt-5 max-w-4xl leading-relaxed text-white/80"
-          style={{
-            fontSize: "clamp(0.9375rem, 1.2vw, 1.2rem)",
-            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.75s both",
-          }}
-        >
-          We are a dedicated group of professionals focused on turning complex ideas
-          into simple, high-quality digital solutions. By combining our technical
-          knowledge with a deep understanding of your goals, we ensure that every
-          project we build is reliable, functional, and ready for the real world.
-        </p>
-
         {/* Stat pills */}
         <div
           className="mt-10 flex flex-wrap justify-center gap-3"
@@ -154,7 +140,7 @@ export default function AboutHero() {
           </a>
           <a
             href="/our-portfolio"
-            className="inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm font-medium text-white/60 transition-all hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded-full px-6 py-3.5 text-sm font-medium text-white/60 transition-all hover:text-white"
           >
             View Our Work
             <ArrowRight className="h-3.5 w-3.5" />

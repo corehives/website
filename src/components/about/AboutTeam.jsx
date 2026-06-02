@@ -227,7 +227,7 @@ export default function AboutTeam() {
           </p>
           <a
             href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-2.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] hover:border-[#07BEB8]/50"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] hover:border-[#07BEB8]/50"
           >
             View Open Positions
           </a>

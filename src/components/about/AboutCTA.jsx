@@ -7,7 +7,7 @@ export default function AboutCTA() {
   const ctaRef = useScrollReveal(280);
 
   return (
-    <section className="section-auto-render relative overflow-hidden py-20 sm:py-28">
+    <section className="section-auto-render relative overflow-hidden py-10 sm:py-15">
       {/* Glow blob */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full z-0"
@@ -79,7 +79,7 @@ export default function AboutCTA() {
 
           <a
             href="/contact"
-            className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10 hover:border-white/25"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-medium text-white transition-all hover:bg-white/10 hover:border-white/25"
           >
             <Calendar className="h-4 w-4 text-[#07BEB8]" />
             Book a Free Consultation

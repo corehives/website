@@ -1,4 +1,3 @@
-import { useRef, useEffect } from "react";
 import { Lightbulb, Gem, Handshake, MessageSquare } from "lucide-react";
 import useScrollReveal from "../../hooks/useScrollReveal";
 
@@ -26,124 +25,53 @@ const values = [
 ];
 
 function GlowValueCard({ item, delay }) {
-  const cardRef = useRef(null);
-  const frameRef = useRef(0);
-  const pointerRef = useRef({ x: -999, y: -999 });
-  const tiltRef = useRef({ rotX: 0, rotY: 0 });
-  const revealRef = useScrollReveal(delay);
-
-  const MAX_TILT = 12;
-
-  const flush = () => {
-    frameRef.current = 0;
-    const el = cardRef.current;
-    if (!el) return;
-    el.style.transform = `rotateX(${tiltRef.current.rotX}deg) rotateY(${tiltRef.current.rotY}deg) translateZ(8px)`;
-    el.style.setProperty("--mx", `${pointerRef.current.x}px`);
-    el.style.setProperty("--my", `${pointerRef.current.y}px`);
-  };
-
-  const handleMouseMove = (e) => {
-    const el = cardRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
-    pointerRef.current = { x, y };
-    tiltRef.current = {
-      rotX: -((y - cy) / cy) * MAX_TILT,
-      rotY:  ((x - cx) / cx) * MAX_TILT,
-    };
-    if (!frameRef.current) {
-      frameRef.current = window.requestAnimationFrame(flush);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (frameRef.current) {
-      window.cancelAnimationFrame(frameRef.current);
-      frameRef.current = 0;
-    }
-    const el = cardRef.current;
-    if (!el) return;
-    el.style.transition = "transform 0.5s cubic-bezier(0.23,1,0.32,1), box-shadow 0.3s ease";
-    el.style.transform = "rotateX(0deg) rotateY(0deg) translateZ(0px)";
-    el.style.setProperty("--mx", "-999px");
-    el.style.setProperty("--my", "-999px");
-    setTimeout(() => { el.style.transition = ""; }, 500);
-  };
-
-  useEffect(
-    () => () => {
-      if (frameRef.current) window.cancelAnimationFrame(frameRef.current);
-    },
-    []
-  );
+  const ref = useScrollReveal(delay);
 
   return (
-    <div ref={revealRef} style={{ perspective: "800px" }}>
+    <div
+      ref={ref}
+      className="group relative flex flex-col rounded-2xl p-7 transition-all duration-400 hover:-translate-y-1.5"
+      style={{
+        background: "rgba(7,190,184,0.03)",
+        border: "1px solid rgba(7,190,184,0.14)",
+      }}
+    >
+      {/* Hover glow border */}
       <div
-        ref={cardRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="group relative flex flex-col rounded-2xl p-7 overflow-hidden"
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400"
         style={{
-          background: "rgba(7,190,184,0.04)",
-          border: "1px solid rgba(7,190,184,0.18)",
-          boxShadow: "0 0 20px rgba(7,190,184,0.06)",
-          transformStyle: "preserve-3d",
-          willChange: "transform",
-          "--mx": "-999px",
-          "--my": "-999px",
+          boxShadow: "0 0 32px rgba(7,190,184,0.14), inset 0 0 24px rgba(7,190,184,0.04)",
+          border: "1px solid rgba(7,190,184,0.3)",
         }}
-      >
-        {/* Mouse glow */}
+      />
+
+      <div className="relative z-10">
+        {/* Icon */}
         <div
-          className="pointer-events-none absolute inset-0 z-0"
+          className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
           style={{
-            background:
-              "radial-gradient(180px circle at var(--mx) var(--my), rgba(7,190,184,0.12), transparent 70%)",
+            background: "rgba(7,190,184,0.12)",
+            border: "1px solid rgba(7,190,184,0.25)",
           }}
-        />
-
-        {/* Hover border glow */}
-        <div
-          className="pointer-events-none absolute inset-0 rounded-2xl z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            boxShadow: "0 0 28px rgba(7,190,184,0.18), inset 0 0 20px rgba(7,190,184,0.05)",
-          }}
-        />
-
-        <div className="relative z-10">
-          {/* Icon */}
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-            style={{
-              background: "rgba(7,190,184,0.12)",
-              border: "1px solid rgba(7,190,184,0.25)",
-            }}
-          >
-            <item.icon className="h-5 w-5 text-[#07BEB8]" strokeWidth={1.5} />
-          </div>
-
-          {/* Title */}
-          <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#07BEB8] transition-colors duration-300">
-            {item.title}
-          </h3>
-
-          {/* Divider */}
-          <div
-            className="w-8 h-px mb-4 transition-all duration-300 group-hover:w-12"
-            style={{ background: "rgba(7,190,184,0.5)" }}
-          />
-
-          {/* Description */}
-          <p className="text-sm leading-relaxed" style={{ color: "#8ca0b0" }}>
-            {item.desc}
-          </p>
+        >
+          <item.icon className="h-5 w-5 text-[#07BEB8]" strokeWidth={1.5} />
         </div>
+
+        {/* Title */}
+        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#07BEB8] transition-colors duration-300">
+          {item.title}
+        </h3>
+
+        {/* Divider */}
+        <div
+          className="w-8 h-px mb-4 transition-all duration-300 group-hover:w-12"
+          style={{ background: "rgba(7,190,184,0.5)" }}
+        />
+
+        {/* Description */}
+        <p className="text-sm leading-relaxed" style={{ color: "#8ca0b0" }}>
+          {item.desc}
+        </p>
       </div>
     </div>
   );
@@ -155,7 +83,7 @@ export default function AboutValues() {
   const paraRef = useScrollReveal(220);
 
   return (
-    <section className="section-auto-render relative overflow-hidden py-10 sm:py-18">
+    <section className="section-auto-render relative overflow-hidden py-10 sm:py-15">
       {/* Center teal glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full z-0"
