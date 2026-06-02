@@ -1,261 +1,313 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { DECORATIVE_CANVAS_DPR, DECORATIVE_CANVAS_GL } from "./canvasConfig.js";
 
-  /* ── topology ──────────────────────────────────────────────────────────── */
-const LAYERS  = [4, 6, 6, 4];          // neurons per layer
-const LAYER_X = [-3.0, -1.1, 1.1, 3.0]; // x position of each layer
-const PULSE_SLOTS = 18;
+/* ── constants ─────────────────────────────────────────────────────────── */
+const LAYERS  = [3, 5, 7, 5, 3];
+const LAYER_X = [-3.5, -1.75, 0, 1.75, 3.5];
+const MAX_P   = 32;
+const TEAL    = new THREE.Color("#07BEB8");
 
+/* seeded LCG for deterministic, consistent layout every mount */
+function mkRand(seed = 42) {
+  let s = seed >>> 0;
+  return () => { s = (Math.imul(s, 1664525) + 1013904223) >>> 0; return s / 0x100000000; };
+}
+
+/* ── graph builder ─────────────────────────────────────────────────────── */
 function buildGraph() {
+  const r = mkRand(137);
   const nodes = [];
+
   LAYERS.forEach((count, li) => {
-    const gap = count > 1 ? 2.8 / (count - 1) : 0;
-    const y0  = -(count - 1) * gap * 0.5;
+    const isIO = li === 0 || li === LAYERS.length - 1;
+    const span = (count - 1) * 0.68;
     for (let i = 0; i < count; i++) {
       nodes.push({
-        id:    nodes.length,
-        layer: li,
-        x:     LAYER_X[li],
-        y:     y0 + i * gap,
-        z:     Math.sin(li * 2.4 + i * 1.9) * 0.5,
+        id:       nodes.length,
+        layer:    li,
+        x:        LAYER_X[li],
+        y:        count > 1 ? -span + i * (2 * span / (count - 1)) : 0,
+        z:        isIO ? (r() - 0.5) * 0.7 : (r() - 0.5) * 1.8,
+        isInput:  li === 0,
+        isOutput: li === LAYERS.length - 1,
+        isIO,
+        radius:   isIO ? 0.148 : li === 2 ? 0.082 : 0.106,
+        phase:    r() * Math.PI * 2,
       });
     }
   });
 
   const edges = [];
+
+  /* adjacent-layer connections */
   for (let li = 0; li < LAYERS.length - 1; li++) {
     const A = nodes.filter(n => n.layer === li);
     const B = nodes.filter(n => n.layer === li + 1);
-    A.forEach(a => B.forEach(b => edges.push({ a, b })));
+    A.forEach(a => B.forEach(b => edges.push({ a, b, skip: false })));
   }
+
+  /* skip connections — ResNet / attention style */
+  [[0, 2], [2, 4]].forEach(([la, lb]) => {
+    const A = nodes.filter(n => n.layer === la);
+    const B = nodes.filter(n => n.layer === lb);
+    A.forEach((a, ai) =>
+      B.filter((_, bi) => (ai + bi) % 2 === 0).forEach(b => edges.push({ a, b, skip: true }))
+    );
+  });
+
   return { nodes, edges };
 }
 
-/* ── scene ─────────────────────────────────────────────────────────────── */
+/* ── scene component ───────────────────────────────────────────────────── */
 function NeuralScene() {
+  const { camera } = useThree();
+
   const groupRef  = useRef();
-  const scanRef   = useRef();
   const nodeRefs  = useRef([]);
+  const glowRefs  = useRef([]);
   const ringRefs  = useRef([]);
   const pulseRefs = useRef([]);
-  const pulses    = useRef([]);          // { edge, t, spd }
-  const autoAngle = useRef(0);
-  const rX = useRef(0), rY = useRef(0);
-  const tX = useRef(0), tY = useRef(0);
-  const mXY   = useRef({ x: 0, y: 0 });
-  const scanX = useRef(-4.5);
-  const tmp   = useRef(new THREE.Vector3());
+  const pulses    = useRef([]);
+  const edgeAct   = useRef(null);   /* Float32Array — per-std-edge activity 0-1 */
+  const rotY      = useRef(0);
+  const rotX      = useRef(0);
+  const autoA     = useRef(0);
+  const mNDC      = useRef({ x: 0, y: 0 });
+  const tmpV      = useRef(new THREE.Vector3());
 
-  const { nodes, edges } = useMemo(() => buildGraph(), []);
+  const { nodes, edges } = useMemo(buildGraph, []);
+  const stdEdges  = useMemo(() => edges.filter(e => !e.skip), [edges]);
+  const skipEdges = useMemo(() => edges.filter(e =>  e.skip), [edges]);
+  const ioNodes   = useMemo(() => nodes.filter(n => n.isIO),  [nodes]);
 
-  /* synapse line geometry */
-  const edgeGeo = useMemo(() => {
-    const arr = new Float32Array(edges.length * 6);
-    edges.forEach(({ a, b }, i) => {
-      arr[i*6]   = a.x; arr[i*6+1] = a.y; arr[i*6+2] = a.z;
-      arr[i*6+3] = b.x; arr[i*6+4] = b.y; arr[i*6+5] = b.z;
+  useEffect(() => { edgeAct.current = new Float32Array(stdEdges.length); }, [stdEdges]);
+
+  /* standard-edge geometry with per-vertex colours */
+  const stdGeo = useMemo(() => {
+    const pos = new Float32Array(stdEdges.length * 6);
+    const col = new Float32Array(stdEdges.length * 6);
+    const D = 0.08;
+    stdEdges.forEach(({ a, b }, i) => {
+      pos.set([a.x, a.y, a.z, b.x, b.y, b.z], i * 6);
+      const c = [TEAL.r * D, TEAL.g * D, TEAL.b * D];
+      col.set([...c, ...c], i * 6);
     });
     const g = new THREE.BufferGeometry();
-    g.setAttribute("position", new THREE.BufferAttribute(arr, 3));
+    g.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    g.setAttribute("color",    new THREE.BufferAttribute(col, 3));
     return g;
-  }, [edges]);
+  }, [stdEdges]);
 
-  /* background particle field */
-  const starPos = useMemo(() => {
-    const arr = new Float32Array(240 * 3);
-    for (let i = 0; i < 240; i++) {
-      const r = 6 + Math.random() * 8;
-      const θ = Math.random() * Math.PI * 2;
-      const φ = Math.acos(2 * Math.random() - 1);
-      arr[i*3]   = r * Math.sin(φ) * Math.cos(θ);
-      arr[i*3+1] = r * Math.sin(φ) * Math.sin(θ);
-      arr[i*3+2] = r * Math.cos(φ);
+  /* skip-edge geometry */
+  const skipGeo = useMemo(() => {
+    const pos = new Float32Array(skipEdges.length * 6);
+    skipEdges.forEach(({ a, b }, i) => pos.set([a.x, a.y, a.z, b.x, b.y, b.z], i * 6));
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    return g;
+  }, [skipEdges]);
+
+  /* ambient background particles */
+  const bgPos = useMemo(() => {
+    const r = mkRand(99);
+    const arr = new Float32Array(180 * 3);
+    for (let i = 0; i < 180; i++) {
+      const d = 6 + r() * 9, th = r() * Math.PI * 2, ph = Math.acos(2 * r() - 1);
+      arr.set(
+        [d * Math.sin(ph) * Math.cos(th), d * Math.sin(ph) * Math.sin(th), d * Math.cos(ph)],
+        i * 3,
+      );
     }
     return arr;
   }, []);
 
-  /* indices of I/O neurons (get quantum rings) */
-  const ioIndices = useMemo(() => {
-    const acc = [];
-    nodes.forEach((n, i) => {
-      if (n.layer === 0 || n.layer === LAYERS.length - 1) acc.push(i);
-    });
-    return acc;
-  }, [nodes]);
-
+  /* mouse tracking */
   useEffect(() => {
-    const onMove = e => {
-      mXY.current.x = (e.clientX / window.innerWidth  - 0.5) * 2;
-      mXY.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
+    const h = e => {
+      mNDC.current.x = (e.clientX / window.innerWidth  - 0.5) * 2;
+      mNDC.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
     };
-    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("mousemove", h, { passive: true });
     return () => {
-      window.removeEventListener("mousemove", onMove);
-      edgeGeo.dispose();
+      window.removeEventListener("mousemove", h);
+      stdGeo.dispose();
+      skipGeo.dispose();
     };
-  }, [edgeGeo]);
+  }, [stdGeo, skipGeo]);
 
+  /* ── render loop ── */
   useFrame(({ clock }, delta) => {
     const t = clock.elapsedTime;
 
-    /* rotation */
-    autoAngle.current += delta * 0.13;
-    tY.current = autoAngle.current + mXY.current.x * 0.5;
-    tX.current = mXY.current.y * 0.22;
-    const k = Math.min(delta * 2.5, 0.1);
-    rX.current += (tX.current - rX.current) * k;
-    rY.current += (tY.current - rY.current) * k;
+    /* group rotation — slow auto-spin + mouse parallax */
+    autoA.current += delta * 0.07;
+    const k = Math.min(delta * 3, 0.12);
+    rotY.current += (autoA.current + mNDC.current.x * 0.3  - rotY.current) * k;
+    rotX.current += (-mNDC.current.y * 0.15 - rotX.current) * k;
     if (groupRef.current) {
-      groupRef.current.rotation.x = rX.current;
-      groupRef.current.rotation.y = rY.current;
+      groupRef.current.rotation.y = rotY.current;
+      groupRef.current.rotation.x = rotX.current;
     }
-
-    /* scan wave sweeps left → right */
-    scanX.current += delta * 2.2;
-    if (scanX.current > 4.5) scanX.current = -4.5;
-    if (scanRef.current) scanRef.current.position.x = scanX.current;
 
     /* spawn signal pulses */
-    if (pulses.current.length < PULSE_SLOTS - 1 && Math.random() < 0.1) {
-      pulses.current.push({
-        edge: edges[Math.floor(Math.random() * edges.length)],
-        t:    0,
-        spd:  0.30 + Math.random() * 0.55,
-      });
+    if (pulses.current.length < MAX_P - 2 && Math.random() < 0.1) {
+      const e = edges[Math.floor(Math.random() * edges.length)];
+      pulses.current.push({ edge: e, t: 0, spd: 0.25 + Math.random() * 0.5, si: stdEdges.indexOf(e) });
     }
 
-    /* advance & cull completed pulses */
+    /* advance pulses + boost edge activity */
     pulses.current = pulses.current.filter(p => {
       p.t += delta * p.spd;
-      return p.t <= 1.0;
+      if (p.si >= 0 && edgeAct.current) {
+        edgeAct.current[p.si] = Math.min(1, (edgeAct.current[p.si] ?? 0) + delta * 2.5);
+      }
+      return p.t <= 1;
     });
 
-    /* position pulse meshes from the pool */
-    for (let i = 0; i < PULSE_SLOTS; i++) {
+    /* decay activity */
+    if (edgeAct.current) {
+      for (let i = 0; i < edgeAct.current.length; i++) {
+        if (edgeAct.current[i] > 0) edgeAct.current[i] = Math.max(0, edgeAct.current[i] - delta * 0.85);
+      }
+    }
+
+    /* update per-edge vertex colours based on activity */
+    if (edgeAct.current && stdGeo.attributes.color) {
+      const col = stdGeo.attributes.color;
+      for (let i = 0; i < stdEdges.length; i++) {
+        const f = 0.08 + 0.92 * edgeAct.current[i];
+        col.setXYZ(i * 2,     TEAL.r * f, TEAL.g * f, TEAL.b * f);
+        col.setXYZ(i * 2 + 1, TEAL.r * f, TEAL.g * f, TEAL.b * f);
+      }
+      col.needsUpdate = true;
+    }
+
+    /* position signal pulse meshes from pool */
+    for (let i = 0; i < MAX_P; i++) {
       const mesh = pulseRefs.current[i];
       if (!mesh) continue;
       const p = pulses.current[i];
       if (p) {
         const { a, b } = p.edge;
-        tmp.current.set(
+        tmpV.current.set(
           a.x + (b.x - a.x) * p.t,
           a.y + (b.y - a.y) * p.t,
           a.z + (b.z - a.z) * p.t,
         );
-        mesh.position.copy(tmp.current);
+        mesh.position.copy(tmpV.current);
         mesh.visible = true;
+        /* bell-curve scale: tiny at endpoints, full in middle */
+        mesh.scale.setScalar(0.45 + Math.sin(p.t * Math.PI) * 0.85);
       } else {
         mesh.visible = false;
       }
     }
 
-    /* neuron scale breathing */
-    nodeRefs.current.forEach((m, i) => {
-      if (m) m.scale.setScalar(1 + Math.sin(t * 1.7 + i * 0.85) * 0.13);
+    /* per-node hover detection via screen-space projection */
+    const mX = mNDC.current.x;
+    const mY = -mNDC.current.y; /* THREE NDC Y is flipped vs clientY */
+    nodes.forEach((n, i) => {
+      tmpV.current.set(n.x, n.y, n.z);
+      if (groupRef.current) tmpV.current.applyMatrix4(groupRef.current.matrixWorld);
+      tmpV.current.project(camera);
+      const hover = Math.max(0, 1 - Math.hypot(tmpV.current.x - mX, tmpV.current.y - mY) / 0.22);
+
+      const nm = nodeRefs.current[i];
+      if (nm) {
+        nm.scale.setScalar(1 + Math.sin(t * 1.5 + n.phase) * 0.07 + hover * 0.42);
+        if (nm.material) nm.material.emissiveIntensity = (n.isIO ? 0.65 : 0.5) + hover * 0.9;
+      }
+
+      const gm = glowRefs.current[i];
+      if (gm) {
+        gm.scale.setScalar(1 + Math.sin(t * 1.1 + n.phase + 1) * 0.1 + hover * 0.55);
+        if (gm.material) gm.material.opacity = (n.isIO ? 0.11 : 0.055) + hover * 0.18;
+      }
     });
 
-    /* quantum ring spin */
+    /* orbital ring spin */
     ringRefs.current.forEach((m, i) => {
-      if (!m) return;
-      m.rotation.x += delta * (0.65 + i * 0.17);
-      m.rotation.z += delta * (0.40 + i * 0.11);
+      if (m) {
+        m.rotation.x += delta * (0.55 + i * 0.13);
+        m.rotation.z += delta * (0.38 + i * 0.09);
+      }
     });
   });
 
+  /* ── JSX ── */
   return (
     <group ref={groupRef}>
 
-      {/* ambient particle field */}
+      {/* ambient background particle cloud */}
       <points>
         <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            array={starPos}
-            count={240}
-            itemSize={3}
-          />
+          <bufferAttribute attach="attributes-position" array={bgPos} count={180} itemSize={3} />
         </bufferGeometry>
-        <pointsMaterial
-          color="#07BEB8"
-          size={0.022}
-          transparent
-          opacity={0.28}
-          sizeAttenuation
-        />
+        <pointsMaterial color="#07BEB8" size={0.016} transparent opacity={0.18} sizeAttenuation />
       </points>
 
-      {/* synapse connections */}
-      <lineSegments geometry={edgeGeo}>
-        <lineBasicMaterial color="#07BEB8" transparent opacity={0.13} />
+      {/* standard connections — vertex-coloured so activity can be shown per-edge */}
+      <lineSegments geometry={stdGeo}>
+        <lineBasicMaterial vertexColors transparent opacity={1} />
       </lineSegments>
 
-      {/* scanning wave — gives a "quantum search" sweep feel */}
-      <mesh ref={scanRef} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[5, 7]} />
-        <meshBasicMaterial
-          color="#07BEB8"
-          transparent
-          opacity={0.035}
-          side={THREE.DoubleSide}
-        />
-      </mesh>
+      {/* skip / residual connections — subtle purple to differentiate */}
+      <lineSegments geometry={skipGeo}>
+        <lineBasicMaterial color="#9966dd" transparent opacity={0.07} />
+      </lineSegments>
 
-      {/* neurons */}
+      {/* neuron nodes */}
       {nodes.map((n, i) => {
-        const isIO = n.layer === 0 || n.layer === LAYERS.length - 1;
+        const col = n.isInput ? "#a0d8ef" : n.isOutput ? "#ffd580" : "#07BEB8";
+        const emi = n.isInput ? "#4488aa" : n.isOutput ? "#aa7700" : "#07BEB8";
         return (
           <group key={n.id} position={[n.x, n.y, n.z]}>
-            {/* core sphere */}
+            {/* solid core */}
             <mesh ref={el => { nodeRefs.current[i] = el; }}>
-              <sphereGeometry args={[isIO ? 0.125 : 0.09, 14, 14]} />
+              <sphereGeometry args={[n.radius, 16, 16]} />
               <meshStandardMaterial
-                color={isIO ? "#c0f0ff" : "#07BEB8"}
-                emissive={isIO ? "#44ccff" : "#07BEB8"}
-                emissiveIntensity={isIO ? 0.7 : 1.2}
-                roughness={0.15}
-                metalness={0.4}
+                color={col} emissive={emi}
+                emissiveIntensity={n.isIO ? 0.65 : 0.5}
+                roughness={0.1} metalness={0.5}
               />
             </mesh>
-            {/* soft glow halo */}
+            {/* inner glow halo */}
+            <mesh ref={el => { glowRefs.current[i] = el; }}>
+              <sphereGeometry args={[n.radius * 2.4, 8, 8]} />
+              <meshBasicMaterial color={col} transparent opacity={n.isIO ? 0.11 : 0.055} />
+            </mesh>
+            {/* outer soft corona */}
             <mesh>
-              <sphereGeometry args={[isIO ? 0.30 : 0.20, 8, 8]} />
-              <meshBasicMaterial
-                color="#07BEB8"
-                transparent
-                opacity={isIO ? 0.08 : 0.04}
-              />
+              <sphereGeometry args={[n.radius * 5.2, 6, 6]} />
+              <meshBasicMaterial color={col} transparent opacity={0.018} />
             </mesh>
           </group>
         );
       })}
 
-      {/* quantum orbital rings on input / output neurons */}
-      {ioIndices.map((ni, ri) => {
-        const n = nodes[ni];
-        return (
-          <mesh
-            key={`ring-${n.id}`}
-            ref={el => { ringRefs.current[ri] = el; }}
-            position={[n.x, n.y, n.z]}
-            rotation={[Math.PI / 2 + ri * 0.5, ri * 0.8, 0]}
-          >
-            <torusGeometry args={[0.27, 0.013, 8, 40]} />
-            <meshBasicMaterial color="#07BEB8" transparent opacity={0.55} />
-          </mesh>
-        );
-      })}
+      {/* spinning orbital rings on input / output nodes */}
+      {ioNodes.map((n, ri) => (
+        <mesh
+          key={`ring-${n.id}`}
+          ref={el => { ringRefs.current[ri] = el; }}
+          position={[n.x, n.y, n.z]}
+          rotation={[Math.PI / 2 + ri * 0.45, ri * 0.7, 0]}
+        >
+          <torusGeometry args={[0.29, 0.012, 8, 52]} />
+          <meshBasicMaterial
+            color={n.isInput ? "#a0d8ef" : "#ffd580"}
+            transparent opacity={0.48}
+          />
+        </mesh>
+      ))}
 
       {/* travelling signal pulse pool */}
-      {Array.from({ length: PULSE_SLOTS }).map((_, i) => (
-        <mesh
-          key={`p-${i}`}
-          ref={el => { pulseRefs.current[i] = el; }}
-          visible={false}
-        >
-          <sphereGeometry args={[0.042, 8, 8]} />
-          <meshBasicMaterial color="#ffffff" transparent opacity={0.88} />
+      {Array.from({ length: MAX_P }).map((_, i) => (
+        <mesh key={`p-${i}`} ref={el => { pulseRefs.current[i] = el; }} visible={false}>
+          <sphereGeometry args={[0.048, 8, 8]} />
+          <meshBasicMaterial color="#ffffff" transparent opacity={0.9} />
         </mesh>
       ))}
 
@@ -263,18 +315,19 @@ function NeuralScene() {
   );
 }
 
-/* ── export ─────────────────────────────────────────────────────────────── */
+/* ── export ────────────────────────────────────────────────────────────── */
 export default function BrandingHero3D() {
   return (
     <Canvas
-      camera={{ position: [0, 0, 7.8], fov: 50 }}
+      camera={{ position: [0, 0, 8.2], fov: 48 }}
       dpr={DECORATIVE_CANVAS_DPR}
       gl={DECORATIVE_CANVAS_GL}
       style={{ width: "100%", height: "100%", background: "transparent" }}
     >
-      <ambientLight intensity={0.10} />
-      <pointLight position={[4, 4, 4]}   color="#07BEB8" intensity={3.5} />
-      <pointLight position={[-4, -3, 4]} color="#3366ff" intensity={0.9} />
+      <ambientLight intensity={0.08} />
+      <pointLight position={[5, 4, 5]}   color="#07BEB8" intensity={4.5} />
+      <pointLight position={[-5, -3, 4]} color="#3344ff" intensity={1.2} />
+      <pointLight position={[0, 5, -3]}  color="#ffffff"  intensity={0.4} />
       <NeuralScene />
     </Canvas>
   );

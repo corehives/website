@@ -19,6 +19,7 @@ import PricingSection from "../components/pricing/PricingSection.jsx";
 import useScrollReveal from "../hooks/useScrollReveal.js";
 import {
   SiFigma, SiSketch, SiCanva, SiFramer, SiMiro, SiInvision,
+  SiBlender, SiNotion, SiAirtable, SiLinear, SiWebflow,
 } from "react-icons/si";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
@@ -75,16 +76,53 @@ const whyItems = [
   { id: "handover",    title: "Fully Documented Handover",          description: "Every brand project closes with a comprehensive brand book, asset library, usage guidelines, and a team training session. You own your brand completely." },
 ];
 
-const toolTabs = ["Design Tools", "Brand Strategy", "Motion & Print"];
+/* Adobe-style letter badge — matches the official product icon visual language */
+const ab = (letters, fg, bg) => (
+  <div
+    className="w-11 h-11 rounded-[9px] flex items-center justify-center font-black text-[15px] tracking-tight select-none"
+    style={{ background: bg, color: fg, fontFamily: "system-ui, sans-serif" }}
+  >
+    {letters}
+  </div>
+);
 
-const tools = [
-  { label: "Figma",    icon: <SiFigma    style={{ color: "#F24E1E" }} className="w-10 h-10" /> },
-  { label: "Sketch",   icon: <SiSketch   style={{ color: "#F7B500" }} className="w-10 h-10" /> },
-  { label: "Canva",    icon: <SiCanva    style={{ color: "#00C4CC" }} className="w-10 h-10" /> },
-  { label: "Framer",   icon: <SiFramer   style={{ color: "#0055FF" }} className="w-10 h-10" /> },
-  { label: "Miro",     icon: <SiMiro     style={{ color: "#FFD02F" }} className="w-10 h-10" /> },
-  { label: "InVision", icon: <SiInvision style={{ color: "#FF3366" }} className="w-10 h-10" /> },
-];
+/* si helper — keeps icon size uniform */
+const si = (Comp, color) => (
+  <Comp className="w-11 h-11" style={{ color }} />
+);
+
+const toolsByTab = {
+  "Design Tools": [
+    { label: "Figma",    color: "#F24E1E", iconEl: si(SiFigma,    "#F24E1E"), desc: "UI & Identity Design"  },
+    { label: "Sketch",   color: "#F7B500", iconEl: si(SiSketch,   "#F7B500"), desc: "Vector Artboards"      },
+    { label: "Framer",   color: "#0055FF", iconEl: si(SiFramer,   "#0055FF"), desc: "Interactive Prototypes" },
+    { label: "InVision", color: "#FF3366", iconEl: si(SiInvision, "#FF3366"), desc: "Design Handoff"         },
+    { label: "Webflow",  color: "#4353FF", iconEl: si(SiWebflow,  "#4353FF"), desc: "Web Design"             },
+    { label: "Canva",    color: "#00C4CC", iconEl: si(SiCanva,    "#00C4CC"), desc: "Brand Templates"        },
+  ],
+  "Brand Strategy": [
+    { label: "Miro",      color: "#FFD02F", iconEl: si(SiMiro,     "#FFD02F"), desc: "Visual Workshops"   },
+    { label: "Notion",    color: "#CCCCCC", iconEl: si(SiNotion,   "#CCCCCC"), desc: "Strategy Briefs"    },
+    { label: "Figma",     color: "#F24E1E", iconEl: si(SiFigma,    "#F24E1E"), desc: "Brand Systems"      },
+    { label: "Airtable",  color: "#18BFFF", iconEl: si(SiAirtable, "#18BFFF"), desc: "Asset Management"   },
+    { label: "Linear",    color: "#5E6AD2", iconEl: si(SiLinear,   "#5E6AD2"), desc: "Project Workflow"   },
+    { label: "Canva",     color: "#00C4CC", iconEl: si(SiCanva,    "#00C4CC"), desc: "Client Decks"       },
+  ],
+  "Motion & Print": [
+    { label: "After Effects", color: "#9999FF", iconEl: ab("Ae", "#9999FF", "#00005B"), desc: "Motion Graphics"  },
+    { label: "Premiere Pro",  color: "#E040FB", iconEl: ab("Pr", "#E040FB", "#1A0033"), desc: "Video Production" },
+    { label: "Blender",       color: "#E87D0D", iconEl: si(SiBlender, "#E87D0D"),       desc: "3D Animation"     },
+    { label: "Photoshop",     color: "#31A8FF", iconEl: ab("Ps", "#31A8FF", "#001E36"), desc: "Image Production" },
+    { label: "InDesign",      color: "#EE3D8F", iconEl: ab("Id", "#EE3D8F", "#30002C"), desc: "Print & Layout"   },
+    { label: "Illustrator",   color: "#FF9A00", iconEl: ab("Ai", "#FF9A00", "#330000"), desc: "Vector Artwork"   },
+  ],
+};
+
+const TAB_DESCS = {
+  "Design Tools":    "Core visual design software for crafting brand identities, digital interfaces, and scalable design systems — from initial concept to production-ready assets.",
+  "Brand Strategy":  "Collaboration, documentation, and ideation tools that power the strategic research and systematic thinking behind every brand identity we deliver.",
+  "Motion & Print":  "Production-grade software for motion branding, video content, and premium print collateral across every physical and digital brand touchpoint.",
+};
 
 const PALETTE_DOTS = ["#07BEB8", "#FF6B6B", "#FFE66D", "#C9B1FF", "#A8E6CF", "#FFA07A"];
 
@@ -93,6 +131,16 @@ const PALETTE_DOTS = ["#07BEB8", "#FF6B6B", "#FFE66D", "#C9B1FF", "#A8E6CF", "#F
 export default function Branding() {
   const [openId,        setOpenId]        = useState("research");
   const [activeTechTab, setActiveTechTab] = useState("Design Tools");
+  const [toolFade,      setToolFade]      = useState(true);
+
+  const switchTab = (tab) => {
+    if (tab === activeTechTab) return;
+    setToolFade(false);
+    setTimeout(() => {
+      setActiveTechTab(tab);
+      requestAnimationFrame(() => setToolFade(true));
+    }, 180);
+  };
 
   /* scroll-reveal refs */
   const r0 = useScrollReveal(80);
@@ -185,22 +233,32 @@ export default function Branding() {
 
         <div ref={r0} className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          {/* 3-D canvas */}
+          {/* 3-D canvas — gradient-border wrapper */}
           <div
-            className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden border border-[#07BEB8]/20"
-            style={{ background: "radial-gradient(ellipse at center, rgba(7,190,184,0.07) 0%, rgba(2,6,23,0.85) 70%)" }}
+            className="relative h-[420px] md:h-[520px] rounded-[18px] p-px"
+            style={{
+              background: "linear-gradient(135deg, rgba(7,190,184,0.55) 0%, rgba(7,190,184,0.12) 40%, rgba(51,68,255,0.22) 70%, rgba(7,190,184,0.45) 100%)",
+              boxShadow: "0 0 48px rgba(7,190,184,0.09), 0 0 100px rgba(7,190,184,0.04)",
+            }}
           >
-            <BrandingHero3D />
-
-            {/* bottom overlay bar */}
-            <div className="absolute bottom-0 left-0 right-0 px-5 py-4 flex items-center justify-between"
-              style={{ background: "linear-gradient(to top, rgba(2,6,23,0.9) 0%, transparent 100%)" }}
+            {/* inner container — transparent so the neural net floats on the page bg */}
+            <div
+              className="relative w-full h-full rounded-2xl overflow-hidden"
+              style={{ background: "radial-gradient(ellipse 65% 55% at 50% 35%, rgba(7,190,184,0.04) 0%, transparent 70%)" }}
             >
-              <span className="text-[10px] text-white/30 font-mono tracking-widest uppercase">Brand Identity System</span>
-              <div className="flex gap-1.5">
-                {PALETTE_DOTS.map((c, i) => (
-                  <div key={i} className="w-2.5 h-2.5 rounded-full" style={{ background: c }} />
-                ))}
+              <BrandingHero3D />
+
+              {/* bottom overlay bar */}
+              <div
+                className="absolute bottom-0 left-0 right-0 px-5 py-4 flex items-center justify-between"
+                style={{ background: "linear-gradient(to top, rgba(2,6,23,0.65) 0%, transparent 100%)" }}
+              >
+                <span className="text-[10px] text-white/30 font-mono tracking-widest uppercase">Neural Identity System</span>
+                <div className="flex gap-1.5">
+                  {PALETTE_DOTS.map((c, i) => (
+                    <div key={i} className="w-2.5 h-2.5 rounded-full" style={{ background: c }} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -344,74 +402,223 @@ export default function Branding() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          BRAND PROCESS  (5-step timeline)
+          BRAND PROCESS  — alternating spine timeline
       ══════════════════════════════════════════════════════════════ */}
-      <section ref={r3} className="relative px-6 py-28 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
+      <section ref={r3} className="relative py-32 px-6 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
+
+        {/* Dot-grid atmosphere */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(180deg, transparent 0%, rgba(7,190,184,0.04) 50%, transparent 100%)" }}
+          style={{
+            backgroundImage: "radial-gradient(rgba(7,190,184,0.1) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+            opacity: 0.5,
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(7,190,184,0.05) 0%, transparent 70%)" }}
         />
 
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-20 text-center">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-[#07BEB8] mb-3">How We Work</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              The brand-building <span className="text-[#07BEB8]">process</span>
+        <div className="relative z-10 max-w-6xl mx-auto">
+
+          {/* Section heading */}
+          <div className="mb-24 text-center">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-[#07BEB8]/25 bg-[#07BEB8]/[0.07] px-5 py-2 mb-6 backdrop-blur-sm">
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-[#07BEB8]"
+                style={{ boxShadow: "0 0 6px rgba(7,190,184,0.8)" }}
+              />
+              <span className="text-[11px] tracking-[0.3em] uppercase text-[#07BEB8]">How We Work</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.1] tracking-tight mb-5">
+              Five steps.{" "}
+              <span className="text-[#07BEB8]">One market-ready brand.</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-              A research-led, commercially focused methodology that takes your brand from white page to market-ready system.
+            <p className="text-gray-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+              A research-led, commercially focused methodology that takes your brand from a white page to a system your market can't ignore.
             </p>
           </div>
 
-          {/* Desktop: horizontal */}
+          {/* ── Desktop: alternating spine timeline ── */}
           <div className="hidden md:block">
             <div className="relative">
-              {/* connecting line — vertically centred on the 64 px dots (top-8 = 32px) */}
+
+              {/* Central glowing spine */}
               <div
-                className="absolute left-[10%] right-[10%] h-px"
-                style={{ top: 32, background: "linear-gradient(90deg, transparent, rgba(7,190,184,0.4) 20%, rgba(7,190,184,0.4) 80%, transparent)" }}
+                className="absolute left-1/2 -translate-x-1/2 top-10 bottom-10 w-px"
+                style={{
+                  background: "linear-gradient(180deg, transparent 0%, rgba(7,190,184,0.45) 10%, rgba(7,190,184,0.45) 90%, transparent 100%)",
+                }}
               />
-              <div className="grid grid-cols-5">
-                {processSteps.map((step, i) => {
-                  const Icon = step.icon;
-                  return (
-                    <div key={i} className="relative flex flex-col items-center text-center group px-3">
-                      <div className="relative z-10 w-16 h-16 rounded-full border border-[#07BEB8]/40 bg-[#020617] group-hover:border-[#07BEB8] group-hover:bg-[#07BEB8]/10 transition-all duration-300 flex items-center justify-center mb-5">
-                        <Icon className="w-6 h-6 text-[#07BEB8]" />
-                      </div>
-                      <span className="text-[10px] font-mono text-[#07BEB8]/50 tracking-wider mb-1">{step.number}</span>
-                      <h3 className="text-sm font-bold text-white mb-2">{step.title}</h3>
-                      <p className="text-xs text-gray-500 leading-relaxed">{step.description}</p>
+
+              {processSteps.map((step, i) => {
+                const Icon = step.icon;
+                const isLeft = i % 2 === 0;
+
+                /* icon block — reused on whichever side gets the icon */
+                const iconEl = (
+                  <div className="relative group-hover:scale-105 transition-transform duration-500">
+                    {/* Soft outer glow */}
+                    <div
+                      className="absolute -inset-5 rounded-[30px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      style={{ background: "radial-gradient(ellipse at center, rgba(7,190,184,0.16) 0%, transparent 70%)" }}
+                    />
+                    {/* Icon card */}
+                    <div
+                      className="relative w-[76px] h-[76px] rounded-2xl flex items-center justify-center overflow-hidden"
+                      style={{
+                        background: "linear-gradient(135deg, rgba(7,190,184,0.16) 0%, rgba(7,190,184,0.04) 100%)",
+                        border: "1px solid rgba(7,190,184,0.28)",
+                        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+                      }}
+                    >
+                      {/* Card inner hover overlay */}
+                      <div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{ background: "linear-gradient(135deg, rgba(7,190,184,0.24) 0%, rgba(7,190,184,0.08) 100%)" }}
+                      />
+                      <Icon className="relative w-7 h-7 text-[#07BEB8]" />
                     </div>
-                  );
-                })}
-              </div>
+                    {/* Step tag */}
+                    <div className="mt-3 flex justify-center">
+                      <span
+                        className="text-[9px] font-mono tracking-[0.3em] px-2.5 py-1 rounded-full text-[#07BEB8]/55"
+                        style={{
+                          border: "1px solid rgba(7,190,184,0.2)",
+                          background: "rgba(7,190,184,0.06)",
+                        }}
+                      >
+                        {step.number}
+                      </span>
+                    </div>
+                  </div>
+                );
+
+                /* text block — right-aligned when on the left column */
+                const textRight = (
+                  <div className="max-w-[265px] text-right ml-auto">
+                    <h3 className="text-xl font-bold text-white mb-2 leading-snug group-hover:text-[#07BEB8] transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <div
+                      className="h-px w-8 ml-auto mb-3 transition-all duration-500 group-hover:w-14"
+                      style={{ background: "linear-gradient(270deg, #07BEB8, transparent)" }}
+                    />
+                    <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                      {step.description}
+                    </p>
+                  </div>
+                );
+
+                /* text block — left-aligned when on the right column */
+                const textLeft = (
+                  <div className="max-w-[265px]">
+                    <h3 className="text-xl font-bold text-white mb-2 leading-snug group-hover:text-[#07BEB8] transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <div
+                      className="h-px w-8 mb-3 transition-all duration-500 group-hover:w-14"
+                      style={{ background: "linear-gradient(90deg, #07BEB8, transparent)" }}
+                    />
+                    <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                      {step.description}
+                    </p>
+                  </div>
+                );
+
+                return (
+                  <div key={i} className="group grid grid-cols-[1fr_100px_1fr] items-center py-14 relative">
+
+                    {/* Giant watermark number */}
+                    <span
+                      className="absolute left-1/2 -translate-x-1/2 font-black text-white leading-none select-none pointer-events-none"
+                      style={{ fontSize: "9.5rem", opacity: 0.026, letterSpacing: "-0.04em" }}
+                    >
+                      {step.number}
+                    </span>
+
+                    {/* Left column */}
+                    <div className="flex items-center justify-end pr-10">
+                      {isLeft ? iconEl : textRight}
+                    </div>
+
+                    {/* Centre: glowing node on the spine */}
+                    <div className="relative flex items-center justify-center z-10">
+                      <div className="absolute w-14 h-14 rounded-full border border-[#07BEB8]/12 group-hover:border-[#07BEB8]/38 group-hover:scale-110 transition-all duration-700" />
+                      <div className="absolute w-8 h-8 rounded-full border border-[#07BEB8]/25 group-hover:border-[#07BEB8]/65 group-hover:scale-110 transition-all duration-500" />
+                      <div
+                        className="relative z-10 w-4 h-4 rounded-full transition-transform duration-300 group-hover:scale-[1.3]"
+                        style={{
+                          background: "radial-gradient(circle, #c4f8f6 0%, #07BEB8 65%)",
+                          boxShadow: "0 0 8px rgba(7,190,184,0.75), 0 0 22px rgba(7,190,184,0.38)",
+                        }}
+                      />
+                    </div>
+
+                    {/* Right column */}
+                    <div className="flex items-center justify-start pl-10">
+                      {isLeft ? textLeft : iconEl}
+                    </div>
+
+                    {/* Row hover radial glow */}
+                    <div
+                      className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      style={{ background: "radial-gradient(ellipse 55% 85% at 50% 50%, rgba(7,190,184,0.04) 0%, transparent 70%)" }}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Mobile: vertical */}
-          <div className="md:hidden flex flex-col gap-0">
+          {/* ── Mobile: glassmorphism card stack ── */}
+          <div className="md:hidden flex flex-col gap-4">
             {processSteps.map((step, i) => {
               const Icon = step.icon;
               return (
-                <div key={i} className="flex gap-5">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full border border-[#07BEB8]/40 bg-[#07BEB8]/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-[#07BEB8]" />
+                <div
+                  key={i}
+                  className="relative overflow-hidden rounded-2xl p-6"
+                  style={{
+                    background: "linear-gradient(135deg, rgba(7,190,184,0.08) 0%, rgba(7,190,184,0.02) 100%)",
+                    border: "1px solid rgba(7,190,184,0.2)",
+                  }}
+                >
+                  {/* Watermark */}
+                  <span
+                    className="absolute right-3 top-0 font-black text-white leading-none select-none pointer-events-none"
+                    style={{ fontSize: "5.5rem", opacity: 0.042 }}
+                  >
+                    {step.number}
+                  </span>
+                  <div className="relative">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                        style={{
+                          background: "linear-gradient(135deg, rgba(7,190,184,0.2), rgba(7,190,184,0.07))",
+                          border: "1px solid rgba(7,190,184,0.3)",
+                        }}
+                      >
+                        <Icon className="w-5 h-5 text-[#07BEB8]" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-mono text-[#07BEB8]/45 tracking-wider block">{step.number}</span>
+                        <h3 className="text-base font-bold text-white">{step.title}</h3>
+                      </div>
                     </div>
-                    {i < processSteps.length - 1 && (
-                      <div className="w-px h-10 mt-1 bg-[#07BEB8]/20" />
-                    )}
-                  </div>
-                  <div className="pt-1 pb-8">
-                    <span className="text-[10px] font-mono text-[#07BEB8]/50 tracking-wider">{step.number}</span>
-                    <h3 className="text-base font-bold text-white mt-0.5 mb-1">{step.title}</h3>
+                    <div
+                      className="h-px w-8 mb-3"
+                      style={{ background: "linear-gradient(90deg, #07BEB8, transparent)" }}
+                    />
                     <p className="text-sm text-gray-400 leading-relaxed">{step.description}</p>
                   </div>
                 </div>
               );
             })}
           </div>
+
         </div>
       </section>
 
@@ -592,47 +799,110 @@ export default function Branding() {
       />
 
       {/* ══════════════════════════════════════════════════════════════
-          DESIGN TOOLS
+          DESIGN TOOLS — dynamic tab-switched expertise showcase
       ══════════════════════════════════════════════════════════════ */}
-      <section className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative px-6 py-24 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
+        {/* Ambient glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(7,190,184,0.05) 0%, transparent 70%)" }}
+        />
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+
+          {/* Header */}
           <div className="mb-12 text-center">
             <p className="text-[11px] tracking-[0.3em] uppercase text-[#07BEB8] mb-3">Our Stack</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-              Design Tools &amp; Expertise
+              Tools &amp; Expertise
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-              Industry-standard creative tools operated by senior brand designers with 5+ years of production experience across every major category.
-            </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {toolTabs.map((tab) => {
-              const active = tab === activeTechTab;
-              return (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTechTab(tab)}
-                  className={`px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${
-                    active
-                      ? "bg-[#07BEB8] text-white border-[#07BEB8] shadow-[0_0_25px_rgba(7,190,184,0.45)]"
-                      : "bg-transparent text-gray-200 border-white/25 hover:border-white/50"
-                  }`}
-                >
-                  {tab}
-                </button>
-              );
-            })}
+          {/* Segmented tab control */}
+          <div className="flex justify-center mb-6">
+            <div
+              className="inline-flex items-center gap-1 p-1.5 rounded-2xl border border-white/10"
+              style={{ background: "rgba(255,255,255,0.025)" }}
+            >
+              {Object.keys(toolsByTab).map((tab) => {
+                const active = tab === activeTechTab;
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => switchTab(tab)}
+                    className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                      active
+                        ? "bg-[#07BEB8] text-white shadow-[0_0_22px_rgba(7,190,184,0.45)]"
+                        : "text-gray-400 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-            {tools.map((tool, idx) => (
-              <div key={idx} className="group flex flex-col items-center justify-center gap-3 p-5 rounded-2xl border border-white/15 hover:border-[#07BEB8]/50 hover:shadow-[0_0_25px_rgba(7,190,184,0.12)] transition-all cursor-pointer h-32 hover:scale-105" style={{ transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease" }}>
-                <div className="group-hover:scale-110 transition-transform duration-300">{tool.icon}</div>
-                <span className="text-xs font-medium text-white">{tool.label}</span>
+          {/* Animated tab description */}
+          <p
+            className="text-center text-gray-500 text-sm max-w-xl mx-auto mb-12 leading-relaxed"
+            style={{
+              opacity:    toolFade ? 1 : 0,
+              transform:  toolFade ? "translateY(0)" : "translateY(6px)",
+              transition: "opacity 0.2s ease, transform 0.2s ease",
+            }}
+          >
+            {TAB_DESCS[activeTechTab]}
+          </p>
+
+          {/* Tool grid — fades + slides on tab switch */}
+          <div
+            className="grid grid-cols-2 sm:grid-cols-3 gap-4"
+            style={{
+              opacity:    toolFade ? 1 : 0,
+              transform:  toolFade ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 0.2s ease, transform 0.2s ease",
+            }}
+          >
+            {toolsByTab[activeTechTab].map((tool, idx) => (
+              <div
+                key={`${activeTechTab}-${idx}`}
+                className="group relative overflow-hidden rounded-2xl border border-white/8 hover:border-white/18 bg-white/1.5 hover:bg-white/4 p-7 flex flex-col items-center gap-5 cursor-default transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+              >
+                {/* Per-tool radial colour glow on hover */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500"
+                  style={{ background: `radial-gradient(ellipse at 50% 20%, ${tool.color}1c 0%, transparent 70%)` }}
+                />
+
+                {/* Bottom accent line */}
+                <div
+                  className="absolute bottom-0 left-6 right-6 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: `linear-gradient(90deg, transparent, ${tool.color}bb, transparent)` }}
+                />
+
+                {/* Icon with soft glow halo + hover scale wrapper */}
+                <div className="relative flex items-center justify-center">
+                  <div
+                    className="absolute -inset-3 rounded-full opacity-0 group-hover:opacity-60 blur-lg transition-opacity duration-500"
+                    style={{ background: tool.color + "50" }}
+                  />
+                  <div className="relative transition-transform duration-300 group-hover:scale-110">
+                    {tool.iconEl}
+                  </div>
+                </div>
+
+                {/* Name + use-case */}
+                <div className="text-center relative z-10">
+                  <p className="text-[13px] font-semibold text-white leading-tight">{tool.label}</p>
+                  <p className="text-[11px] text-gray-500 mt-1 leading-snug group-hover:text-gray-400 transition-colors duration-300">
+                    {tool.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
