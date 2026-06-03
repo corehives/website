@@ -61,11 +61,11 @@ function useHoverRotation() {
   return controller;
 }
 
-function Globe() {
+function Globe({ detail = 3 }) {
   const groupRef = useRef();
   const controller = useHoverRotation();
 
-  const geometry = useMemo(() => new THREE.IcosahedronGeometry(2.5, 3), []);
+  const geometry = useMemo(() => new THREE.IcosahedronGeometry(2.5, detail), [detail]);
   const edges = useMemo(() => new THREE.EdgesGeometry(geometry), [geometry]);
   const edgePositions = useMemo(() => edges.attributes.position.array, [edges]);
 
@@ -194,7 +194,9 @@ function GlobeCore() {
   );
 }
 
-export default function GlobeScene() {
+// loaderMode: strips the decorative images and brings the camera closer
+// so the raw icosahedron globe fills the canvas for the loading screen.
+export default function GlobeScene({ loaderMode = false }) {
   return (
     <div
       style={{
@@ -204,29 +206,31 @@ export default function GlobeScene() {
         top: "0%",
       }}
     >
-      <img
-        src={GlobeLogo}
-        alt=""
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, calc(-50% - 40px))",
-          width: "clamp(220px, 32vw, 330px)",
-          height: "auto",
-          aspectRatio: "1",
-          objectFit: "cover",
-          zIndex: 1,
-          pointerEvents: "none",
-          animation: "rotateSlow 20s linear infinite",
-          filter: "drop-shadow(0 0 25px #07BEB8) drop-shadow(0 0 60px #07BEB8)",
-        }}
-      />
+      {!loaderMode && (
+        <img
+          src={GlobeLogo}
+          alt=""
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, calc(-50% - 40px))",
+            width: "clamp(220px, 32vw, 330px)",
+            height: "auto",
+            aspectRatio: "1",
+            objectFit: "cover",
+            zIndex: 1,
+            pointerEvents: "none",
+            animation: "rotateSlow 20s linear infinite",
+            filter: "drop-shadow(0 0 25px #07BEB8) drop-shadow(0 0 60px #07BEB8)",
+          }}
+        />
+      )}
 
       <Canvas
-        camera={{ position: [0, -0.8, 7] }}
-        dpr={DECORATIVE_CANVAS_DPR}
-        gl={DECORATIVE_CANVAS_GL}
+        camera={{ position: [0, -0.8, loaderMode ? 4.8 : 7] }}
+        dpr={loaderMode ? 1 : DECORATIVE_CANVAS_DPR}
+        gl={loaderMode ? { ...DECORATIVE_CANVAS_GL, antialias: false } : DECORATIVE_CANVAS_GL}
         style={{
           position: "absolute",
           inset: 0,
@@ -236,7 +240,7 @@ export default function GlobeScene() {
         }}
       >
         <ambientLight intensity={0.3} />
-        <Globe />
+        <Globe detail={loaderMode ? 2 : 3} />
         <GlobeCore />
         <CenterGlow />
       </Canvas>
@@ -255,7 +259,7 @@ export default function GlobeScene() {
           src={HalfLogo}
           alt="logo"
           style={{
-            width: "clamp(70px, 12vw, 200px)",
+            width: loaderMode ? "clamp(130px, 22vmin, 260px)" : "clamp(70px, 12vw, 200px)",
             height: "auto",
             objectFit: "contain",
             opacity: 0.9,

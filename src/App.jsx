@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/layout/header.jsx";
 import Hero from "./components/hero.jsx";
 import PageLoader from "./components/PageLoader.jsx";
+import LoadingScreen from "./components/LoadingScreen.jsx";
 
 // Home page sections
 const Solution = lazy(() => import("./components/solution.jsx"));
@@ -39,6 +40,38 @@ const PortfolioCustomSoftware = lazy(() => import("./pages/portfolio/custom-soft
 const PortfolioDigitalMarketing = lazy(() => import("./pages/portfolio/digital-marketing.jsx"));
 const PortfolioBranding = lazy(() => import("./pages/portfolio/branding.jsx"));
 
+// Eagerly download every route chunk as soon as this module is evaluated.
+// import() is deduplicated by Vite/the module registry — these reuse the
+// exact same chunks as the lazy() declarations above, no double-fetch.
+// The 2100ms loader window is the budget; chunks arrive before dismiss.
+import("./components/solution.jsx");
+import("./components/overview.jsx");
+import("./components/partners.jsx");
+import("./components/testimonials.jsx");
+import("./components/awards.jsx");
+import("./components/contact.jsx");
+import("./components/layout/footer.jsx");
+import("./pages/web-development.jsx");
+import("./pages/our-portfolio.jsx");
+import("./pages/app-development.jsx");
+import("./pages/contact-us.jsx");
+import("./pages/about-us.jsx");
+import("./pages/branding.jsx");
+import("./pages/illustration-animation.jsx");
+import("./pages/tech-staff-outsourcing.jsx");
+import("./pages/ai-market-optimization.jsx");
+import("./pages/blockchain.jsx");
+import("./pages/products/corehive-crm.jsx");
+import("./pages/products/corehive-analytics.jsx");
+import("./pages/products/corehive-automation.jsx");
+import("./pages/products/corehive-ai-suite.jsx");
+import("./pages/portfolio/mobile-app-development.jsx");
+import("./pages/portfolio/web-development.jsx");
+import("./pages/portfolio/ui-ux-design.jsx");
+import("./pages/portfolio/custom-software.jsx");
+import("./pages/portfolio/digital-marketing.jsx");
+import("./pages/portfolio/branding.jsx");
+
 function HomePage() {
   return (
     <>
@@ -62,19 +95,24 @@ function HomePage() {
 
 function AppRoutes() {
   const location = useLocation();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading]   = useState(true);
+  const [mounted, setMounted]   = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    const minDisplay = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(minDisplay);
+    setMounted(true);
+    const SHOW = 2100; // minimum display ms
+    const FADE = 820;  // must exceed LoadingScreen CSS transition (0.75s)
+    const t1 = setTimeout(() => setLoading(false), SHOW);
+    const t2 = setTimeout(() => setMounted(false), SHOW + FADE);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, [location.pathname]);
 
-  if (loading) return <PageLoader />;
-
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes location={location}>
+    <>
+      {mounted && <LoadingScreen visible={loading} />}
+      <Suspense fallback={<PageLoader />}>
+        <Routes location={location}>
         {/* Core pages */}
         <Route path="/" element={<HomePage />} />
         <Route path="/web-development" element={<WebDevelopment />} />
@@ -144,6 +182,7 @@ function AppRoutes() {
         } />
       </Routes>
     </Suspense>
+    </>
   );
 }
 

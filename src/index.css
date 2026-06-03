@@ -440,7 +440,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
-  animation: shineMove 4s linear infinite;
+  animation: shineMove 5s linear infinite;
 }
 
 /* key fix: force visible motion */
