@@ -103,7 +103,7 @@ function MilestoneRow({ item, index }) {
   return (
     <div
       ref={ref}
-      className="group grid grid-cols-[1fr_100px_1fr] items-center py-14 relative"
+      className="group grid grid-cols-[1fr_100px_1fr] items-center py-5 relative"
     >
       {/* Giant watermark year */}
       <span
@@ -151,7 +151,7 @@ export default function AboutStory() {
   const paraRef  = useScrollReveal(200);
 
   return (
-    <section className="section-auto-render relative py-20 sm:py-28 px-6 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
+    <section className="section-auto-render relative py-10 sm:py-15 px-6 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
 
       {/* Dot-grid atmosphere */}
       <div

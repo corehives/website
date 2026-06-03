@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, MapPin, Mail, Phone } from "lucide-react";
+import CTAButton from "../components/shared/CTAButton";
 import { FaWhatsapp } from "react-icons/fa";
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -640,20 +641,14 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <button
+                  <CTAButton
                     type="submit"
                     disabled={loading}
-                    className={`mt-2 self-start inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium transition-all ${
-                      loading
-                        ? "cursor-not-allowed border-[#07BEB8]/30 bg-[#07BEB8]/10 text-[#8efcf8]"
-                        : "text-white hover:bg-[#017c785e]"
-                    }`}
+                    loading={loading}
+                    className="mt-2 self-start"
                   >
                     {loading ? "Sending..." : "Send Message"}
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-                      <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </button>
+                  </CTAButton>
                 </form>
               )}
             </div>

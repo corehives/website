@@ -11,28 +11,25 @@ import rightLight from "../assets/right-light.png";
 import avatar5 from "../assets/avatar-7.png";
 import avatar4 from "../assets/avatar-8.png";
 import avatar6 from "../assets/avatar-9.png";
-import { SiJavascript, SiFlutter, SiNextdotjs } from "react-icons/si";
+import {
+  SiJavascript, SiFlutter, SiNextdotjs,
+  SiGrafana, SiGoogleanalytics, SiKibana, SiLooker, SiMetabase, SiElasticsearch,
+  SiPostgresql, SiMongodb, SiRedis, SiDocker, SiApachekafka, SiApachespark,
+  SiGooglecloud, SiVercel, SiNetlify, SiDigitalocean, SiCloudflare,
+} from "react-icons/si";
 import BgApp from "../assets/bg-app.png";
 import { ArrowRight } from "lucide-react";
+import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
 import {
-  FaHtml5,
-  FaCss3Alt,
-  FaLaravel,
-  FaPhp,
-  FaFigma,
-  FaReact,
-  FaAndroid,
-  FaPython,
-  FaVuejs,
+  FaHtml5, FaCss3Alt, FaLaravel, FaPhp, FaFigma, FaReact,
+  FaAndroid, FaPython, FaVuejs, FaAws,
 } from "react-icons/fa";
 
-import {
-  ChevronDown,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const services = [
   {
@@ -60,6 +57,33 @@ const services = [
     icon: "↗",
   },
 ];
+
+const techTabData = {
+  "Business Intelligence": [
+    { label: "Grafana", icon: <SiGrafana className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F46800" }} /> },
+    { label: "Google Analytics", icon: <SiGoogleanalytics className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#E37400" }} /> },
+    { label: "Kibana", icon: <SiKibana className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F04E98" }} /> },
+    { label: "Looker", icon: <SiLooker className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#4285F4" }} /> },
+    { label: "Metabase", icon: <SiMetabase className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#509EE3" }} /> },
+    { label: "Elasticsearch", icon: <SiElasticsearch className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#07BEB8" }} /> },
+  ],
+  "Data Engineering": [
+    { label: "Python", icon: <FaPython className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#3776AB" }} /> },
+    { label: "PostgreSQL", icon: <SiPostgresql className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#336791" }} /> },
+    { label: "MongoDB", icon: <SiMongodb className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#47A248" }} /> },
+    { label: "Apache Kafka", icon: <SiApachekafka className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "Apache Spark", icon: <SiApachespark className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#E25A1C" }} /> },
+    { label: "Docker", icon: <SiDocker className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#2496ED" }} /> },
+  ],
+  "Platform Partnerships": [
+    { label: "AWS", icon: <FaAws className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FF9900" }} /> },
+    { label: "Google Cloud", icon: <SiGooglecloud className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#4285F4" }} /> },
+    { label: "Vercel", icon: <SiVercel className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "Netlify", icon: <SiNetlify className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#00C7B7" }} /> },
+    { label: "DigitalOcean", icon: <SiDigitalocean className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#0080FF" }} /> },
+    { label: "Cloudflare", icon: <SiCloudflare className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F48120" }} /> },
+  ],
+};
 
 export default function WebDevelopment() {
   const [expandedIndex, setExpandedIndex] = useState(0);
@@ -204,15 +228,9 @@ export default function WebDevelopment() {
             </p>
 
             <div className="flex items-center gap-4 pt-4">
-              <a
-                href="#"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-              >
-                Hire a Developer
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </a>
+              <CTAButton href="/contact">
+                Build Creative Project
+              </CTAButton>
               <div className="flex items-center gap-8">
                 {/* Avatar Group Container */}
                 <div className="flex items-center justify-start relative h-32">
@@ -223,7 +241,7 @@ export default function WebDevelopment() {
                       zIndex: 30,
                     }}
                   >
-                    <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center">
+                    <div className="w-22 h-22 rounded-full overflow-hidden flex items-center justify-center">
                       <img
                         src={avatar4}
                         alt="avatar-1"
@@ -240,7 +258,7 @@ export default function WebDevelopment() {
                       zIndex: 20,
                     }}
                   >
-                    <div className="w-24 h-24 rounded-full  overflow-hidden flex items-center justify-center">
+                    <div className="w-22 h-22 rounded-full  overflow-hidden flex items-center justify-center">
                       <img
                         src={avatar5}
                         alt="avatar-2"
@@ -257,7 +275,7 @@ export default function WebDevelopment() {
                       zIndex: 10,
                     }}
                   >
-                    <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center">
+                    <div className="w-22 h-22 rounded-full overflow-hidden flex items-center justify-center">
                       <img
                         src={avatar6}
                         alt="avatar-3"
@@ -274,7 +292,7 @@ export default function WebDevelopment() {
                       zIndex: 0,
                     }}
                   >
-                    <div className="w-16 h-16 rounded-full border-4 border-gray-300 overflow-hidden bg-gray-100 flex items-center justify-center gap-3">
+                    <div className="w-15 h-15 rounded-full border-4 border-gray-300 overflow-hidden bg-gray-100 flex items-center justify-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#07BEB8]" />
                       <div className="w-2 h-2 rounded-full bg-[#07beb89c]" />
                     </div>
@@ -422,22 +440,22 @@ export default function WebDevelopment() {
 
               {/* Stats card with avatars */}
               <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <div className="flex mx-auto items-center gap-3">
                   <div className="flex items-center">
                     <img
                       src={avatar4}
                       alt=""
-                      className="w-10 h-10 rounded-full border-2 border-black object-cover"
+                      className="w-15 h-15 rounded-full border-2object-cover"
                     />
                     <img
                       src={avatar5}
                       alt=""
-                      className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3"
+                      className="w-15 h-15 rounded-full border-2object-cover -ml-6"
                     />
                     <img
                       src={avatar6}
                       alt=""
-                      className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3"
+                      className="w-15 h-15 rounded-full border-2object-cover -ml-6"
                     />
                   </div>
                   <div>
@@ -449,15 +467,6 @@ export default function WebDevelopment() {
                     </p>
                   </div>
                 </div>
-                <a
-                  href="#"
-                  className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-                >
-                  View Portfoilo
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </a>
               </div>
             </div>
 
@@ -511,7 +520,7 @@ export default function WebDevelopment() {
       />
 
       {/* Tech Expertise */}
-      <section className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32">
+      <section className="relative px-6 pt-10 pb-20 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="mb-12 text-center">
@@ -539,7 +548,7 @@ export default function WebDevelopment() {
                   onClick={() => setActiveTechTab(tab)}
                   className={`px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${
                     active
-                      ? "bg-[#07BEB8] text-white border-[#07BEB8] shadow-[0_0_25px_rgba(7,190,184,0.45)]"
+                      ? "bg-[#07BEB8] text-white border-[#07BEB8] "
                       : "bg-transparent text-gray-200 border-white/25 hover:border-white/50"
                   }`}
                 >
@@ -549,118 +558,12 @@ export default function WebDevelopment() {
             })}
           </div>
 
-          {/* Tech grid — 12 items */}
+          {/* Tech grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
-            {[
-              {
-                label: "HTML5",
-                icon: (
-                  <FaHtml5
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#E34F26" }}
-                  />
-                ),
-              },
-              {
-                label: "CSS3",
-                icon: (
-                  <FaCss3Alt
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#1572B6" }}
-                  />
-                ),
-              },
-              {
-                label: "JavaScript",
-                icon: (
-                  <SiJavascript
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#F7DF1E" }}
-                  />
-                ),
-              },
-              {
-                label: "Flutter",
-                icon: (
-                  <SiFlutter
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#02569B" }}
-                  />
-                ),
-              },
-              {
-                label: "next.js",
-                icon: (
-                  <SiNextdotjs className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
-                ),
-              },
-              {
-                label: "Laravel",
-                icon: (
-                  <FaLaravel
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#FF2D20" }}
-                  />
-                ),
-              },
-              {
-                label: "PHP",
-                icon: (
-                  <FaPhp
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#777BB4" }}
-                  />
-                ),
-              },
-              {
-                label: "Python",
-                icon: (
-                  <FaPython
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#3776AB" }}
-                  />
-                ),
-              },
-              {
-                label: "Vue.js",
-                icon: (
-                  <FaVuejs
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#4FC08D" }}
-                  />
-                ),
-              },
-              {
-                label: "Figma",
-                icon: (
-                  <FaFigma
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#F24E1E" }}
-                  />
-                ),
-              },
-              {
-                label: "React",
-                icon: (
-                  <FaReact
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#61DAFB" }}
-                  />
-                ),
-              },
-              {
-                label: "Android",
-                icon: (
-                  <FaAndroid
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#3DDC84" }}
-                  />
-                ),
-              },
-            ].map((tech, idx) => (
+            {techTabData[activeTechTab].map((tech, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center gap-3 p-5 sm:p-6 rounded-2xl border border-white/40  hover:border-[#07BEB8]/60 hover:shadow-[0_0_25px_rgba(7,190,184,0.15)] transition-all cursor-pointer group h-32 sm:h-36"
+                className="flex flex-col items-center justify-center gap-3 p-5 sm:p-6 rounded-2xl border border-white/40 hover:border-[#07BEB8]/60 hover:shadow-[0_0_25px_rgba(7,190,184,0.15)] transition-all cursor-pointer group h-32 sm:h-36"
               >
                 <div className="group-hover:scale-110 transition-transform">
                   {tech.icon}

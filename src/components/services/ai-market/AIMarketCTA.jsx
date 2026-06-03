@@ -1,5 +1,6 @@
 import { ArrowRight, Calendar } from "lucide-react";
 import useScrollReveal from "../../../hooks/useScrollReveal";
+import CTAButton from "../../shared/CTAButton";
 
 const trustItems = [
   "Free AI growth audit included",
@@ -55,18 +56,12 @@ export default function AIMarketCTA() {
         </p>
 
         <div ref={ctaRef} className="flex flex-wrap justify-center gap-4 mb-10">
-          <a href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#4a1a2e5e]">
+          <CTAButton href="/contact">
             Claim Your Free Audit
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F472B6] text-slate-950 transition-transform group-hover:scale-105">
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </a>
-          <a href="/contact"
-            className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10">
-            <Calendar className="h-4 w-4" style={{ color: "#F472B6" }} />
+          </CTAButton>
+          <CTAButton href="/contact">
             Book a Strategy Call
-          </a>
+          </CTAButton>
         </div>
 
         <div ref={trustRef} className="flex flex-wrap justify-center gap-4">

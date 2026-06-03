@@ -2,6 +2,7 @@ import { useRef } from "react";
 import BgApp from "../../assets/bg-app.png";
 import { insightsData } from "./data";
 import { ArrowRight } from "lucide-react";
+import CTAButton from "../shared/CTAButton";
 
 export default function InsightsSection() {
   const trackRef = useRef(null);
@@ -134,15 +135,9 @@ export default function InsightsSection() {
                 </p>
 
                 <div className="mt-4">
-                  <button
-                    href="#"
-                    className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-                  >
+                  <CTAButton href="#">
                     Read More
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                      <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </button>
+                  </CTAButton>
                 </div>
               </div>
             </div>

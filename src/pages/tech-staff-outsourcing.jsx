@@ -13,6 +13,7 @@ import avatar4 from "../assets/avatar-8.png";
 import avatar6 from "../assets/avatar-9.png";
 import BgApp from "../assets/bg-app.png";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
 import { FaReact, FaPython, FaAndroid } from "react-icons/fa";
 import {
@@ -128,12 +129,9 @@ export default function TechStaffOutsourcing() {
               We place pre-vetted senior engineers directly into your team — using your tools, attending your standups, shipping your features. No recruitment overhead, no probation risk, no minimum 12-month commitment. Scale your engineering capacity the moment your roadmap demands it.
             </p>
             <div className="flex items-center gap-4 pt-4">
-              <a href="/contact" className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
+              <CTAButton href="/contact">
                 Build Your Team
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </a>
+              </CTAButton>
               <div className="flex items-center gap-8">
                 <div className="flex items-center justify-start relative h-32">
                   <div className="relative flex-shrink-0" style={{ zIndex: 30 }}>
@@ -218,21 +216,17 @@ export default function TechStaffOutsourcing() {
                 <img src={WebWork} alt="engineering team" className="w-full h-full object-contain" />
               </div>
               <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <div className="flex mx-auto items-center gap-3">
                   <div className="flex items-center">
-                    <img src={avatar4} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover" />
-                    <img src={avatar5} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3" />
-                    <img src={avatar6} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3" />
+                    <img src={avatar4} alt="" className="w-16 h-16 rounded-full object-cover" />
+                    <img src={avatar5} alt="" className="w-16 h-16 rounded-full object-cover -ml-6" />
+                    <img src={avatar6} alt="" className="w-16 h-16 rounded-full object-cover -ml-6" />
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-[#07BEB8] leading-none">50+</p>
                     <p className="text-gray-400 text-xs mt-1">Engineers On Roster</p>
                   </div>
                 </div>
-                <a href="/our-portfolio" className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
-                  View Work
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform"><ArrowRight className="h-4 w-4" /></span>
-                </a>
               </div>
             </div>
             <div className="flex flex-col gap-6">

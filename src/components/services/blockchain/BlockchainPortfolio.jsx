@@ -1,6 +1,7 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import useScrollReveal from "../../../hooks/useScrollReveal";
 import BgRight from "../../../assets/bg-right-content.webp";
+import CTAButton from "../../shared/CTAButton";
 
 const projects = [
   {
@@ -123,13 +124,9 @@ export default function BlockchainPortfolio() {
               </span>
             </h2>
           </div>
-          <a href="/our-portfolio" ref={paraRef}
-            className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#0a2a1e5e] flex-shrink-0">
+          <CTAButton href="/our-portfolio" ref={paraRef} className="shrink-0">
             View Full Portfolio
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#34D399] text-slate-950 transition-transform group-hover:scale-105">
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </a>
+          </CTAButton>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">

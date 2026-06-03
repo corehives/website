@@ -1,4 +1,5 @@
 import useScrollReveal from "../../hooks/useScrollReveal";
+import CTAButton from "../shared/CTAButton";
 import BgRight from "../../assets/bg-right-content.webp";
 
 const team = [
@@ -225,12 +226,9 @@ export default function AboutTeam() {
             We're always looking for exceptional engineers, designers, and strategists
             who raise the bar.
           </p>
-          <a
-            href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] hover:border-[#07BEB8]/50"
-          >
+          <CTAButton href="/contact">
             View Open Positions
-          </a>
+          </CTAButton>
         </div>
       </div>
     </section>

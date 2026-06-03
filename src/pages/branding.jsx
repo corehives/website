@@ -15,6 +15,7 @@ import {
   ArrowRight, Target, Layers, Package,
   Search, Compass, Settings, Zap, Palette,
 } from "lucide-react";
+import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
 import useScrollReveal from "../hooks/useScrollReveal.js";
 import {
@@ -191,15 +192,9 @@ export default function Branding() {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-            >
+            <CTAButton href="/contact">
               Start Your Brand Project
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:scale-110">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </a>
+            </CTAButton>
           </div>
         </div>
 
@@ -286,22 +281,16 @@ export default function Branding() {
             </p>
 
             <div className="flex flex-wrap items-center gap-6 pt-4">
-              <a
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-              >
+              <CTAButton href="/contact">
                 Start Your Brand Project
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:scale-110">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </a>
+              </CTAButton>
             </div>
 
             {/* avatar stack + count */}
             <div className="flex items-center gap-6 pt-2">
               <div className="flex">
                 {[avatar4, avatar5, avatar6].map((av, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#020617]" style={{ marginLeft: i > 0 ? -12 : 0 }}>
+                  <div key={i} className="w-16 h-16 rounded-full overflow-hidden" style={{ marginLeft: i > 0 ? -30 : 0 }}>
                     <img src={av} alt="" className="w-full h-full object-cover" />
                   </div>
                 ))}
@@ -404,7 +393,7 @@ export default function Branding() {
       {/* ══════════════════════════════════════════════════════════════
           BRAND PROCESS  — alternating spine timeline
       ══════════════════════════════════════════════════════════════ */}
-      <section ref={r3} className="relative py-32 px-6 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
+      <section ref={r3} className="relative py-10 px-6 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
 
         {/* Dot-grid atmosphere */}
         <div
@@ -423,7 +412,7 @@ export default function Branding() {
         <div className="relative z-10 max-w-6xl mx-auto">
 
           {/* Section heading */}
-          <div className="mb-24 text-center">
+          <div className="mb-15 text-center">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-[#07BEB8]/25 bg-[#07BEB8]/[0.07] px-5 py-2 mb-6 backdrop-blur-sm">
               <span
                 className="w-1.5 h-1.5 rounded-full bg-[#07BEB8]"
@@ -625,7 +614,7 @@ export default function Branding() {
       {/* ══════════════════════════════════════════════════════════════
           FEATURED WORK  (bento grid)
       ══════════════════════════════════════════════════════════════ */}
-      <section ref={r4} className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32">
+      <section ref={r4} className="relative px-6 py-10 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <p className="text-[11px] tracking-[0.3em] uppercase text-[#07BEB8] mb-3">Portfolio</p>
@@ -668,10 +657,10 @@ export default function Branding() {
 
               {/* stat bar */}
               <div className="rounded-2xl border border-[#07BEB8]/30 bg-gradient-to-br from-teal-950/40 via-black/60 to-black/80 p-3 flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <div className="flex mx-auto items-center gap-3">
                   <div className="flex">
                     {[avatar4, avatar5, avatar6].map((av, i) => (
-                      <img key={i} src={av} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover" style={{ marginLeft: i > 0 ? -10 : 0 }} />
+                      <img key={i} src={av} alt="" className="w-16 h-16 rounded-fullobject-cover" style={{ marginLeft: i > 0 ? -30 : 0 }} />
                     ))}
                   </div>
                   <div>
@@ -679,15 +668,6 @@ export default function Branding() {
                     <p className="text-gray-400 text-xs mt-0.5">Brands Delivered</p>
                   </div>
                 </div>
-                <a
-                  href="/our-portfolio"
-                  className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-                >
-                  View Portfolio
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 group-hover:scale-110 transition-transform">
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </a>
               </div>
             </div>
 
@@ -801,7 +781,7 @@ export default function Branding() {
       {/* ══════════════════════════════════════════════════════════════
           DESIGN TOOLS — dynamic tab-switched expertise showcase
       ══════════════════════════════════════════════════════════════ */}
-      <section className="relative px-6 py-24 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
+      <section className="relative px-6 py-10 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
         {/* Ambient glow */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -936,15 +916,10 @@ export default function Branding() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-2 pl-6 pr-2 text-sm font-semibold text-white transition-all hover:bg-[#017c785e]"
-            >
+     
+             <CTAButton  href="/contact">
               Start Your Brand Project
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:scale-110">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </a>
+            </CTAButton>
             <a
               href="/our-portfolio"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 py-2 px-6 text-sm font-semibold text-white/70 transition-all hover:border-white/40 hover:text-white"

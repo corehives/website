@@ -1,13 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import CTAButton from "../shared/CTAButton";
 import Logo from "../../assets/logo.png";
 
 const serviceLinks = [
   { label: "Web Development", href: "/web-development" },
   { label: "Mobile App Development", href: "/mobile-app-development" },
   { label: "Branding", href: "/services/branding" },
-  { label: "Illustration & Animation", href: "/services/illustration-animation" },
+  {
+    label: "Illustration & Animation",
+    href: "/services/illustration-animation",
+  },
   { label: "Tech Staff Outsourcing", href: "/services/tech-staff-outsourcing" },
   { label: "AI Market Optimization", href: "/services/ai-market-optimization" },
   { label: "Blockchain", href: "/services/blockchain" },
@@ -21,7 +25,10 @@ const productLinks = [
 ];
 
 const portfolioLinks = [
-  { label: "Mobile App Development", href: "/portfolio/mobile-app-development" },
+  {
+    label: "Mobile App Development",
+    href: "/portfolio/mobile-app-development",
+  },
   { label: "Web Development", href: "/portfolio/web-development" },
   { label: "UI/UX Design", href: "/portfolio/ui-ux-design" },
   { label: "Custom Software", href: "/portfolio/custom-software" },
@@ -89,8 +96,10 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const toggleDesktopMenu = (key) => setOpenMenu((prev) => (prev === key ? null : key));
-  const toggleMobileMenu = (key) => setMobileOpenMenu((prev) => (prev === key ? null : key));
+  const toggleDesktopMenu = (key) =>
+    setOpenMenu((prev) => (prev === key ? null : key));
+  const toggleMobileMenu = (key) =>
+    setMobileOpenMenu((prev) => (prev === key ? null : key));
 
   return (
     <header
@@ -108,7 +117,11 @@ export default function Header() {
         <div className="flex items-center justify-between py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3" onClick={closeAll}>
-            <img src={Logo} alt="CoreHives logo" className="h-10 w-auto sm:h-11" />
+            <img
+              src={Logo}
+              alt="CoreHives logo"
+              className="h-10 w-auto sm:h-11"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -163,26 +176,26 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden items-center gap-3 sm:flex">
-            <a
-              href="#"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-            >
+            <CTAButton href="/contact">
               Hire a Developer
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </a>
+            </CTAButton>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             type="button"
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((current) => !current)}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition-colors hover:bg-white/10 lg:hidden"
           >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </button>
         </div>
       </div>
@@ -243,14 +256,9 @@ export default function Header() {
           </nav>
 
           {/* Mobile CTA */}
-          <a
-            href="#hire"
-            onClick={closeAll}
-            className="mt-4 group flex items-center gap-2 rounded-full border border-[#07BEB8]/40 bg-[#07BEB8]/10 px-4 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-[#07BEB8]/20"
-          >
+          <CTAButton href="/contact" onClick={closeAll} className="mt-4">
             Hire a Developer
-            <ArrowRight className="h-4 w-4" />
-          </a>
+          </CTAButton>
         </div>
       </div>
     </header>

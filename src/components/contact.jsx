@@ -10,11 +10,11 @@ import {
   Phone,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import CTAButton from "./shared/CTAButton";
 import BGSquare from "../assets/bg-square.png";
 import BgLeft from "../assets/bg-left-content.webp";
 
-const CONTACT_API_URL =
-  import.meta.env.VITE_CONTACT_API_URL || "/api/contact";
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL || "/api/contact";
 
 function InputField({
   name,
@@ -43,7 +43,14 @@ function InputField({
   );
 }
 
-function TextAreaField({ name, placeholder, value, onChange, error, disabled }) {
+function TextAreaField({
+  name,
+  placeholder,
+  value,
+  onChange,
+  error,
+  disabled,
+}) {
   return (
     <textarea
       name={name}
@@ -109,11 +116,17 @@ function StatusBanner({ status }) {
         <Icon className={`h-5 w-5 ${variant.iconClass}`} />
       </div>
       <div className="min-w-0">
-        <p className={`text-[0.65rem] font-semibold uppercase tracking-[0.24em] ${variant.eyebrow}`}>
+        <p
+          className={`text-[0.65rem] font-semibold uppercase tracking-[0.24em] ${variant.eyebrow}`}
+        >
           {variant.label}
         </p>
-        <p className="mt-1 text-base font-semibold text-white">{status.title}</p>
-        <p className={`mt-1 text-sm leading-relaxed ${variant.body}`}>{status.message}</p>
+        <p className="mt-1 text-base font-semibold text-white">
+          {status.title}
+        </p>
+        <p className={`mt-1 text-sm leading-relaxed ${variant.body}`}>
+          {status.message}
+        </p>
       </div>
     </div>
   );
@@ -138,8 +151,7 @@ const contactInfo = [
   {
     icon: <MapPin size={15} className="text-[#001925]" />,
     label: "Head Office",
-    value:
-      "1023 E Lincolnway, Cheyenne, WY 82001, United States",
+    value: "1023 E Lincolnway, Cheyenne, WY 82001, United States",
   },
   {
     icon: <MapPin size={15} className="text-[#001925]" />,
@@ -189,7 +201,8 @@ export default function ContactSection() {
       setStatus({
         type: "error",
         title: "A few fields need attention",
-        message: "Please review the highlighted fields and submit the form again.",
+        message:
+          "Please review the highlighted fields and submit the form again.",
       });
       return;
     }
@@ -214,7 +227,8 @@ export default function ContactSection() {
         setStatus({
           type: "success",
           title: "Message delivered",
-          message: "Thanks for reaching out. Our team will get back to you within 24 hours.",
+          message:
+            "Thanks for reaching out. Our team will get back to you within 24 hours.",
         });
         setForm({
           firstName: "",
@@ -228,14 +242,16 @@ export default function ContactSection() {
         setStatus({
           type: "error",
           title: "Submission failed",
-          message: "We could not send your message just now. Please try again in a moment.",
+          message:
+            "We could not send your message just now. Please try again in a moment.",
         });
       }
     } catch {
       setStatus({
         type: "error",
         title: "Contact server unavailable",
-        message: "Could not reach the contact server. Make sure the backend is running and try again.",
+        message:
+          "Could not reach the contact server. Make sure the backend is running and try again.",
       });
     } finally {
       setLoading(false);
@@ -269,12 +285,9 @@ export default function ContactSection() {
           </p>
 
           {/* Let's Talk button */}
-          <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] mb-6 lg:mb-10">
+          <CTAButton href="/contact" className="mb-5">
             Let's Talk
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </button>
+          </CTAButton>
 
           {/* Office heading */}
           <p className="text-white font-bold text-base mb-5">
@@ -380,24 +393,14 @@ export default function ContactSection() {
             {/* Bottom actions */}
             <div className="flex items-center gap-5 flex-wrap mt-2">
               {/* Submit button */}
-              <button
+              <CTAButton
                 type="submit"
                 disabled={loading}
-                className={`inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium transition-all ${
-                  loading
-                    ? "cursor-not-allowed border-[#07BEB8]/30 bg-[#07BEB8]/12 text-[#8efcf8]"
-                    : "bg-transparent text-white hover:bg-white/5"
-                }`}
+                loading={loading}
+                className="w-fit"
               >
                 {loading ? "Submitting..." : "Submit Now"}
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-                  {loading ? (
-                    <LoaderCircle className="h-4 w-4 animate-spin" />
-                  ) : (
-                    <ArrowRight className="h-4 w-4" />
-                  )}
-                </span>
-              </button>
+              </CTAButton>
 
               {/* 24/7 support */}
               <div className="flex items-center gap-3">

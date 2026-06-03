@@ -1,4 +1,5 @@
 import { ChevronUp, ArrowRight } from "lucide-react";
+import CTAButton from "../shared/CTAButton";
 import BgLeftContent from "../../assets/footer-bg-left.png";
 import BgRightContent from "../../assets/footer-bg-right.png";
 
@@ -49,15 +50,39 @@ const floatParams = [
 ];
 
 const logoLetters = [
-  { char: "C", color: "#fff", badge: "Cloud-Ready", badgePos: "top-left", mr: 10 },
+  {
+    char: "C",
+    color: "#fff",
+    badge: "Cloud-Ready",
+    badgePos: "top-left",
+    mr: 10,
+  },
   { char: "o", color: "#07BEB8", badge: null, mr: 10 },
   { char: "r", color: "#fff", badge: null, mr: 10 },
-  { char: "e", color: "#07BEB8", badge: "Enterprise Grade", badgePos: "top-right", mr: 10 },
+  {
+    char: "e",
+    color: "#07BEB8",
+    badge: "Enterprise Grade",
+    badgePos: "top-right",
+    mr: 10,
+  },
   { char: "H", color: "#fff", badge: null, mr: 10 },
-  { char: "i", color: "#07BEB8", badge: "Future Focused", badgePos: "top-right", mr: 10 },
+  {
+    char: "i",
+    color: "#07BEB8",
+    badge: "Future Focused",
+    badgePos: "top-right",
+    mr: 10,
+  },
   { char: "v", color: "#fff", badge: null, mr: 10 },
   { char: "e", color: "#07BEB8", badge: null, mr: 10 },
-  { char: "s", color: "#FFF", badge: "High Performance", badgePos: "top-right", mr: 0 },
+  {
+    char: "s",
+    color: "#FFF",
+    badge: "High Performance",
+    badgePos: "top-right",
+    mr: 0,
+  },
 ];
 
 const badgeStyle = {
@@ -87,7 +112,6 @@ export default function Footer() {
 
   return (
     <>
-
       <footer className="relative isolate z-10 w-full bg-transparent">
         {/* ── Scroll to top button ── */}
         <div
@@ -100,8 +124,9 @@ export default function Footer() {
             aria-label="Scroll to top"
             className="pointer-events-auto absolute left-1/2 top-0 z-[9999] flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
             style={{
-              background: "linear-gradient(180deg, #07BEB8, #33384B)",
-              boxShadow: "0 8px 40px rgba(7,190,184,100%), 0 4px 12px rgba(0,129,142,100)",
+              background: "linear-gradient(135deg, #07BEB8 50%, #ffff)",
+              boxShadow:
+                "0 8px 40px rgba(7,190,184,100%), 0 4px 12px rgba(0,129,142,100)",
             }}
           >
             <ChevronUp className="h-7 w-7 text-[#001925]" strokeWidth={2.5} />
@@ -110,8 +135,18 @@ export default function Footer() {
 
         {/* ── Outer card ── */}
         <div className="relative mx-auto w-full overflow-hidden">
-          <img src={BgLeftContent} className="absolute w-1/2 z-0 top-7.5 opacity-90" alt="" loading="lazy" />
-          <img src={BgRightContent} className="absolute w-1/2 -top-30 z-0 right-0 opacity-90" alt="" loading="lazy" />
+          <img
+            src={BgLeftContent}
+            className="absolute w-1/2 z-0 top-7.5 opacity-90"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src={BgRightContent}
+            className="absolute w-1/2 -top-30 z-0 right-0 opacity-90"
+            alt=""
+            loading="lazy"
+          />
 
           {/* ── Headline ── */}
           <div className="px-6 pt-20 pb-10 text-center sm:px-10 relative z-10">
@@ -130,14 +165,12 @@ export default function Footer() {
               Together.
             </h2>
             <p className="mt-3 text-xs text-white/40 sm:text-sm">
-              Secure, scalable digital solutions designed to move your business forward.
+              Secure, scalable digital solutions designed to move your business
+              forward.
             </p>
-            <button className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] mb-10">
+            <CTAButton href="/contact" className="mt-6 mb-10 w-fit">
               Hire a Developer
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </button>
+            </CTAButton>
           </div>
 
           {/* ── Nav Links Grid ── */}
@@ -145,7 +178,8 @@ export default function Footer() {
             className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-8 px-6 py-8 sm:grid-cols-5 sm:px-10 lg:px-14 mb-20 relative z-10"
             style={{
               paddingTop: "2rem",
-              background: "linear-gradient(rgb(9 36 38 / 4%) 10%, rgb(16 39 41 / 4%) 10%)",
+              background:
+                "linear-gradient(rgb(9 36 38 / 4%) 10%, rgb(16 39 41 / 4%) 10%)",
               borderRadius: "16px",
               borderTop: "1px solid rgb(0,102,113, 20%)",
               borderLeft: "1px solid rgb(0,102,113, 20%)",
@@ -164,8 +198,8 @@ export default function Footer() {
                 <ul className="flex flex-col gap-2">
                   {links.map((link) => (
                     <li key={link}>
-                      
-                       <a href="#"
+                      <a
+                        href="#"
                         className="text-xs text-white transition-colors duration-200 hover:text-[#07BEB8]"
                       >
                         {link}
@@ -187,8 +221,8 @@ export default function Footer() {
               <ul className="flex flex-col gap-3">
                 {socialLinks.map(({ label, href, path }) => (
                   <li key={label}>
-                    
-                     <a href={href}
+                    <a
+                      href={href}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
@@ -221,14 +255,19 @@ export default function Footer() {
             <div
               className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
               style={{
-                background: "linear-gradient(to top, rgba(7,190,184,0.06) 0%, transparent 100%)",
+                background:
+                  "linear-gradient(to top, rgba(7,190,184,0.06) 0%, transparent 100%)",
               }}
             />
             <div className="flex items-end justify-center flex-wrap">
               {logoLetters.map((item, i) => {
                 const { dur, delay } = floatParams[i];
                 return (
-                  <div key={i} className="relative" style={{ marginRight: `${item.mr}px` }}>
+                  <div
+                    key={i}
+                    className="relative"
+                    style={{ marginRight: `${item.mr}px` }}
+                  >
                     {item.badge && (
                       <div
                         style={{

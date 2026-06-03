@@ -6,6 +6,7 @@ import PricingCard from "./PricingCard";
 import PricingToggle from "./PricingToggle";
 import pricingPlans from "./pricingData.json";
 import { isInternalHref, pricingCycles } from "./pricingHelpers";
+import CTAButton from "../shared/CTAButton";
 
 export default function PricingSection({
   id = "pricing",
@@ -28,10 +29,6 @@ export default function PricingSection({
   const [billingCycle, setBillingCycle] = useState(initialCycle);
   const visiblePlans = Array.isArray(plans) ? plans : pricingPlans;
   const usesInternalFooterHref = isInternalHref(footerCtaHref);
-  const FooterCtaElement = usesInternalFooterHref ? Link : "a";
-  const footerCtaProps = usesInternalFooterHref
-    ? { to: footerCtaHref }
-    : { href: footerCtaHref };
 
   if (!visiblePlans.length) {
     return null;
@@ -41,7 +38,7 @@ export default function PricingSection({
     <section
       id={id}
       className={classNames(
-        "section-auto-render relative overflow-hidden px-6 py-20 sm:px-10 sm:py-24 lg:px-20 lg:py-28",
+        "section-auto-render relative overflow-hidden px-6 py-20 sm:px-10 sm:py-24 lg:px-10 lg:py-15",
         className,
       )}
     >
@@ -92,15 +89,13 @@ export default function PricingSection({
             </p>
           </div>
 
-          <FooterCtaElement
-            {...footerCtaProps}
-            className="group inline-flex items-center gap-3 self-start rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-[#07BEB8]/50 hover:bg-[#07BEB8]/12 hover:text-white sm:self-center"
+          <CTAButton
+            to={usesInternalFooterHref ? footerCtaHref : undefined}
+            href={!usesInternalFooterHref ? footerCtaHref : undefined}
+            className="self-start sm:self-center"
           >
-            <span>{footerCtaText}</span>
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform duration-300 group-hover:translate-x-1">
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </FooterCtaElement>
+            {footerCtaText}
+          </CTAButton>
         </div>
       </div>
     </section>

@@ -14,6 +14,7 @@ import menu from "../assets/menu.png";
 import avatarMale from "../assets/avatar-male.png";
 import BGBoxes from "../assets/bg-boxes.png";
 import { ArrowRight } from "lucide-react";
+import CTAButton from "./shared/CTAButton";
 
 const tagStyle = {
   background: "rgba(7,190,184,0.08)",
@@ -275,15 +276,9 @@ function GlowCard({ card }) {
             {card.desc}
           </p>
           <div className="mt-auto">
-            <button
-              href="#"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-            >
+            <CTAButton href="#">
               Read More
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </button>
+            </CTAButton>
           </div>
         </div>
       </div>
@@ -473,7 +468,11 @@ export default function PartnersSection() {
                       }
                     : { transition: "transform 0.3s ease" }
                 }
-                className={isLargeScreen ? "hover:transform-[rotateY(0deg)]! hover:z-20" : ""}
+                className={
+                  isLargeScreen
+                    ? "hover:transform-[rotateY(0deg)]! hover:z-20"
+                    : ""
+                }
               >
                 <GlowCard card={card} />
               </div>
@@ -606,12 +605,9 @@ export default function PartnersSection() {
               to take weeks into days.
             </p>
 
-            <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
+            <CTAButton href="#" className="mt-6 mb-10 w-fit">
               Read More
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </button>
+            </CTAButton>
 
             {/* Accordions */}
             <div className="flex flex-col mt-2">

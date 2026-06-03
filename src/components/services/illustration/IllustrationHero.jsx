@@ -1,4 +1,5 @@
 import { ArrowRight, Play, Film, Sparkles } from "lucide-react";
+import CTAButton from "../../shared/CTAButton";
 import leftLight from "../../../assets/left-light.png";
 import rightLight from "../../../assets/right-light.png";
 import heroBg from "../../../assets/hero-bgs.webp";
@@ -315,17 +316,12 @@ export default function IllustrationHero() {
 
             <div className="flex flex-wrap gap-4"
               style={{ animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 1s both" }}>
-              <a href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
+              <CTAButton href="/contact">
                 Start a Creative Project
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:scale-105">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </a>
-              <a href="#illustration-process"
-                className="inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm font-medium text-white/60 transition-all hover:text-white">
-                See Our Process <ArrowRight className="h-3.5 w-3.5" />
-              </a>
+              </CTAButton>
+              <CTAButton href="#illustration-process">
+                See Our Process
+              </CTAButton>
             </div>
           </div>
 

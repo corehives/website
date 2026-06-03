@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import CTAButton from "../shared/CTAButton";
 import BgApp from "../../assets/bg-app.png";
 import { processSteps } from "./data";
 
@@ -42,15 +43,9 @@ export default function ProcessSection() {
               <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6 line-clamp-4">
                 {process.description}
               </p>
-              <button
-                href="#"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-              >
+              <CTAButton href="#">
                 Read More
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </button>
+              </CTAButton>
             </div>
           ))}
         </div>

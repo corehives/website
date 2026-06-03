@@ -13,15 +13,13 @@ import avatar4 from "../assets/avatar-8.png";
 import avatar6 from "../assets/avatar-9.png";
 import BgApp from "../assets/bg-app.png";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
 import { FaReact } from "react-icons/fa";
 import {
-  SiSolidity,
-  SiRust,
-  SiEthereum,
-  SiWeb3Dotjs,
-  SiTypescript,
-  SiGraphql,
+  SiSolidity, SiRust, SiEthereum, SiOpenzeppelin, SiChainlink, SiSolana,
+  SiTypescript, SiNextdotjs, SiWeb3Dotjs, SiWagmi, SiGraphql,
+  SiPolygon, SiBinance, SiIpfs, SiEthers, SiNear,
 } from "react-icons/si";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
@@ -56,6 +54,33 @@ const whyItems = [
   { id: "multichain", title: "14+ Chains, One Relationship", description: "EVM chains (Ethereum, Arbitrum, Polygon, Base), Solana, and more — without the overhead of managing separate chain-specialist relationships for every deployment target." },
   { id: "postlaunch", title: "30-Day Post-Launch Support", description: "Staged deployments, monitoring infrastructure, and a 30-day incident response window included as standard. You don't go to mainnet alone — and you're not left alone after it either." },
 ];
+
+const techTabData = {
+  "Smart Contracts": [
+    { label: "Solidity", icon: <SiSolidity className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "Rust", icon: <SiRust className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#CE412B" }} /> },
+    { label: "Ethereum", icon: <SiEthereum className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#627EEA" }} /> },
+    { label: "OpenZeppelin", icon: <SiOpenzeppelin className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#4E5EE4" }} /> },
+    { label: "Chainlink", icon: <SiChainlink className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#375BD2" }} /> },
+    { label: "Solana", icon: <SiSolana className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#9945FF" }} /> },
+  ],
+  "Web3 Frontend": [
+    { label: "React", icon: <FaReact className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#61DAFB" }} /> },
+    { label: "TypeScript", icon: <SiTypescript className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#3178C6" }} /> },
+    { label: "Next.js", icon: <SiNextdotjs className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "Web3.js", icon: <SiWeb3Dotjs className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F16822" }} /> },
+    { label: "wagmi", icon: <SiWagmi className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "GraphQL", icon: <SiGraphql className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#E10098" }} /> },
+  ],
+  "DeFi & Tools": [
+    { label: "Ethereum", icon: <SiEthereum className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#627EEA" }} /> },
+    { label: "Polygon", icon: <SiPolygon className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#7B3FE4" }} /> },
+    { label: "Binance", icon: <SiBinance className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F0B90B" }} /> },
+    { label: "IPFS", icon: <SiIpfs className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#65C2CB" }} /> },
+    { label: "Ethers.js", icon: <SiEthers className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "NEAR", icon: <SiNear className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+  ],
+};
 
 export default function Blockchain() {
   const [expandedIndex, setExpandedIndex] = useState(0);
@@ -129,25 +154,22 @@ export default function Blockchain() {
               CoreHives engineers write production-grade smart contracts, DeFi protocols, and Web3 applications with security-first discipline at every layer. 240+ contracts deployed. $180M+ TVL managed. Zero critical security incidents. That record doesn't happen by accident.
             </p>
             <div className="flex items-center gap-4 pt-4">
-              <a href="/contact" className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
+              <CTAButton href="/contact">
                 Blockchain
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </a>
+              </CTAButton>
               <div className="flex items-center gap-8">
                 <div className="flex items-center justify-start relative h-32">
                   <div className="relative flex-shrink-0" style={{ zIndex: 30 }}>
-                    <div className="w-22 h-22 rounded-full overflow-hidden"><img src={avatar4} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-20 h-20 rounded-full overflow-hidden"><img src={avatar4} alt="" className="w-full h-full object-cover" /></div>
                   </div>
                   <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 20 }}>
-                    <div className="w-22 h-22 rounded-full overflow-hidden"><img src={avatar5} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-20 h-20 rounded-full overflow-hidden"><img src={avatar5} alt="" className="w-full h-full object-cover" /></div>
                   </div>
                   <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 10 }}>
-                    <div className="w-22 h-22 rounded-full overflow-hidden"><img src={avatar6} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-20 h-20 rounded-full overflow-hidden"><img src={avatar6} alt="" className="w-full h-full object-cover" /></div>
                   </div>
                   <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 0 }}>
-                    <div className="w-16 h-16 rounded-full border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-3">
+                    <div className="w-16 h-16 rounded-full border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-3 -mt-1">
                       <div className="w-2 h-2 rounded-full bg-[#07BEB8]" />
                       <div className="w-2 h-2 rounded-full bg-[#07beb89c]" />
                     </div>
@@ -219,21 +241,17 @@ export default function Blockchain() {
                 <img src={WebWork} alt="blockchain work" className="w-full h-full object-contain" />
               </div>
               <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <div className="flex mx-auto items-center gap-3">
                   <div className="flex items-center">
-                    <img src={avatar4} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover" />
-                    <img src={avatar5} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3" />
-                    <img src={avatar6} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3" />
+                    <img src={avatar4} alt="" className="w-16 h-16 rounded-fullobject-cover" />
+                    <img src={avatar5} alt="" className="w-16 h-16 rounded-fullobject-cover -ml-6" />
+                    <img src={avatar6} alt="" className="w-16 h-16 rounded-fullobject-cover -ml-6" />
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-[#07BEB8] leading-none">240+</p>
                     <p className="text-gray-400 text-xs mt-1">Contracts Deployed</p>
                   </div>
                 </div>
-                <a href="/our-portfolio" className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
-                  View Portfolio
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform"><ArrowRight className="h-4 w-4" /></span>
-                </a>
               </div>
             </div>
             <div className="flex flex-col gap-6">
@@ -307,15 +325,7 @@ export default function Blockchain() {
             })}
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
-            {[
-              { label: "Solidity", icon: <SiSolidity className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#363636" }} /> },
-              { label: "Rust", icon: <SiRust className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#CE412B" }} /> },
-              { label: "Ethereum", icon: <SiEthereum className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#627EEA" }} /> },
-              { label: "Web3.js", icon: <SiWeb3Dotjs className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F16822" }} /> },
-              { label: "TypeScript", icon: <SiTypescript className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#3178C6" }} /> },
-              { label: "GraphQL", icon: <SiGraphql className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#E10098" }} /> },
-              { label: "React", icon: <FaReact className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#61DAFB" }} /> },
-            ].map((tech, idx) => (
+            {techTabData[activeTechTab].map((tech, idx) => (
               <div key={idx} className="flex flex-col items-center justify-center gap-3 p-5 sm:p-6 rounded-2xl border border-white/40 hover:border-[#07BEB8]/60 hover:shadow-[0_0_25px_rgba(7,190,184,0.15)] transition-all cursor-pointer group h-32 sm:h-36">
                 <div className="group-hover:scale-110 transition-transform">{tech.icon}</div>
                 <span className="text-xs sm:text-sm font-medium text-white text-center">{tech.label}</span>

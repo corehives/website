@@ -12,15 +12,14 @@ import avatar4 from "../assets/avatar-8.png";
 import avatar6 from "../assets/avatar-9.png";
 import BgApp from "../assets/bg-app.png";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
-import { FaReact, FaPython } from "react-icons/fa";
+import { FaReact, FaPython, FaLinkedin } from "react-icons/fa";
 import {
   SiNextdotjs,
-  SiGoogleanalytics,
-  SiGoogleads,
-  SiMeta,
-  SiHubspot,
-  SiSemrush,
+  SiGoogleanalytics, SiGooglesearchconsole, SiSemrush, SiHotjar, SiMixpanel, SiHubspot,
+  SiGoogleads, SiMeta, SiTiktok, SiX, SiMailchimp,
+  SiOpenai, SiTensorflow, SiHuggingface, SiGooglebigquery, SiDatadog,
 } from "react-icons/si";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
@@ -55,6 +54,33 @@ const whyItems = [
   { id: "fullstack", title: "Full-Funnel Ownership", description: "One team manages organic, paid, and conversion — eliminating the coordination overhead of fragmented agency relationships and the finger-pointing when channels underperform." },
   { id: "audit", title: "Free AI Growth Audit Included", description: "Every engagement starts with a comprehensive audit of your current organic, paid, and conversion performance — identifying every gap and opportunity before a single budget decision is made." },
 ];
+
+const techTabData = {
+  "Analytics & SEO": [
+    { label: "Google Analytics", icon: <SiGoogleanalytics className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#E37400" }} /> },
+    { label: "Search Console", icon: <SiGooglesearchconsole className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#458CF5" }} /> },
+    { label: "Semrush", icon: <SiSemrush className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FF642D" }} /> },
+    { label: "Hotjar", icon: <SiHotjar className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F6461A" }} /> },
+    { label: "Mixpanel", icon: <SiMixpanel className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#7856FF" }} /> },
+    { label: "HubSpot", icon: <SiHubspot className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FF7A59" }} /> },
+  ],
+  "Paid Media": [
+    { label: "Google Ads", icon: <SiGoogleads className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#4285F4" }} /> },
+    { label: "Meta Ads", icon: <SiMeta className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#0082FB" }} /> },
+    { label: "TikTok Ads", icon: <SiTiktok className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "LinkedIn Ads", icon: <FaLinkedin className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#0A66C2" }} /> },
+    { label: "X Ads", icon: <SiX className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "Mailchimp", icon: <SiMailchimp className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFE01B" }} /> },
+  ],
+  "AI & Data": [
+    { label: "OpenAI", icon: <SiOpenai className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "TensorFlow", icon: <SiTensorflow className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FF6F00" }} /> },
+    { label: "Hugging Face", icon: <SiHuggingface className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFD21E" }} /> },
+    { label: "BigQuery", icon: <SiGooglebigquery className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#4285F4" }} /> },
+    { label: "Python", icon: <FaPython className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#3776AB" }} /> },
+    { label: "Datadog", icon: <SiDatadog className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#632CA6" }} /> },
+  ],
+};
 
 export default function AIMarketOptimization() {
   const [expandedIndex, setExpandedIndex] = useState(0);
@@ -127,32 +153,29 @@ export default function AIMarketOptimization() {
               We deploy machine learning across your entire marketing funnel — analysing every signal, automating optimisation loops, and compounding performance gains that no manual team can replicate at scale. Your competitors are still A/B testing manually. You'll be running 40 tests simultaneously.
             </p>
             <div className="flex items-center gap-4 pt-4">
-              <a href="/contact" className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
+              <CTAButton href="/contact">
                 Free AI Audit
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </a>
+              </CTAButton>
               <div className="flex items-center gap-8">
                 <div className="flex items-center justify-start relative h-32">
                   <div className="relative flex-shrink-0" style={{ zIndex: 30 }}>
-                    <div className="w-24 h-24 rounded-full overflow-hidden"><img src={avatar4} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-18 h-18 rounded-full overflow-hidden"><img src={avatar4} alt="" className="w-full h-full object-cover" /></div>
                   </div>
                   <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 20 }}>
-                    <div className="w-24 h-24 rounded-full overflow-hidden"><img src={avatar5} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-18 h-18 rounded-full overflow-hidden"><img src={avatar5} alt="" className="w-full h-full object-cover" /></div>
                   </div>
                   <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 10 }}>
-                    <div className="w-24 h-24 rounded-full overflow-hidden"><img src={avatar6} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-18 h-18 rounded-full overflow-hidden"><img src={avatar6} alt="" className="w-full h-full object-cover" /></div>
                   </div>
                   <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 0 }}>
-                    <div className="w-16 h-16 rounded-full border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-3">
+                    <div className="w-14 h-14 rounded-full border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-3 -mt-1">
                       <div className="w-2 h-2 rounded-full bg-[#07BEB8]" />
                       <div className="w-2 h-2 rounded-full bg-[#07beb89c]" />
                     </div>
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-[#07BEB8]">312%</span>
+                  <span className="text-4xl font-bold text-[#07BEB8]">32%</span>
                   <span className="text-gray-400 text-sm">Avg. Traffic Growth</span>
                 </div>
               </div>
@@ -217,21 +240,17 @@ export default function AIMarketOptimization() {
                 <img src={WebWork} alt="AI growth results" className="w-full h-full object-contain" />
               </div>
               <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <div className="flex mx-auto items-center gap-3">
                   <div className="flex items-center">
-                    <img src={avatar4} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover" />
-                    <img src={avatar5} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3" />
-                    <img src={avatar6} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3" />
+                    <img src={avatar4} alt="" className="w-16 h-16 rounded-full object-cover" />
+                    <img src={avatar5} alt="" className="w-16 h-16 rounded-full object-cover -ml-6" />
+                    <img src={avatar6} alt="" className="w-16 h-16 rounded-full object-cover -ml-6" />
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-[#07BEB8] leading-none">80+</p>
                     <p className="text-gray-400 text-xs mt-1">Satisfied Clients</p>
                   </div>
                 </div>
-                <a href="/our-portfolio" className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
-                  View Results
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform"><ArrowRight className="h-4 w-4" /></span>
-                </a>
               </div>
             </div>
             <div className="flex flex-col gap-6">
@@ -305,14 +324,7 @@ export default function AIMarketOptimization() {
             })}
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
-            {[
-              { label: "Google Analytics", icon: <SiGoogleanalytics className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#E37400" }} /> },
-              { label: "Google Ads", icon: <SiGoogleads className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#4285F4" }} /> },
-              { label: "Meta Ads", icon: <SiMeta className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#0082FB" }} /> },
-              { label: "HubSpot", icon: <SiHubspot className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FF7A59" }} /> },
-              { label: "Semrush", icon: <SiSemrush className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FF642D" }} /> },
-              { label: "Python / ML", icon: <FaPython className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#3776AB" }} /> },
-            ].map((tech, idx) => (
+            {techTabData[activeTechTab].map((tech, idx) => (
               <div key={idx} className="flex flex-col items-center justify-center gap-3 p-5 sm:p-6 rounded-2xl border border-white/40 hover:border-[#07BEB8]/60 hover:shadow-[0_0_25px_rgba(7,190,184,0.15)] transition-all cursor-pointer group h-32 sm:h-36">
                 <div className="group-hover:scale-110 transition-transform">{tech.icon}</div>
                 <span className="text-xs sm:text-sm font-medium text-white text-center">{tech.label}</span>

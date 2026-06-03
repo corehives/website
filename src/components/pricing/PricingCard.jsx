@@ -1,15 +1,11 @@
-import { ArrowRight, Check, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check, Sparkles } from "lucide-react";
 import { classNames } from "../../utils/helpers";
 import { getPlanBilling, isInternalHref } from "./pricingHelpers";
+import CTAButton from "../shared/CTAButton";
 
 export default function PricingCard({ plan, billingCycle }) {
   const billing = getPlanBilling(plan, billingCycle);
   const usesInternalHref = isInternalHref(plan.buttonHref);
-  const CtaElement = usesInternalHref ? Link : "a";
-  const ctaProps = usesInternalHref
-    ? { to: plan.buttonHref }
-    : { href: plan.buttonHref ?? "/contact" };
 
   return (
     <article
@@ -80,25 +76,13 @@ export default function PricingCard({ plan, billingCycle }) {
           ))}
         </ul>
 
-        <CtaElement
-          {...ctaProps}
-          className={classNames(
-            "mt-8 inline-flex items-center justify-between gap-3 rounded-full border px-5 py-3 text-sm font-semibold transition-all duration-300",
-            plan.popular
-              ? "border-[#07BEB8] bg-[#07BEB8] text-slate-950 hover:border-white hover:bg-white"
-              : "border-white/12 bg-white/5 text-white hover:border-[#07BEB8]/55 hover:bg-[#07BEB8]/12",
-          )}
+        <CTAButton
+          to={usesInternalHref ? plan.buttonHref : undefined}
+          href={!usesInternalHref ? (plan.buttonHref ?? "/contact") : undefined}
+          className="mt-8 w-full justify-center"
         >
-          <span>{plan.buttonText}</span>
-          <span
-            className={classNames(
-              "flex h-9 w-9 items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-1",
-              plan.popular ? "bg-slate-950 text-white" : "bg-[#07BEB8] text-slate-950",
-            )}
-          >
-            <ArrowRight className="h-4 w-4" />
-          </span>
-        </CtaElement>
+          {plan.buttonText}
+        </CTAButton>
       </div>
     </article>
   );

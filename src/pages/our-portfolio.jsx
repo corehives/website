@@ -35,6 +35,7 @@ import {
   Palette,
   ChevronDown,
 } from "lucide-react";
+import CTAButton from "../components/shared/CTAButton";
 
 // Counter Component
 function Counter({ target, duration = 2000 }) {
@@ -351,15 +352,9 @@ export default function Portfolio() {
             </p>
 
             <div className="flex items-center gap-4">
-              <a
-                href="#services"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/30 py-1.5 pl-4 pr-1.5 text-xs font-medium text-white hover:bg-white/5 transition"
-              >
+              <CTAButton href="#services">
                 See how we help
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#07BEB8] text-black group-hover:rotate-45 transition-transform">
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
-              </a>
+              </CTAButton>
 
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">

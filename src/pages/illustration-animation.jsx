@@ -13,8 +13,13 @@ import avatar4 from "../assets/avatar-8.png";
 import avatar6 from "../assets/avatar-9.png";
 import BgApp from "../assets/bg-app.png";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
-import { SiFigma, SiBlender, SiLottiefiles, SiCinema4D, SiFramer, SiDribbble } from "react-icons/si";
+import {
+  SiFigma, SiBlender, SiLottiefiles, SiCinema4D, SiFramer, SiDribbble,
+  SiDavinciresolve, SiSketch, SiCanva, SiInkscape, SiAffinitydesigner,
+  SiThreedotjs, SiUnrealengine, SiUnity, SiSketchup,
+} from "react-icons/si";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
@@ -48,6 +53,33 @@ const whyItems = [
   { id: "brand", title: "Brand-Consistent Visual Language", description: "Every illustration and animation is built within your existing brand system — or we establish a new one. Visual language is never invented randomly; it's designed to be owned." },
   { id: "formats", title: "Every Format, No Extra Charge", description: "Final delivery includes MP4, WebM, GIF, Lottie JSON, and source files in every format you need. No nickel-and-diming on export formats." },
 ];
+
+const techTabData = {
+  "Motion Tools": [
+    { label: "Lottie", icon: <SiLottiefiles className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#00DDB4" }} /> },
+    { label: "Framer", icon: <SiFramer className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#0055FF" }} /> },
+    { label: "Cinema 4D", icon: <SiCinema4D className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#5E6AD2" }} /> },
+    { label: "Blender", icon: <SiBlender className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F5792A" }} /> },
+    { label: "DaVinci Resolve", icon: <SiDavinciresolve className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#6ABFDB" }} /> },
+    { label: "Figma", icon: <SiFigma className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F24E1E" }} /> },
+  ],
+  "Illustration": [
+    { label: "Figma", icon: <SiFigma className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F24E1E" }} /> },
+    { label: "Sketch", icon: <SiSketch className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F7B500" }} /> },
+    { label: "Dribbble", icon: <SiDribbble className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#EA4C89" }} /> },
+    { label: "Canva", icon: <SiCanva className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#00C4CC" }} /> },
+    { label: "Inkscape", icon: <SiInkscape className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "Affinity Designer", icon: <SiAffinitydesigner className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#1B72BE" }} /> },
+  ],
+  "3D & Effects": [
+    { label: "Cinema 4D", icon: <SiCinema4D className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#5E6AD2" }} /> },
+    { label: "Blender", icon: <SiBlender className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F5792A" }} /> },
+    { label: "Three.js", icon: <SiThreedotjs className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "Unreal Engine", icon: <SiUnrealengine className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "Unity", icon: <SiUnity className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
+    { label: "SketchUp", icon: <SiSketchup className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#005F9E" }} /> },
+  ],
+};
 
 export default function IllustrationAnimation() {
   const [expandedIndex, setExpandedIndex] = useState(0);
@@ -120,32 +152,29 @@ export default function IllustrationAnimation() {
               CoreHives creates illustration systems and motion content that communicate your product's value in seconds — explainer videos, Lottie UI animations, brand motion packages, and social content built to move audiences from awareness to action.
             </p>
             <div className="flex items-center gap-4 pt-4">
-              <a href="/contact" className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
-                Start a Creative Project
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </a>
-              <div className="flex items-center gap-8">
+              <CTAButton href="/contact">
+                Build Creative Project
+              </CTAButton>
+              <div className="flex items-center gap-4">
                 <div className="flex items-center justify-start relative h-32">
                   <div className="relative flex-shrink-0" style={{ zIndex: 30 }}>
-                    <div className="w-24 h-24 rounded-full overflow-hidden"><img src={avatar4} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-18 h-18 rounded-full overflow-hidden"><img src={avatar4} alt="" className="w-full h-full object-cover" /></div>
                   </div>
                   <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 20 }}>
-                    <div className="w-24 h-24 rounded-full overflow-hidden"><img src={avatar5} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-18 h-18 rounded-full overflow-hidden"><img src={avatar5} alt="" className="w-full h-full object-cover" /></div>
                   </div>
                   <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 10 }}>
-                    <div className="w-24 h-24 rounded-full overflow-hidden"><img src={avatar6} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-18 h-18 rounded-full overflow-hidden"><img src={avatar6} alt="" className="w-full h-full object-cover" /></div>
                   </div>
-                  <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 0 }}>
-                    <div className="w-16 h-16 rounded-full border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-3">
+                  <div className="relative flex-shrink-0  -mt-1" style={{ marginLeft: "-50px", zIndex: 0 }}>
+                    <div className="w-13 h-13 rounded-full border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#07BEB8]" />
                       <div className="w-2 h-2 rounded-full bg-[#07beb89c]" />
                     </div>
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-[#07BEB8]">500+</span>
+                  <span className="text-3xl font-bold text-[#07BEB8]">500+</span>
                   <span className="text-gray-400 text-sm">Animations Delivered</span>
                 </div>
               </div>
@@ -210,21 +239,18 @@ export default function IllustrationAnimation() {
                 <img src={WebWork} alt="animation work" className="w-full h-full object-contain" />
               </div>
               <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <div className="flex mx-auto items-center gap-3">
                   <div className="flex items-center">
-                    <img src={avatar4} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover" />
-                    <img src={avatar5} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3" />
-                    <img src={avatar6} alt="" className="w-10 h-10 rounded-full border-2 border-black object-cover -ml-3" />
+                    <img src={avatar4} alt="" className="w-15 h-15 rounded-full object-cover" />
+                    <img src={avatar5} alt="" className="w-15 h-15 rounded-full object-cover -ml-6" />
+                    <img src={avatar6} alt="" className="w-15 h-15 rounded-full object-cover -ml-6" />
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-[#07BEB8] leading-none">500+</p>
                     <p className="text-gray-400 text-xs mt-1">Animations Delivered</p>
                   </div>
                 </div>
-                <a href="/our-portfolio" className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
-                  View Portfolio
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform"><ArrowRight className="h-4 w-4" /></span>
-                </a>
+        
               </div>
             </div>
             <div className="flex flex-col gap-6">
@@ -244,7 +270,7 @@ export default function IllustrationAnimation() {
       </section>
 
       {/* WHY COREHIVES */}
-      <section className="bg-black px-5 sm:px-10 lg:px-20 py-20 sm:py-28">
+      <section className="bg-black px-5 sm:px-10 lg:px-20 py-10 sm:py-15">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="lg:sticky lg:top-28">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
@@ -283,7 +309,7 @@ export default function IllustrationAnimation() {
       />
 
       {/* MOTION TOOLS */}
-      <section className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32">
+      <section className="relative px-6 pt-10 pb-20 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Motion Tools & Expertise</h2>
@@ -298,14 +324,7 @@ export default function IllustrationAnimation() {
             })}
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
-            {[
-              { label: "Cinema 4D", icon: <SiCinema4D className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#011A6A" }} /> },
-              { label: "Blender", icon: <SiBlender className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F5792A" }} /> },
-              { label: "Lottie", icon: <SiLottiefiles className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#00DDB4" }} /> },
-              { label: "Figma", icon: <SiFigma className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F24E1E" }} /> },
-              { label: "Framer", icon: <SiFramer className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#0055FF" }} /> },
-              { label: "Dribbble", icon: <SiDribbble className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#EA4C89" }} /> },
-            ].map((tech, idx) => (
+            {techTabData[activeTechTab].map((tech, idx) => (
               <div key={idx} className="flex flex-col items-center justify-center gap-3 p-5 sm:p-6 rounded-2xl border border-white/40 hover:border-[#07BEB8]/60 hover:shadow-[0_0_25px_rgba(7,190,184,0.15)] transition-all cursor-pointer group h-32 sm:h-36">
                 <div className="group-hover:scale-110 transition-transform">{tech.icon}</div>
                 <span className="text-xs sm:text-sm font-medium text-white text-center">{tech.label}</span>

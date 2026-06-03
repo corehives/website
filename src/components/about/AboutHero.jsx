@@ -1,13 +1,14 @@
 import { ArrowRight, Users, Globe, Briefcase, Award } from "lucide-react";
+import CTAButton from "../shared/CTAButton";
 import leftLight from "../../assets/left-light.png";
 import rightLight from "../../assets/right-light.png";
 import heroBg from "../../assets/hero-bgs.webp";
 
 const statPills = [
   { icon: Briefcase, label: "150+ Projects Delivered" },
-  { icon: Users,     label: "50+ Expert Team Members" },
-  { icon: Globe,     label: "20+ Countries Served" },
-  { icon: Award,     label: "98% Client Satisfaction" },
+  { icon: Users, label: "50+ Expert Team Members" },
+  { icon: Globe, label: "20+ Countries Served" },
+  { icon: Award, label: "98% Client Satisfaction" },
 ];
 
 export default function AboutHero() {
@@ -43,7 +44,9 @@ export default function AboutHero() {
         aria-hidden="true"
         loading="eager"
         className="pointer-events-none absolute left-0 top-0 z-[2] h-auto opacity-55 hidden sm:block"
-        style={{ animation: "slideInLeft 1s cubic-bezier(0.22,1,0.36,1) 0.3s both" }}
+        style={{
+          animation: "slideInLeft 1s cubic-bezier(0.22,1,0.36,1) 0.3s both",
+        }}
         decoding="async"
       />
       <img
@@ -52,13 +55,14 @@ export default function AboutHero() {
         aria-hidden="true"
         loading="eager"
         className="pointer-events-none absolute right-0 top-0 z-[2] h-auto opacity-55 hidden sm:block"
-        style={{ animation: "slideInRight 1s cubic-bezier(0.22,1,0.36,1) 0.3s both" }}
+        style={{
+          animation: "slideInRight 1s cubic-bezier(0.22,1,0.36,1) 0.3s both",
+        }}
         decoding="async"
       />
 
       {/* ── Main Content ── */}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-10 pt-32 pb-20 text-center">
-
         {/* Eyebrow badge */}
         <div
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-sm"
@@ -66,7 +70,8 @@ export default function AboutHero() {
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
           <span className="text-xs font-medium text-white">
-            Multiple Teams & Ideas Working Together To Build Better Digital Solutions
+            Multiple Teams & Ideas Working Together To Build Better Digital
+            Solutions
           </span>
           <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
         </div>
@@ -80,16 +85,7 @@ export default function AboutHero() {
           }}
         >
           A Passionate Team Building High-Quality Digital Solutions{" "}
-          <span
-            style={{
-              background: "#07BEB8",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            With Precision
-          </span>
+          <span className="precision-gradient">With Precision</span>
         </h1>
 
         {/* Sub-headline */}
@@ -100,13 +96,16 @@ export default function AboutHero() {
             animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.65s both",
           }}
         >
-          Dedicated Experts Building Quality Digital Solutions For Your Project Needs
+          Dedicated Experts Building Quality Digital Solutions For Your Project
+          Needs
         </p>
 
         {/* Stat pills */}
         <div
           className="mt-10 flex flex-wrap justify-center gap-3"
-          style={{ animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 1s both" }}
+          style={{
+            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 1s both",
+          }}
         >
           {statPills.map(({ icon: Icon, label }) => (
             <div
@@ -127,24 +126,14 @@ export default function AboutHero() {
         {/* CTA row */}
         <div
           className="mt-10 flex flex-wrap justify-center gap-4"
-          style={{ animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 1.15s both" }}
+          style={{
+            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 1.15s both",
+          }}
         >
-          <a
-            href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-          >
+          <CTAButton href="/contact">
             Work With Us
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:scale-105">
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </a>
-          <a
-            href="/our-portfolio"
-            className="inline-flex items-center gap-1.5 rounded-full px-6 py-3.5 text-sm font-medium text-white/60 transition-all hover:text-white"
-          >
-            View Our Work
-            <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          </CTAButton>
+        
         </div>
       </div>
 

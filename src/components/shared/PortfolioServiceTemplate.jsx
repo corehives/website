@@ -1,6 +1,7 @@
 import { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
+import CTAButton from "./CTAButton";
 import hero_bg from "../../assets/hero-bgs.webp";
 import leftLight from "../../assets/left-light.png";
 import rightLight from "../../assets/right-light.png";
@@ -215,7 +216,7 @@ function Process({ steps }) {
 function ProblemCta({ heading, clientCount, problems }) {
   return (
     <>
-      <section className="px-5 sm:px-10 lg:px-20">
+      <section className="px-5 py-10 sm:px-10 lg:px-20">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
             {heading}
@@ -227,20 +228,14 @@ function ProblemCta({ heading, clientCount, problems }) {
               solve challenges, boost engagement, increase conversions, build MVPs, and raise funds — driving growth and success.
             </p>
             <div className="flex items-center gap-4">
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/30 py-1.5 pl-4 pr-1.5 text-xs font-medium text-white hover:bg-white/5 transition"
-              >
+              <CTAButton to="/contact">
                 Start a project
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#07BEB8] text-black group-hover:rotate-45 transition-transform">
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
-              </Link>
+              </CTAButton>
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
-                  <img src={avatar4} alt="" className="h-8 w-8 rounded-full border-2 border-black object-cover" />
-                  <img src={avatar5} alt="" className="h-8 w-8 rounded-full border-2 border-black object-cover" />
-                  <img src={avatar6} alt="" className="h-8 w-8 rounded-full border-2 border-black object-cover" />
+                  <img src={avatar4} alt="" className="h-16 w-18 rounded-full object-cover" />
+                  <img src={avatar5} alt="" className="h-16 w-18 rounded-full object-cover -ml-6" />
+                  <img src={avatar6} alt="" className="h-16 w-18 rounded-full object-cover -ml-6" />
                 </div>
                 <div>
                   <div className="text-lg font-bold text-[#07BEB8] leading-none">80+</div>

@@ -1,6 +1,7 @@
 import { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ArrowRight, Check } from "lucide-react";
+import CTAButton from "./CTAButton";
 import hero_bg from "../../assets/hero-bgs.webp";
 import leftLight from "../../assets/left-light.png";
 import rightLight from "../../assets/right-light.png";
@@ -46,21 +47,12 @@ function Banner({ badge, title, titleAccent, subtitle }) {
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <Link
-            to="/contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-2 pl-6 pr-2 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-          >
+          <CTAButton to="/contact">
             Get Started
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:rotate-45">
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </Link>
-          <a
-            href="#overview"
-            className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white/80 transition-all hover:bg-white/5 hover:text-white"
-          >
+          </CTAButton>
+          <CTAButton href="#overview">
             Learn More
-          </a>
+          </CTAButton>
         </div>
       </div>
 
@@ -353,15 +345,9 @@ function Cta({ heading, subtitle, highlights, buttonText, buttonHref }) {
           </div>
         )}
 
-        <Link
-          to={buttonHref || "/contact"}
-          className="group inline-flex items-center gap-2 rounded-full border border-white/50 py-2 pl-6 pr-2 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
-        >
+        <CTAButton to={buttonHref || "/contact"}>
           {buttonText || "Contact Us"}
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950 transition-transform group-hover:rotate-45">
-            <ArrowRight className="h-4 w-4" />
-          </span>
-        </Link>
+        </CTAButton>
       </div>
     </section>
   );

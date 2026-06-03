@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import CTAButton from "./shared/CTAButton";
 import BgOverview from "../assets/bg-overview-1x.webp";
 import SliderPreview1 from "../assets/slider-preview-1.png";
 import SliderPreview2 from "../assets/slider-preview-2.png";
@@ -73,12 +74,9 @@ export default function OverviewSection() {
                 operational costs at significantly affordable rates.
               </p>
 
-              <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]">
+              <CTAButton href="/contact">
                 Explore All Case Studies
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </button>
+              </CTAButton>
             </div>
           </div>
 
@@ -139,13 +137,9 @@ export default function OverviewSection() {
               </p>
 
               {/* CTA */}
-              {/* Let's Talk button */}
-              <button className="inline-flex w-fit items-center gap-2 rounded-full border border-white/50 py-1.5 pl-4 pr-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e] mb-10">
+              <CTAButton href="/contact">
                 View Case Studies
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </button>
+              </CTAButton>
             </div>
 
             {/* ───── Right Slider ───── */}
