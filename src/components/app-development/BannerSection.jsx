@@ -50,7 +50,7 @@ export default function BannerSection() {
 
         <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-[1] tracking-wider text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-4xl">
           Mobile App{" "}
-          <span className="text-[#07BEB8]">Development Services</span>
+          <span className="precision-gradient">Development Services</span>
           <br />
           Dedicated to Evolving Brands
         </h1>

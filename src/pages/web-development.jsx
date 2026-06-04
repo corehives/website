@@ -12,10 +12,26 @@ import avatar5 from "../assets/avatar-7.png";
 import avatar4 from "../assets/avatar-8.png";
 import avatar6 from "../assets/avatar-9.png";
 import {
-  SiJavascript, SiFlutter, SiNextdotjs,
-  SiGrafana, SiGoogleanalytics, SiKibana, SiLooker, SiMetabase, SiElasticsearch,
-  SiPostgresql, SiMongodb, SiRedis, SiDocker, SiApachekafka, SiApachespark,
-  SiGooglecloud, SiVercel, SiNetlify, SiDigitalocean, SiCloudflare,
+  SiJavascript,
+  SiFlutter,
+  SiNextdotjs,
+  SiGrafana,
+  SiGoogleanalytics,
+  SiKibana,
+  SiLooker,
+  SiMetabase,
+  SiElasticsearch,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiDocker,
+  SiApachekafka,
+  SiApachespark,
+  SiGooglecloud,
+  SiVercel,
+  SiNetlify,
+  SiDigitalocean,
+  SiCloudflare,
 } from "react-icons/si";
 import BgApp from "../assets/bg-app.png";
 import { ArrowRight } from "lucide-react";
@@ -25,8 +41,16 @@ import PricingSection from "../components/pricing/PricingSection.jsx";
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
 import {
-  FaHtml5, FaCss3Alt, FaLaravel, FaPhp, FaFigma, FaReact,
-  FaAndroid, FaPython, FaVuejs, FaAws,
+  FaHtml5,
+  FaCss3Alt,
+  FaLaravel,
+  FaPhp,
+  FaFigma,
+  FaReact,
+  FaAndroid,
+  FaPython,
+  FaVuejs,
+  FaAws,
 } from "react-icons/fa";
 
 import { ChevronDown } from "lucide-react";
@@ -60,28 +84,172 @@ const services = [
 
 const techTabData = {
   "Business Intelligence": [
-    { label: "Grafana", icon: <SiGrafana className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F46800" }} /> },
-    { label: "Google Analytics", icon: <SiGoogleanalytics className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#E37400" }} /> },
-    { label: "Kibana", icon: <SiKibana className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F04E98" }} /> },
-    { label: "Looker", icon: <SiLooker className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#4285F4" }} /> },
-    { label: "Metabase", icon: <SiMetabase className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#509EE3" }} /> },
-    { label: "Elasticsearch", icon: <SiElasticsearch className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#07BEB8" }} /> },
+    {
+      label: "Grafana",
+      icon: (
+        <SiGrafana
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#F46800" }}
+        />
+      ),
+    },
+    {
+      label: "Google Analytics",
+      icon: (
+        <SiGoogleanalytics
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#E37400" }}
+        />
+      ),
+    },
+    {
+      label: "Kibana",
+      icon: (
+        <SiKibana
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#F04E98" }}
+        />
+      ),
+    },
+    {
+      label: "Looker",
+      icon: (
+        <SiLooker
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#4285F4" }}
+        />
+      ),
+    },
+    {
+      label: "Metabase",
+      icon: (
+        <SiMetabase
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#509EE3" }}
+        />
+      ),
+    },
+    {
+      label: "Elasticsearch",
+      icon: (
+        <SiElasticsearch
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#07BEB8" }}
+        />
+      ),
+    },
   ],
   "Data Engineering": [
-    { label: "Python", icon: <FaPython className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#3776AB" }} /> },
-    { label: "PostgreSQL", icon: <SiPostgresql className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#336791" }} /> },
-    { label: "MongoDB", icon: <SiMongodb className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#47A248" }} /> },
-    { label: "Apache Kafka", icon: <SiApachekafka className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
-    { label: "Apache Spark", icon: <SiApachespark className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#E25A1C" }} /> },
-    { label: "Docker", icon: <SiDocker className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#2496ED" }} /> },
+    {
+      label: "Python",
+      icon: (
+        <FaPython
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#3776AB" }}
+        />
+      ),
+    },
+    {
+      label: "PostgreSQL",
+      icon: (
+        <SiPostgresql
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#336791" }}
+        />
+      ),
+    },
+    {
+      label: "MongoDB",
+      icon: (
+        <SiMongodb
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#47A248" }}
+        />
+      ),
+    },
+    {
+      label: "Apache Kafka",
+      icon: (
+        <SiApachekafka
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#FFFFFF" }}
+        />
+      ),
+    },
+    {
+      label: "Apache Spark",
+      icon: (
+        <SiApachespark
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#E25A1C" }}
+        />
+      ),
+    },
+    {
+      label: "Docker",
+      icon: (
+        <SiDocker
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#2496ED" }}
+        />
+      ),
+    },
   ],
   "Platform Partnerships": [
-    { label: "AWS", icon: <FaAws className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FF9900" }} /> },
-    { label: "Google Cloud", icon: <SiGooglecloud className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#4285F4" }} /> },
-    { label: "Vercel", icon: <SiVercel className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#FFFFFF" }} /> },
-    { label: "Netlify", icon: <SiNetlify className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#00C7B7" }} /> },
-    { label: "DigitalOcean", icon: <SiDigitalocean className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#0080FF" }} /> },
-    { label: "Cloudflare", icon: <SiCloudflare className="w-10 h-10 sm:w-12 sm:h-12" style={{ color: "#F48120" }} /> },
+    {
+      label: "AWS",
+      icon: (
+        <FaAws
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#FF9900" }}
+        />
+      ),
+    },
+    {
+      label: "Google Cloud",
+      icon: (
+        <SiGooglecloud
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#4285F4" }}
+        />
+      ),
+    },
+    {
+      label: "Vercel",
+      icon: (
+        <SiVercel
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#FFFFFF" }}
+        />
+      ),
+    },
+    {
+      label: "Netlify",
+      icon: (
+        <SiNetlify
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#00C7B7" }}
+        />
+      ),
+    },
+    {
+      label: "DigitalOcean",
+      icon: (
+        <SiDigitalocean
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#0080FF" }}
+        />
+      ),
+    },
+    {
+      label: "Cloudflare",
+      icon: (
+        <SiCloudflare
+          className="w-10 h-10 sm:w-12 sm:h-12"
+          style={{ color: "#F48120" }}
+        />
+      ),
+    },
   ],
 };
 
@@ -141,7 +309,7 @@ export default function WebDevelopment() {
           {/* Heading */}
           <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-[1] tracking-wider text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-4xl">
             Technology That{" "}
-            <span className="text-[#07BEB8]">Perfectly Aligns</span>
+            <span className="precision-gradient">Perfectly Aligns</span>
             <br />
             With Your Needs
           </h1>
@@ -228,9 +396,7 @@ export default function WebDevelopment() {
             </p>
 
             <div className="flex items-center gap-4 pt-4">
-              <CTAButton href="/contact">
-                Build Creative Project
-              </CTAButton>
+              <CTAButton href="/contact">Build Creative Project</CTAButton>
               <div className="flex items-center gap-8">
                 {/* Avatar Group Container */}
                 <div className="flex items-center justify-start relative h-32">
@@ -326,9 +492,7 @@ export default function WebDevelopment() {
                 Turning your ideas
                 <br />
                 into{" "}
-                <span className="text-[#07BEB8] block md:inline">
-                  digital experiences
-                </span>
+                <span className="precision-gradient">digital experiences</span>
                 <br />
                 through:
               </h2>
@@ -380,9 +544,9 @@ export default function WebDevelopment() {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Latest Client Work
-            </h2>
+            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Latest Client <span className="precision-gradient">Work</span>
+            </div>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">
               Our team of experts consists of highly skilled software engineers,
               designers, developers, project managers, and quality assurance
@@ -525,7 +689,7 @@ export default function WebDevelopment() {
           {/* Heading */}
           <div className="mb-12 text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-              Tech Expertise
+              Tech <span className="precision-gradient">Expertise</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
               Our team of experts consists of highly skilled software engineers,

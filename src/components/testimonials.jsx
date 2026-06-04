@@ -1,49 +1,33 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
-import Avatar4 from "../assets/avatar-4.png";
-import Avatar5 from "../assets/avatar-5.png";
-import Avatar6 from "../assets/avatar-6.png";
 
 const testimonials = [
   {
     id: 1,
-    name: "Tracy Schuppe",
-    role: "Product Director at Humanity",
-    rating: 4,
-    avatar: Avatar4,
-    text: "The solutions delivered by CoreHives have truly transformed our operations. Their in-depth understanding of our specific requirements, coupled with their tech staff's expertise, resulted in a solution that exceeded our expectations.",
+    name: "Greg",
+    initials: "G",
+    role: "Verified Client · United States",
+    rating: 5,
+    title: "Exceptional Professionalism and High-Quality Digital Solutions!",
+    text: "We partnered with Corehives for our web design and development needs, and the experience was flawless. Their team is highly skilled, professional, and deeply committed to client success. They didn't just build a website; they provided a complete branding solution that perfectly aligns with our vision. What stands out most about Corehives is their attention to detail and seamless communication. They hit every milestone on time and were always available to provide technical support and creative insights. If you are looking for a reliable software house that delivers top-tier results, I highly recommend Corehives!",
   },
   {
     id: 2,
-    name: "Jamie Wilkinson",
-    role: "Business Process Improvement Manager",
+    name: "CMMB IT",
+    initials: "CI",
+    role: "IT Services · United States",
     rating: 5,
-    avatar: Avatar5,
-    text: "We were looking to digitize our Warehousing processes, and consulted CoreHives. They came up with a centralized platform for managing all inventory data, including stock levels across various product categories.",
+    title: "Issue with PHP Portal",
+    text: "We hired this developer to help us fix a number of security issues on our PHP website, and the quality of their work exceeded our expectations. They approached the project with professionalism from start to finish — diagnosing the problems efficiently, explaining the risks in clear terms, and implementing secure, well-structured fixes. Their communication was consistent and transparent, and they demonstrated strong technical expertise throughout the entire process. Thanks to their work, our site is now stable, secure, and performing better than before. Highly recommended for anyone needing dependable and knowledgeable PHP development support.",
   },
   {
     id: 3,
-    name: "Taylor Austin",
-    role: "Head of Innovation & Tech",
-    avatar: Avatar6,
-    rating: 4,
-    text: "Our partnership with CoreHives for customized solutions, including web development and app development, has been transformative. That strategic consultation honed in on our unique requirements.",
-  },
-  {
-    id: 4,
-    name: "Sarah Chen",
-    role: "CTO at NovaBridge",
-    avatar: Avatar4,
+    name: "Andrew",
+    initials: "A",
+    role: "Verified Client · Colorado, US",
     rating: 5,
-    text: "CoreHives exceeded every benchmark we set. Their team brought deep technical expertise and an unmatched level of dedication. The platform they built scaled beautifully and the ROI was evident within weeks.",
-  },
-  {
-    id: 5,
-    name: "Marcus Webb",
-    role: "Operations Lead at FlowScale",
-    avatar: Avatar5,
-    rating: 5,
-    text: "From kickoff to delivery, the CoreHives team was communicative, precise, and innovative. They didn't just build what we asked for — they challenged our thinking and delivered something even better.",
+    title: "Professional Team with Great Development and Design Work",
+    text: "I had a really good experience working with CoreHives. Their team handled both development and design, and everything felt smooth from start to finish. On the development side, they were very organized and understood the requirements quickly. The final product was clean, functional, and delivered on time without any issues. Communication was always clear, which made the whole process much easier. The design work was just as impressive — they paid attention to detail and created a modern, polished look that matched exactly what I had in mind. They were also open to feedback and made changes quickly when needed. I'd definitely recommend CoreHives if you're looking for both strong development and quality design in one place.",
   },
 ];
 
@@ -62,7 +46,10 @@ function useCardDimensions() {
     const vw = window.innerWidth;
     if (vw < 640) {
       const w = Math.min(Math.round(vw * 0.84), CARD_WIDTH_MAX);
-      return { width: w, height: Math.round((w / CARD_WIDTH_MAX) * CARD_HEIGHT_MAX) };
+      return {
+        width: w,
+        height: Math.round((w / CARD_WIDTH_MAX) * CARD_HEIGHT_MAX),
+      };
     }
     return { width: CARD_WIDTH_MAX, height: CARD_HEIGHT_MAX };
   });
@@ -72,7 +59,10 @@ function useCardDimensions() {
       const vw = window.innerWidth;
       if (vw < 640) {
         const w = Math.min(Math.round(vw * 0.84), CARD_WIDTH_MAX);
-        setDims({ width: w, height: Math.round((w / CARD_WIDTH_MAX) * CARD_HEIGHT_MAX) });
+        setDims({
+          width: w,
+          height: Math.round((w / CARD_WIDTH_MAX) * CARD_HEIGHT_MAX),
+        });
       } else {
         setDims({ width: CARD_WIDTH_MAX, height: CARD_HEIGHT_MAX });
       }
@@ -102,30 +92,36 @@ function StarRating({ count, max = 5 }) {
   );
 }
 
-function AvatarImg({ avatar, name, size = 56 }) {
+function AvatarImg({ initials, name, size = 56 }) {
+  const fontSize = size < 44 ? 13 : size < 52 ? 15 : 18;
   return (
     <div
       style={{
         width: size,
         height: size,
         borderRadius: "50%",
-        overflow: "hidden",
         flexShrink: 0,
+        background: "linear-gradient(135deg, #07BEB8 0%, #4eecea 100%)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize,
+        fontWeight: 800,
+        color: "#020617",
+        letterSpacing: "0.02em",
+        userSelect: "none",
       }}
+      aria-label={name}
     >
-      <img
-        src={avatar}
-        alt={name}
-        style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
-      />
+      {initials}
     </div>
   );
 }
 
 function TestimonialCard({ testimonial, active, cw, ch }) {
   const compact = cw < 310;
-  const pad = active ? (compact ? 16 : 24) : (compact ? 12 : 20);
-  const avatarSize = active ? (compact ? 52 : 64) : (compact ? 40 : 48);
+  const pad = active ? (compact ? 16 : 24) : compact ? 12 : 20;
+  const avatarSize = active ? (compact ? 52 : 64) : compact ? 40 : 48;
 
   return (
     <div
@@ -165,39 +161,61 @@ function TestimonialCard({ testimonial, active, cw, ch }) {
       <StarRating count={testimonial.rating} />
 
       <div className="flex items-center gap-3 mb-3">
-        <AvatarImg avatar={testimonial.avatar} name={testimonial.name} size={avatarSize} />
+        <AvatarImg
+          initials={testimonial.initials}
+          name={testimonial.name}
+          size={avatarSize}
+        />
         <div>
-          <p className="font-bold mb-0.5" style={{ color: "#fff", fontSize: active ? 15 : 13 }}>
+          <p
+            className="font-bold mb-0.5"
+            style={{ color: "#fff", fontSize: active ? 15 : 13 }}
+          >
             {testimonial.name}
           </p>
-          <p style={{ fontSize: 11, margin: 0, color: active ? "rgba(7,190,184,0.8)" : "rgba(255,255,255,0.4)" }}>
+          <p
+            style={{
+              fontSize: 11,
+              margin: 0,
+              color: active ? "rgba(7,190,184,0.8)" : "rgba(255,255,255,0.4)",
+            }}
+          >
             {testimonial.role}
           </p>
         </div>
       </div>
 
+      {active && testimonial.title && (
+        <p
+          style={{
+            fontSize: compact ? 12 : 13,
+            fontWeight: 700,
+            color: "#fff",
+            margin: "0 0 6px",
+            lineHeight: 1.35,
+            display: "-webkit-box",
+            WebkitLineClamp: 1,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+          }}
+        >
+          {testimonial.title}
+        </p>
+      )}
+
       <p
         style={{
           fontSize: active ? 13 : 11,
           lineHeight: 1.7,
-          color: active ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.52)",
+          color: active ? "rgba(255,255,255,0.82)" : "rgba(255,255,255,0.52)",
           display: "-webkit-box",
-          WebkitLineClamp: active ? (compact ? 4 : 5) : (compact ? 3 : 4),
+          WebkitLineClamp: active ? (compact ? 4 : 5) : compact ? 3 : 4,
           WebkitBoxOrient: "vertical",
           overflow: "hidden",
           margin: 0,
         }}
       >
-        {active ? (
-          <>
-            <span style={{ fontWeight: 600, color: "#fff" }}>
-              {testimonial.text.split(",").slice(0, 1).join(",")},
-            </span>
-            {testimonial.text.split(",").slice(1).join(",")}
-          </>
-        ) : (
-          testimonial.text
-        )}
+        {testimonial.text}
       </p>
     </div>
   );
@@ -209,10 +227,15 @@ export default function TestimonialsSection() {
   // keep a ref so the shift callback always reads the latest step without
   // being recreated on every resize
   const stepRef = useRef(step);
-  useEffect(() => { stepRef.current = step; }, [step]);
+  useEffect(() => {
+    stepRef.current = step;
+  }, [step]);
 
   // Triple the list for seamless infinite loop
-  const allCards = useMemo(() => [...testimonials, ...testimonials, ...testimonials], []);
+  const allCards = useMemo(
+    () => [...testimonials, ...testimonials, ...testimonials],
+    [],
+  );
 
   // activeIdx always stays in the middle copy [N .. 2N-1]
   const [activeIdx, setActiveIdx] = useState(N);
@@ -279,7 +302,8 @@ export default function TestimonialsSection() {
         <div
           className="w-[350px] h-[350px] rounded-full blur-[100px]"
           style={{
-            background: "radial-gradient(ellipse, rgba(7,190,184,0.2) 60%, transparent 100%)",
+            background:
+              "radial-gradient(ellipse, rgba(7,190,184,0.2) 60%, transparent 100%)",
           }}
         />
       </div>
@@ -310,17 +334,7 @@ export default function TestimonialsSection() {
             Testimonials
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
-            Here's what{" "}
-            <span
-              style={{
-                background: "#07BEB8",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Our Clients
-            </span>{" "}
+            Here's what <span className="precision-gradient">Our Clients</span>{" "}
             say About us
           </h2>
           <p className="text-white text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
@@ -330,9 +344,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Carousel — overflow:hidden crops outer cards */}
-        <div
-          style={{ width: "100%", overflow: "hidden" }}
-        >
+        <div style={{ width: "100%", overflow: "hidden" }}>
           <div
             style={{
               display: "flex",
@@ -359,7 +371,12 @@ export default function TestimonialsSection() {
                   }}
                   style={{ cursor: isActive ? "default" : "pointer" }}
                 >
-                  <TestimonialCard testimonial={testimonial} active={isActive} cw={cardWidth} ch={cardHeight} />
+                  <TestimonialCard
+                    testimonial={testimonial}
+                    active={isActive}
+                    cw={cardWidth}
+                    ch={cardHeight}
+                  />
                 </div>
               );
             })}
@@ -371,7 +388,6 @@ export default function TestimonialsSection() {
           <button
             onClick={scrollPrev}
             className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
-     
           >
             <ArrowLeft size={18} />
           </button>

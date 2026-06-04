@@ -182,7 +182,7 @@ export default function Branding() {
 
           <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-[1] tracking-wider text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-4xl">
             A Brand That Makes You{" "}
-            <span className="text-[#07BEB8]">Impossible</span>
+            <span className="precision-gradient">Impossible</span>
             <br />
             to Ignore
           </h1>
@@ -269,7 +269,7 @@ export default function Branding() {
 
             <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
               Branding &amp; <br />
-              <span className="text-[#07BEB8]">Visual Identity</span>
+              <span className="precision-gradient">Visual Identity</span>
             </h2>
 
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
@@ -322,7 +322,7 @@ export default function Branding() {
             We don&apos;t just design logos.<br />
             We build the visual language<br />
             that makes your market{" "}
-            <span className="text-[#07BEB8]">choose&nbsp;you.</span>
+            <span className="precision-gradient">choose&nbsp;you.</span>
           </h2>
 
           <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-16">
@@ -357,7 +357,7 @@ export default function Branding() {
             <p className="text-[11px] tracking-[0.3em] uppercase text-[#07BEB8] mb-3">What We Build</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Brand services that<br />
-              <span className="text-[#07BEB8]">dominate your market</span>
+              <span className="precision-gradient">dominate your market</span>
             </h2>
           </div>
 
@@ -422,7 +422,7 @@ export default function Branding() {
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.1] tracking-tight mb-5">
               Five steps.{" "}
-              <span className="text-[#07BEB8]">One market-ready brand.</span>
+              <span className="precision-gradient">One market-ready brand.</span>
             </h2>
             <p className="text-gray-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
               A research-led, commercially focused methodology that takes your brand from a white page to a system your market can't ignore.
@@ -619,7 +619,7 @@ export default function Branding() {
           <div className="mb-16 text-center">
             <p className="text-[11px] tracking-[0.3em] uppercase text-[#07BEB8] mb-3">Portfolio</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Featured Brand Work
+              Featured <span className="precision-gradient">Brand Work</span>
             </h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">
               Brand identities built for growth-stage companies, scale-ups, and enterprise rebrands — each one designed to own its market position.
@@ -707,7 +707,7 @@ export default function Branding() {
           <div className="lg:sticky lg:top-28">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Why CoreHives{" "}
-              <span className="text-[#07BEB8]">Builds Brands</span>
+              <span className="precision-gradient">Builds Brands</span>
               {" "}That Last
             </h2>
             <p className="mt-6 text-gray-400 text-sm sm:text-base leading-relaxed max-w-sm">
@@ -794,7 +794,7 @@ export default function Branding() {
           <div className="mb-12 text-center">
             <p className="text-[11px] tracking-[0.3em] uppercase text-[#07BEB8] mb-3">Our Stack</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-              Tools &amp; Expertise
+              Tools &amp; <span className="precision-gradient">Expertise</span>
             </h2>
           </div>
 
@@ -908,7 +908,7 @@ export default function Branding() {
 
           <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-6">
             Ready to build a brand that<br />
-            <span className="text-[#07BEB8]">dominates your market?</span>
+            <span className="precision-gradient">dominates your market?</span>
           </h2>
 
           <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-10">

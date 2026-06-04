@@ -146,7 +146,7 @@ export default function Blockchain() {
               <span className="inline-block text-[11px] tracking-[0.25em] uppercase mb-5 px-4 py-1.5 rounded-full" style={{ background: "rgba(7,190,184,0.12)", border: "1px solid rgba(7,190,184,0.35)", color: "#FFF" }}>
                 Security-first blockchain
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Blockchain Development Services</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">Blockchain Development <span className="precision-gradient">Services</span></h2>
             </div>
             <p className="text-gray-300 leading-relaxed">
               On-chain bugs aren't patches — they're exploits. We build accordingly.
@@ -190,9 +190,9 @@ export default function Blockchain() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Building on-chain systems<br />that secure real{" "}
-                <span className="text-[#07BEB8] block md:inline">value through:</span>
+                <span className="precision-gradient">value through</span>
               </h2>
             </div>
             <div className="space-y-3">
@@ -220,7 +220,7 @@ export default function Blockchain() {
       <section className="relative px-6 py-16 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Protocols We've Shipped to Mainnet</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Protocols We've Shipped <span className="precision-gradient">to Mainnet</span></h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">DeFi protocols, NFT platforms, and yield infrastructure — deployed to mainnet with zero critical security incidents.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
@@ -274,8 +274,8 @@ export default function Blockchain() {
       <section className="bg-black px-5 sm:px-10 lg:px-20 py-20 sm:py-28">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="lg:sticky lg:top-28">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Why CoreHives <span className="text-[#07BEB8]">Blockchain</span> Engineering Stands Out
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              Why CoreHives <span className="precision-gradient">Blockchain</span> Engineering Stands Out
             </h2>
             <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">Security-first, gas-optimised, battle-tested — production blockchain engineering with zero compromises.</p>
           </div>
@@ -313,7 +313,7 @@ export default function Blockchain() {
       <section className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Web3 Engineering Stack</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">Web3 <span className="precision-gradient">Engineering Stack</span></h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Production-grade blockchain tools and frameworks operated by engineers who have shipped real protocols with real TVL on the line.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">

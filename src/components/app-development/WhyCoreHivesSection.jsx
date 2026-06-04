@@ -10,7 +10,7 @@ export default function WhyCoreHivesSection() {
         {/* Left: Heading + subtitle */}
         <div className="lg:sticky lg:top-28">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Why CoreHives <span className="text-[#07BEB8]">Stands Out</span> As
+            Why CoreHives <span className="precision-gradient">Stands Out</span> As
             A Mobile App Development Company
           </h2>
           <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">

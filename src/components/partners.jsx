@@ -191,14 +191,7 @@ export default function PartnersSection() {
         <div className="text-center pt-16 pb-8 px-4">
           <h2 className="text-2xl sm:text-4xl font-bold text-white leading-tight">
             Tech Staff{" "}
-            <span
-              style={{
-                background: "#07BEB8",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span className="precision-gradient">
               Outsourcing
             </span>{" "}
             is Highly

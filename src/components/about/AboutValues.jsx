@@ -40,7 +40,8 @@ function GlowValueCard({ item, delay }) {
       <div
         className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400"
         style={{
-          boxShadow: "0 0 32px rgba(7,190,184,0.14), inset 0 0 24px rgba(7,190,184,0.04)",
+          boxShadow:
+            "0 0 32px rgba(7,190,184,0.14), inset 0 0 24px rgba(7,190,184,0.04)",
           border: "1px solid rgba(7,190,184,0.3)",
         }}
       />
@@ -111,17 +112,7 @@ export default function AboutValues() {
             ref={headRef}
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4"
           >
-            Our Core{" "}
-            <span
-              style={{
-                background: "#07BEB8",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Values
-            </span>
+            Our Core <span className="precision-gradient">Values</span>
           </h2>
           <p
             ref={paraRef}

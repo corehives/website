@@ -5,7 +5,7 @@ export default function StatsSection() {
     <section className="px-5 sm:px-10 lg:px-20 py-28 bg-black">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white text-center mb-16 sm:mb-20">
-          Why CoreHives?
+          Why <span className="precision-gradient">CoreHives?</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {statsData.map((stat, index) => (

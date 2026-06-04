@@ -18,9 +18,9 @@ export default function AppServicesSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
             Innovative
-            <span className="text-[#07BEB8]"> Mobile App Development</span>
+            <span className="precision-gradient"> Mobile App Development</span>
             <br />
-            <span className="text-[#07BEB8]">Services</span> For Your Custom
+            <span className="precision-gradient">Services</span> For Your Custom
             Needs
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">

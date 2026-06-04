@@ -78,9 +78,8 @@ export default function AboutHero() {
 
         {/* Headline */}
         <h1
-          className="mx-auto max-w-4xl font-extrabold leading-[1.1] text-white"
+          className="mx-auto max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] text-white"
           style={{
-            fontSize: "clamp(2rem, 4.5vw + 0.5rem, 4rem)",
             animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.5s both",
           }}
         >

@@ -34,16 +34,7 @@ export default function AboutCTA() {
           className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-5"
         >
           Let's Talk About{" "}
-          <span
-            style={{
-              background: "#07BEB8",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Your Project
-          </span>
+          <span className="precision-gradient">Your Project</span>
         </h2>
 
         {/* Sub */}
@@ -52,7 +43,8 @@ export default function AboutCTA() {
           className="mx-auto max-w-xl text-sm sm:text-base leading-relaxed mb-3"
           style={{ color: "#8ca0b0" }}
         >
-          Share your goals with us and identify the areas where smarter systems can grow your business.
+          Share your goals with us and identify the areas where smarter systems
+          can grow your business.
         </p>
 
         {/* Agency description */}
@@ -60,17 +52,13 @@ export default function AboutCTA() {
           className="mx-auto max-w-2xl text-xs sm:text-sm leading-relaxed mb-10"
           style={{ color: "#8ca0b0" }}
         >
-          This Design And Development Agency In USA Delivers Precision Engineering And Scalable Infrastructure For Modern Enterprises.
+          This Design And Development Agency In USA Delivers Precision
+          Engineering And Scalable Infrastructure For Modern Enterprises.
         </p>
 
         {/* CTA buttons */}
-        <div
-          ref={ctaRef}
-          className="flex flex-wrap justify-center gap-4"
-        >
-          <CTAButton href="/contact">
-            Start a Project
-          </CTAButton>
+        <div ref={ctaRef} className="flex flex-wrap justify-center gap-4">
+          <CTAButton href="/contact">Start a Project</CTAButton>
         </div>
 
         {/* Trust note */}

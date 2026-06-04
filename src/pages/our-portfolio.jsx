@@ -183,7 +183,7 @@ export default function Portfolio() {
           <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-[1] tracking-wider text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-4xl">
             We Work With Top Brands & Industry &
             <br />
-            <span className="text-[#07BEB8]">We Share Our </span> Best works.
+            <span className="precision-gradient">We Share Our </span> Best works.
           </h1>
 
           {/* Subtitle */}
@@ -334,7 +334,7 @@ export default function Portfolio() {
       <section className="px-5 sm:px-10 lg:px-20">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
-            Solve Your <span className="text-[#07BEB8]">UI / UX</span>
+            Solve Your <span className="precision-gradient">UI / UX</span>
             <br />
             Roadblocks &amp;
             <br />

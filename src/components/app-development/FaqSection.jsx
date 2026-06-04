@@ -12,7 +12,7 @@ export default function FaqSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
             Frequently Ask
             <br />
-            <span className="text-[#07BEB8]">Questions!</span>
+            <span className="precision-gradient">Questions!</span>
           </h2>
         </div>
 

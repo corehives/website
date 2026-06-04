@@ -35,7 +35,7 @@ function Banner({ badge, title, titleAccent, subtitle }) {
           <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
         </div>
         <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-tight tracking-wide text-white sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-          {title} <span className="text-[#07BEB8]">{titleAccent}</span>
+          {title} <span className="precision-gradient">{titleAccent}</span>
         </h1>
         <p className="mt-6 max-w-xl text-center text-sm leading-relaxed text-white/80 sm:text-base">{subtitle}</p>
       </div>
@@ -115,7 +115,7 @@ function ProjectsGrid({ projects }) {
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Our <span className="text-[#07BEB8]">Work</span>
+            Our <span className="precision-gradient">Work</span>
           </h2>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto text-sm">
             A selection of real-world projects delivered for clients across industries.
@@ -185,7 +185,7 @@ function Process({ steps }) {
       <div className="mx-auto max-w-6xl relative z-10">
         <div className="mb-14 text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Our <span className="text-[#07BEB8]">Approach</span>
+            Our <span className="precision-gradient">Approach</span>
           </h2>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto text-sm">
             A proven methodology that consistently delivers exceptional results.

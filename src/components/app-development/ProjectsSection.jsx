@@ -18,8 +18,8 @@ export default function ProjectsSection() {
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-            Our <span className="text-[#07BEB8]">Successful</span> Mobile
-            <br /> App <span className="text-[#07BEB8]">Projects</span>
+            Our <span className="precision-gradient">Successful</span> Mobile
+            <br /> App <span className="precision-gradient">Projects</span>
           </h2>
           <p className="mt-4 text-gray-400 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
             CoreHives features a strong portfolio of a variety of mobile apps

@@ -395,11 +395,9 @@
   content: "";
   position: absolute;
   inset: -10px;
-  background: radial-gradient(
-    circle,
-    rgba(7, 190, 184, 0.5),
-    transparent 60%
-  );
+  background: radial-gradient(circle,
+      rgba(7, 190, 184, 0.5),
+      transparent 60%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -422,9 +420,6 @@
   transform: rotate(0deg) scale(1.05);
 }
 
-
-
-/* Need COnfirmation For This */
 .precision-gradient {
   position: relative;
   display: inline-block;

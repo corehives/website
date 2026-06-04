@@ -52,17 +52,7 @@ export default function OverviewSection() {
           <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8 mb-10 md:mb-14 lg:mb-16">
             <div className="flex-shrink-0">
               <h1 className="text-3xl sm:text-4xl font-bold leading-tight max-w-lg">
-                Here's an{" "}
-                <span
-                  style={{
-                    background: "#07BEB8",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  Overview
-                </span>{" "}
+                Here's an <span className="precision-gradient">Overview</span>{" "}
                 of Some of our Favorite Projects
               </h1>
             </div>
@@ -74,9 +64,7 @@ export default function OverviewSection() {
                 operational costs at significantly affordable rates.
               </p>
 
-              <CTAButton href="/contact">
-                Explore All Case Studies
-              </CTAButton>
+              <CTAButton href="/contact">Explore All Case Studies</CTAButton>
             </div>
           </div>
 
@@ -137,9 +125,7 @@ export default function OverviewSection() {
               </p>
 
               {/* CTA */}
-              <CTAButton href="/contact">
-                View Case Studies
-              </CTAButton>
+              <CTAButton href="/contact">View Case Studies</CTAButton>
             </div>
 
             {/* ───── Right Slider ───── */}

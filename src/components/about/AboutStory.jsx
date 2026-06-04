@@ -187,7 +187,7 @@ export default function AboutStory() {
             className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.1] tracking-tight mb-5"
           >
             Four milestones.{" "}
-            <span className="text-[#07BEB8]">One unstoppable story.</span>
+            <span className="precision-gradient">One unstoppable story.</span>
           </h2>
 
           <p

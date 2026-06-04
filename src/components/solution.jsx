@@ -154,8 +154,8 @@ const cards = [
           {/* Standing avatar — % left so it stays centred in the panel */}
           <img
             src={AvatarReal}
-            className="absolute bottom-0 h-[56%]"
-            style={{ left: "28%" }}
+            className="absolute bottom-0 h-[60%]"
+            style={{ left: "30%" }}
             alt=""
             loading="lazy"
           />
@@ -168,19 +168,6 @@ const cards = [
               border: "1px solid rgba(225,225,225,0.12)",
             }}
           />
-
-          {/* Expert team badge */}
-          <span
-            className="absolute bottom-2 left-0"
-            style={{
-              ...tagStyle,
-              width: "110px",
-              color: "#FFF",
-              background: "rgba(7,190,184,0.2)",
-            }}
-          >
-            Expert team
-          </span>
         </div>
       </div>
     ),
@@ -276,9 +263,7 @@ function GlowCard({ card }) {
             {card.desc}
           </p>
           <div className="mt-auto">
-            <CTAButton href="#">
-              Read More
-            </CTAButton>
+            <CTAButton href="#">Read More</CTAButton>
           </div>
         </div>
       </div>
@@ -409,18 +394,8 @@ export default function PartnersSection() {
               What We Offer
             </p>
             <h1 className="text-4xl sm:text-[2.625rem] font-extrabold leading-tight text-white">
-              Your{" "}
-              <span
-                style={{
-                  background: "#07BEB8  ",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Partners
-              </span>{" "}
-              in Digital Transformation
+              Your <span className="precision-gradient">Partners</span> in
+              Digital Transformation
             </h1>
           </div>
           <div className="flex-1 max-w-lg md:pt-14">
@@ -584,16 +559,7 @@ export default function PartnersSection() {
             {/* Heading */}
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
               How our{" "}
-              <span
-                style={{
-                  background: "#07BEB8",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Low-Code Approach
-              </span>{" "}
+              <span className="precision-gradient">Low-Code Approach</span>{" "}
               helps save Time & Money
             </h2>
 

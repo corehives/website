@@ -15,7 +15,7 @@ export default function ProcessSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            CoreHives <span className="text-[#07BEB8]">Process</span> For Mobile
+            CoreHives <span className="precision-gradient">Process</span> For Mobile
             App
             <br />
             Development

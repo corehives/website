@@ -103,7 +103,7 @@ export default function IllustrationAnimation() {
             <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
           </div>
           <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-[1] tracking-wider text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-4xl">
-            Stories That <span className="text-[#07BEB8]">Move</span>
+            Stories That <span className="precision-gradient">Move</span>
             <br />
             Your Audience
           </h1>
@@ -144,7 +144,7 @@ export default function IllustrationAnimation() {
               <span className="inline-block text-[11px] tracking-[0.25em] uppercase mb-5 px-4 py-1.5 rounded-full" style={{ background: "rgba(7,190,184,0.12)", border: "1px solid rgba(7,190,184,0.35)", color: "#FFF" }}>
                 Motion that converts
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Illustration & Animation Services</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Illustration & <span className="precision-gradient">Animation Services</span></h2>
             </div>
             <p className="text-gray-300 leading-relaxed">
               Static content gets scrolled past. Motion content gets shared, remembered, and acted on.
@@ -190,7 +190,7 @@ export default function IllustrationAnimation() {
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Bringing your ideas<br />to life visually{" "}
-                <span className="text-[#07BEB8] block md:inline">through:</span>
+                <span className="precision-gradient">through:</span>
               </h2>
             </div>
             <div className="space-y-3">
@@ -218,7 +218,7 @@ export default function IllustrationAnimation() {
       <section className="relative px-6 py-16 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Motion Work That Delivered Results</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Motion Work That <span className="precision-gradient">Delivered Results</span> </h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">Explainer videos, UI animation systems, and brand motion packages — built for measurable business outcomes, not just aesthetic awards.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
@@ -274,7 +274,7 @@ export default function IllustrationAnimation() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="lg:sticky lg:top-28">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Why CoreHives <span className="text-[#07BEB8]">Motion Work</span> Converts
+              Why CoreHives <span className="precision-gradient">Motion Work</span> Converts
             </h2>
             <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">Craft-level animation built for commercial outcomes — not just aesthetics.</p>
           </div>
@@ -312,7 +312,7 @@ export default function IllustrationAnimation() {
       <section className="relative px-6 pt-10 pb-20 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Motion Tools & Expertise</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Motion Tools & <span className="precision-gradient">Expertise</span> </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Industry-standard animation and illustration tools operated by senior motion designers with 5+ years of production experience.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">

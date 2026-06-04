@@ -7,7 +7,7 @@ export default function BenefitsSection() {
         {/* Heading */}
         <div className="text-center mb-14 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-            <span className="text-[#07BEB8]">Benefits</span> Of Choosing
+            <span className="precision-gradient">Benefits</span> Of Choosing
             <br />
             CoreHives For Mobile App
             <br />

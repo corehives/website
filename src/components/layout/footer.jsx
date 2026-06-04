@@ -152,17 +152,7 @@ export default function Footer() {
           <div className="px-6 pt-20 pb-10 text-center sm:px-10 relative z-10">
             <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-5xl">
               Let's Build{" "}
-              <span
-                style={{
-                  background: "#07BEB8",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                What's Next.
-              </span>{" "}
-              Together.
+              <span className="precision-gradient">What's Next.</span> Together.
             </h2>
             <p className="mt-3 text-xs text-white/40 sm:text-sm">
               Secure, scalable digital solutions designed to move your business

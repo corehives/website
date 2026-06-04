@@ -80,7 +80,7 @@ export default function TechStaffOutsourcing() {
             <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
           </div>
           <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-[1] tracking-wider text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-4xl">
-            Your Team, <span className="text-[#07BEB8]">Extended</span>
+            Your Team, <span className="precision-gradient">Extended</span>
             <br />
             On Demand
           </h1>
@@ -121,7 +121,7 @@ export default function TechStaffOutsourcing() {
               <span className="inline-block text-[11px] tracking-[0.25em] uppercase mb-5 px-4 py-1.5 rounded-full" style={{ background: "rgba(7,190,184,0.12)", border: "1px solid rgba(7,190,184,0.35)", color: "#FFF" }}>
                 Senior-only engineers
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Tech Staff Outsourcing</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Tech Staff <span className="precision-gradient">Outsourcing</span></h2>
             </div>
             <p className="text-gray-300 leading-relaxed">
               Hiring takes months. CoreHives takes 72 hours.
@@ -167,7 +167,7 @@ export default function TechStaffOutsourcing() {
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Scaling your engineering<br />capacity fast{" "}
-                <span className="text-[#07BEB8] block md:inline">through:</span>
+                <span className="precision-gradient">through:</span>
               </h2>
             </div>
             <div className="space-y-3">
@@ -195,7 +195,7 @@ export default function TechStaffOutsourcing() {
       <section className="relative px-6 py-16 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Engineering Teams We've Built</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Engineering Teams <span className="precision-gradient">We've Built</span></h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">Senior engineers embedded into growth-stage startups and scale-ups — shipping features, not excuses.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
@@ -250,7 +250,7 @@ export default function TechStaffOutsourcing() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="lg:sticky lg:top-28">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Why CoreHives <span className="text-[#07BEB8]">Outsourcing</span> Outperforms Traditional Hiring
+              Why CoreHives <span className="precision-gradient">Outsourcing</span> Outperforms Traditional Hiring
             </h2>
             <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">Senior talent, no friction, no long-term lock-in — engineering capacity on demand.</p>
           </div>
@@ -288,7 +288,7 @@ export default function TechStaffOutsourcing() {
       <section className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Engineering Stack Coverage</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Engineering Stack <span className="precision-gradient">Coverage</span></h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Senior engineers across every modern stack — no generalists, no juniors. Every discipline covered by specialists with production-grade experience.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">

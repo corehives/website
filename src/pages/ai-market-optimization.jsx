@@ -104,7 +104,7 @@ export default function AIMarketOptimization() {
             <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
           </div>
           <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-[1] tracking-wider text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-4xl">
-            Growth That <span className="text-[#07BEB8]">Compounds</span>
+            Growth That <span className="precision-gradient">Compounds</span>
             <br />
             Powered by AI
           </h1>
@@ -145,7 +145,7 @@ export default function AIMarketOptimization() {
               <span className="inline-block text-[11px] tracking-[0.25em] uppercase mb-5 px-4 py-1.5 rounded-full" style={{ background: "rgba(7,190,184,0.12)", border: "1px solid rgba(7,190,184,0.35)", color: "#FFF" }}>
                 AI-powered marketing
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">AI Market Optimization</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">AI Market <span className="precision-gradient">Optimization</span></h2>
             </div>
             <p className="text-gray-300 leading-relaxed">
               Traditional marketing agencies run campaigns. CoreHives builds AI-driven growth systems.
@@ -191,7 +191,7 @@ export default function AIMarketOptimization() {
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Turning your data into<br />compounding revenue{" "}
-                <span className="text-[#07BEB8] block md:inline">through:</span>
+                <span className="precision-gradient">through:</span>
               </h2>
             </div>
             <div className="space-y-3">
@@ -219,7 +219,7 @@ export default function AIMarketOptimization() {
       <section className="relative px-6 py-16 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">AI Growth Results Worth Showing</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">AI Growth Results <span className="precision-gradient">Worth Showing</span></h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">Measurable outcomes across organic, paid, and conversion — not vanity metrics, not vague "brand awareness."</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
@@ -274,7 +274,7 @@ export default function AIMarketOptimization() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="lg:sticky lg:top-28">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Why <span className="text-[#07BEB8]">AI Marketing</span> Outperforms Traditional Agencies
+              Why <span className="precision-gradient">AI Marketing</span> Outperforms Traditional Agencies
             </h2>
             <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">Systems that compound, not campaigns that expire — AI-driven growth with full-funnel transparency.</p>
           </div>
@@ -312,7 +312,7 @@ export default function AIMarketOptimization() {
       <section className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Marketing Stack & Tools</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Marketing <span className="precision-gradient">Stack & Tools </span></h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Best-in-class analytics, advertising, and SEO platforms — operated by specialists who extract maximum performance from every tool.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">

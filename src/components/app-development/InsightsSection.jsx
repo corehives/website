@@ -28,7 +28,7 @@ export default function InsightsSection() {
         <div className="text-center mb-4">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
             CoreHives Mobile App Development{" "}
-            <span className="text-[#07BEB8]">Insights</span>
+            <span className="precision-gradient">Insights</span>
           </h2>
           <p className="mt-5 text-gray-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
             We have experts from every industry to offer the latest trends, best

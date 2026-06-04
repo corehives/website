@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/layout/header.jsx";
 import Hero from "./components/hero.jsx";
-import PageLoader from "./components/PageLoader.jsx";
 import LoadingScreen from "./components/LoadingScreen.jsx";
 
 // Home page sections
@@ -39,6 +38,8 @@ const PortfolioUiUxDesign = lazy(() => import("./pages/portfolio/ui-ux-design.js
 const PortfolioCustomSoftware = lazy(() => import("./pages/portfolio/custom-software.jsx"));
 const PortfolioDigitalMarketing = lazy(() => import("./pages/portfolio/digital-marketing.jsx"));
 const PortfolioBranding = lazy(() => import("./pages/portfolio/branding.jsx"));
+const Blogs      = lazy(() => import("./pages/blogs.jsx"));
+const BlogDetail = lazy(() => import("./pages/blog-detail.jsx"));
 
 // Eagerly download every route chunk as soon as this module is evaluated.
 // import() is deduplicated by Vite/the module registry — these reuse the
@@ -71,6 +72,8 @@ import("./pages/portfolio/ui-ux-design.jsx");
 import("./pages/portfolio/custom-software.jsx");
 import("./pages/portfolio/digital-marketing.jsx");
 import("./pages/portfolio/branding.jsx");
+import("./pages/blogs.jsx");
+import("./pages/blog-detail.jsx");
 
 function HomePage() {
   return (
@@ -111,7 +114,7 @@ function AppRoutes() {
   return (
     <>
       {mounted && <LoadingScreen visible={loading} />}
-      <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={<LoadingScreen />}>
         <Routes location={location}>
         {/* Core pages */}
         <Route path="/" element={<HomePage />} />
@@ -119,66 +122,74 @@ function AppRoutes() {
         <Route path="/our-portfolio" element={<OurPortfolio />} />
         <Route path="/mobile-app-development" element={<AppDevelopment />} />
         <Route path="/contact" element={
-          <Suspense fallback={<PageLoader />}>
+          <Suspense fallback={<LoadingScreen />}>
             <ContactPage />
             <Footer />
           </Suspense>
         } />
         <Route path="/about" element={
-          <Suspense fallback={<PageLoader />}>
+          <Suspense fallback={<LoadingScreen />}>
             <AboutUs />
           </Suspense>
         } />
 
         {/* Service pages */}
         <Route path="/services/branding" element={
-          <Suspense fallback={<PageLoader />}><Branding /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><Branding /></Suspense>
         } />
         <Route path="/services/illustration-animation" element={
-          <Suspense fallback={<PageLoader />}><IllustrationAnimation /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><IllustrationAnimation /></Suspense>
         } />
         <Route path="/services/tech-staff-outsourcing" element={
-          <Suspense fallback={<PageLoader />}><TechStaffOutsourcing /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><TechStaffOutsourcing /></Suspense>
         } />
         <Route path="/services/ai-market-optimization" element={
-          <Suspense fallback={<PageLoader />}><AIMarketOptimization /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><AIMarketOptimization /></Suspense>
         } />
         <Route path="/services/blockchain" element={
-          <Suspense fallback={<PageLoader />}><Blockchain /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><Blockchain /></Suspense>
         } />
 
         {/* Product pages */}
         <Route path="/products/corehive-crm" element={
-          <Suspense fallback={<PageLoader />}><CoreHiveCrm /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><CoreHiveCrm /></Suspense>
         } />
         <Route path="/products/corehive-analytics" element={
-          <Suspense fallback={<PageLoader />}><CoreHiveAnalytics /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><CoreHiveAnalytics /></Suspense>
         } />
         <Route path="/products/corehive-automation" element={
-          <Suspense fallback={<PageLoader />}><CoreHiveAutomation /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><CoreHiveAutomation /></Suspense>
         } />
         <Route path="/products/corehive-ai-suite" element={
-          <Suspense fallback={<PageLoader />}><CoreHiveAiSuite /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><CoreHiveAiSuite /></Suspense>
         } />
 
         {/* Portfolio service pages */}
         <Route path="/portfolio/mobile-app-development" element={
-          <Suspense fallback={<PageLoader />}><PortfolioMobileApp /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><PortfolioMobileApp /></Suspense>
         } />
         <Route path="/portfolio/web-development" element={
-          <Suspense fallback={<PageLoader />}><PortfolioWebDevelopment /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><PortfolioWebDevelopment /></Suspense>
         } />
         <Route path="/portfolio/ui-ux-design" element={
-          <Suspense fallback={<PageLoader />}><PortfolioUiUxDesign /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><PortfolioUiUxDesign /></Suspense>
         } />
         <Route path="/portfolio/custom-software" element={
-          <Suspense fallback={<PageLoader />}><PortfolioCustomSoftware /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><PortfolioCustomSoftware /></Suspense>
         } />
         <Route path="/portfolio/digital-marketing" element={
-          <Suspense fallback={<PageLoader />}><PortfolioDigitalMarketing /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><PortfolioDigitalMarketing /></Suspense>
         } />
         <Route path="/portfolio/branding" element={
-          <Suspense fallback={<PageLoader />}><PortfolioBranding /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><PortfolioBranding /></Suspense>
+        } />
+
+        {/* Blog */}
+        <Route path="/blogs" element={
+          <Suspense fallback={<LoadingScreen />}><Blogs /></Suspense>
+        } />
+        <Route path="/blogs/:slug" element={
+          <Suspense fallback={<LoadingScreen />}><BlogDetail /></Suspense>
         } />
       </Routes>
     </Suspense>

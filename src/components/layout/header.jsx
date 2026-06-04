@@ -18,10 +18,11 @@ const serviceLinks = [
 ];
 
 const productLinks = [
-  { label: "CRM", href: "/products/corehive-crm" },
-  { label: "Analytics", href: "/products/corehive-analytics" },
-  { label: "Automation", href: "/products/corehive-automation" },
-  { label: "AI Suite", href: "/products/corehive-ai-suite" },
+  { label: "Curelia.pro", href: "/products/corehive-crm" },
+  { label: "Ascendera.ai", href: "/products/corehive-analytics" },
+  { label: "thedrivingdesk.com", href: "/products/corehive-automation" },
+  // { label: "AI Suite", href: "/products/corehive-ai-suit e" },
+
 ];
 
 const portfolioLinks = [
@@ -42,6 +43,7 @@ const navItems = [
   { label: "Our Services", menuKey: "services", links: serviceLinks },
   { label: "Our Products", menuKey: "products", links: productLinks },
   { label: "Portfolio", menuKey: "portfolio", links: portfolioLinks },
+  { label: "Blog", to: "/blogs" },
 ];
 
 export default function Header() {

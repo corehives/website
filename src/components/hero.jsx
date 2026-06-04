@@ -147,7 +147,7 @@ export default function Hero() {
       {/* Layer 2: Main content */}
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-20 text-center sm:px-6 sm:pt-22 lg:px-10 lg:pt-20">
         <h1
-          className="max-w-5xl font-semibold leading-[1.15] text-white"
+          className="max-w-5xl font-bold leading-[1.15] text-white"
           style={{
             fontSize: "clamp(1.5rem, 3.5vw + 0.75rem, 3rem)",
             animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.6s both",
@@ -181,7 +181,8 @@ export default function Hero() {
               />
             </span>
           </span>{" "}
-          Business With our Web & App Solutions
+          Business With our
+          <span className="precision-gradient">Web & App Solutions</span>
         </h1>
 
         <p

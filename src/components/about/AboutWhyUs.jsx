@@ -1,4 +1,11 @@
-import { Zap, ShieldCheck, Layers, HeadphonesIcon, Users, TrendingUp } from "lucide-react";
+import {
+  Zap,
+  ShieldCheck,
+  Layers,
+  HeadphonesIcon,
+  Users,
+  TrendingUp,
+} from "lucide-react";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import BgLeft from "../../assets/bg-left-content.webp";
 import BgRight from "../../assets/bg-right-content.webp";
@@ -70,7 +77,8 @@ function FeatureCard({ feature, index }) {
       <div
         className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400"
         style={{
-          boxShadow: "0 0 32px rgba(7,190,184,0.14), inset 0 0 24px rgba(7,190,184,0.04)",
+          boxShadow:
+            "0 0 32px rgba(7,190,184,0.14), inset 0 0 24px rgba(7,190,184,0.04)",
           border: "1px solid rgba(7,190,184,0.3)",
           borderRadius: "16px",
         }}
@@ -98,7 +106,10 @@ function FeatureCard({ feature, index }) {
               border: "1px solid rgba(7,190,184,0.2)",
             }}
           >
-            <feature.icon className="h-4.5 w-4.5 text-[#07BEB8]" strokeWidth={1.5} />
+            <feature.icon
+              className="h-4.5 w-4.5 text-[#07BEB8]"
+              strokeWidth={1.5}
+            />
           </div>
           <h3 className="text-base sm:text-lg font-bold text-white leading-tight group-hover:text-[#07BEB8] transition-colors duration-300">
             {feature.title}
@@ -106,7 +117,10 @@ function FeatureCard({ feature, index }) {
         </div>
 
         {/* Description */}
-        <p className="text-sm leading-relaxed flex-1 mb-5" style={{ color: "#8ca0b0" }}>
+        <p
+          className="text-sm leading-relaxed flex-1 mb-5"
+          style={{ color: "#8ca0b0" }}
+        >
           {feature.desc}
         </p>
 
@@ -175,18 +189,7 @@ export default function AboutWhyUs() {
             ref={headRef}
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4"
           >
-            Why{" "}
-            <span
-              style={{
-                background: "#07BEB8",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              CoreHives
-            </span>
-            ?
+            Why <span className="precision-gradient">CoreHives</span>?
           </h2>
           <p
             ref={paraRef}

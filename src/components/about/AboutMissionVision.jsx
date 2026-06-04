@@ -193,17 +193,7 @@ export default function AboutMissionVision() {
             ref={headRef}
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight"
           >
-            Mission &{" "}
-            <span
-              style={{
-                background: "#07BEB8",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Vision
-            </span>
+            Mission & <span className="precision-gradient">Vision</span>
           </h2>
         </div>
 

@@ -39,7 +39,7 @@ function Banner({ badge, title, titleAccent, subtitle }) {
         </div>
 
         <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-tight tracking-wide text-white sm:text-4xl md:text-5xl lg:text-[3.25rem]">
-          {title} <span className="text-[#07BEB8]">{titleAccent}</span>
+          {title} <span className="precision-gradient">{titleAccent}</span>
         </h1>
 
         <p className="mt-6 max-w-xl text-center text-sm leading-relaxed text-white/80 sm:text-base">
@@ -90,7 +90,7 @@ function Overview({ image, heading, accentHeading, paragraphs }) {
         </div>
         <div className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-            <span className="text-[#07BEB8]">{accentHeading}</span> {heading}
+            <span className="precision-gradient">{accentHeading}</span> {heading}
           </h2>
           {paragraphs.map((p, i) => (
             <p key={i} className="text-gray-300 leading-relaxed text-sm sm:text-base">{p}</p>
@@ -111,7 +111,7 @@ function KeyFeatures({ features }) {
             Core Capabilities
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Key <span className="text-[#07BEB8]">Features</span>
+            Key <span className="precision-gradient">Features</span>
           </h2>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
             Everything you need to streamline operations, delight customers, and scale with confidence.
@@ -152,7 +152,7 @@ function Process({ heading, steps }) {
       <div className="mx-auto max-w-6xl relative z-10">
         <div className="mb-14 text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            CoreHives <span className="text-[#07BEB8]">Process</span>
+            CoreHives <span className="precision-gradient">Process</span>
           </h2>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
             {heading}
@@ -187,7 +187,7 @@ function Technologies({ technologies }) {
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Technologies <span className="text-[#07BEB8]">We Use</span>
+            Technologies <span className="precision-gradient">We Use</span>
           </h2>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto text-sm">
             Built on industry-leading tools and frameworks trusted by top-tier engineering teams worldwide.
@@ -231,7 +231,7 @@ function Benefits({ benefits }) {
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Key <span className="text-[#07BEB8]">Benefits</span>
+            Key <span className="precision-gradient">Benefits</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -259,7 +259,7 @@ function Stats({ stats }) {
     <section className="px-6 py-20 sm:px-12 md:px-20 lg:px-32 bg-black">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-16 text-center text-4xl sm:text-5xl font-bold text-white">
-          Why <span className="text-[#07BEB8]">CoreHives?</span>
+          Why <span className="precision-gradient">CoreHives?</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((s, i) => (
@@ -289,7 +289,7 @@ function Faq({ faq }) {
       <div className="mx-auto max-w-3xl">
         <div className="mb-14 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Frequently Asked <span className="text-[#07BEB8]">Questions</span>
+            Frequently Asked <span className="precision-gradient">Questions</span>
           </h2>
         </div>
         <div className="space-y-3">
@@ -330,7 +330,7 @@ function Cta({ heading, subtitle, highlights, buttonText, buttonHref }) {
     <section className="px-6 py-20 sm:px-12 md:px-20 lg:px-32 bg-black">
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-          {heading} <span className="text-[#07BEB8]">Today</span>
+          {heading} <span className="precision-gradient">Today</span>
         </h2>
         <p className="text-gray-400 max-w-xl mx-auto mb-8 text-sm sm:text-base">{subtitle}</p>
 

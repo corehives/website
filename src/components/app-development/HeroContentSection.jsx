@@ -17,9 +17,9 @@ export default function HeroContentSection() {
         <div className="space-y-6">
           <div className="space-y-2">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              <span className="text-[#07BEB8]">Optimize</span> Your Digital
+              <span className="precision-gradient">Optimize</span> Your Digital
               Presence with CoreHives{" "}
-              <span className="text-[#07BEB8]">
+              <span className="precision-gradient">
                 Mobile App Development Services
               </span>
             </h2>

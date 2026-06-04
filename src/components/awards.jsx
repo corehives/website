@@ -184,14 +184,7 @@ export default function AwardsSection() {
             }}
           >
             Awards &amp;{" "}
-            <span
-              style={{
-                background: "#07BEB8",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span className="precision-gradient">
               Recognitions
             </span>
           </h2>
