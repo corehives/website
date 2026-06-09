@@ -1,8 +1,9 @@
-import { ArrowRight, Clock, Calendar } from "lucide-react";
+import { Clock, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { FEATURED_POST } from "../../data/blogs";
 import BlogCoverImage from "./BlogCoverImage";
 import useScrollReveal from "../../hooks/useScrollReveal";
+import CTAButton from "../shared/CTAButton";
 
 export default function FeaturedPost() {
   const navigate  = useNavigate();
@@ -72,7 +73,7 @@ export default function FeaturedPost() {
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = "rgba(7,190,184,0.32)";
             e.currentTarget.style.boxShadow =
-              "0 2px 2px rgba(7,190,184,0.04), 0 24px 80px rgba(7,190,184,0.08)";
+              "0 4px 8px rgba(7,190,184,0.08), 0 32px 120px rgba(7,190,184,0.22)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.borderColor = "rgba(7,190,184,0.1)";
@@ -273,38 +274,9 @@ export default function FeaturedPost() {
             </div>
 
             {/* CTA */}
-            <button
-              className="fp-cta"
-              onClick={(e) => { e.stopPropagation(); handleOpen(); }}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                width: "fit-content",
-                padding: "11px 24px",
-                borderRadius: 99,
-                border: "1px solid rgba(7,190,184,0.3)",
-                background: "transparent",
-                color: "#07BEB8",
-                fontSize: 13,
-                fontWeight: 600,
-                cursor: "pointer",
-                letterSpacing: "0.02em",
-                transition: "background 0.25s, border-color 0.25s, gap 0.25s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(7,190,184,0.1)";
-                e.currentTarget.style.borderColor = "rgba(7,190,184,0.55)";
-                e.currentTarget.style.gap = "14px";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.borderColor = "rgba(7,190,184,0.3)";
-                e.currentTarget.style.gap = "8px";
-              }}
-            >
-              Read Article <ArrowRight size={14} />
-            </button>
+            <CTAButton className="flex justify-center" onClick={(e) => { e.stopPropagation(); handleOpen(); }}>
+              Read Article
+            </CTAButton>
           </div>
         </div>
       </div>

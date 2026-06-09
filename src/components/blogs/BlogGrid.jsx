@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { GRID_POSTS, CAT_COLORS } from "../../data/blogs";
 import BlogCoverImage from "./BlogCoverImage";
 import useScrollReveal from "../../hooks/useScrollReveal";
+import CTAButton from "../shared/CTAButton";
 
 const CATEGORIES = [
   "All", "AI & ML", "Web Dev", "Blockchain",
@@ -34,7 +35,7 @@ function SmallCard({ post, globalIndex }) {
         transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s",
         transform: hovered ? "translateY(-5px)" : "translateY(0)",
         boxShadow: hovered
-          ? `0 20px 56px rgba(0,0,0,0.5), 0 0 0 1px ${c.glow}`
+          ? `0 28px 80px rgba(0,0,0,0.75), 0 0 0 1px ${c.glow}, 0 0 40px ${c.glow}`
           : "0 2px 12px rgba(0,0,0,0.25)",
         position: "relative",
       }}
@@ -223,7 +224,7 @@ function LargeCard({ post }) {
         cursor: "pointer",
         transition: "border-color 0.3s, box-shadow 0.3s",
         boxShadow: hovered
-          ? `0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px ${c.glow}`
+          ? `0 28px 80px rgba(0,0,0,0.75), 0 0 0 1px ${c.glow}, 0 0 40px ${c.glow}`
           : "0 2px 12px rgba(0,0,0,0.25)",
         position: "relative",
         minHeight: 280,
@@ -329,21 +330,9 @@ function LargeCard({ post }) {
             <Clock size={10} />{post.readTime}
           </div>
         </div>
-        <button
-          onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${post.slug}`); }}
-          style={{
-            display: "inline-flex", alignItems: "center",
-            gap: 7, width: "fit-content",
-            padding: "9px 18px", borderRadius: 99,
-            border: `1px solid ${hovered ? c.border : "rgba(255,255,255,0.1)"}`,
-            background: "transparent",
-            color: hovered ? c.text : "rgba(255,255,255,0.45)",
-            fontSize: 12, fontWeight: 600, cursor: "pointer",
-            transition: "all 0.25s",
-          }}
-        >
-          Read Article <ArrowRight size={12} />
-        </button>
+        <CTAButton className="flex justify-center" onClick={(e) => { e.stopPropagation(); navigate(`/blogs/${post.slug}`); }}>
+          Read Article
+        </CTAButton>
       </div>
     </article>
   );
@@ -556,36 +545,9 @@ export default function BlogGrid({ searchQuery = "" }) {
         {/* Load more */}
         {hasMore && (
           <div style={{ textAlign: "center", marginTop: 52 }}>
-            <button
-              onClick={() => setVisibleCount((c) => c + 3)}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "13px 32px",
-                borderRadius: 99,
-                border: "1px solid rgba(7,190,184,0.25)",
-                background: "rgba(7,190,184,0.04)",
-                color: "#07BEB8",
-                fontSize: 13,
-                fontWeight: 600,
-                cursor: "pointer",
-                transition: "background 0.25s, border-color 0.25s, gap 0.25s",
-                letterSpacing: "0.02em",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(7,190,184,0.1)";
-                e.currentTarget.style.borderColor = "rgba(7,190,184,0.45)";
-                e.currentTarget.style.gap = "12px";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(7,190,184,0.04)";
-                e.currentTarget.style.borderColor = "rgba(7,190,184,0.25)";
-                e.currentTarget.style.gap = "8px";
-              }}
-            >
-              Load More <ArrowRight size={14} />
-            </button>
+            <CTAButton onClick={() => setVisibleCount((c) => c + 3)}>
+              Load More
+            </CTAButton>
           </div>
         )}
       </div>

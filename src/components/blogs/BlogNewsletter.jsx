@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
 import useScrollReveal from "../../hooks/useScrollReveal";
+import CTAButton from "../shared/CTAButton";
 
 const AVATARS = ["EU", "SM", "AK", "HR", "OF"];
 const AVATAR_COLORS = [
@@ -345,36 +345,9 @@ export default function BlogNewsletter() {
                       }}
                     />
                   </div>
-                  <button
-                    type="submit"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 8,
-                      padding: "14px 24px",
-                      borderRadius: 50,
-                      border: "none",
-                      background: "linear-gradient(135deg, #07BEB8 0%, #4eecea 100%)",
-                      color: "#FFF",
-                      fontSize: 14,
-                      fontWeight: 800,
-                      cursor: "pointer",
-                      letterSpacing: "0.02em",
-                      transition: "opacity 0.2s, transform 0.2s",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.opacity = "0.88";
-                      e.currentTarget.style.transform = "translateY(-1px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.opacity = "1";
-                      e.currentTarget.style.transform = "translateY(0)";
-                    }}
-                  >
+                  <CTAButton type="submit" className="w-full justify-center">
                     Subscribe to the Journal
-                    <ArrowRight size={15} />
-                  </button>
+                  </CTAButton>
                 </form>
                 <p
                   style={{

@@ -137,21 +137,7 @@ export default function BlogsHero({ onSearch }) {
             />
             <button
               type="submit"
-              style={{
-                padding: "9px 22px",
-                borderRadius: 50,
-                border: "none",
-                background: "linear-gradient(135deg, #07BEB8, #4eecea)",
-                color: "#020617",
-                fontSize: 13,
-                fontWeight: 700,
-                cursor: "pointer",
-                flexShrink: 0,
-                letterSpacing: "0.03em",
-                transition: "opacity 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+              className="shrink-0 rounded-full border border-white/50 px-5 py-1.5 text-sm font-medium text-white transition-all hover:bg-[#017c785e]"
             >
               Search
             </button>

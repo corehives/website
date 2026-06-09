@@ -3,6 +3,13 @@ import { MessageCircle, X } from "lucide-react";
 
 export default function TawkToChat() {
   const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Match loader: 2100ms show + 820ms fade = 2920ms total
+    const t = setTimeout(() => setVisible(true), 2920);
+    return () => clearTimeout(t);
+  }, []);
 
   useEffect(() => {
     window.Tawk_API = window.Tawk_API || {};
@@ -45,14 +52,16 @@ export default function TawkToChat() {
   return (
     <>
       {/* Pulse ring */}
-      <span className="fixed bottom-6 right-6 z-9998 flex h-14 w-14 items-center justify-center rounded-full pointer-events-none">
+      <span
+        className={`fixed bottom-6 right-6 z-9998 flex h-14 w-14 items-center justify-center rounded-full pointer-events-none transition-opacity duration-500 ${visible ? "opacity-100" : "opacity-0"}`}
+      >
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#07BEB8] opacity-20" />
       </span>
 
       <button
         onClick={handleToggle}
         aria-label="Toggle live chat"
-        className="fixed bottom-6 right-6 z-9999 flex h-14 w-14 items-center justify-center rounded-full bg-[#07BEB8] shadow-[0_4px_20px_rgba(7,190,184,0.5)] transition-all duration-300 hover:scale-110 hover:shadow-[0_4px_32px_rgba(7,190,184,0.7)] active:scale-95"
+        className={`fixed bottom-6 right-6 z-9999 flex h-14 w-14 items-center justify-center rounded-full bg-[#07BEB8] shadow-[0_4px_20px_rgba(7,190,184,0.5)] transition-all duration-500 hover:scale-110 hover:shadow-[0_4px_32px_rgba(7,190,184,0.7)] active:scale-95 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}
       >
         {isOpen ? (
           <X className="h-6 w-6 text-white" strokeWidth={2.5} />

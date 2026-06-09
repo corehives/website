@@ -96,32 +96,7 @@ export default function BlogDetailHero({ post }) {
         {/* Back navigation */}
         <button
           onClick={() => navigate("/blogs")}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            marginBottom: 44,
-            padding: "8px 18px 8px 12px",
-            borderRadius: 99,
-            border: "1px solid rgba(255,255,255,0.09)",
-            background: "rgba(255,255,255,0.03)",
-            color: "rgba(255,255,255,0.45)",
-            fontSize: 12,
-            fontWeight: 500,
-            letterSpacing: "0.02em",
-            cursor: "pointer",
-            transition: "border-color 0.2s, color 0.2s, background 0.2s",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-            e.currentTarget.style.color = "rgba(255,255,255,0.75)";
-            e.currentTarget.style.background = "rgba(255,255,255,0.06)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)";
-            e.currentTarget.style.color = "rgba(255,255,255,0.45)";
-            e.currentTarget.style.background = "rgba(255,255,255,0.03)";
-          }}
+          className="mb-11 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-4.5 py-2 text-xs font-medium text-white/45 transition-all duration-200 hover:border-white/20 hover:bg-white/6 hover:text-white/75 cursor-pointer"
         >
           <ArrowLeft size={13} />
           Back to Blog

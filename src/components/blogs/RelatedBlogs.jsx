@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ALL_POSTS, CAT_COLORS } from "../../data/blogs";
 import BlogCoverImage from "./BlogCoverImage";
 import useScrollReveal from "../../hooks/useScrollReveal";
+import CTAButton from "../shared/CTAButton";
 
 function RelatedCard({ post, index }) {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ function RelatedCard({ post, index }) {
         transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s",
         transform: hovered ? "translateY(-5px)" : "translateY(0)",
         boxShadow: hovered
-          ? `0 20px 56px rgba(0,0,0,0.5), 0 0 0 1px ${c.glow}`
+          ? `0 28px 80px rgba(0,0,0,0.75), 0 0 0 1px ${c.glow}, 0 0 40px ${c.glow}`
           : "0 2px 12px rgba(0,0,0,0.25)",
         position: "relative",
       }}
@@ -254,36 +255,7 @@ export default function RelatedBlogs({ currentPost }) {
             </h2>
           </div>
 
-          <button
-            onClick={() => navigate("/blogs")}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              padding: "10px 22px",
-              borderRadius: 99,
-              border: "1px solid rgba(7,190,184,0.25)",
-              background: "rgba(7,190,184,0.04)",
-              color: "#07BEB8",
-              fontSize: 12,
-              fontWeight: 600,
-              cursor: "pointer",
-              letterSpacing: "0.03em",
-              transition: "background 0.22s, border-color 0.22s, gap 0.22s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(7,190,184,0.1)";
-              e.currentTarget.style.borderColor = "rgba(7,190,184,0.45)";
-              e.currentTarget.style.gap = "12px";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(7,190,184,0.04)";
-              e.currentTarget.style.borderColor = "rgba(7,190,184,0.25)";
-              e.currentTarget.style.gap = "8px";
-            }}
-          >
-            All Articles <ArrowRight size={13} />
-          </button>
+          <CTAButton to="/blogs">All Articles</CTAButton>
         </div>
 
         {/* Cards grid */}
