@@ -4,6 +4,7 @@ import { MessageCircle, X } from "lucide-react";
 export default function TawkToChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [unread, setUnread] = useState(0);
 
   useEffect(() => {
     // Match loader: 2100ms show + 820ms fade = 2920ms total
@@ -27,6 +28,10 @@ export default function TawkToChat() {
       setIsOpen(false);
     };
 
+    window.Tawk_API.onUnreadCountChanged = function (count) {
+      setUnread(count);
+    };
+
     if (!document.querySelector('script[src*="tawk.to"]')) {
       const s1 = document.createElement("script");
       const s0 = document.getElementsByTagName("script")[0];
@@ -46,6 +51,7 @@ export default function TawkToChat() {
     } else {
       window.Tawk_API.maximize();
       setIsOpen(true);
+      setUnread(0);
     }
   }
 
@@ -67,6 +73,13 @@ export default function TawkToChat() {
           <X className="h-6 w-6 text-white" strokeWidth={2.5} />
         ) : (
           <MessageCircle className="h-6 w-6 text-white" strokeWidth={2} />
+        )}
+
+        {/* Unread badge */}
+        {!isOpen && unread > 0 && (
+          <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white shadow-lg">
+            {unread > 99 ? "99+" : unread}
+          </span>
         )}
       </button>
     </>
