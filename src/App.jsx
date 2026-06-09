@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/layout/header.jsx";
+import TawkToChat from "./components/TawkToChat.jsx";
 import Hero from "./components/hero.jsx";
 import LoadingScreen from "./components/LoadingScreen.jsx";
 
@@ -202,6 +203,7 @@ function App() {
     <div className="min-h-screen overflow-x-hidden bg-[#000405] text-white">
       <Header />
       <AppRoutes />
+      <TawkToChat />
     </div>
   );
 }
