@@ -648,7 +648,7 @@ function ApplicationModal({ job, onClose }) {
               </div>
 
               {/* Submit */}
-              <div className="pt-1">
+              <div className="pt-1 text-center">
                 <CTAButton type="submit" loading={submitting} disabled={submitting}>
                   {submitting ? "Submitting…" : "Submit Application"}
                 </CTAButton>
