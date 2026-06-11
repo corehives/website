@@ -103,6 +103,7 @@ function AppRoutes() {
   const [mounted, setMounted]   = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setLoading(true);
     setMounted(true);
     const SHOW = 2100; // minimum display ms
