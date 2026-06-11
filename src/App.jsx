@@ -39,6 +39,7 @@ const PortfolioUiUxDesign = lazy(() => import("./pages/portfolio/ui-ux-design.js
 const PortfolioCustomSoftware = lazy(() => import("./pages/portfolio/custom-software.jsx"));
 const PortfolioDigitalMarketing = lazy(() => import("./pages/portfolio/digital-marketing.jsx"));
 const PortfolioBranding = lazy(() => import("./pages/portfolio/branding.jsx"));
+const Careers    = lazy(() => import("./pages/careers.jsx"));
 const Blogs      = lazy(() => import("./pages/blogs.jsx"));
 const BlogDetail = lazy(() => import("./pages/blog-detail.jsx"));
 
@@ -73,6 +74,7 @@ import("./pages/portfolio/ui-ux-design.jsx");
 import("./pages/portfolio/custom-software.jsx");
 import("./pages/portfolio/digital-marketing.jsx");
 import("./pages/portfolio/branding.jsx");
+import("./pages/careers.jsx");
 import("./pages/blogs.jsx");
 import("./pages/blog-detail.jsx");
 
@@ -184,6 +186,11 @@ function AppRoutes() {
         } />
         <Route path="/portfolio/branding" element={
           <Suspense fallback={<LoadingScreen />}><PortfolioBranding /></Suspense>
+        } />
+
+        {/* Careers */}
+        <Route path="/careers" element={
+          <Suspense fallback={<LoadingScreen />}><Careers /></Suspense>
         } />
 
         {/* Blog */}
