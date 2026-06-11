@@ -1,0 +1,1 @@
+var e=`/assets/bg-left-content-Cq-nirmX.webp`;export{e as t};
