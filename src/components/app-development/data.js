@@ -1,14 +1,18 @@
 import MobileApp from "../../assets/mobile-app.png";
-import iOSImage from "../../assets/ios-app.png";
-import AndroidImage from "../../assets/ios-app.png";
-import EcommerceImage from "../../assets/web-cover.jpg";
-import CrossPlatformImage from "../../assets/ios-app.png";
-import BankingImg from "../../assets/ios-app.png";
-import AgricultureImg from "../../assets/ios-app.png";
-import HospitalityImg from "../../assets/ios-app.png";
-import FmcgImg from "../../assets/ios-app.png";
-import LogisticsImg from "../../assets/ios-app.png";
-import EcommerceProjImg from "../../assets/ios-app.png";
+import FutureGenAi3 from "../../assets/future-gen-ai-1.png";
+import FutureGenAi2 from "../../assets/future-gen-ai-2.png";
+import FutureGenAi1 from "../../assets/future-gen-ai-3.png";
+import iOSImage from "../../assets/ios-app-dev.png";
+import AndroidImage from "../../assets/android-app-dev.png";
+import EcommerceImage from "../../assets/e-comm-dev.png";
+import CrossPlatformImage from "../../assets/cross-platform-dev.png";
+import EnterpriseAppImage from "../../assets/enterprise-app-dev.png";
+import BankingImg from "../../assets/bank.png";
+import AgricultureImg from "../../assets/agriculture.png";
+import HospitalityImg from "../../assets/resturant.png";
+import FmcgImg from "../../assets/consumers-good.png";
+import LogisticsImg from "../../assets/logistics.png";
+import EcommerceProjImg from "../../assets/e-com-full.png";
 
 export const appServicesData = {
   ios: {
@@ -33,6 +37,12 @@ export const appServicesData = {
     title: "Enterprise Mobile App Development",
     description:
       "Transform your business with enterprise-grade mobile applications. We develop scalable, secure solutions tailored to your organization's unique requirements.",
+    image: EnterpriseAppImage,
+  },
+  crossplatform: {
+    title: "Cross-Platform Mobile App Development",
+    description:
+      "Reach both iOS and Android users with a single codebase using Flutter or React Native. Our cross-platform apps deliver native-like performance and a consistent user experience across all devices — saving time and development costs without sacrificing quality.",
     image: CrossPlatformImage,
   },
 };
@@ -93,44 +103,36 @@ export const insightsData = [
     title: "The Future of Generative AI — Possibilities and Challenges",
     description:
       "McKinsey suggests that Generative AI could create a massive economic impact in the next few decades, adding between $2.6 trillion and $4.4 trillion annually.",
-    image: MobileApp,
+    image: FutureGenAi1,
   },
   {
     id: 2,
     date: "02 December 2023",
     readTime: "3 Min. To Read",
-    title: "The Future of Generative AI — Possibilities and Challenges",
+    title: "Top Mobile App Trends to Watch in 2024",
     description:
       "McKinsey suggests that Generative AI could create a massive economic impact in the next few decades, adding between $2.6 trillion and $4.4 trillion annually.",
-    image: MobileApp,
+    image: FutureGenAi2,
   },
   {
     id: 3,
     date: "02 December 2022",
     readTime: "3 Min. To Read",
-    title: "The Future of Generative AI — Possibilities and Challenges",
+    title: "Native vs Cross-Platform. Which Should You Choose?",
     description:
       "McKinsey suggests that Generative AI could create a massive economic impact in the next few decades, adding between $2.6 trillion and $4.4 trillion annually.",
-    image: MobileApp,
+    image: FutureGenAi3,
   },
   {
     id: 4,
     date: "02 December 2022",
     readTime: "3 Min. To Read",
-    title: "Native vs Cross-Platform — Which Should You Choose?",
+    title: "",
     description:
       "McKinsey suggests that Generative AI could create a massive economic impact in the next few decades, adding between $2.6 trillion and $4.4 trillion annually.",
     image: MobileApp,
   },
-  {
-    id: 5,
-    date: "02 December 2023",
-    readTime: "3 Min. To Read",
-    title: "Top Mobile App Trends to Watch in 2024",
-    description:
-      "McKinsey suggests that Generative AI could create a massive economic impact in the next few decades, adding between $2.6 trillion and $4.4 trillion annually.",
-    image: MobileApp,
-  },
+ 
 ];
 
 export const whyItems = [

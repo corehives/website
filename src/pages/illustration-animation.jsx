@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
-import MobileApp from "../assets/mobile-app.png";
+import Animation from "../assets/animation.png";
 import WebWork from "../assets/work.png";
 import Analytic from "../assets/icons/analytic.png";
 import BannerRightAnimation from "../components/animations/bannerRight";
@@ -134,8 +134,8 @@ export default function IllustrationAnimation() {
       <section className="relative px-6 py-16 sm:px-12 md:px-20 lg:px-32">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
           <div className="relative">
-            <div className="relative group overflow-hidden rounded-lg border border-[#07BEB8]/30">
-              <img src={MobileApp} alt="illustration animation" className="w-full h-72 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="relative group overflow-hidden">
+              <img src={Animation} alt="illustration animation" className="w-full h-72 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             </div>
           </div>

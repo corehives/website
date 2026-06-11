@@ -1,4 +1,4 @@
-import MobileApp from "../../assets/mobile-app.png";
+import MobileApp from "../../assets/mobile-app-dev.png";
 
 export default function HeroContentSection() {
   return (
@@ -8,8 +8,8 @@ export default function HeroContentSection() {
           <div className="relative group overflow-hidden rounded-lg">
             <img
               src={MobileApp}
-              alt="web development"
-              className="w-full h-[30rem] object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="mobile app development"
+              className="w-full h-[25rem] object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
         </div>

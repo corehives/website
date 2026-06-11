@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
-import WebCover from "../assets/web-cover.jpg";
-import WebWork from "../assets/work.png";
+import WebCover from "../assets/web-app-dev.png";
+import WebWork from "../assets/web-mock.png";
 import Analytic from "../assets/icons/analytic.png";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation from "../components/animations/bannerleft";
@@ -357,7 +357,7 @@ export default function WebDevelopment() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
           {/* Left - Image */}
           <div className="relative">
-            <div className="relative group overflow-hidden rounded-lg border border-[#07BEB8]/30">
+            <div className="relative group overflow-hidden ">
               <img
                 src={WebCover}
                 alt="web development"

@@ -60,12 +60,12 @@ export default function ProjectsSection() {
 
         {/* Content */}
         {currentProject && (
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mt-4">
+          <div className="grid lg:grid-cols-2 items-center mt-4">
             <div className="rounded-2xl overflow-hidden">
               <img
                 src={currentProject.image}
                 alt={currentProject.title}
-                className="w-1/2 h-auto mx-auto object-cover"
+                className="w-2/3 h-auto mx-auto object-cover"
               />
             </div>
             <div className="space-y-4">
