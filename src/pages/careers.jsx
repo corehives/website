@@ -9,8 +9,8 @@ import BannerLeftAnimation from "../components/animations/bannerleft";
 import CTAButton from "../components/shared/CTAButton";
 import {
   X, Upload, FileText, CheckCircle2, Plus, Minus,
-  MapPin, Clock, Rocket, GraduationCap, Heart, Globe,
-  Zap, Coffee, AlertCircle, ChevronDown, Users, Award,
+  MapPin, Rocket, GraduationCap, Heart, Globe,
+  Zap, Coffee, AlertCircle, Users, Award,
 } from "lucide-react";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
@@ -671,38 +671,30 @@ function JobCard({ job, onApply, revealStyle }) {
       style={revealStyle}
       className="group flex flex-col rounded-2xl border border-[#07BEB8]/18 hover:border-[#07BEB8]/50 bg-linear-to-br from-[#07BEB8]/4 to-transparent p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(7,190,184,0.09)]"
     >
-      {/* Header */}
-      <div className="flex items-start justify-between gap-3 mb-3">
+      {/* Row 1 — Title + meta left · Apply Now right */}
+      <div className="flex items-start justify-between gap-4 mb-4">
         <div className="flex-1 min-w-0">
-          <h3 className="text-base sm:text-[1.05rem] font-bold text-white group-hover:text-[#07BEB8] transition-colors leading-snug">
+          <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#07BEB8] transition-colors leading-snug mb-1.5">
             {job.title}
           </h3>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
-            <span className="text-[11px] font-semibold text-[#07BEB8]">
-              {job.department}
-            </span>
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span className="text-[11px] font-medium text-[#07BEB8]">{job.type}</span>
+            <span className="text-white/25 text-[11px] select-none">·</span>
             <span className="flex items-center gap-1 text-[11px] text-gray-400">
               <MapPin className="w-2.5 h-2.5 shrink-0" />
               {job.location}
             </span>
-            <span className="flex items-center gap-1 text-[11px] text-gray-400">
-              <Clock className="w-2.5 h-2.5 shrink-0" />
-              {job.type}
-            </span>
+            <span className="text-white/25 text-[11px] select-none">·</span>
+            <span className="text-[11px] text-gray-400">{job.department}</span>
           </div>
         </div>
-        <span className="shrink-0 text-[10px] font-medium px-3 py-1 rounded-full border border-[#07BEB8]/28 bg-[#07BEB8]/8 text-[#84fff7]">
-          {job.type}
-        </span>
+        <div className="shrink-0 pt-0.5">
+          <CTAButton onClick={() => onApply(job)}>Apply Now</CTAButton>
+        </div>
       </div>
 
-      {/* Short description */}
-      <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
-        {job.shortDesc}
-      </p>
-
-      {/* Requirement tags */}
-      <div className="flex flex-wrap gap-2 mb-5">
+      {/* Row 2 — Skill / stack badges */}
+      <div className="flex flex-wrap gap-2 mb-4">
         {job.requirements.map((req) => (
           <span
             key={req}
@@ -713,10 +705,15 @@ function JobCard({ job, onApply, revealStyle }) {
         ))}
       </div>
 
+      {/* Row 3 — Description */}
+      <p className="text-gray-400 text-sm leading-relaxed">
+        {job.shortDesc}
+      </p>
+
       {/* Expandable full description */}
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          expanded ? "max-h-175 opacity-100 mb-5" : "max-h-0 opacity-0 mb-0"
+          expanded ? "max-h-175 opacity-100 mt-4" : "max-h-0 opacity-0"
         }`}
       >
         <div className="border-t border-white/6 pt-4">
@@ -726,20 +723,14 @@ function JobCard({ job, onApply, revealStyle }) {
         </div>
       </div>
 
-      {/* Actions */}
-      <div className="flex flex-wrap items-center gap-3 mt-auto">
-        <button
-          type="button"
-          onClick={() => setExpanded((v) => !v)}
-          className="inline-flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white border border-white/12 hover:border-white/30 rounded-full px-4 py-1.5 transition-all"
-        >
-          {expanded ? "Show Less" : "Read More"}
-          <ChevronDown
-            className={`w-3.5 h-3.5 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
-          />
-        </button>
-        <CTAButton onClick={() => onApply(job)}>Apply Now</CTAButton>
-      </div>
+      {/* Row 4 — Inline text toggle */}
+      <button
+        type="button"
+        onClick={() => setExpanded((v) => !v)}
+        className="mt-3 self-start text-xs text-white/35 hover:text-[#07BEB8] transition-colors duration-200 bg-transparent border-none p-0 cursor-pointer"
+      >
+        {expanded ? "Show less" : "Read more..."}
+      </button>
     </div>
   );
 }
@@ -1131,8 +1122,8 @@ export default function Careers() {
                         <Icon className="w-7 h-7 text-white/35 group-hover:text-[#07BEB8] group-hover:scale-110 transition-all duration-300" />
                       </div>
                       {/* Step badge */}
-                      <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-[#07BEB8] border-2 border-black flex items-center justify-center shadow-[0_0_12px_rgba(7,190,184,0.55)]">
-                        <span className="text-[9px] font-bold text-[#001b1a] leading-none">{step.step}</span>
+                      <div className="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full bg-[#07BEB8] border-2 border-black flex items-center justify-center shadow-[0_0_12px_rgba(7,190,184,0.55)]">
+                        <span className="text-[12px] font-bold text-[#001b1a] leading-none">{step.step}</span>
                       </div>
                     </div>
 
@@ -1163,8 +1154,8 @@ export default function Careers() {
         {/* Layer 0 — animated hex grid canvas */}
         <HiveBg sectionRef={ctaSectionRef} mouseRef={ctaCanvasMouseRef} />
         {/* Layer 1 — dark gradient overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-[#020617]/90 via-[#031a19]/80 to-[#020617]/95" style={{ zIndex: 1 }} />
-        {/* Layer 2 — static teal radial glow */}
+        <div className="absolute inset-0 bg-[#07BEB8]/50" style={{ zIndex: 1 }} />
+
         <div
           aria-hidden="true"
           className="absolute inset-0 pointer-events-none"
@@ -1215,8 +1206,8 @@ export default function Careers() {
         ))}
 
         {/* Content */}
-        <div className="relative px-5 sm:px-10 lg:px-20 py-28 sm:py-36" style={{ zIndex: 10 }}>
-          <div ref={ctaRef} className="max-w-3xl mx-auto text-center">
+        <div className="relative px-5 sm:px-10 lg:px-20 py-20 sm:py-15" style={{ zIndex: 10 }}>
+          <div ref={ctaRef} className="max-w-3xl ">
 
             {/* Badge */}
             <div
@@ -1224,17 +1215,17 @@ export default function Careers() {
               className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-sm"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
-              <span className="text-xs font-medium tracking-widest text-white uppercase">Don't See a Fit?</span>
+              <span className="text-xs font-medium tracking-widest text-white uppercase">Get in Touch</span>
               <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
             </div>
 
             {/* Word-reveal headline */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
               {[
-                { text: "Still", d: 0.13 },
-                { text: "Want",  d: 0.22 },
-                { text: "to",    d: 0.31 },
-                { text: "Be",    d: 0.40 },
+                { text: "Want",  d: 0.13 },
+                { text: "to",    d: 0.22 },
+                { text: "Start", d: 0.31 },
+                { text: "a",     d: 0.40 },
               ].map(({ text, d }) => (
                 <span
                   key={text}
@@ -1248,72 +1239,47 @@ export default function Careers() {
                   {text}
                 </span>
               ))}
-              <br className="hidden sm:block" />
-              {[
-                { text: "Part", d: 0.50 },
-                { text: "of",   d: 0.59 },
-                { text: "the",  d: 0.68 },
-              ].map(({ text, d }) => (
-                <span
-                  key={text}
-                  className="inline-block text-white mr-[0.22em]"
-                  style={{
-                    opacity: ctaVisible ? 1 : 0,
-                    transform: ctaVisible ? "translateY(0)" : "translateY(28px)",
-                    transition: `opacity 0.55s ease ${d}s, transform 0.55s ease ${d}s`,
-                  }}
-                >
-                  {text}
-                </span>
-              ))}
-              {/* "Hive?" — gradient + underline draws in on scroll */}
+              {/* "Conversation?" — gradient + animated underline draw */}
               <span
                 className="relative inline-block"
                 style={{
                   opacity: ctaVisible ? 1 : 0,
                   transform: ctaVisible ? "translateY(0)" : "translateY(28px)",
-                  transition: "opacity 0.55s ease 0.77s, transform 0.55s ease 0.77s",
+                  transition: "opacity 0.55s ease 0.55s, transform 0.55s ease 0.55s",
                 }}
               >
-                <span className="precision-gradient">Hive?</span>
+                <span className="precision-gradient">Conversation?</span>
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 -bottom-0.75 h-0.5 w-full rounded-full bg-linear-to-r from-[#07BEB8] to-[#84fff7] origin-left"
+                  style={{
+                    transform: ctaVisible ? "scaleX(1)" : "scaleX(0)",
+                    transition: "transform 0.7s cubic-bezier(0.4,0,0.2,1) 0.72s",
+                  }}
+                />
               </span>
             </h2>
 
             {/* Copy */}
             <p
-              className="text-gray-400 text-sm sm:text-base leading-relaxed mb-10 max-w-md mx-auto"
-              style={revealBase(ctaVisible, 0.55)}
+              className="text-white text-sm sm:text-base leading-relaxed mb-6 max-w-md"
+              style={revealBase(ctaVisible, 0.45)}
             >
-              No open role that fits? We still want to meet great people. Send your resume and we'll reach out when the right opportunity opens.
+              Whether you're exploring opportunities or just curious about life at CoreHives our team would love to hear from you.
             </p>
 
-            {/* CTA cluster — magnetic button + secondary link */}
             <div
-              style={revealBase(ctaVisible, 0.72)}
-              className="flex flex-col sm:flex-row items-center justify-center gap-5"
-            >
-              <MagneticCTA>
-                <div className="relative">
-                  {/* Ambient glow bloom behind button */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 rounded-full pointer-events-none"
-                    style={{
-                      background: "radial-gradient(ellipse 150% 260% at 50% 50%, rgba(7,190,184,0.32) 0%, transparent 65%)",
-                      filter: "blur(22px)",
-                      transform: "scale(1.6)",
-                    }}
-                  />
-                  <CTAButton onClick={() => setModalJob({ title: "General Application" })}>
-                    Join the Hive
-                  </CTAButton>
-                </div>
-              </MagneticCTA>
+              style={revealBase(ctaVisible, 0.52)}
+              className="w-full h-px bg-linear-to-r from-white to-white mb-6"
+            />
+
+            {/* CTA cluster — magnetic button + email link */}
+            <div>
               <a
                 href="mailto:careers@corehives.com"
-                className="text-sm text-gray-400 hover:text-[#07BEB8] transition-colors duration-200 underline underline-offset-4 decoration-white/20 hover:decoration-[#07BEB8]/50"
+                className="text-sm text-white hover:text-[#FFF] hover:text-[1rem] transition-colors duration-200 underline underline-offset-4 decoration-white/20 hover:decoration-[#07BEB8]/50"
               >
-                or email us directly
+                careers@corehives.com
               </a>
             </div>
 
