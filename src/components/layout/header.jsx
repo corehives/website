@@ -123,7 +123,7 @@ export default function Header() {
             <img
               src={Logo}
               alt="CoreHives logo"
-              className="h-10 w-auto sm:h-11"
+              className="h-20 w-auto sm:h-15"
             />
           </Link>
 
