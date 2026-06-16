@@ -3,7 +3,7 @@ node_modules
 server/node_modules
 
 # Build output
-public/build
+# public/build
 dist
 dist-ssr
 
