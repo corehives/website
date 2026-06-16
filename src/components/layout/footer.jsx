@@ -1,16 +1,30 @@
 import { ChevronUp, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import CTAButton from "../shared/CTAButton";
 import BgLeftContent from "../../assets/footer-bg-left.png";
 import BgRightContent from "../../assets/footer-bg-right.png";
 
+const routeMap = {
+  Home: "/",
+  "Our Services": "/services/branding",
+  Company: "/about",
+  Careers: "/careers",
+  "Web & App Development": "/web-development",
+  "Artificial Intelligence Solutions": "/services/ai-market-optimization",
+  "Tech Staff Outsourcing": "/services/tech-staff-outsourcing",
+  "Why CoreHives": "/about",
+  "Our Approach": "/about",
+  Partnerships: "/about",
+};
+
 const navLinks = {
-  "QUICK LINKS": ["Home", "Our Services", "Company", "Contacts"],
+  "QUICK LINKS": ["Home", "Our Services", "Company", "Careers"],
   "OUR SERVICES": [
     "Web & App Development",
     "Artificial Intelligence Solutions",
     "Tech Staff Outsourcing",
   ],
-  COMPANY: ["Why CoreHives", "Our Approach", "Careers", "Partnerships"],
+  COMPANY: ["Why CoreHives", "Our Approach", "Partnerships"],
   INFORMATION: ["Privacy", "FAQ", "Cookie Policy", "Partners"],
 };
 
@@ -186,16 +200,28 @@ export default function Footer() {
                   {heading}
                 </h6>
                 <ul className="flex flex-col gap-2">
-                  {links.map((link) => (
-                    <li key={link}>
-                      <a
-                        href="#"
-                        className="text-xs text-white transition-colors duration-200 hover:text-[#07BEB8]"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
+                  {links.map((link) => {
+                    const href = routeMap[link] || "#";
+                    return (
+                      <li key={link}>
+                        {href.startsWith("/") ? (
+                          <Link
+                            to={href}
+                            className="text-xs text-white transition-colors duration-200 hover:text-[#07BEB8]"
+                          >
+                            {link}
+                          </Link>
+                        ) : (
+                          <a
+                            href={href}
+                            className="text-xs text-white transition-colors duration-200 hover:text-[#07BEB8]"
+                          >
+                            {link}
+                          </a>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}

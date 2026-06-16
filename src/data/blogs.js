@@ -279,449 +279,217 @@ export const ALL_POSTS = [
       },
     ],
   },
-//   {
-//     id: 2,
-//     slug: "smart-contracts-enterprise-patterns-pitfalls",
-//     category: "Blockchain",
-//     title: "Smart Contracts in the Enterprise: Patterns and Pitfalls",
-//     excerpt:
-//       "Real-world lessons from deploying on-chain business logic for Fortune 500 clients — from gas optimisation to upgradeability.",
-//     author: "CoreHives",
-//     authorInitials: "CH",
-//     authorRole: "Blockchain Architect",
-//     authorBio:
-//       "Omar leads blockchain solutions at CoreHives, with hands-on experience deploying smart contracts for enterprise clients across finance, supply chain, and digital identity.",
-//     date: "May 15, 2025",
-//     readTime: "9 min read",
-//     content: [
-//       {
-//         type: "paragraph",
-//         text: "Smart contracts were sold to enterprises as self-executing agreements that eliminate the need for intermediaries. The reality is more nuanced: they are code running on an immutable shared database, with all the implications that entails — bugs cannot be patched without a migration, state is visible to all participants, and every computation has a non-trivial cost.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "The Upgradeability Problem",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "The most common mistake we see enterprise teams make is deploying contracts without an upgrade path. The immutability of deployed code is a feature for trust, but a liability for software that needs to evolve. The proxy pattern — where a thin proxy contract delegates calls to an implementation contract that can be swapped — is now standard, but it adds complexity that must be understood before it is adopted.",
-//       },
-//       {
-//         type: "callout",
-//         text: "Use OpenZeppelin's Transparent Proxy or UUPS pattern for any contract managing significant value or requiring long-term maintenance. Never deploy business logic to a non-upgradeable contract in production.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "Gas Optimisation in Practice",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Gas costs are not just a deployment concern — they affect user experience in real time. A poorly written contract can make a simple operation cost 10x what it should. The biggest wins usually come from storage layout optimization, avoiding on-chain computation that can be done off-chain, and using events instead of storage for data that only needs to be queried.",
-//       },
-//       {
-//         type: "list",
-//         items: [
-//           "Pack struct fields to minimize storage slots used",
-//           "Use mappings over arrays for frequent single-key lookups",
-//           "Emit events instead of writing to storage for audit trails",
-//           "Batch operations to amortize base transaction costs",
-//           "Use calldata instead of memory for read-only function parameters",
-//         ],
-//       },
-//       {
-//         type: "heading2",
-//         text: "Security Patterns Worth Knowing",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Re-entrancy, integer overflow, and access control failures remain the top three smart contract vulnerability classes. The checks-effects-interactions pattern, OpenZeppelin's ReentrancyGuard, and role-based access control (AccessControl) address the majority of surface area. Start every new contract by auditing these three dimensions before you write business logic.",
-//       },
-//     ],
-//   },
-//   {
-//     id: 3,
-//     slug: "micro-frontend-architectures-that-scale",
-//     category: "Web Dev",
-//     title: "Building Micro-Frontend Architectures That Actually Scale",
-//     excerpt:
-//       "A practical guide to splitting monolithic frontends into independently deployable modules without sacrificing developer experience or runtime performance.",
-//     author: "CoreHives",
-//     authorInitials: "CH",
-//     authorRole: "Lead Frontend Engineer",
-//     authorBio:
-//       "Sara leads frontend architecture at CoreHives, specializing in large-scale React applications, performance engineering, and design systems.",
-//     date: "May 20, 2025",
-//     readTime: "6 min read",
-//     content: [
-//       {
-//         type: "paragraph",
-//         text: "Micro-frontends promised the same benefits for frontend code that microservices delivered for backends: independent deployability, team autonomy, and the ability to evolve parts of a large UI without touching everything. In practice, many teams that adopt micro-frontends find themselves managing significantly more complexity without a commensurate gain in speed or quality.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "The Core Problem with Monolithic Frontends",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Large frontend codebases accumulate drag over time. Build times slow. A change to a shared component requires regression testing across dozens of features. Teams step on each other's work. Deployments batch unrelated changes together, making rollbacks risky.",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Micro-frontends attack these problems by defining clear ownership boundaries. Each team owns a slice of the UI end-to-end: the component library, the data layer, the deployment pipeline. They ship independently, on their own schedule.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "Module Federation: The Practical Path",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Webpack's Module Federation (and its Vite counterpart) is the most practical route to micro-frontends for teams already on a React/Vue/Angular stack. It allows one application to expose components that another application consumes at runtime — no iframes, no separate routing layers, no complex shell application required for simple cases.",
-//       },
-//       {
-//         type: "code",
-//         language: "js",
-//         code: `// vite.config.ts (host app)
-// federation({
-//   name: 'host',
-//   remotes: {
-//     dashboard: 'http://localhost:3001/assets/remoteEntry.js',
-//     analytics: 'http://localhost:3002/assets/remoteEntry.js',
-//   },
-//   shared: ['react', 'react-dom'],
-// })`,
-//       },
-//       {
-//         type: "heading2",
-//         text: "The Shared State Problem",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "The hardest problem in micro-frontend architectures is not the initial split — it is shared state. User authentication state, shopping cart contents, feature flags, and notification counts need to be accessible across all micro-frontends. Naively duplicating this state leads to inconsistency; sharing it naively creates coupling.",
-//       },
-//       {
-//         type: "list",
-//         items: [
-//           "Use a shared event bus for cross-module communication",
-//           "Store global state in a dedicated shell application",
-//           "Use URL and browser storage as the source of truth for simple shared state",
-//           "Treat authentication as a service, not a module concern",
-//         ],
-//       },
-//       {
-//         type: "callout",
-//         text: "Teams that succeed with micro-frontends treat them as an organizational solution first, a technical one second. The split should follow team boundaries, not arbitrary technical seams.",
-//       },
-//     ],
-//   },
-//   {
-//     id: 4,
-//     slug: "react-native-vs-flutter-2025",
-//     category: "Mobile",
-//     title: "React Native vs Flutter in 2025: An Honest Comparison",
-//     excerpt:
-//       "Two years of shipping production apps on both frameworks — performance benchmarks, DX trade-offs, and when to choose what.",
-//     author: "CoreHives",
-//     authorInitials: "CH",
-//     authorRole: "Mobile Lead",
-//     authorBio:
-//       "Hamza leads mobile development at CoreHives, having shipped over 20 production apps across React Native and Flutter for clients in fintech, healthcare, and e-commerce.",
-//     date: "May 5, 2025",
-//     readTime: "7 min read",
-//     content: [
-//       {
-//         type: "paragraph",
-//         text: "For the last two years, CoreHives has shipped production apps on both React Native and Flutter. Our client mix spans fintech, e-commerce, and healthcare — each with different performance requirements, team compositions, and timelines. This is our honest assessment of where each framework wins and loses in 2025.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "Performance: Flutter Wins on Raw Metrics",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Flutter's rendering engine (Impeller, now the default) bypasses the OS UI layer entirely, giving it consistent 120fps rendering on capable hardware. React Native's New Architecture (Fabric + JSI) eliminated the async bridge bottleneck, bringing its performance meaningfully closer to Flutter — but not identical, particularly on animation-heavy UIs.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "Developer Experience: React Native for Web Teams",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "If your team writes React for the web, React Native is a shorter ramp. JSX, hooks, and TypeScript carry over directly. The mental model of components, state, and props is identical. Flutter requires learning Dart and a different widget composition model that, while elegant, is genuinely unfamiliar to web developers.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "When to Choose Each",
-//       },
-//       {
-//         type: "list",
-//         items: [
-//           "Choose Flutter: Animation-heavy apps, games, highly custom UI components",
-//           "Choose React Native: Team with existing React experience",
-//           "Choose Flutter: Enterprise apps requiring consistent rendering across OS versions",
-//           "Choose React Native: Shared logic with a Next.js or Expo web app",
-//           "Either framework: Standard CRUD apps with moderate UI complexity",
-//         ],
-//       },
-//       {
-//         type: "callout",
-//         text: "The best framework is the one your team ships fastest with. If your team writes React daily, React Native will ship first. If you have no frontend bias, Flutter's rendering consistency is worth the Dart learning curve.",
-//       },
-//     ],
-//   },
-//   {
-//     id: 5,
-//     slug: "rag-vs-fine-tuning-llm-strategy",
-//     category: "AI & ML",
-//     title: "RAG vs Fine-Tuning: Choosing the Right LLM Strategy",
-//     excerpt:
-//       "Retrieval-augmented generation and fine-tuning solve different problems. Here is a decision framework built from hands-on production deployments.",
-//     author: "CoreHives",
-//     authorInitials: "CH",
-//     authorRole: "AI Engineer",
-//     authorBio:
-//       "Emaad leads AI product development at CoreHives, specializing in LLM integration, RAG pipelines, and enterprise AI deployment at scale.",
-//     date: "Apr 29, 2025",
-//     readTime: "10 min read",
-//     content: [
-//       {
-//         type: "paragraph",
-//         text: "Organizations exploring LLM-powered products quickly encounter a fork: should we fine-tune a model on our data, or build a retrieval system that feeds context to a general model? The answer depends on what problem you are actually solving — and many teams choose the wrong option because they conflate capability with knowledge.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "The Core Distinction",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Fine-tuning changes how a model behaves — its style, its format preferences, its domain-specific reasoning patterns. RAG changes what a model knows — by providing relevant information at inference time. These are different levers that address different failure modes.",
-//       },
-//       {
-//         type: "callout",
-//         text: "If your model gives wrong answers because it lacks current or proprietary information, use RAG. If it gives correct information in the wrong format or style, consider fine-tuning. Most production problems are the former.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "When RAG Wins",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "RAG is the right default for most production use cases. It is cheaper to update (add documents, not retrain), more transparent (you can inspect what context was retrieved), and works immediately without training infrastructure.",
-//       },
-//       {
-//         type: "list",
-//         items: [
-//           "Knowledge cutoff problems: Model lacks recent or proprietary information",
-//           "Document QA: Users ask questions about a specific corpus",
-//           "Customer support: Answers must reference your product documentation",
-//           "Dynamic knowledge: Your information changes frequently",
-//         ],
-//       },
-//       {
-//         type: "heading2",
-//         text: "When Fine-Tuning Wins",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Fine-tuning is worth the investment when you need consistent output format, domain-specific reasoning that cannot be prompted reliably, or latency savings from shorter system prompts. Legal document analysis, medical coding, and specialized technical domains are good candidates.",
-//       },
-//     ],
-//   },
-//   {
-//     id: 6,
-//     slug: "building-digital-brand-identity-first-principles",
-//     category: "Branding",
-//     title: "Building a Digital Brand Identity from First Principles",
-//     excerpt:
-//       "Logo, colour, motion, tone — how CoreHives approaches brand systems that remain coherent across every touchpoint at any scale.",
-//     author: "CoreHives",
-//     authorInitials: "CH",
-//     authorRole: "Brand Strategist",
-//     authorBio:
-//       "Nida leads brand and visual identity at CoreHives, working with startups and enterprises to build design systems that scale from day one.",
-//     date: "Apr 22, 2025",
-//     readTime: "6 min read",
-//     content: [
-//       {
-//         type: "paragraph",
-//         text: "A brand is not a logo. It is the sum of every interaction a person has with your product — the color of your emails, the tone of your error messages, the way your loading animation moves. Designing a brand identity that scales means making decisions at the system level, not the asset level.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "Start with Perception, Not Aesthetics",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Before opening Figma, we run a brand perception workshop with every new client. The core question: when a user encounters your product, what three words should come to mind? Premium, approachable, technical? Bold, minimal, authoritative? These three adjectives become the design brief — every visual decision is filtered through them.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "The Color System",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "A digital brand color system needs four tiers: primary (brand recognition), accent (interactive states), surface (backgrounds and cards), and semantic (success, warning, error). Most brand guides only define primary and accent, leaving teams to improvise surface and semantic colors — which is where inconsistency creeps in.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "Motion as Brand Language",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Motion design is the most underinvested dimension of digital brand identity. How elements enter the screen, how transitions feel, how interactions respond — these create an emotional signature that users recognize subconsciously. A brand that uses bouncy, elastic animations feels different from one that uses precise, linear ones, even if every static asset is identical.",
-//       },
-//       {
-//         type: "callout",
-//         text: "Codify motion in a token system alongside color and typography. Define easing curves, duration scales, and animation principles the same way you define a color palette — before any component is built.",
-//       },
-//     ],
-//   },
-//   {
-//     id: 7,
-//     slug: "serverless-architecture-when-it-helps-hurts",
-//     category: "Cloud",
-//     title: "Serverless Architecture: When It Helps and When It Hurts",
-//     excerpt:
-//       "A candid look at the cold-start problem, vendor lock-in, and the classes of workloads where serverless genuinely outperforms containers.",
-//     author: "CoreHives",
-//     authorInitials: "CH",
-//     authorRole: "Cloud Architect",
-//     authorBio:
-//       "Zain architects cloud infrastructure at CoreHives, specializing in serverless patterns, container orchestration, and cost optimization at scale.",
-//     date: "Apr 16, 2025",
-//     readTime: "8 min read",
-//     content: [
-//       {
-//         type: "paragraph",
-//         text: "Serverless functions are genuinely excellent for certain workloads: event-driven processing, infrequent background jobs, lightweight API endpoints that see bursty traffic. They are genuinely poor for others: latency-sensitive APIs serving interactive UIs, long-running data processing, and anything that needs persistent connections like WebSockets.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "The Cold Start Problem",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Cold starts — the latency penalty when a function instance spins up from scratch — remain the primary operational concern with serverless. In AWS Lambda, cold starts range from ~100ms for lightweight Node.js functions to over 1s for JVM-based workloads. For synchronous APIs serving UI interactions, a 1s additional latency on low-traffic requests is often unacceptable.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "Workload Classification",
-//       },
-//       {
-//         type: "list",
-//         items: [
-//           "Good fit: Image processing, email sending, data export jobs",
-//           "Good fit: Webhook receivers, scheduled batch jobs",
-//           "Poor fit: Real-time APIs with strict p99 latency requirements",
-//           "Poor fit: Long-running computations exceeding 15 minutes",
-//           "Consider containers: High-throughput stateful services",
-//         ],
-//       },
-//       {
-//         type: "callout",
-//         text: "Start with containers for APIs you own and control. Use serverless for event-driven glue code that runs infrequently. This default prevents cold-start surprises in production and keeps operational complexity manageable.",
-//       },
-//     ],
-//   },
-//   {
-//     id: 8,
-//     slug: "motion-design-principles-web-interfaces",
-//     category: "Design",
-//     title: "Motion Design Principles for Web Interfaces",
-//     excerpt:
-//       "How to use easing, staggering, and spatial hierarchy to create animations that feel natural rather than flashy.",
-//     author: "CoreHives",
-//     authorInitials: "CoreHives",
-//     authorRole: "Senior UX Designer",
-//     authorBio:
-//       "Aiza is CoreHives' lead UX designer, focused on premium SaaS interfaces and the intersection of motion design and usability.",
-//     date: "Apr 8, 2025",
-//     readTime: "5 min read",
-//     content: [
-//       {
-//         type: "paragraph",
-//         text: "Good motion design is invisible. Users do not notice it — they simply feel that the interface is responsive, natural, and alive. Bad motion design is immediately visible: things zoom in from nowhere, spin for no reason, or animate so slowly that users give up waiting.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "Easing: The Foundation of Natural Motion",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Nothing in nature moves at constant speed. Objects accelerate and decelerate according to physics and intent. Ease-in-out gives motion a natural feel for most transitions. Ease-out (decelerate) is best for elements entering the screen — they arrive with energy and come to rest. Ease-in (accelerate) works for elements leaving — they start slowly and disappear with purpose.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "Stagger for Visual Hierarchy",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "When multiple elements animate together, staggering them in sequence (usually 50–80ms apart) creates a sense of hierarchy and guides the eye. Lists, grids, and navigation menus benefit most from stagger. The delay should be proportional to the total number of elements.",
-//       },
-//       {
-//         type: "callout",
-//         text: "Always implement prefers-reduced-motion: reduce. Users with vestibular disorders can experience nausea from motion. Set all animation durations to 0.01ms when this media query is active.",
-//       },
-//       {
-//         type: "list",
-//         items: [
-//           "Entrance animations: ease-out, 200–400ms",
-//           "Exit animations: ease-in, 150–250ms",
-//           "State transitions (hover, focus): 150–200ms",
-//           "Page transitions: 300–500ms with stagger on child elements",
-//         ],
-//       },
-//     ],
-//   },
-//   {
-//     id: 9,
-//     slug: "edge-rendering-nextjs-complete-guide",
-//     category: "Web Dev",
-//     title: "The Complete Guide to Edge Rendering with Next.js",
-//     excerpt:
-//       "Edge functions, ISR, and partial hydration — a working mental model for picking the right rendering strategy per route.",
-//     author: "Sara Malik",
-//     authorInitials: "SM",
-//     authorRole: "Lead Frontend Engineer",
-//     authorBio:
-//       "Sara leads frontend architecture at CoreHives, specializing in large-scale React applications, performance engineering, and design systems.",
-//     date: "Apr 1, 2025",
-//     readTime: "11 min read",
-//     content: [
-//       {
-//         type: "paragraph",
-//         text: "Next.js 14 and 15 introduced a rendering model so flexible that it creates genuine decision fatigue: SSR, SSG, ISR, Edge SSR, Server Components, Client Components, Partial Prerendering. The good news is that a simple mental model covers 90% of decisions correctly.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "The Decision Framework",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Start with one question: does this route need data that changes per-request? If yes, render at the edge or server. If no, render at build time (SSG) or revalidate on a schedule (ISR). Within server rendering, the choice between edge and Node.js is about cold start tolerance and available Node.js APIs.",
-//       },
-//       {
-//         type: "heading2",
-//         text: "When Edge Functions Pay Off",
-//       },
-//       {
-//         type: "paragraph",
-//         text: "Edge functions run in datacenters close to users, reducing geographic latency for dynamic content. They pay off when your user base is geographically distributed and your route is latency-sensitive but also uses per-request data. Marketing pages with personalization, geolocation-based content, and A/B testing are natural fits.",
-//       },
-//       {
-//         type: "list",
-//         items: [
-//           "Use SSG: Blog posts, docs, marketing pages without personalization",
-//           "Use ISR: Pricing pages, product listings that update a few times per day",
-//           "Use Edge SSR: Personalized pages, geo-targeted content, session-dependent UI",
-//           "Use Node.js SSR: Routes requiring fs access, Node.js-only packages",
-//         ],
-//       },
-//       {
-//         type: "callout",
-//         text: "Partial Prerendering (PPR), available as experimental in Next.js 14+, is the best of both worlds for many routes: the static shell is served instantly from CDN while dynamic slots stream in. It is worth prototyping for routes that mix static layout with personalized content.",
-//       },
-//     ],
-//   },
+  {
+    id: 2,
+    slug: "why-most-startup-websites-fail",
+    category: "Design",
+    title: "Why Most Start-Up Websites Fail (It’s Not Just the Design)",
+    excerpt:
+      "Many founders believe strong visuals are enough, but the biggest website failures come from not answering the user's core questions quickly.",
+    author: "CoreHives",
+    authorInitials: "CH",
+    authorRole: "Design Strategist",
+    authorBio:
+      "CoreHives helps startups build websites that convert by balancing visual polish with clear goals and user-first messaging.",
+    date: "June 16, 2026",
+    readTime: "5 min read",
+    content: [
+      {
+        type: "paragraph",
+        text: "Every business founder wants their website to be attractive, with modern animations, stunning visuals, and branding that stands out. That has become the standard. Yet thousands of startup websites still fail to generate leads, convert visitors, or drive meaningful business growth.",
+      },
+      {
+        type: "paragraph",
+        text: "The problem isn't the design. The problem is that many websites are built to impress shareholders instead of helping end users achieve their goals.",
+      },
+      {
+        type: "heading2",
+        text: "A high-performing website answers three questions within seconds",
+      },
+      {
+        type: "list",
+        items: [
+          "What does this company do?",
+          "Why should I trust them?",
+          "What should I do next?",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "When users can't find those answers quickly, they tend to get bored and leave. The website may be beautiful, but if it does not communicate relevance and a clear next step, it will not perform.",
+      },
+      {
+        type: "callout",
+        text: "Example: If a startup homepage opens with a portfolio gallery but no clear headline, visitors may not understand the product before scrolling away.",
+      },
+      {
+        type: "heading2",
+        text: "Design should solve business problems, not just create visual appeal",
+      },
+      {
+        type: "paragraph",
+        text: "Every interface, page, and interaction should guide the end user naturally toward the next step. The most successful digital products are built around consumer behavior, not assumptions.",
+      },
+      {
+        type: "list",
+        items: [
+          "Use a plain statement of what you do in the hero section.",
+          "Show trust quickly with testimonials, logos, or results.",
+          "Make the next action obvious with a strong CTA.",
+        ],
+      },
+      {
+        type: "callout",
+        text: "At CoreHives, we build websites that look modern and perform like a business tool. When design and user goals align, conversion improves without sacrificing style.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    slug: "how-to-build-an-mvp-that-everyone-wants",
+    category: "Web Dev",
+    title: "How To Build an MVP That Everyone Wants",
+    excerpt:
+      "An MVP is a strategic validation tool, not a stripped-down product. It helps startups learn quickly and build the right thing first.",
+    author: "CoreHives",
+    authorInitials: "CH",
+    authorRole: "Product Lead",
+    authorBio:
+      "CoreHives partners with founders to turn early ideas into scalable MVPs through strategic design and agile development.",
+    date: "June 16, 2026",
+    readTime: "6 min read",
+    content: [
+      {
+        type: "paragraph",
+        text: "Launching a startup is exciting, but one of the biggest mistakes founders make is spending months building features nobody asked for.",
+      },
+      {
+        type: "paragraph",
+        text: "An MVP isn't a 'cheap version' of your product. It's a strategic tool designed to validate your idea with real users before investing heavily in development.",
+      },
+      {
+        type: "heading2",
+        text: "Step 1: Identify the Core Issue",
+      },
+      {
+        type: "paragraph",
+        text: "Focus on a single problem your product solves. Avoid adding unnecessary features during the first phase.",
+      },
+      {
+        type: "callout",
+        text: "Example: For a remote collaboration tool, the MVP should include scheduling, invites, and one-click joining — not analytics or advanced automation.",
+      },
+      {
+        type: "heading2",
+        text: "Step 2: Design Your Essential Features",
+      },
+      {
+        type: "paragraph",
+        text: "Ask yourself: What is the minimum functionality needed to solve the problem? Which features can wait until later versions? The goal is speed and validation.",
+      },
+      {
+        type: "heading2",
+        text: "Step 3: Prioritise User Experience",
+      },
+      {
+        type: "paragraph",
+        text: "Many startups focus entirely on functionality and ignore usability. A confusing product can fail even when the idea is great. Investing in intuitive UI/UX design early helps users understand and adopt your product faster.",
+      },
+      {
+        type: "heading2",
+        text: "Step 4: Launch Quickly but Precisely",
+      },
+      {
+        type: "paragraph",
+        text: "The sooner you launch, the sooner you collect feedback. Real users provide insights that no brainstorming session can replace.",
+      },
+      {
+        type: "heading2",
+        text: "Step 5: Data Iteration",
+      },
+      {
+        type: "list",
+        items: [
+          "Track user behavior to identify the biggest friction points.",
+          "Use feedback to decide what to build next.",
+          "Improve the product incrementally based on real use.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "The most successful startups aren't those that launch perfectly. They're the ones that learn and adapt the fastest.",
+      },
+      {
+        type: "callout",
+        text: "At CoreHives, we help founders transform ideas into scalable MVPs through strategic design, agile development, and user-centred product thinking.",
+      },
+    ],
+  },
+  {
+    id: 4,
+    slug: "ai-is-changing-software-development-but-human-centred-design-matters-more-than-ever",
+    category: "AI & ML",
+    title: "AI Is Changing Software Development, but Human-Centred Design Matters More Than Ever",
+    excerpt:
+      "AI is transforming product creation, but the strongest digital experiences still depend on human-centred design.",
+    author: "CoreHives",
+    authorInitials: "CH",
+    authorRole: "AI Product Designer",
+    authorBio:
+      "CoreHives combines AI innovation with human-centred design to build products that feel natural and useful.",
+    date: "June 16, 2026",
+    readTime: "6 min read",
+    content: [
+      {
+        type: "paragraph",
+        text: "The way companies create digital products is changing due to artificial intelligence. Businesses are finding new methods to boost productivity and enhance customer experiences, from AI-powered chatbots to automated workflows and sophisticated analytics.",
+      },
+      {
+        type: "paragraph",
+        text: "However, despite the enthusiasm surrounding AI, one thing is still true: your product is still in use. No matter how sophisticated the technology becomes, consumers demand user-friendly, accessible, and intuitive experiences.",
+      },
+      {
+        type: "heading2",
+        text: "The future belongs to companies that combine technology and experience",
+      },
+      {
+        type: "list",
+        items: [
+          "Intelligent Automation: Reduce repetitive tasks and improve operational efficiency.",
+          "Data-Driven Decision Making: Leverage AI insights to make smarter business decisions.",
+          "Human-Centred Design: Ensure technology feels natural and useful to the people who use it.",
+        ],
+      },
+      {
+        type: "callout",
+        text: "Example: An AI assistant can make recommendations, but if users cannot understand why a suggestion was made, they lose trust instead of gaining value.",
+      },
+      {
+        type: "heading2",
+        text: "AI should enhance usability, not complicate it",
+      },
+      {
+        type: "paragraph",
+        text: "An AI-powered platform with poor usability creates frustration instead of value. A truly successful product makes intelligent technology feel effortless and helpful.",
+      },
+      {
+        type: "heading2",
+        text: "Keep the human experience at the centre",
+      },
+      {
+        type: "list",
+        items: [
+          "Automate repetitive tasks without hiding control from users.",
+          "Use AI insights to support decision-making, not replace it.",
+          "Build interfaces that feel familiar and predictable.",
+        ],
+      },
+      {
+        type: "callout",
+        text: "At CoreHives, we believe AI should improve user experiences rather than make them more difficult. The future is built by combining innovation with thoughtful UX.",
+      },
+    ],
+  },
 ];
 
 export const FEATURED_POST = ALL_POSTS[0];

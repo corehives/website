@@ -84,7 +84,7 @@ const data = {
   cta: {
     heading: "Start Growing Revenue",
     subtitle: "Book a 30-minute live demo and see how CoreHive CRM can be configured for your exact sales process.",
-    highlights: ["No credit card required", "Free 14-day trial", "Dedicated onboarding specialist"],
+    highlights: ["Free Process", "12-day trial", "Dedicated onboarding specialist"],
     buttonText: "Book a Demo",
     buttonHref: "/contact",
   },

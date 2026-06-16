@@ -109,7 +109,7 @@ export default function AboutHero() {
           {statPills.map(({ icon: Icon, label }) => (
             <div
               key={label}
-              className="inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full px-5 py-2.5 text-sm font-medium text-white whitespace-nowrap transition-all duration-300 hover:-translate-y-0.5 w-[250px]"
               style={{
                 background: "rgba(7,190,184,0.07)",
                 border: "1px solid rgba(7,190,184,0.28)",
@@ -129,10 +129,7 @@ export default function AboutHero() {
             animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 1.15s both",
           }}
         >
-          <CTAButton href="/contact">
-            Work With Us
-          </CTAButton>
-        
+          <CTAButton href="/contact">Work With Us</CTAButton>
         </div>
       </div>
 

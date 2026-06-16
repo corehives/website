@@ -152,23 +152,23 @@ export default function AIMarketOptimization() {
               <br /><br />
               We deploy machine learning across your entire marketing funnel — analysing every signal, automating optimisation loops, and compounding performance gains that no manual team can replicate at scale. Your competitors are still A/B testing manually. You'll be running 40 tests simultaneously.
             </p>
-            <div className="flex items-center gap-4 pt-4">
+            <div className="flex items-center flex-wrap gap-4 pt-4">
               <CTAButton href="/contact">
                 Free AI Audit
               </CTAButton>
               <div className="flex items-center gap-8">
                 <div className="flex items-center justify-start relative h-32">
                   <div className="relative flex-shrink-0" style={{ zIndex: 30 }}>
-                    <div className="w-18 h-18 rounded-full overflow-hidden"><img src={avatar4} alt="" className="w-full h-full object-cover" /></div>
+                    <div className="w-12 h-12 rounded-full overflow-hidden"><img src={avatar4} alt="" className="w-full h-full object-cover" /></div>
                   </div>
-                  <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 20 }}>
-                    <div className="w-18 h-18 rounded-full overflow-hidden"><img src={avatar5} alt="" className="w-full h-full object-cover" /></div>
+                  <div className="relative flex-shrink-0" style={{ marginLeft: "-20px", zIndex: 20 }}>
+                    <div className="w-12 h-12 rounded-full overflow-hidden"><img src={avatar5} alt="" className="w-full h-full object-cover" /></div>
                   </div>
-                  <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 10 }}>
-                    <div className="w-18 h-18 rounded-full overflow-hidden"><img src={avatar6} alt="" className="w-full h-full object-cover" /></div>
+                  <div className="relative flex-shrink-0" style={{ marginLeft: "-20px", zIndex: 10 }}>
+                    <div className="w-12 h-12 rounded-full overflow-hidden"><img src={avatar6} alt="" className="w-full h-full object-cover" /></div>
                   </div>
-                  <div className="relative flex-shrink-0" style={{ marginLeft: "-50px", zIndex: 0 }}>
-                    <div className="w-14 h-14 rounded-full border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-3 -mt-1">
+                  <div className="relative flex-shrink-0" style={{ marginLeft: "-20px", zIndex: 0 }}>
+                    <div className="w-8 h-8 rounded-full border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-3 -mt-1">
                       <div className="w-2 h-2 rounded-full bg-[#07BEB8]" />
                       <div className="w-2 h-2 rounded-full bg-[#07beb89c]" />
                     </div>

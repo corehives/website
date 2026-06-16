@@ -43,7 +43,7 @@ function flatHexPath(size) {
 const DRAW_S = S - GAP / 2;
 const HEX_PATH = flatHexPath(DRAW_S);
 
-// ── Grid: 13 cols × 3 rows ────────────────────────────────────────────────────
+// ── Grid: 8 cols × 2 rows ─────────────────────────────────────────────────────
 const COLS = 8;
 const ROWS = 2;
 
@@ -182,14 +182,14 @@ export default function PartnersSection() {
       />
 
       {/* Centre radial glow */}
-      <div className="absolute inset-0 top-40 flex items-center justify-center pointer-events-none">
-        <div className="w-[400px] h-[400px] rounded-full bg-[#07beb8d4] blur-[100px] animate-pulse" />
+      <div className="absolute inset-0 top-32 sm:top-40 flex items-center justify-center pointer-events-none">
+        <div className="w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-[#07beb8d4] blur-[100px] animate-pulse" />
       </div>
 
       <div className="relative z-10 w-full">
         {/* Heading */}
-        <div className="text-center pt-16 pb-8 px-4">
-          <h2 className="text-2xl sm:text-4xl font-bold text-white leading-tight">
+        <div className="text-center pt-12 sm:pt-16 pb-6 sm:pb-8 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
             Tech Staff{" "}
             <span className="precision-gradient">
               Outsourcing
@@ -200,7 +200,7 @@ export default function PartnersSection() {
         </div>
 
         {/* Full-width honeycomb */}
-        <div className="w-full" style={{ lineHeight: 0 }}>
+        <div className="relative w-full" style={{ lineHeight: 0 }}>
           <svg
             viewBox={`${VX} ${VY} ${VW} ${VH}`}
             xmlns="http://www.w3.org/2000/svg"
@@ -285,13 +285,13 @@ export default function PartnersSection() {
 
           {/* Centre "Trusted Partners" circle */}
           <div
-            className="absolute z-40 top-80 left-1/2 -translate-x-1/2"
+            className="absolute z-40 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
             style={{
-              width: 300,
-              height: 300,
+              width: "clamp(120px, 25vw, 300px)",
+              height: "clamp(120px, 25vw, 300px)",
               borderRadius: "50%",
               background: "linear-gradient(140deg, #07BEB8, #33384B)",
-              padding: 15,
+              padding: "clamp(6px, 1.4vw, 15px)",
             }}
           >
             <div
@@ -300,7 +300,7 @@ export default function PartnersSection() {
                 height: "100%",
                 borderRadius: "50%",
                 background: "linear-gradient(70deg, #07BEB8, #33384B)",
-                padding: 10,
+                padding: "clamp(4px, 1vw, 10px)",
               }}
             >
               <div
@@ -310,17 +310,17 @@ export default function PartnersSection() {
                   borderRadius: "50%",
                   background: "radial-gradient(circle at 40% 95%, #ffffff, #dff7f5)",
                   display: "flex",
-                  border: "5px solid #FFF",
+                  border: "clamp(2px, 0.5vw, 5px) solid #FFF",
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
                   boxShadow: "inset 0 4px 20px rgba(0,0,0,0.08)",
                 }}
               >
-                <span style={{ color: "#058682", fontSize: 45, fontWeight: 700, lineHeight: 1.2 }}>
+                <span style={{ color: "#058682", fontSize: "clamp(18px, 4.2vw, 45px)", fontWeight: 700, lineHeight: 1.1 }}>
                   Trusted
                 </span>
-                <span style={{ color: "#0a2540", fontSize: 40, fontWeight: 900, lineHeight: 1.2 }}>
+                <span style={{ color: "#0a2540", fontSize: "clamp(16px, 3.8vw, 40px)", fontWeight: 900, lineHeight: 1.1 }}>
                   Partners
                 </span>
               </div>

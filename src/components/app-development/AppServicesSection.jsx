@@ -15,12 +15,9 @@ export default function AppServicesSection() {
       }}
     >
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        <div className="max-w-4xl text-center mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-            Innovative
-            <span className="precision-gradient"> Mobile App Development</span>
-            <br />
-            <span className="precision-gradient">Services</span> For Your Custom
+            Innovative <span className="precision-gradient"> Mobile App Development Services</span> For Your Custom
             Needs
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">

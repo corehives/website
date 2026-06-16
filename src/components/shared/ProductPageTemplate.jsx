@@ -79,17 +79,20 @@ function Banner({ badge, title, titleAccent, subtitle }) {
 /* ── Overview ────────────────────────────────────────────────────────────────── */
 function Overview({ image, heading, accentHeading, paragraphs }) {
   return (
-    <section id="overview" className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32">
-      <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-16 items-center">
-        <div className="relative group overflow-hidden rounded-2xl">
+    <section
+      id="overview"
+      className="relative px-5 py-14 sm:px-8 sm:py-16 md:px-20 md:py-20 lg:px-32"
+    >
+      <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
+        <div className="relative group overflow-hidden rounded-xl md:rounded-2xl">
           <img
             src={image}
             alt={heading}
-            className="w-full h-[28rem] object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-64 sm:h-80 md:h-[28rem] object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
         </div>
-        <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+        <div className="space-y-4 md:space-y-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
             <span className="precision-gradient">{accentHeading}</span> {heading}
           </h2>
           {paragraphs.map((p, i) => (
@@ -100,7 +103,6 @@ function Overview({ image, heading, accentHeading, paragraphs }) {
     </section>
   );
 }
-
 /* ── Key Features ────────────────────────────────────────────────────────────── */
 function KeyFeatures({ features }) {
   return (

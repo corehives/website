@@ -298,7 +298,7 @@ export default function WebDevelopment() {
         {/* ── Main content ── */}
         <div className="relative z-10 flex w-full flex-col items-center justify-center px-6 py-20 text-center sm:px-12 md:px-20 lg:px-32">
           {/* Badge */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-sm">
+          <div className="my-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
             <span className="text-xs font-medium tracking-widest text-white uppercase">
               Web &amp; App Development
@@ -353,25 +353,25 @@ export default function WebDevelopment() {
       </section>
 
       {/* Hero Image + Content Section */}
-      <section className="relative px-6 py-16 sm:px-12 md:px-20 lg:px-32">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+      <section className="relative px-5 py-12 sm:px-8 sm:py-16 md:px-20 md:py-20 lg:px-32">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 items-center">
           {/* Left - Image */}
           <div className="relative">
-            <div className="relative group overflow-hidden ">
+            <div className="relative group overflow-hidden rounded-lg">
               <img
                 src={WebCover}
                 alt="web development"
-                className="w-full h-72 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-64 sm:h-80 md:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             </div>
           </div>
 
           {/* Right - Content */}
-          <div className="space-y-6">
-            <div className="space-y-2">
+          <div className="space-y-5 sm:space-y-6">
+            <div className="space-y-3 sm:space-y-2">
               <span
-                className="inline-block text-[11px] tracking-[0.25em] uppercase mb-5 px-4 py-1.5 rounded-full"
+                className="inline-block text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-5 px-3 sm:px-4 py-1.5 rounded-full"
                 style={{
                   background: "rgba(7,190,184,0.12)",
                   border: "1px solid rgba(7,190,184,0.35)",
@@ -380,12 +380,12 @@ export default function WebDevelopment() {
               >
                 Achieve more with less
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
                 Web &amp; App Development
               </h2>
             </div>
 
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
               Tired of off-the-shelf solutions that don't quite fit?
               <br />
               <br />
@@ -395,19 +395,17 @@ export default function WebDevelopment() {
               one-stop shop for building the perfect tech solution.
             </p>
 
-            <div className="flex items-center gap-4 pt-4">
+            <div className="flex items-center flex-wrap gap-x-6 gap-y-5 pt-2 sm:pt-4">
               <CTAButton href="/contact">Build Creative Project</CTAButton>
-              <div className="flex items-center gap-8">
+              <div className="flex items-center gap-5 sm:gap-6">
                 {/* Avatar Group Container */}
-                <div className="flex items-center justify-start relative h-32">
-                  {/* Avatar 1 - Teal Border */}
+                <div className="flex items-center relative">
+                  {/* Avatar 1 */}
                   <div
                     className="relative flex-shrink-0"
-                    style={{
-                      zIndex: 30,
-                    }}
+                    style={{ zIndex: 30 }}
                   >
-                    <div className="w-22 h-22 rounded-full overflow-hidden flex items-center justify-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16">
                       <img
                         src={avatar4}
                         alt="avatar-1"
@@ -416,15 +414,12 @@ export default function WebDevelopment() {
                     </div>
                   </div>
 
-                  {/* Avatar 2 - White Border */}
+                  {/* Avatar 2 */}
                   <div
-                    className="relative flex-shrink-0"
-                    style={{
-                      marginLeft: "-50px",
-                      zIndex: 20,
-                    }}
+                    className="relative flex-shrink-0 -ml-5 sm:-ml-6 lg:-ml-12"
+                    style={{ zIndex: 20 }}
                   >
-                    <div className="w-22 h-22 rounded-full  overflow-hidden flex items-center justify-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16">
                       <img
                         src={avatar5}
                         alt="avatar-2"
@@ -433,15 +428,12 @@ export default function WebDevelopment() {
                     </div>
                   </div>
 
-                  {/* Avatar 3 - Teal Border */}
+                  {/* Avatar 3 */}
                   <div
-                    className="relative flex-shrink-0"
-                    style={{
-                      marginLeft: "-50px",
-                      zIndex: 10,
-                    }}
+                    className="relative flex-shrink-0 -ml-5 sm:-ml-6 lg:-ml-12"
+                    style={{ zIndex: 10 }}
                   >
-                    <div className="w-22 h-22 rounded-full overflow-hidden flex items-center justify-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16">
                       <img
                         src={avatar6}
                         alt="avatar-3"
@@ -450,25 +442,26 @@ export default function WebDevelopment() {
                     </div>
                   </div>
 
-                  {/* Avatar 4 - Empty circle with indicator dots */}
+                  {/* Indicator circle with dots */}
                   <div
-                    className="relative flex-shrink-0"
-                    style={{
-                      marginLeft: "-50px",
-                      zIndex: 0,
-                    }}
+                    className="relative flex-shrink-0 -ml-3 sm:-ml-4 lg:-ml-6"
+                    style={{ zIndex: 0 }}
                   >
-                    <div className="w-15 h-15 rounded-full border-4 border-gray-300 overflow-hidden bg-gray-100 flex items-center justify-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#07BEB8]" />
-                      <div className="w-2 h-2 rounded-full bg-[#07beb89c]" />
+                    <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-[3px] border-gray-300 bg-gray-100 flex items-center justify-center gap-1.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#07BEB8]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#07beb89c]" />
                     </div>
                   </div>
                 </div>
 
                 {/* Text Section */}
                 <div className="flex flex-col">
-                  <span className="text-4xl font-bold text-[#07BEB8]">80+</span>
-                  <span className="text-gray-400 text-sm">Total Employee</span>
+                  <span className="text-3xl sm:text-4xl font-bold text-[#07BEB8] leading-none">
+                    80+
+                  </span>
+                  <span className="text-gray-400 text-xs sm:text-sm mt-1.5">
+                    Total Employee
+                  </span>
                 </div>
               </div>
             </div>

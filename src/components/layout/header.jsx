@@ -44,7 +44,7 @@ const navItems = [
   { label: "Our Products", menuKey: "products", links: productLinks },
   { label: "Portfolio", menuKey: "portfolio", links: portfolioLinks },
   { label: "Blog", to: "/blogs" },
-  { label: "Careers", to: "/careers" },
+  // { label: "Careers", to: "/careers" },
 ];
 
 export default function Header() {

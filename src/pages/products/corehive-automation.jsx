@@ -85,7 +85,7 @@ const data = {
   cta: {
     heading: "Automate Your Business",
     subtitle: "Tell us your three biggest manual processes and we will show you exactly how to automate them — live, in 30 minutes.",
-    highlights: ["Free process audit", "14-day trial", "No engineering required"],
+    highlights: ["Free process audit", "12-day trial", "No engineering required"],
     buttonText: "Book a Free Audit",
     buttonHref: "/contact",
   },

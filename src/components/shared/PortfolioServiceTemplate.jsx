@@ -155,19 +155,23 @@ function ProjectsGrid({ projects }) {
 /* ── Stats ───────────────────────────────────────────────────────────────────── */
 function Stats({ stats }) {
   return (
-    <section className="px-5 sm:px-10 lg:px-20 py-16 sm:py-20">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 py-10">
+    <section className="px-5 sm:px-10 lg:px-20 py-12 sm:py-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-10">
         {stats.map((s) => (
-          <div key={s.num} className="mx-auto sm:text-left">
-            <div className="flex items-center gap-2 border-b border-white/40 pb-2">
-              <div className="w-[50%]">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-none">{s.num}</div>
+          <div key={s.num} className="w-full">
+            <div className="flex items-end gap-3 sm:gap-2 border-b border-white/40 pb-2 sm:pb-3">
+              <div className="text-4xl sm:text-4xl lg:text-5xl font-bold text-white leading-none tracking-tight flex-shrink-0">
+                {s.num}
               </div>
-              <div className="w-[30%]">
-                <div className="text-[11px] sm:text-xs font-medium text-gray-200 leading-tight">{s.label}</div>
+              <div className="flex-1 min-w-0 pb-1 sm:pb-1.5">
+                <div className="text-[11px] sm:text-xs font-medium text-gray-200 leading-tight">
+                  {s.label}
+                </div>
               </div>
             </div>
-            <div className="text-xs text-gray-500 mt-1">{s.sub}</div>
+            {s.sub && (
+              <div className="text-xs text-gray-500 mt-2">{s.sub}</div>
+            )}
           </div>
         ))}
       </div>
@@ -227,15 +231,15 @@ function ProblemCta({ heading, clientCount, problems }) {
               <span className="text-[#07BEB8] font-semibold">{clientCount}+ companies</span>{" "}
               solve challenges, boost engagement, increase conversions, build MVPs, and raise funds — driving growth and success.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center flex-wrap gap-4">
               <CTAButton to="/contact">
                 Start a project
               </CTAButton>
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
-                  <img src={avatar4} alt="" className="h-16 w-18 rounded-full object-cover" />
-                  <img src={avatar5} alt="" className="h-16 w-18 rounded-full object-cover -ml-6" />
-                  <img src={avatar6} alt="" className="h-16 w-18 rounded-full object-cover -ml-6" />
+                  <img src={avatar4} alt="" className="h-12 w-12 rounded-full object-cover" />
+                  <img src={avatar5} alt="" className="h-12 w-12 rounded-full object-cover -ml-3" />
+                  <img src={avatar6} alt="" className="h-12 w-12 rounded-full object-cover -ml-3" />
                 </div>
                 <div>
                   <div className="text-lg font-bold text-[#07BEB8] leading-none">80+</div>

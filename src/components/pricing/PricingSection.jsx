@@ -25,7 +25,7 @@ export default function PricingSection({
 }) {
   const initialCycle = cycleOptions.some((cycle) => cycle.id === defaultCycle)
     ? defaultCycle
-    : cycleOptions[0]?.id ?? "monthly";
+    : (cycleOptions[0]?.id ?? "monthly");
   const [billingCycle, setBillingCycle] = useState(initialCycle);
   const visiblePlans = Array.isArray(plans) ? plans : pricingPlans;
   const usesInternalFooterHref = isInternalHref(footerCtaHref);
@@ -50,7 +50,7 @@ export default function PricingSection({
       />
 
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-[720px] text-center">
           <span className="inline-flex items-center rounded-full border border-[#07BEB8]/20 bg-[#07BEB8]/10 px-4 py-1.5 text-[0.7rem] font-medium tracking-[0.24em] text-[#84fff7] uppercase">
             {eyebrow}
           </span>
@@ -61,7 +61,6 @@ export default function PricingSection({
             {description}
           </p>
         </div>
-
         <div className="mt-10 flex justify-center">
           <PricingToggle
             cycles={cycleOptions}

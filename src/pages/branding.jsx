@@ -319,8 +319,8 @@ export default function Branding() {
           </p>
 
           <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-white leading-[1.1] tracking-tight mb-8">
-            We don&apos;t just design logos.<br />
-            We build the visual language<br />
+            We don&apos;t just design logos.
+            We build the visual language
             that makes your market{" "}
             <span className="precision-gradient">choose&nbsp;you.</span>
           </h2>

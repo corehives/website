@@ -145,7 +145,7 @@ export default function Hero() {
       )}
 
       {/* Layer 2: Main content */}
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-20 text-center sm:px-6 sm:pt-22 lg:px-10 lg:pt-20">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-20 text-center mt-6 sm:px-6 sm:pt-22 lg:px-10 lg:pt-20">
         <h1
           className="max-w-5xl font-bold leading-[1.15] text-white"
           style={{

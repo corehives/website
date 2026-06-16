@@ -2,7 +2,13 @@ import { useState } from "react";
 import { ArrowRight, MapPin, Mail, Phone } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import { FaWhatsapp } from "react-icons/fa";
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  ZoomControl,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -45,8 +51,7 @@ const tealMarker = new L.DivIcon({
   popupAnchor: [0, -40],
 });
 
-const CONTACT_API_URL =
-  import.meta.env.VITE_CONTACT_API_URL || "/api/contact";
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL || "/api/contact";
 const OFFICE_LOCATIONS = [
   {
     id: "hq",
@@ -66,14 +71,14 @@ const OFFICE_LOCATIONS = [
     badge: "Production Hub",
     name: "CoreHives Production Office",
     city: "Karachi, Pakistan",
-    address: "Caesars Tower, Floor 1, Office 113, Shahrah-e-Faisal, Karachi, Pakistan",
+    address:
+      "Caesars Tower, Floor 1, Office 113, Shahrah-e-Faisal, Karachi, Pakistan",
     addressLines: [
       "Caesars Tower, Floor 1, Office 113",
       "Shahrah-e-Faisal",
       "Karachi, Pakistan",
     ],
-    link:
-      "https://maps.google.com/?q=Caesars+Tower+Floor+1+Office+113+Shahrah-e-Faisal+Karachi+Pakistan",
+    link: "https://maps.google.com/?q=Caesars+Tower+Floor+1+Office+113+Shahrah-e-Faisal+Karachi+Pakistan",
     position: [24.8578, 67.0456],
     title: "Visit Our Production Office",
     description:
@@ -81,10 +86,34 @@ const OFFICE_LOCATIONS = [
   },
 ];
 const MAP_CORNERS = [
-  { top: 0, left: 0, borderTop: true, borderLeft: true, borderRadius: "28px 0 0 0" },
-  { top: 0, right: 0, borderTop: true, borderRight: true, borderRadius: "0 28px 0 0" },
-  { bottom: 0, left: 0, borderBottom: true, borderLeft: true, borderRadius: "0 0 0 28px" },
-  { bottom: 0, right: 0, borderBottom: true, borderRight: true, borderRadius: "0 0 28px 0" },
+  {
+    top: 0,
+    left: 0,
+    borderTop: true,
+    borderLeft: true,
+    borderRadius: "28px 0 0 0",
+  },
+  {
+    top: 0,
+    right: 0,
+    borderTop: true,
+    borderRight: true,
+    borderRadius: "0 28px 0 0",
+  },
+  {
+    bottom: 0,
+    left: 0,
+    borderBottom: true,
+    borderLeft: true,
+    borderRadius: "0 0 0 28px",
+  },
+  {
+    bottom: 0,
+    right: 0,
+    borderBottom: true,
+    borderRight: true,
+    borderRadius: "0 0 28px 0",
+  },
 ];
 
 function ContactInfoCard({ icon: Icon, label, value, href }) {
@@ -129,13 +158,14 @@ function ContactInfoCard({ icon: Icon, label, value, href }) {
 function ThemedMap({ activeLocation, onLocationChange }) {
   return (
     <div className="relative left-1/2 w-screen -translate-x-1/2 px-4 sm:px-8 lg:px-12">
-      <div className="group relative isolate mx-auto h-[380px] w-full max-w-[1440px] sm:h-[460px] lg:h-[560px]">
+      <div className="group relative isolate mx-auto h-[400px] sm:h-[460px] lg:h-[560px] w-full max-w-[1440px]">
         <div
           className="absolute inset-0 z-0 overflow-hidden"
           style={{
             borderRadius: "28px",
             border: "1px solid rgba(7,190,184,0.18)",
-            boxShadow: "0 0 0 1px rgba(7,190,184,0.05), 0 32px 90px rgba(0,0,0,0.45)",
+            boxShadow:
+              "0 0 0 1px rgba(7,190,184,0.05), 0 32px 90px rgba(0,0,0,0.45)",
           }}
         >
           <MapContainer
@@ -176,9 +206,17 @@ function ThemedMap({ activeLocation, onLocationChange }) {
                   >
                     {activeLocation.name}
                   </p>
-                  <p style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.85)", lineHeight: 1.5 }}>
-                    {activeLocation.addressLines[0]}<br />
-                    {activeLocation.addressLines[1]}<br />
+                  <p
+                    style={{
+                      fontSize: "0.8rem",
+                      color: "rgba(255,255,255,0.85)",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {activeLocation.addressLines[0]}
+                    <br />
+                    {activeLocation.addressLines[1]}
+                    <br />
                     {activeLocation.addressLines[2]}
                   </p>
                 </div>
@@ -195,10 +233,18 @@ function ThemedMap({ activeLocation, onLocationChange }) {
               width: 64,
               height: 64,
               ...corner,
-              ...(corner.borderTop ? { borderTop: "2px solid rgba(7,190,184,0.6)" } : {}),
-              ...(corner.borderLeft ? { borderLeft: "2px solid rgba(7,190,184,0.6)" } : {}),
-              ...(corner.borderRight ? { borderRight: "2px solid rgba(7,190,184,0.6)" } : {}),
-              ...(corner.borderBottom ? { borderBottom: "2px solid rgba(7,190,184,0.6)" } : {}),
+              ...(corner.borderTop
+                ? { borderTop: "2px solid rgba(7,190,184,0.6)" }
+                : {}),
+              ...(corner.borderLeft
+                ? { borderLeft: "2px solid rgba(7,190,184,0.6)" }
+                : {}),
+              ...(corner.borderRight
+                ? { borderRight: "2px solid rgba(7,190,184,0.6)" }
+                : {}),
+              ...(corner.borderBottom
+                ? { borderBottom: "2px solid rgba(7,190,184,0.6)" }
+                : {}),
             }}
           />
         ))}
@@ -207,10 +253,7 @@ function ThemedMap({ activeLocation, onLocationChange }) {
           <div
             className="absolute inset-0 opacity-30"
             style={{
-              backgroundImage: `
-                linear-gradient(rgba(7,190,184,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(7,190,184,0.1) 1px, transparent 1px)
-              `,
+              backgroundImage: `linear-gradient(rgba(7,190,184,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(7,190,184,0.1) 1px, transparent 1px)`,
               backgroundSize: "40px 40px",
             }}
           />
@@ -230,68 +273,86 @@ function ThemedMap({ activeLocation, onLocationChange }) {
           />
         </div>
 
-        <div className="pointer-events-none absolute left-5 top-5 z-30 max-w-[260px] rounded-2xl border border-[#07BEB8]/20 bg-[#031112]/70 p-4 backdrop-blur-md sm:left-6 sm:top-6 sm:p-5">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#07BEB8]/20 bg-[#07BEB8]/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-[#8efcf8]">
-            <span className="h-2 w-2 rounded-full bg-[#07BEB8]" />
+        {/* Info card — compact on mobile */}
+        <div className="pointer-events-none absolute left-3 top-3 sm:left-6 sm:top-6 z-30 max-w-[185px] sm:max-w-[260px] rounded-xl sm:rounded-2xl border border-[#07BEB8]/20 bg-[#031112]/80 p-2.5 sm:p-5 backdrop-blur-md">
+          <div className="mb-1.5 sm:mb-3 inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#07BEB8]/20 bg-[#07BEB8]/10 px-2 sm:px-3 py-0.5 sm:py-1 text-[0.55rem] sm:text-[0.65rem] font-semibold uppercase tracking-[0.18em] sm:tracking-[0.25em] text-[#8efcf8]">
+            <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#07BEB8]" />
             {activeLocation.badge}
           </div>
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
+          <p className="hidden sm:block text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
             {activeLocation.name}
           </p>
-          <p className="mt-2 text-xl font-bold text-white sm:text-2xl">
+          <p className="text-sm sm:text-2xl font-bold text-white leading-tight sm:mt-2">
             {activeLocation.title}
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-white/60">
+          <p className="hidden sm:block mt-2 text-sm leading-relaxed text-white/60">
             {activeLocation.description}
           </p>
         </div>
 
-        <div className="absolute bottom-20 left-5 right-5 z-30 flex flex-col gap-3 sm:bottom-6 sm:left-6 sm:right-auto sm:flex-row sm:flex-wrap">
+        {/* Location switcher — 2-col grid on mobile, flex row on desktop */}
+        <div className="absolute bottom-3 left-3 right-3 z-30 grid grid-cols-2 gap-2 sm:flex sm:bottom-6 sm:left-6 sm:right-auto sm:flex-row sm:flex-wrap sm:gap-3">
           {OFFICE_LOCATIONS.map((location) => {
             const isActive = location.id === activeLocation.id;
-
             return (
               <button
                 key={location.id}
                 type="button"
                 onClick={() => onLocationChange(location.id)}
-                className={`min-w-[160px] rounded-2xl border px-4 py-3 text-left backdrop-blur-md transition-all duration-300 ${
+                className={`w-full min-w-0 sm:w-auto sm:min-w-[160px] rounded-xl sm:rounded-2xl border px-2.5 sm:px-4 py-2 sm:py-3 text-left backdrop-blur-md transition-all duration-300 ${
                   isActive
                     ? "border-[#07BEB8]/50 bg-[#062527]/90 shadow-[0_16px_36px_rgba(7,190,184,0.18)]"
                     : "border-white/10 bg-[#031112]/72 hover:border-[#07BEB8]/30 hover:bg-[#04191b]/88"
                 }`}
               >
-                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#07BEB8]">
+                <p className="text-[0.55rem] sm:text-[0.65rem] font-semibold uppercase tracking-[0.18em] sm:tracking-[0.22em] text-[#07BEB8] truncate">
                   {location.badge}
                 </p>
-                <p className="mt-1 text-sm font-medium text-white/85">{location.city}</p>
+                <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm font-medium text-white/85 truncate">
+                  {location.city}
+                </p>
               </button>
             );
           })}
         </div>
 
-        <a
+        {/* Open in Maps — inside map, sm+ only (hover-hidden at lg+) */}
+        <div className="hidden sm:block absolute bottom-5 right-5 z-30 transition-all duration-300 lg:translate-y-4 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus-within:translate-y-0 lg:group-focus-within:opacity-100">
+          <CTAButton
+            href={activeLocation.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full px-5 py-2.5"
+          >
+            Open in Google Maps
+          </CTAButton>
+        </div>
+
+        {/* Zoom + Scan label — scaled down on mobile */}
+        <div className="pointer-events-none absolute right-3 top-16 sm:right-6 sm:top-24 z-20 rounded-full border border-[#07BEB8]/15 bg-[#031112]/65 px-2 sm:px-3 py-1 sm:py-1.5 text-[0.55rem] sm:text-[0.68rem] font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-white/55 backdrop-blur-md">
+          Zoom + Scan
+        </div>
+      </div>
+
+      {/* Open in Maps — mobile only, below the map */}
+      <div className="sm:hidden mt-3 flex justify-center">
+        <CTAButton
           href={activeLocation.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute bottom-5 right-5 z-30 inline-flex items-center gap-3 rounded-full border border-[#07BEB8]/35 bg-[#031112]/80 py-2 pl-5 pr-2 text-sm font-medium text-white shadow-[0_14px_40px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all duration-300 hover:border-[#07BEB8]/60 hover:bg-[#062527]/95 hover:text-[#8efcf8] lg:translate-y-4 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus-within:translate-y-0 lg:group-focus-within:opacity-100"
+          className="w-full max-w-sm justify-center rounded-full px-5 py-2.5"
         >
           Open in Google Maps
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07BEB8] text-slate-950">
-            <ArrowRight className="h-4 w-4" />
-          </span>
-        </a>
-
-        <div className="pointer-events-none absolute right-5 top-20 z-20 rounded-full border border-[#07BEB8]/15 bg-[#031112]/65 px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-white/55 backdrop-blur-md sm:right-6 sm:top-24">
-          Zoom + Scan
-        </div>
+        </CTAButton>
       </div>
     </div>
   );
 }
 
 export default function Contact() {
-  const [activeLocationId, setActiveLocationId] = useState(OFFICE_LOCATIONS[0].id);
+  const [activeLocationId, setActiveLocationId] = useState(
+    OFFICE_LOCATIONS[0].id,
+  );
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -304,7 +365,8 @@ export default function Contact() {
   const [validation, setValidation] = useState({});
 
   const activeLocation =
-    OFFICE_LOCATIONS.find((location) => location.id === activeLocationId) || OFFICE_LOCATIONS[0];
+    OFFICE_LOCATIONS.find((location) => location.id === activeLocationId) ||
+    OFFICE_LOCATIONS[0];
   const contactInfo = [
     {
       icon: MapPin,
@@ -400,7 +462,9 @@ export default function Contact() {
       setValidation({});
       setTimeout(() => setSubmitted(false), 4000);
     } catch {
-      setError("Could not reach the contact server. Make sure the backend is running and try again.");
+      setError(
+        "Could not reach the contact server. Make sure the backend is running and try again.",
+      );
     } finally {
       setLoading(false);
     }
@@ -465,15 +529,18 @@ export default function Contact() {
         {/* Background glows */}
         <div
           className="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #07BEB8, transparent 70%)" }}
+          style={{
+            background: "radial-gradient(circle, #07BEB8, transparent 70%)",
+          }}
         />
         <div
           className="pointer-events-none absolute top-1/2 -right-60 w-[500px] h-[500px] rounded-full opacity-[0.06]"
-          style={{ background: "radial-gradient(circle, #07BEB8, transparent 70%)" }}
+          style={{
+            background: "radial-gradient(circle, #07BEB8, transparent 70%)",
+          }}
         />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10 lg:px-14 py-24">
-
           {/* ── Page Header ── */}
           <div className="mb-16 max-w-6xl text-center">
             <p className="text-[#07BEB8] text-xs font-semibold tracking-[0.25em] uppercase mb-4">
@@ -500,7 +567,6 @@ export default function Contact() {
 
           {/* ── Main Grid ── */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-10">
-
             {/* ── Left: Contact Info ── */}
             <div className="lg:col-span-2 flex flex-col gap-4">
               {contactInfo.map((item) => (
@@ -538,12 +604,19 @@ export default function Contact() {
                       stroke="currentColor"
                       strokeWidth={2}
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
-                  <h3 className="text-white text-xl font-bold">Message Sent!</h3>
+                  <h3 className="text-white text-xl font-bold">
+                    Message Sent!
+                  </h3>
                   <p className="text-white/50 text-sm max-w-xs">
-                    Thanks for reaching out. We'll get back to you within 24 hours.
+                    Thanks for reaching out. We'll get back to you within 24
+                    hours.
                   </p>
                 </div>
               ) : (
@@ -563,11 +636,18 @@ export default function Contact() {
                           placeholder="John Doe"
                           className={fieldClass}
                           style={fieldStyle}
-                          onFocus={(e) => (e.target.style.borderColor = "rgba(7,190,184,0.5)")}
-                          onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.1)")}
+                          onFocus={(e) =>
+                            (e.target.style.borderColor = "rgba(7,190,184,0.5)")
+                          }
+                          onBlur={(e) =>
+                            (e.target.style.borderColor =
+                              "rgba(255,255,255,0.1)")
+                          }
                         />
                         {validation.name ? (
-                          <p className="mt-2 text-xs text-red-300">{validation.name}</p>
+                          <p className="mt-2 text-xs text-red-300">
+                            {validation.name}
+                          </p>
                         ) : null}
                       </div>
                     </div>
@@ -585,11 +665,18 @@ export default function Contact() {
                           placeholder="john@example.com"
                           className={fieldClass}
                           style={fieldStyle}
-                          onFocus={(e) => (e.target.style.borderColor = "rgba(7,190,184,0.5)")}
-                          onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.1)")}
+                          onFocus={(e) =>
+                            (e.target.style.borderColor = "rgba(7,190,184,0.5)")
+                          }
+                          onBlur={(e) =>
+                            (e.target.style.borderColor =
+                              "rgba(255,255,255,0.1)")
+                          }
                         />
                         {validation.email ? (
-                          <p className="mt-2 text-xs text-red-300">{validation.email}</p>
+                          <p className="mt-2 text-xs text-red-300">
+                            {validation.email}
+                          </p>
                         ) : null}
                       </div>
                     </div>
@@ -609,11 +696,17 @@ export default function Contact() {
                         placeholder="What's this about?"
                         className={fieldClass}
                         style={fieldStyle}
-                        onFocus={(e) => (e.target.style.borderColor = "rgba(7,190,184,0.5)")}
-                        onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.1)")}
+                        onFocus={(e) =>
+                          (e.target.style.borderColor = "rgba(7,190,184,0.5)")
+                        }
+                        onBlur={(e) =>
+                          (e.target.style.borderColor = "rgba(255,255,255,0.1)")
+                        }
                       />
                       {validation.subject ? (
-                        <p className="mt-2 text-xs text-red-300">{validation.subject}</p>
+                        <p className="mt-2 text-xs text-red-300">
+                          {validation.subject}
+                        </p>
                       ) : null}
                     </div>
                   </div>
@@ -632,11 +725,17 @@ export default function Contact() {
                         placeholder="Tell us about your project..."
                         className={`${fieldClass} resize-none`}
                         style={fieldStyle}
-                        onFocus={(e) => (e.target.style.borderColor = "rgba(7,190,184,0.5)")}
-                        onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.1)")}
+                        onFocus={(e) =>
+                          (e.target.style.borderColor = "rgba(7,190,184,0.5)")
+                        }
+                        onBlur={(e) =>
+                          (e.target.style.borderColor = "rgba(255,255,255,0.1)")
+                        }
                       />
                       {validation.message ? (
-                        <p className="mt-2 text-xs text-red-300">{validation.message}</p>
+                        <p className="mt-2 text-xs text-red-300">
+                          {validation.message}
+                        </p>
                       ) : null}
                     </div>
                   </div>
@@ -678,7 +777,8 @@ export default function Contact() {
               </div>
 
               <p className="max-w-md text-xs leading-relaxed text-white/45 sm:text-left sm:text-sm">
-                Switch between our two office locations, explore the live map, and open directions for the branch you need.
+                Switch between our two office locations, explore the live map,
+                and open directions for the branch you need.
               </p>
             </div>
 

@@ -2,21 +2,21 @@ import MobileApp from "../../assets/mobile-app-dev.png";
 
 export default function HeroContentSection() {
   return (
-    <section className="relative px-6 py-16 sm:px-12 md:px-20 lg:px-32">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+    <section className="relative px-5 py-12 sm:px-8 sm:py-16 md:px-20 md:py-20 lg:px-32">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-20 items-center">
         <div className="relative">
           <div className="relative group overflow-hidden rounded-lg">
             <img
               src={MobileApp}
               alt="mobile app development"
-              className="w-full h-[25rem] object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-64 sm:h-80 md:h-[25rem] object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-5 sm:space-y-6">
           <div className="space-y-2">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
               <span className="precision-gradient">Optimize</span> Your Digital
               Presence with CoreHives{" "}
               <span className="precision-gradient">
@@ -25,7 +25,7 @@ export default function HeroContentSection() {
             </h2>
           </div>
 
-          <p className="text-gray-300">
+          <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
             At CoreHives, our goal to become a renowned mobile app development
             company is to give your brand an online recognition with a
             platform that stays relevant among your targeted audience for a
