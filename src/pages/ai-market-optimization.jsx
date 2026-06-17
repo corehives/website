@@ -315,11 +315,11 @@ export default function AIMarketOptimization() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Marketing <span className="precision-gradient">Stack & Tools </span></h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Best-in-class analytics, advertising, and SEO platforms — operated by specialists who extract maximum performance from every tool.</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
+          <div className="flex flex-nowrap overflow-x-auto gap-3 sm:gap-4 mb-12 pb-1 -mx-6 px-6 sm:-mx-12 sm:px-12 md:-mx-20 md:px-20 lg:mx-0 lg:px-0 lg:justify-center">
             {["Analytics & SEO", "Paid Media", "AI & Data"].map((tab) => {
               const active = tab === activeTechTab;
               return (
-                <button key={tab} onClick={() => setActiveTechTab(tab)} className={`px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${active ? "bg-[#07BEB8] text-white border-[#07BEB8] shadow-[0_0_25px_rgba(7,190,184,0.45)]" : "bg-transparent text-gray-200 border-white/25 hover:border-white/50"}`}>{tab}</button>
+                <button key={tab} onClick={() => setActiveTechTab(tab)} className={`shrink-0 px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${active ? "bg-[#07BEB8] text-white border-[#07BEB8] shadow-[0_0_25px_rgba(7,190,184,0.45)]" : "bg-transparent text-gray-200 border-white/25 hover:border-white/50"}`}>{tab}</button>
               );
             })}
           </div>

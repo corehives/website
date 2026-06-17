@@ -29,16 +29,16 @@ export default function ProjectsSection() {
         </div>
 
         {/* Tabs — scrollable flex on mobile, equal grid on desktop */}
-        <div className="mb-10 -mx-5 sm:mx-0 overflow-x-auto sm:overflow-x-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="relative flex sm:grid sm:grid-cols-6 gap-6 sm:gap-0 w-max sm:w-auto px-5 sm:px-0">
-            <div className="absolute bottom-0 left-5 right-5 sm:left-0 sm:right-0 h-px bg-white/15" />
+        <div className="mb-10 -mx-5 xl:mx-0 overflow-x-auto xl:overflow-x-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="relative flex xl:grid xl:grid-cols-6 gap-6 xl:gap-0 w-max xl:w-auto px-5 xl:px-0">
+            <div className="absolute bottom-0 left-5 right-5 xl:left-0 xl:right-0 h-px bg-white/15" />
             {projectTabs.map((tab) => {
               const active = activeProjectTab === tab.id;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveProjectTab(tab.id)}
-                  className="relative flex-shrink-0 pb-3 pt-1 px-1 sm:px-2 text-center transition-colors duration-200 focus:outline-none"
+                  className="relative flex-shrink-0 pb-3 pt-1 px-1 xl:px-2 text-center transition-colors duration-200 focus:outline-none"
                 >
                   <span
                     className={`text-xs font-semibold leading-snug transition-colors duration-200 cursor-pointer whitespace-nowrap ${

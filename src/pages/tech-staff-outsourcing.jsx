@@ -12,10 +12,10 @@ import avatar5 from "../assets/avatar-7.png";
 import avatar4 from "../assets/avatar-8.png";
 import avatar6 from "../assets/avatar-9.png";
 import BgApp from "../assets/bg-app.png";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Globe, Smartphone, Cpu } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
-import { FaReact, FaPython, FaAndroid } from "react-icons/fa";
+import { FaReact, FaPython, FaAndroid, FaAws } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTypescript,
@@ -23,6 +23,12 @@ import {
   SiDocker,
   SiRust,
   SiFlutter,
+  SiNodedotjs,
+  SiSwift,
+  SiTensorflow,
+  SiPytorch,
+  SiSolidity,
+  SiEthereum,
 } from "react-icons/si";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
@@ -83,6 +89,39 @@ const whyItems = [
   },
 ];
 
+const techTabData = {
+  "Web & Backend": [
+    { label: "React", icon: <FaReact className="w-9 h-9" style={{ color: "#61DAFB" }} /> },
+    { label: "Next.js", icon: <SiNextdotjs className="w-9 h-9 text-white" /> },
+    { label: "TypeScript", icon: <SiTypescript className="w-9 h-9" style={{ color: "#3178C6" }} /> },
+    { label: "Node.js", icon: <SiNodedotjs className="w-9 h-9" style={{ color: "#339933" }} /> },
+    { label: "Python", icon: <FaPython className="w-9 h-9" style={{ color: "#3776AB" }} /> },
+    { label: "Rust", icon: <SiRust className="w-9 h-9" style={{ color: "#CE412B" }} /> },
+  ],
+  "Mobile & DevOps": [
+    { label: "Flutter", icon: <SiFlutter className="w-9 h-9" style={{ color: "#02569B" }} /> },
+    { label: "Android", icon: <FaAndroid className="w-9 h-9" style={{ color: "#3DDC84" }} /> },
+    { label: "Swift", icon: <SiSwift className="w-9 h-9" style={{ color: "#FA7343" }} /> },
+    { label: "Docker", icon: <SiDocker className="w-9 h-9" style={{ color: "#2496ED" }} /> },
+    { label: "Kubernetes", icon: <SiKubernetes className="w-9 h-9" style={{ color: "#326CE5" }} /> },
+    { label: "AWS", icon: <FaAws className="w-9 h-9" style={{ color: "#FF9900" }} /> },
+  ],
+  "Blockchain & AI": [
+    { label: "Solidity", icon: <SiSolidity className="w-9 h-9 text-white" /> },
+    { label: "Ethereum", icon: <SiEthereum className="w-9 h-9" style={{ color: "#627EEA" }} /> },
+    { label: "TensorFlow", icon: <SiTensorflow className="w-9 h-9" style={{ color: "#FF6F00" }} /> },
+    { label: "PyTorch", icon: <SiPytorch className="w-9 h-9" style={{ color: "#EE4C2C" }} /> },
+    { label: "Python", icon: <FaPython className="w-9 h-9" style={{ color: "#3776AB" }} /> },
+    { label: "Kubernetes", icon: <SiKubernetes className="w-9 h-9" style={{ color: "#326CE5" }} /> },
+  ],
+};
+
+const tabConfig = [
+  { key: "Web & Backend", icon: <Globe className="w-3.5 h-3.5" /> },
+  { key: "Mobile & DevOps", icon: <Smartphone className="w-3.5 h-3.5" /> },
+  { key: "Blockchain & AI", icon: <Cpu className="w-3.5 h-3.5" /> },
+];
+
 export default function TechStaffOutsourcing() {
   const [expandedIndex, setExpandedIndex] = useState(0);
   const [openId, setOpenId] = useState("speed");
@@ -121,7 +160,7 @@ export default function TechStaffOutsourcing() {
           className="pointer-events-none absolute right-0 top-0 z-[2] h-auto max-w-[100%] object-right"
         />
 
-        <div className="relative z-10 flex w-full flex-col items-center justify-center px-6 py-20 text-center sm:px-12 md:px-20 lg:px-32">
+        <div className="relative z-10 flex w-full flex-col items-center justify-center px-6 mt-10 py-20 text-center sm:px-12 md:px-20 lg:px-32">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
             <span className="text-xs font-medium tracking-widest text-white uppercase">
@@ -510,111 +549,31 @@ export default function TechStaffOutsourcing() {
               production-grade experience.
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
-            {["Web & Backend", "Mobile & DevOps", "Blockchain & AI"].map(
-              (tab) => {
-                const active = tab === activeTechTab;
-                return (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTechTab(tab)}
-                    className={`px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${active ? "bg-[#07BEB8] text-white border-[#07BEB8] shadow-[0_0_25px_rgba(7,190,184,0.45)]" : "bg-transparent text-gray-200 border-white/25 hover:border-white/50"}`}
-                  >
-                    {tab}
-                  </button>
-                );
-              },
-            )}
+          <div className="flex flex-nowrap overflow-x-auto gap-3 sm:gap-4 mb-12 pb-1 -mx-6 px-6 sm:-mx-12 sm:px-12 md:-mx-20 md:px-20 lg:mx-0 lg:px-0 lg:justify-center">
+            {tabConfig.map(({ key, icon }) => {
+              const active = key === activeTechTab;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setActiveTechTab(key)}
+                  className={`shrink-0 inline-flex items-center gap-2 px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${active ? "bg-[#07BEB8] text-white border-[#07BEB8] shadow-[0_0_25px_rgba(7,190,184,0.45)]" : "bg-transparent text-gray-200 border-white/25 hover:border-white/50"}`}
+                >
+                  {icon}
+                  {key}
+                </button>
+              );
+            })}
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
-            {[
-              {
-                label: "React",
-                icon: (
-                  <FaReact
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#61DAFB" }}
-                  />
-                ),
-              },
-              {
-                label: "Next.js",
-                icon: (
-                  <SiNextdotjs className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
-                ),
-              },
-              {
-                label: "TypeScript",
-                icon: (
-                  <SiTypescript
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#3178C6" }}
-                  />
-                ),
-              },
-              {
-                label: "Python",
-                icon: (
-                  <FaPython
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#3776AB" }}
-                  />
-                ),
-              },
-              {
-                label: "Rust",
-                icon: (
-                  <SiRust
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#CE412B" }}
-                  />
-                ),
-              },
-              {
-                label: "Kubernetes",
-                icon: (
-                  <SiKubernetes
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#326CE5" }}
-                  />
-                ),
-              },
-              {
-                label: "Docker",
-                icon: (
-                  <SiDocker
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#2496ED" }}
-                  />
-                ),
-              },
-              {
-                label: "Flutter",
-                icon: (
-                  <SiFlutter
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#02569B" }}
-                  />
-                ),
-              },
-              {
-                label: "Android",
-                icon: (
-                  <FaAndroid
-                    className="w-10 h-10 sm:w-12 sm:h-12"
-                    style={{ color: "#3DDC84" }}
-                  />
-                ),
-              },
-            ].map((tech, idx) => (
+          <div className="flex flex-nowrap overflow-x-auto gap-4 pb-2">
+            {techTabData[activeTechTab].map((tech, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center gap-3 p-5 sm:p-6 rounded-2xl border border-white/40 hover:border-[#07BEB8]/60 hover:shadow-[0_0_25px_rgba(7,190,184,0.15)] transition-all cursor-pointer group h-32 sm:h-36"
+                className="shrink-0 w-28 h-28 flex flex-col items-center justify-center gap-2 rounded-2xl border border-white/40 hover:border-[#07BEB8]/60 hover:shadow-[0_0_25px_rgba(7,190,184,0.15)] transition-all cursor-pointer group"
               >
                 <div className="group-hover:scale-110 transition-transform">
                   {tech.icon}
                 </div>
-                <span className="text-xs sm:text-sm font-medium text-white text-center">
+                <span className="text-[0.65rem] font-medium text-white text-center leading-tight px-1 line-clamp-2">
                   {tech.label}
                 </span>
               </div>

@@ -231,7 +231,7 @@ function GlowCard({ card }) {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+      className="flex flex-col rounded-2xl p-6 transition-all duration-300 relative overflow-hidden"
       style={{
         minHeight: "520px",
         background: "rgba(7,190,184,0.04)",

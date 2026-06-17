@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
-import IosApp from "../assets/ios-app.png";
+import IosApp from "../assets/enterprise-app-dev.png";
 import WebWork from "../assets/work.png";
 import Analytic from "../assets/icons/analytic.png";
 import BannerRightAnimation from "../components/animations/bannerRight";

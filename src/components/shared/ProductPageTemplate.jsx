@@ -26,15 +26,29 @@ function Banner({ badge, title, titleAccent, subtitle }) {
         />
       </div>
 
-      <img src={leftLight} alt="" aria-hidden="true" loading="eager" fetchpriority="high"
-        className="pointer-events-none absolute left-0 top-0 z-[2] h-auto max-w-[100%] object-left" />
-      <img src={rightLight} alt="" aria-hidden="true" loading="eager" fetchpriority="high"
-        className="pointer-events-none absolute right-0 top-0 z-[2] h-auto max-w-[100%] object-right" />
+      <img
+        src={leftLight}
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        className="pointer-events-none absolute left-0 top-0 z-[2] h-auto max-w-[100%] object-left"
+      />
+      <img
+        src={rightLight}
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
+        className="pointer-events-none absolute right-0 top-0 z-[2] h-auto max-w-[100%] object-right"
+      />
 
       <div className="relative z-10 flex w-full flex-col items-center justify-center px-6 py-24 text-center sm:px-12 md:px-20 lg:px-32">
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-sm">
           <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
-          <span className="text-xs font-medium tracking-widest text-white uppercase">{badge}</span>
+          <span className="text-xs font-medium tracking-widest text-white uppercase">
+            {badge}
+          </span>
           <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
         </div>
 
@@ -47,12 +61,8 @@ function Banner({ badge, title, titleAccent, subtitle }) {
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <CTAButton to="/contact">
-            Get Started
-          </CTAButton>
-          <CTAButton href="#overview">
-            Learn More
-          </CTAButton>
+          <CTAButton to="/contact">Get Started</CTAButton>
+          <CTAButton href="#overview">Learn More</CTAButton>
         </div>
       </div>
 
@@ -60,7 +70,11 @@ function Banner({ badge, title, titleAccent, subtitle }) {
         <BannerRightAnimation />
         <div className="absolute flex items-center gap-6">
           <div className="absolute -top-16 -right-16 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-gray-500/30 bg-gradient-to-br from-white to-white p-2">
-            <img src={Cloud} alt="" className="h-12 w-12 object-contain brightness-125" />
+            <img
+              src={Cloud}
+              alt=""
+              className="h-12 w-12 object-contain brightness-125"
+            />
           </div>
         </div>
       </div>
@@ -68,7 +82,11 @@ function Banner({ badge, title, titleAccent, subtitle }) {
         <BannerLeftAnimation />
         <div className="absolute flex items-center gap-6">
           <div className="absolute top-26 -left-20 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-gray-500/30 bg-gradient-to-br from-white to-white p-2">
-            <img src={Cloud} alt="" className="h-12 w-12 object-contain brightness-125" />
+            <img
+              src={Cloud}
+              alt=""
+              className="h-12 w-12 object-contain brightness-125"
+            />
           </div>
         </div>
       </div>
@@ -84,19 +102,25 @@ function Overview({ image, heading, accentHeading, paragraphs }) {
       className="relative px-5 py-14 sm:px-8 sm:py-16 md:px-20 md:py-20 lg:px-32"
     >
       <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
-        <div className="relative group overflow-hidden rounded-xl md:rounded-2xl">
+        <div className="relative  group overflow-hidden rounded-xl md:rounded-2xl mx-auto w-full max-w-sm sm:max-w-md md:max-w-none">
           <img
             src={image}
             alt={heading}
-            className="w-full h-64 sm:h-80 md:h-[28rem] object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-64 sm:h-80 md:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
         </div>
         <div className="space-y-4 md:space-y-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-            <span className="precision-gradient">{accentHeading}</span> {heading}
+            <span className="precision-gradient">{accentHeading}</span>{" "}
+            {heading}
           </h2>
           {paragraphs.map((p, i) => (
-            <p key={i} className="text-gray-300 leading-relaxed text-sm sm:text-base">{p}</p>
+            <p
+              key={i}
+              className="text-gray-300 leading-relaxed text-sm sm:text-base"
+            >
+              {p}
+            </p>
           ))}
         </div>
       </div>
@@ -116,7 +140,8 @@ function KeyFeatures({ features }) {
             Key <span className="precision-gradient">Features</span>
           </h2>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
-            Everything you need to streamline operations, delight customers, and scale with confidence.
+            Everything you need to streamline operations, delight customers, and
+            scale with confidence.
           </p>
         </div>
 
@@ -134,7 +159,9 @@ function KeyFeatures({ features }) {
                 <h3 className="mb-2 text-base font-semibold text-white group-hover:text-[#07BEB8] transition-colors">
                   {feat.title}
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{feat.description}</p>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {feat.description}
+                </p>
               </div>
             );
           })}
@@ -149,7 +176,10 @@ function Process({ heading, steps }) {
   return (
     <section
       className="px-6 py-20 sm:px-12 md:px-20 lg:px-32 relative bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${BgApp})`, backgroundAttachment: "fixed" }}
+      style={{
+        backgroundImage: `url(${BgApp})`,
+        backgroundAttachment: "fixed",
+      }}
     >
       <div className="mx-auto max-w-6xl relative z-10">
         <div className="mb-14 text-center">
@@ -173,7 +203,9 @@ function Process({ heading, steps }) {
               <h3 className="mb-3 text-lg font-bold text-white group-hover:text-[#07BEB8] transition-colors">
                 {step.title}
               </h3>
-              <p className="text-sm text-gray-300 leading-relaxed">{step.description}</p>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
@@ -192,7 +224,8 @@ function Technologies({ technologies }) {
             Technologies <span className="precision-gradient">We Use</span>
           </h2>
           <p className="mt-4 text-gray-400 max-w-xl mx-auto text-sm">
-            Built on industry-leading tools and frameworks trusted by top-tier engineering teams worldwide.
+            Built on industry-leading tools and frameworks trusted by top-tier
+            engineering teams worldwide.
           </p>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -245,7 +278,9 @@ function Benefits({ benefits }) {
                 className={`rounded-2xl p-7 ${color.bg} ${color.text} min-h-[180px] flex flex-col justify-between`}
               >
                 <h3 className="text-xl font-bold mb-3">{b.title}</h3>
-                <p className="text-sm leading-relaxed opacity-80">{b.description}</p>
+                <p className="text-sm leading-relaxed opacity-80">
+                  {b.description}
+                </p>
               </div>
             );
           })}
@@ -272,8 +307,12 @@ function Stats({ stats }) {
               <div className="mb-2 text-center text-4xl sm:text-5xl font-bold text-[#07BEB8] group-hover:scale-110 transition-transform duration-300">
                 {s.number}
               </div>
-              <h3 className="mb-3 text-center text-sm font-semibold text-gray-300">{s.label}</h3>
-              <p className="text-center text-xs text-white leading-relaxed">{s.description}</p>
+              <h3 className="mb-3 text-center text-sm font-semibold text-gray-300">
+                {s.label}
+              </h3>
+              <p className="text-center text-xs text-white leading-relaxed">
+                {s.description}
+              </p>
             </div>
           ))}
         </div>
@@ -291,7 +330,8 @@ function Faq({ faq }) {
       <div className="mx-auto max-w-3xl">
         <div className="mb-14 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
-            Frequently Asked <span className="precision-gradient">Questions</span>
+            Frequently Asked{" "}
+            <span className="precision-gradient">Questions</span>
           </h2>
         </div>
         <div className="space-y-3">
@@ -304,7 +344,9 @@ function Faq({ faq }) {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="flex w-full items-center justify-between px-6 py-4 text-left"
               >
-                <span className="text-sm font-semibold text-white pr-4">{item.question}</span>
+                <span className="text-sm font-semibold text-white pr-4">
+                  {item.question}
+                </span>
                 <ChevronDown
                   className={`h-4 w-4 flex-shrink-0 text-[#07BEB8] transition-transform duration-200 ${
                     openIndex === i ? "rotate-180" : ""
@@ -316,7 +358,9 @@ function Faq({ faq }) {
                   openIndex === i ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="px-6 pb-5 text-sm text-gray-400 leading-relaxed">{item.answer}</p>
+                <p className="px-6 pb-5 text-sm text-gray-400 leading-relaxed">
+                  {item.answer}
+                </p>
               </div>
             </div>
           ))}
@@ -334,12 +378,17 @@ function Cta({ heading, subtitle, highlights, buttonText, buttonHref }) {
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
           {heading} <span className="precision-gradient">Today</span>
         </h2>
-        <p className="text-gray-400 max-w-xl mx-auto mb-8 text-sm sm:text-base">{subtitle}</p>
+        <p className="text-gray-400 max-w-xl mx-auto mb-8 text-sm sm:text-base">
+          {subtitle}
+        </p>
 
         {highlights && (
           <div className="mb-10 flex flex-wrap justify-center gap-4">
             {highlights.map((h, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm text-gray-300">
+              <div
+                key={i}
+                className="flex items-center gap-2 text-sm text-gray-300"
+              >
                 <Check className="h-4 w-4 text-[#07BEB8]" />
                 {h}
               </div>

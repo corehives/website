@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import CTAButton from "../shared/CTAButton";
 import Logo from "../../assets/logo.png";
+import LogoInitials from "../../assets/logo-initials.png";
 
 const serviceLinks = [
   { label: "Web Development", href: "/web-development" },
@@ -123,7 +124,12 @@ export default function Header() {
             <img
               src={Logo}
               alt="CoreHives logo"
-              className="h-20 w-auto sm:h-15"
+              className="h-12 w-auto sm:hidden"
+            />
+            <img
+              src={Logo}
+              alt="CoreHives logo"
+              className="hidden h-15 w-auto sm:block"
             />
           </Link>
 

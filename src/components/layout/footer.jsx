@@ -179,7 +179,7 @@ export default function Footer() {
 
           {/* ── Nav Links Grid ── */}
           <div
-            className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-8 px-6 py-8 sm:grid-cols-5 sm:px-10 lg:px-14 mb-20 relative z-10"
+            className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-8 px-6 py-8 sm:grid-cols-5 sm:px-10 lg:px-14 mb-15 relative z-10"
             style={{
               paddingTop: "2rem",
               background:
@@ -286,10 +286,11 @@ export default function Footer() {
                   >
                     {item.badge && (
                       <div
+                        className="hidden lg:block"
                         style={{
                           ...(item.badgePos === "top-left"
-                            ? { top: "0px", left: "-8px" }
-                            : { top: "0px", right: "-8px" }),
+                            ? { top: "-20px", left: "-8px" }
+                            : { top: "-20px", right: "-8px" }),
                           ...badgeStyle,
                           animation: `badge-drift ${parseFloat(dur) + 0.8}s ease-in-out ${delay} infinite`,
                         }}

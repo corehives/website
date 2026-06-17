@@ -173,7 +173,7 @@ export default function Branding() {
           className="pointer-events-none absolute right-0 top-0 z-[2] h-auto max-w-[100%] object-right"
         />
 
-        <div className="relative z-10 flex w-full flex-col items-center justify-center px-6 py-20 text-center sm:px-12 md:px-20 lg:px-32">
+        <div className="relative z-10 flex w-full flex-col items-center justify-center px-6 mt-10 py-20 text-center sm:px-12 md:px-20 lg:px-32">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-[#07BEB8]" />
             <span className="text-xs font-medium tracking-widest text-white uppercase">Brand Identity & Strategy</span>

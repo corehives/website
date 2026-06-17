@@ -692,7 +692,7 @@ export default function WebDevelopment() {
           </div>
 
           {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
+          <div className="flex flex-nowrap overflow-x-auto gap-3 sm:gap-4 mb-12 pb-1 -mx-6 px-6 sm:-mx-12 sm:px-12 md:-mx-20 md:px-20 lg:mx-0 lg:px-0 lg:justify-center">
             {[
               "Business Intelligence",
               "Data Engineering",
@@ -703,7 +703,7 @@ export default function WebDevelopment() {
                 <button
                   key={tab}
                   onClick={() => setActiveTechTab(tab)}
-                  className={`px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${
+                  className={`shrink-0 px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${
                     active
                       ? "bg-[#07BEB8] text-white border-[#07BEB8] "
                       : "bg-transparent text-gray-200 border-white/25 hover:border-white/50"
@@ -716,16 +716,16 @@ export default function WebDevelopment() {
           </div>
 
           {/* Tech grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
+          <div className="flex flex-nowrap overflow-x-auto gap-4 pb-2">
             {techTabData[activeTechTab].map((tech, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center gap-3 p-5 sm:p-6 rounded-2xl border border-white/40 hover:border-[#07BEB8]/60 hover:shadow-[0_0_25px_rgba(7,190,184,0.15)] transition-all cursor-pointer group h-32 sm:h-36"
+                className="shrink-0 w-28 h-28 flex flex-col items-center justify-center gap-2 rounded-2xl border border-white/40 hover:border-[#07BEB8]/60 hover:shadow-[0_0_25px_rgba(7,190,184,0.15)] transition-all cursor-pointer group"
               >
                 <div className="group-hover:scale-110 transition-transform">
                   {tech.icon}
                 </div>
-                <span className="text-xs sm:text-sm font-medium text-white text-center">
+                <span className="text-[0.65rem] font-medium text-white text-center leading-tight px-1 line-clamp-2">
                   {tech.label}
                 </span>
               </div>
