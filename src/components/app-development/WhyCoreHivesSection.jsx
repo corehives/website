@@ -8,12 +8,12 @@ export default function WhyCoreHivesSection() {
     <section className="bg-black px-5 sm:px-10 lg:px-20 py-20 sm:py-28">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         {/* Left: Heading + subtitle */}
-        <div className="lg:sticky lg:top-28">
+        <div className="lg:sticky lg:top-28 text-center xl:text-left">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Why CoreHives <span className="precision-gradient">Stands Out</span> As
-            A Mobile App Development Company
+            Why CoreHives <span className="precision-gradient">Stands Out</span>{" "}
+            As A Mobile App Development Company
           </h2>
-          <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">
+          <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm mx-auto xl:mx-0">
             CoreHives has an entire treasure chest of variety of services,
             making sure they have something unique to offer every business.
           </p>

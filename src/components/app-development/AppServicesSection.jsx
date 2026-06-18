@@ -17,8 +17,12 @@ export default function AppServicesSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="max-w-4xl text-center mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-            Innovative <span className="precision-gradient"> Mobile App Development Services</span> For Your Custom
-            Needs
+            Innovative{" "}
+            <span className="precision-gradient">
+              {" "}
+              Mobile App Development Services
+            </span>{" "}
+            For Your Custom Needs
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
             CoreLives has an entire treasure chest of variety of services,
@@ -34,7 +38,7 @@ export default function AppServicesSection() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTechTab(tab.id)}
-                  className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
+                  className={`w-full text-center xl:text-left p-4 rounded-xl transition-all duration-300 ${
                     activeTechTab === tab.id
                       ? "bg-[#FFF] border-l-3 border-[#07BEB8]"
                       : "bg-transparent border-l-4 border-transparent hover:bg-white/10"
@@ -59,10 +63,10 @@ export default function AppServicesSection() {
             {currentService && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-center xl:text-left">
                     {currentService.title}
                   </h3>
-                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed text-center xl:text-left">
                     {currentService.description}
                   </p>
                 </div>
