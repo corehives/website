@@ -83,7 +83,7 @@ export default function InsightsSection() {
               key={post.id}
               data-card
               className="rounded-2xl border border-white/10 bg-[#0c1e1d]/80 backdrop-blur-sm overflow-hidden flex flex-col flex-shrink-0"
-              style={{ width: "calc((100% - 40px) / 3)", minWidth: "330px" }}
+              style={{ width: "calc((100% - 40px) / 3)", minWidth: "280px" }}
             >
               <div className="w-full h-48 overflow-hidden flex-shrink-0">
                 <img
