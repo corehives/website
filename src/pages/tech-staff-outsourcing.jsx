@@ -91,28 +91,76 @@ const whyItems = [
 
 const techTabData = {
   "Web & Backend": [
-    { label: "React", icon: <FaReact className="w-9 h-9" style={{ color: "#61DAFB" }} /> },
+    {
+      label: "React",
+      icon: <FaReact className="w-9 h-9" style={{ color: "#61DAFB" }} />,
+    },
     { label: "Next.js", icon: <SiNextdotjs className="w-9 h-9 text-white" /> },
-    { label: "TypeScript", icon: <SiTypescript className="w-9 h-9" style={{ color: "#3178C6" }} /> },
-    { label: "Node.js", icon: <SiNodedotjs className="w-9 h-9" style={{ color: "#339933" }} /> },
-    { label: "Python", icon: <FaPython className="w-9 h-9" style={{ color: "#3776AB" }} /> },
-    { label: "Rust", icon: <SiRust className="w-9 h-9" style={{ color: "#CE412B" }} /> },
+    {
+      label: "TypeScript",
+      icon: <SiTypescript className="w-9 h-9" style={{ color: "#3178C6" }} />,
+    },
+    {
+      label: "Node.js",
+      icon: <SiNodedotjs className="w-9 h-9" style={{ color: "#339933" }} />,
+    },
+    {
+      label: "Python",
+      icon: <FaPython className="w-9 h-9" style={{ color: "#3776AB" }} />,
+    },
+    {
+      label: "Rust",
+      icon: <SiRust className="w-9 h-9" style={{ color: "#CE412B" }} />,
+    },
   ],
   "Mobile & DevOps": [
-    { label: "Flutter", icon: <SiFlutter className="w-9 h-9" style={{ color: "#02569B" }} /> },
-    { label: "Android", icon: <FaAndroid className="w-9 h-9" style={{ color: "#3DDC84" }} /> },
-    { label: "Swift", icon: <SiSwift className="w-9 h-9" style={{ color: "#FA7343" }} /> },
-    { label: "Docker", icon: <SiDocker className="w-9 h-9" style={{ color: "#2496ED" }} /> },
-    { label: "Kubernetes", icon: <SiKubernetes className="w-9 h-9" style={{ color: "#326CE5" }} /> },
-    { label: "AWS", icon: <FaAws className="w-9 h-9" style={{ color: "#FF9900" }} /> },
+    {
+      label: "Flutter",
+      icon: <SiFlutter className="w-9 h-9" style={{ color: "#02569B" }} />,
+    },
+    {
+      label: "Android",
+      icon: <FaAndroid className="w-9 h-9" style={{ color: "#3DDC84" }} />,
+    },
+    {
+      label: "Swift",
+      icon: <SiSwift className="w-9 h-9" style={{ color: "#FA7343" }} />,
+    },
+    {
+      label: "Docker",
+      icon: <SiDocker className="w-9 h-9" style={{ color: "#2496ED" }} />,
+    },
+    {
+      label: "Kubernetes",
+      icon: <SiKubernetes className="w-9 h-9" style={{ color: "#326CE5" }} />,
+    },
+    {
+      label: "AWS",
+      icon: <FaAws className="w-9 h-9" style={{ color: "#FF9900" }} />,
+    },
   ],
   "Blockchain & AI": [
     { label: "Solidity", icon: <SiSolidity className="w-9 h-9 text-white" /> },
-    { label: "Ethereum", icon: <SiEthereum className="w-9 h-9" style={{ color: "#627EEA" }} /> },
-    { label: "TensorFlow", icon: <SiTensorflow className="w-9 h-9" style={{ color: "#FF6F00" }} /> },
-    { label: "PyTorch", icon: <SiPytorch className="w-9 h-9" style={{ color: "#EE4C2C" }} /> },
-    { label: "Python", icon: <FaPython className="w-9 h-9" style={{ color: "#3776AB" }} /> },
-    { label: "Kubernetes", icon: <SiKubernetes className="w-9 h-9" style={{ color: "#326CE5" }} /> },
+    {
+      label: "Ethereum",
+      icon: <SiEthereum className="w-9 h-9" style={{ color: "#627EEA" }} />,
+    },
+    {
+      label: "TensorFlow",
+      icon: <SiTensorflow className="w-9 h-9" style={{ color: "#FF6F00" }} />,
+    },
+    {
+      label: "PyTorch",
+      icon: <SiPytorch className="w-9 h-9" style={{ color: "#EE4C2C" }} />,
+    },
+    {
+      label: "Python",
+      icon: <FaPython className="w-9 h-9" style={{ color: "#3776AB" }} />,
+    },
+    {
+      label: "Kubernetes",
+      icon: <SiKubernetes className="w-9 h-9" style={{ color: "#326CE5" }} />,
+    },
   ],
 };
 
@@ -219,7 +267,7 @@ export default function TechStaffOutsourcing() {
             </div>
           </div>
           <div className="space-y-5 sm:space-y-6">
-            <div className="space-y-3 sm:space-y-2">
+            <div className="space-y-3 sm:space-y-2 text-center xl:text-left">
               <span
                 className="inline-block text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-5 px-3 sm:px-4 py-1.5 rounded-full"
                 style={{
@@ -235,7 +283,7 @@ export default function TechStaffOutsourcing() {
                 <span className="precision-gradient">Outsourcing</span>
               </h2>
             </div>
-            <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-300 leading-relaxed text-sm sm:text-base text-center xl:text-left">
               Hiring takes months. CoreHives takes 72 hours.
               <br />
               <br />
@@ -245,7 +293,7 @@ export default function TechStaffOutsourcing() {
               commitment. Scale your engineering capacity the moment your
               roadmap demands it.
             </p>
-            <div className="flex items-center flex-wrap gap-x-6 gap-y-5 pt-2 sm:pt-4">
+            <div className="flex items-center  justify-center md:justify-start flex-wrap gap-x-6 gap-y-5 pt-2 sm:pt-4">
               <CTAButton href="/contact">Build Your Team</CTAButton>
               <div className="flex items-center gap-5 sm:gap-6">
                 <div className="flex items-center relative">
@@ -319,7 +367,7 @@ export default function TechStaffOutsourcing() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-4">
+            <div className="space-y-4 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Scaling your engineering
                 <br />
@@ -480,13 +528,13 @@ export default function TechStaffOutsourcing() {
       {/* WHY COREHIVES */}
       <section className="bg-black px-5 sm:px-10 lg:px-20 py-20 sm:py-28">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div className="lg:sticky lg:top-28">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          <div className="lg:sticky lg:top-28 text-center xl:text-left">
+            <h2 className="text-4xl sm:text-5xl text-center lg:text-6xl font-bold text-white leading-tight">
               Why CoreHives{" "}
               <span className="precision-gradient">Outsourcing</span>{" "}
               Outperforms Traditional Hiring
             </h2>
-            <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">
+            <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm mx-auto xl:mx-0">
               Senior talent, no friction, no long-term lock-in — engineering
               capacity on demand.
             </p>

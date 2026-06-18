@@ -360,7 +360,7 @@ export default function IllustrationAnimation() {
             </div>
           </div>
           <div className="space-y-6">
-            <div className="space-y-2">
+            <div className="space-y-2 text-center xl:text-left">
               <span
                 className="inline-block text-[11px] tracking-[0.25em] uppercase mb-5 px-4 py-1.5 rounded-full"
                 style={{
@@ -376,7 +376,7 @@ export default function IllustrationAnimation() {
                 <span className="precision-gradient">Animation Services</span>
               </h2>
             </div>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed text-center xl:text-left">
               Static content gets scrolled past. Motion content gets shared,
               remembered, and acted on.
               <br />
@@ -460,7 +460,7 @@ export default function IllustrationAnimation() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-4">
+            <div className="space-y-4 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Bringing your ideas
                 <br />
