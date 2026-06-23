@@ -219,6 +219,13 @@ export default function PartnersSection() {
                 <stop offset="0%" stopColor="#0f3836" />
                 <stop offset="100%" stopColor="#082322" />
               </radialGradient>
+              {/* Whitens a logo (= brightness(0) invert(1)) while keeping its alpha */}
+              <filter id="whiten" x="0%" y="0%" width="100%" height="100%">
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"
+                />
+              </filter>
             </defs>
 
             {GRID.map((cell) => {
@@ -241,42 +248,20 @@ export default function PartnersSection() {
                   />
 
                   {!isCenter && partner && (
-                    <foreignObject
-                      x={-HEX_W / 2}
-                      y={-HEX_H / 2}
-                      width={HEX_W}
-                      height={HEX_H}
+                    <image
+                      href={partner.imgSrc}
+                      x={-partner.width / 2}
+                      y={-(HEX_H * 0.5) / 2}
+                      width={partner.width}
+                      height={HEX_H * 0.5}
+                      preserveAspectRatio="xMidYMid meet"
+                      filter="url(#whiten)"
                       style={{
                         opacity: logoOpacity,
                         transition: "opacity 0.8s ease",
                         pointerEvents: "none",
                       }}
-                    >
-                      <div
-                        xmlns="http://www.w3.org/1999/xhtml"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <img
-                          src={partner.imgSrc}
-                          alt={partner.name}
-                          style={{
-                            width: partner.width,
-                            height: "auto",
-                            objectFit: "contain",
-                            filter: "brightness(0) invert(1)",
-                            maxHeight: HEX_H * 0.5,
-                            display: "block",
-                          }}
-                          draggable={false}
-                        />
-                      </div>
-                    </foreignObject>
+                    />
                   )}
                 </g>
               );
