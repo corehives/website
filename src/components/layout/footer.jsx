@@ -322,7 +322,7 @@ export default function Footer() {
 
         {/* ── Copyright ── */}
         <p className="my-2 text-center text-xs text-white">
-          © 2025 CoreHives.com | All rights reserved.
+          © 2026 CoreHives.com | All rights reserved.
         </p>
       </footer>
     </>

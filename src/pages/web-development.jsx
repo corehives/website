@@ -716,7 +716,7 @@ export default function WebDevelopment() {
           </div>
 
           {/* Tech grid */}
-          <div className="flex flex-nowrap overflow-x-auto gap-4 pb-2">
+          <div className="flex justify-center flex-nowrap overflow-x-auto gap-4 pb-2">
             {techTabData[activeTechTab].map((tech, idx) => (
               <div
                 key={idx}
