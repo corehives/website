@@ -1,1 +1,0 @@
-var e=`/assets/bg-app-k-VfbS_g.png`;export{e as t};

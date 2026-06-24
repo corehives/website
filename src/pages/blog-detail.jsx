@@ -1,9 +1,10 @@
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ALL_POSTS } from "../data/blogs";
 import BlogDetailHero from "../components/blogs/BlogDetailHero";
 import BlogArticle from "../components/blogs/BlogArticle";
 import RelatedBlogs from "../components/blogs/RelatedBlogs";
+import { getBlogBySlug, getBlogs } from "../services/api";
+import { normalizeBlog } from "../utils/helpers";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
@@ -58,28 +59,79 @@ function NotFound({ navigate }) {
   );
 }
 
+function Loader() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "60vh",
+        color: "rgba(255,255,255,0.4)",
+        fontSize: 15,
+      }}
+    >
+      Loading article…
+    </div>
+  );
+}
+
 export default function BlogDetail() {
   const { slug } = useParams();
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
 
-  const post = ALL_POSTS.find((p) => p.slug === slug);
+  const [post, setPost] = useState(null);
+  const [allPosts, setAllPosts] = useState([]);
+  // Failure is scoped to the slug it happened on, so a slug change clears it
+  // without a synchronous setState inside the effect.
+  const [failure, setFailure] = useState(null); // { slug, kind } | null
 
   // Scroll to top on mount / slug change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [slug]);
 
+  useEffect(() => {
+    let alive = true;
+
+    getBlogBySlug(slug)
+      .then((data) => alive && setPost(normalizeBlog(data)))
+      .catch((err) => {
+        if (!alive) return;
+        setFailure({
+          slug,
+          kind: err?.response?.status === 404 ? "notfound" : "error",
+        });
+      });
+
+    // Related articles need the wider list (best-effort, non-blocking).
+    getBlogs({ page: 1, limit: 100 })
+      .then(({ posts }) => alive && setAllPosts((posts || []).map(normalizeBlog)))
+      .catch(() => {});
+
+    return () => {
+      alive = false;
+    };
+  }, [slug]);
+
+  const failed = failure && failure.slug === slug ? failure.kind : null;
+  const ready = post && post.slug === slug;
+  const isLoading = !failed && !ready;
+
   return (
     <main style={{ background: "#020617", minHeight: "100vh" }}>
-      {!post ? (
-        <NotFound navigate={navigate} />
-      ) : (
+      {isLoading && <Loader />}
+
+      {failed && <NotFound navigate={navigate} />}
+
+      {ready && (
         <>
           <BlogDetailHero post={post} />
           <BlogArticle post={post} />
-          <RelatedBlogs currentPost={post} />
+          <RelatedBlogs currentPost={post} posts={allPosts} />
         </>
       )}
+
       <Suspense fallback={null}>
         <Footer />
       </Suspense>

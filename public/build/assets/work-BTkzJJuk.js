@@ -1,1 +1,0 @@
-var e=`/assets/work-Dhlmr2i0.png`;export{e as t};

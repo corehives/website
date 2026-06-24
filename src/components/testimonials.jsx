@@ -1,40 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Greg",
-    initials: "G",
-    role: "Verified Client · United States",
-    rating: 5,
-    title: "Exceptional Professionalism and High-Quality Digital Solutions!",
-    text: "We partnered with Corehives for our web design and development needs, and the experience was flawless. Their team is highly skilled, professional, and deeply committed to client success. They didn't just build a website; they provided a complete branding solution that perfectly aligns with our vision. What stands out most about Corehives is their attention to detail and seamless communication. They hit every milestone on time and were always available to provide technical support and creative insights. If you are looking for a reliable software house that delivers top-tier results, I highly recommend Corehives!",
-  },
-  {
-    id: 2,
-    name: "CMMB IT",
-    initials: "CI",
-    role: "IT Services · United States",
-    rating: 5,
-    title: "Issue with PHP Portal",
-    text: "We hired this developer to help us fix a number of security issues on our PHP website, and the quality of their work exceeded our expectations. They approached the project with professionalism from start to finish — diagnosing the problems efficiently, explaining the risks in clear terms, and implementing secure, well-structured fixes. Their communication was consistent and transparent, and they demonstrated strong technical expertise throughout the entire process. Thanks to their work, our site is now stable, secure, and performing better than before. Highly recommended for anyone needing dependable and knowledgeable PHP development support.",
-  },
-  {
-    id: 3,
-    name: "Andrew",
-    initials: "A",
-    role: "Verified Client · Colorado, US",
-    rating: 5,
-    title: "Professional Team with Great Development and Design Work",
-    text: "I had a really good experience working with CoreHives. Their team handled both development and design, and everything felt smooth from start to finish. On the development side, they were very organized and understood the requirements quickly. The final product was clean, functional, and delivered on time without any issues. Communication was always clear, which made the whole process much easier. The design work was just as impressive — they paid attention to detail and created a modern, polished look that matched exactly what I had in mind. They were also open to feedback and made changes quickly when needed. I'd definitely recommend CoreHives if you're looking for both strong development and quality design in one place.",
-  },
-];
+import { getTestimonials } from "../services/api";
 
 const CARD_WIDTH_MAX = 340;
 const CARD_HEIGHT_MAX = 260;
 const CARD_GAP = 16;
-const N = testimonials.length;
 
 const TRANSITION_MS = 520;
 const EASE = "cubic-bezier(0.45, 0.05, 0.25, 1)";
@@ -221,6 +191,36 @@ function TestimonialCard({ testimonial, active, cw, ch }) {
   );
 }
 
+function SkeletonCard({ cw, ch }) {
+  return (
+    <div
+      style={{
+        width: cw,
+        height: ch,
+        flexShrink: 0,
+        borderRadius: 16,
+        padding: 24,
+        boxSizing: "border-box",
+        background: "rgba(10,46,44,0.6)",
+        border: "1px solid rgba(7,190,184,0.15)",
+      }}
+      className="animate-pulse"
+    >
+      <div className="h-3 w-24 rounded bg-white/10 mb-4" />
+      <div className="flex items-center gap-3 mb-4">
+        <div className="h-12 w-12 rounded-full bg-white/10" />
+        <div className="flex-1">
+          <div className="h-3 w-20 rounded bg-white/10 mb-2" />
+          <div className="h-2.5 w-28 rounded bg-white/5" />
+        </div>
+      </div>
+      <div className="h-2.5 w-full rounded bg-white/10 mb-2" />
+      <div className="h-2.5 w-11/12 rounded bg-white/5 mb-2" />
+      <div className="h-2.5 w-4/5 rounded bg-white/5" />
+    </div>
+  );
+}
+
 export default function TestimonialsSection() {
   const { width: cardWidth, height: cardHeight } = useCardDimensions();
   const step = cardWidth + CARD_GAP;
@@ -231,14 +231,39 @@ export default function TestimonialsSection() {
     stepRef.current = step;
   }, [step]);
 
-  // Triple the list for seamless infinite loop
-  const allCards = useMemo(
-    () => [...testimonials, ...testimonials, ...testimonials],
-    [],
-  );
+  // ─── Data fetched from the API ────────────────────────────────────────────
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   // activeIdx always stays in the middle copy [N .. 2N-1]
-  const [activeIdx, setActiveIdx] = useState(N);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    let alive = true;
+    getTestimonials()
+      .then((data) => {
+        if (!alive) return;
+        const list = Array.isArray(data) ? data : [];
+        setTestimonials(list);
+        setActiveIdx(list.length); // re-center on the middle copy
+        setError(false);
+      })
+      .catch(() => alive && setError(true))
+      .finally(() => alive && setLoading(false));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const N = testimonials.length;
+
+  // Triple the list for seamless infinite loop
+  const allCards = useMemo(
+    () =>
+      N > 0 ? [...testimonials, ...testimonials, ...testimonials] : [],
+    [testimonials, N],
+  );
 
   const [rawOffset, setRawOffset] = useState(0);
 
@@ -250,35 +275,38 @@ export default function TestimonialsSection() {
 
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const shift = useCallback((dir) => {
-    if (sliding.current) return;
-    sliding.current = true;
-    setIsAnimating(true);
+  const shift = useCallback(
+    (dir) => {
+      if (sliding.current || N === 0) return;
+      sliding.current = true;
+      setIsAnimating(true);
 
-    setRawOffset(-dir * stepRef.current);
+      setRawOffset(-dir * stepRef.current);
 
-    // 2. After the transition finishes:
-    //    a. Disable transition (no flash)
-    //    b. Advance activeIdx by dir
-    //    c. Reset rawOffset to 0
-    //    All three happen in the same synchronous batch → one paint → no flicker
-    timerRef.current = setTimeout(() => {
-      // Batch all state updates together
-      setIsAnimating(false); // kills CSS transition before next paint
-      setActiveIdx((prev) => {
-        let next = prev + dir;
-        if (next < N) next += N;
-        if (next >= 2 * N) next -= N;
-        return next;
-      });
-      setRawOffset(0); // safe — transition is already off
+      // 2. After the transition finishes:
+      //    a. Disable transition (no flash)
+      //    b. Advance activeIdx by dir
+      //    c. Reset rawOffset to 0
+      //    All three happen in the same synchronous batch → one paint → no flicker
+      timerRef.current = setTimeout(() => {
+        // Batch all state updates together
+        setIsAnimating(false); // kills CSS transition before next paint
+        setActiveIdx((prev) => {
+          let next = prev + dir;
+          if (next < N) next += N;
+          if (next >= 2 * N) next -= N;
+          return next;
+        });
+        setRawOffset(0); // safe — transition is already off
 
-      // Small guard before allowing next slide
-      unlockRef.current = setTimeout(() => {
-        sliding.current = false;
-      }, 32);
-    }, TRANSITION_MS);
-  }, []);
+        // Small guard before allowing next slide
+        unlockRef.current = setTimeout(() => {
+          sliding.current = false;
+        }, 32);
+      }, TRANSITION_MS);
+    },
+    [N],
+  );
 
   const scrollPrev = useCallback(() => shift(-1), [shift]);
   const scrollNext = useCallback(() => shift(1), [shift]);
@@ -343,61 +371,91 @@ export default function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Carousel — overflow:hidden crops outer cards */}
-        <div style={{ width: "100%", overflow: "hidden" }}>
+        {/* Loading skeleton */}
+        {loading && (
           <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: CARD_GAP,
-              padding: "20px 0",
-              transform: trackTransform,
-              // Transition only during slide phase — off during snap reset
-              transition: isAnimating
-                ? `transform ${TRANSITION_MS}ms ${EASE}`
-                : "none",
-              willChange: "transform",
-            }}
+            className="flex items-center justify-center gap-4"
+            style={{ padding: "20px 0", overflow: "hidden" }}
           >
-            {allCards.map((testimonial, i) => {
-              const isActive = i === activeIdx;
-              const relPos = i - activeIdx;
-              return (
-                <div
-                  key={i}
-                  onClick={() => {
-                    if (relPos < 0) shift(-1);
-                    else if (relPos > 0) shift(1);
-                  }}
-                  style={{ cursor: isActive ? "default" : "pointer" }}
-                >
-                  <TestimonialCard
-                    testimonial={testimonial}
-                    active={isActive}
-                    cw={cardWidth}
-                    ch={cardHeight}
-                  />
-                </div>
-              );
-            })}
+            {Array.from({ length: 3 }).map((_, i) => (
+              <SkeletonCard key={i} cw={cardWidth} ch={cardHeight} />
+            ))}
           </div>
-        </div>
+        )}
 
-        {/* Navigation arrows */}
-        <div className="flex items-center justify-center gap-4 mt-12 px-4">
-          <button
-            onClick={scrollPrev}
-            className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
-          >
-            <ArrowLeft size={18} />
-          </button>
-          <button
-            onClick={scrollNext}
-            className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
-          >
-            <ArrowRight size={18} />
-          </button>
-        </div>
+        {/* Error state */}
+        {!loading && error && (
+          <p className="text-center text-sm text-white/55 px-4">
+            We couldn't load testimonials right now. Please try again later.
+          </p>
+        )}
+
+        {/* Empty state */}
+        {!loading && !error && N === 0 && (
+          <p className="text-center text-sm text-white/55 px-4">
+            No testimonials to show yet.
+          </p>
+        )}
+
+        {/* Carousel — overflow:hidden crops outer cards */}
+        {!loading && !error && N > 0 && (
+          <>
+            <div style={{ width: "100%", overflow: "hidden" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: CARD_GAP,
+                  padding: "20px 0",
+                  transform: trackTransform,
+                  // Transition only during slide phase — off during snap reset
+                  transition: isAnimating
+                    ? `transform ${TRANSITION_MS}ms ${EASE}`
+                    : "none",
+                  willChange: "transform",
+                }}
+              >
+                {allCards.map((testimonial, i) => {
+                  const isActive = i === activeIdx;
+                  const relPos = i - activeIdx;
+                  return (
+                    <div
+                      key={i}
+                      onClick={() => {
+                        if (relPos < 0) shift(-1);
+                        else if (relPos > 0) shift(1);
+                      }}
+                      style={{ cursor: isActive ? "default" : "pointer" }}
+                    >
+                      <TestimonialCard
+                        testimonial={testimonial}
+                        active={isActive}
+                        cw={cardWidth}
+                        ch={cardHeight}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Navigation arrows */}
+            <div className="flex items-center justify-center gap-4 mt-12 px-4">
+              <button
+                onClick={scrollPrev}
+                className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
+              >
+                <ArrowLeft size={18} />
+              </button>
+              <button
+                onClick={scrollNext}
+                className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
+              >
+                <ArrowRight size={18} />
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

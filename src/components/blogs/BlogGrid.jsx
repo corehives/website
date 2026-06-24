@@ -1,7 +1,7 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { GRID_POSTS, CAT_COLORS } from "../../data/blogs";
+import { CAT_COLORS } from "../../data/blogs";
 import BlogCoverImage from "./BlogCoverImage";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import CTAButton from "../shared/CTAButton";
@@ -339,7 +339,7 @@ function LargeCard({ post }) {
 }
 
 // ── Main export ──────────────────────────────────────────────────────────────
-export default function BlogGrid({ searchQuery = "" }) {
+export default function BlogGrid({ posts = [], searchQuery = "" }) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [visibleCount, setVisibleCount]     = useState(7);
   const [indicatorStyle, setIndicatorStyle] = useState({});
@@ -356,7 +356,7 @@ export default function BlogGrid({ searchQuery = "" }) {
   }, [activeCategory]);
 
   const filtered = useMemo(() => {
-    let list = GRID_POSTS;
+    let list = posts;
     if (activeCategory !== "All") list = list.filter((p) => p.category === activeCategory);
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
@@ -368,7 +368,7 @@ export default function BlogGrid({ searchQuery = "" }) {
       );
     }
     return list;
-  }, [activeCategory, searchQuery]);
+  }, [posts, activeCategory, searchQuery]);
 
   const visible = filtered.slice(0, visibleCount);
   const hasMore = visibleCount < filtered.length;

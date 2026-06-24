@@ -1,9 +1,31 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Header from "./components/layout/header.jsx";
 import TawkToChat from "./components/TawkToChat.jsx";
 import Hero from "./components/hero.jsx";
 import LoadingScreen from "./components/LoadingScreen.jsx";
+
+// Admin panel (lazy, rendered without the public Header/TawkToChat chrome)
+const AdminLayout = lazy(() => import("./components/admin/AdminLayout.jsx"));
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin.jsx"));
+const TestimonialsAdmin = lazy(() => import("./pages/admin/TestimonialsAdmin.jsx"));
+const BlogsAdmin = lazy(() => import("./pages/admin/BlogsAdmin.jsx"));
+const JobsAdmin = lazy(() => import("./pages/admin/JobsAdmin.jsx"));
+
+const ADMIN_TOKEN_KEY = "corehives_admin_token";
+
+// Guards protected admin routes; bounces to login when no token is present.
+function ProtectedRoute({ children }) {
+  if (!localStorage.getItem(ADMIN_TOKEN_KEY)) {
+    return <Navigate to="/admin-login" replace />;
+  }
+  return children;
+}
+
+// Simple fallback so admin routes never trigger the public LoadingScreen overlay.
+function AdminFallback() {
+  return <div className="min-h-screen bg-[#07090f]" />;
+}
 
 // Home page sections
 const Solution = lazy(() => import("./components/solution.jsx"));
@@ -99,6 +121,31 @@ function HomePage() {
   );
 }
 
+function AdminRoutes() {
+  return (
+    <Suspense fallback={<AdminFallback />}>
+      <Routes>
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route
+          path="/corehives/admin"
+          element={<Navigate to="/corehives/admin/testimonials" replace />}
+        />
+        <Route
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="/corehives/admin/testimonials" element={<TestimonialsAdmin />} />
+          <Route path="/corehives/admin/blogs" element={<BlogsAdmin />} />
+          <Route path="/corehives/admin/jobs" element={<JobsAdmin />} />
+        </Route>
+      </Routes>
+    </Suspense>
+  );
+}
+
 function AppRoutes() {
   const location = useLocation();
   const [loading, setLoading]   = useState(true);
@@ -106,6 +153,7 @@ function AppRoutes() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
     setMounted(true);
     const SHOW = 2100; // minimum display ms
@@ -207,6 +255,13 @@ function AppRoutes() {
 }
 
 function App() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith("/corehives/admin") || location.pathname === "/admin-login";
+
+  if (isAdmin) {
+    return <AdminRoutes />;
+  }
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#000405] text-white">
       <Header />

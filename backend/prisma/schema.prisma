@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String // bcrypt hash
+  name      String?
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Testimonial {
+  id        Int      @id @default(autoincrement())
+  name      String
+  initials  String
+  role      String
+  rating    Int      @default(5)
+  title     String
+  text      String   @db.LongText
+  isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("testimonials")
+}
+
+model Blog {
+  id             Int       @id @default(autoincrement())
+  slug           String    @unique
+  featured       Boolean   @default(false)
+  category       String
+  title          String
+  excerpt        String    @db.Text
+  content        Json
+  author         String
+  authorInitials String
+  authorRole     String
+  authorBio      String    @db.Text
+  readTime       String
+  isPublished    Boolean   @default(true)
+  publishedAt    DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@map("blogs")
+}
+
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  REMOTE
+  CONTRACT
+}
+
+model Job {
+  id           Int       @id @default(autoincrement())
+  title        String
+  department   String
+  location     String
+  type         JobType
+  shortDesc    String    @db.Text
+  fullDesc     String    @db.LongText
+  requirements Json
+  isActive     Boolean   @default(true)
+  expiresAt    DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@map("jobs")
+}

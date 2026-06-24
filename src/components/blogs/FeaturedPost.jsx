@@ -1,16 +1,15 @@
 import { Clock, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { FEATURED_POST } from "../../data/blogs";
 import BlogCoverImage from "./BlogCoverImage";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import CTAButton from "../shared/CTAButton";
 
-export default function FeaturedPost() {
+export default function FeaturedPost({ post }) {
   const navigate  = useNavigate();
   const labelRef  = useScrollReveal();
   const cardRef   = useScrollReveal(80);
 
-  const post = FEATURED_POST;
+  if (!post) return null;
 
   const handleOpen = () => navigate(`/blogs/${post.slug}`);
 

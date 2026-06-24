@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { ALL_POSTS, CAT_COLORS } from "../../data/blogs";
+import { CAT_COLORS } from "../../data/blogs";
 import BlogCoverImage from "./BlogCoverImage";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import CTAButton from "../shared/CTAButton";
@@ -185,16 +185,15 @@ function RelatedCard({ post, index }) {
   );
 }
 
-export default function RelatedBlogs({ currentPost }) {
-  const navigate  = useNavigate();
+export default function RelatedBlogs({ currentPost, posts = [] }) {
   const headerRef = useScrollReveal();
 
   // Same category first, fill with others if needed, exclude current post
   const related = (() => {
-    const sameCategory = ALL_POSTS.filter(
+    const sameCategory = posts.filter(
       (p) => p.id !== currentPost.id && p.category === currentPost.category
     );
-    const others = ALL_POSTS.filter(
+    const others = posts.filter(
       (p) => p.id !== currentPost.id && p.category !== currentPost.category
     );
     return [...sameCategory, ...others].slice(0, 3);

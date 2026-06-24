@@ -7,6 +7,7 @@ import BgApp from "../assets/bg-app.png";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation from "../components/animations/bannerleft";
 import CTAButton from "../components/shared/CTAButton";
+import { getJobs } from "../services/api";
 import {
   X, Upload, FileText, CheckCircle2, Plus, Minus,
   MapPin, Rocket, GraduationCap, Heart, Globe,
@@ -15,54 +16,15 @@ import {
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
-// ─── DATA ─────────────────────────────────────────────────────────────────────
+// Map the API JobType enum to the human-readable label the UI shows.
+const JOB_TYPE_LABELS = {
+  FULL_TIME: "Full-Time",
+  PART_TIME: "Part-Time",
+  REMOTE: "Remote",
+  CONTRACT: "Contract",
+};
 
-const jobs = [
-  {
-    id: 1,
-    title: "Senior Full-Stack Engineer",
-    department: "Engineering",
-    location: "Remote",
-    type: "Full-Time",
-    shortDesc:
-      "Build scalable, high-performance web applications for enterprise clients across finance, health-tech, and SaaS verticals. You'll own features end-to-end and collaborate with product and design.",
-    fullDesc: `We're looking for a Senior Full-Stack Engineer who thrives in a fast-paced, product-driven environment. You'll work across our React/Next.js frontend and Node.js backend, contributing to architecture decisions and mentoring junior engineers.\n\nResponsibilities:\n• Design and ship production-grade features across the full stack\n• Lead code reviews and enforce engineering best practices\n• Collaborate with product managers and designers to shape requirements\n• Optimize for performance, scalability, and reliability\n\nRequirements:\n• 5+ years of production experience with React, TypeScript, and Node.js\n• Solid understanding of databases (PostgreSQL, Redis)\n• Experience with cloud infrastructure (AWS/GCP) and CI/CD pipelines\n• Strong communication skills and a bias for action`,
-    requirements: ["5+ yrs React/Node.js", "TypeScript", "PostgreSQL", "AWS"],
-  },
-  {
-    id: 2,
-    title: "UI/UX Product Designer",
-    department: "Design",
-    location: "Remote / Hybrid",
-    type: "Full-Time",
-    shortDesc:
-      "Craft pixel-perfect, human-centered interfaces for complex enterprise products. You'll drive the design system, run user research, and collaborate daily with engineering.",
-    fullDesc: `We need a Product Designer who is equally strong in systems thinking and visual polish. You'll define the design language for our core products, run user research, and ship high-fidelity designs that engineering loves to build.\n\nResponsibilities:\n• Own the product design process from discovery to handoff\n• Build and maintain a scalable design system in Figma\n• Conduct user interviews and synthesize insights into design decisions\n• Work closely with engineering to ensure pixel-perfect implementation\n\nRequirements:\n• 4+ years of product design experience for digital products\n• Expert-level Figma skills\n• Portfolio demonstrating systems thinking and strong visual craft\n• Experience with user research methods`,
-    requirements: ["4+ yrs Product Design", "Figma", "Design Systems", "User Research"],
-  },
-  {
-    id: 3,
-    title: "DevOps & Cloud Engineer",
-    department: "Infrastructure",
-    location: "Remote",
-    type: "Full-Time",
-    shortDesc:
-      "Own our cloud infrastructure, CI/CD pipelines, and observability stack. You'll build for reliability at scale and drive a culture of automation across the engineering team.",
-    fullDesc: `We're hiring a DevOps Engineer to own and scale our cloud infrastructure across AWS and GCP. You'll architect CI/CD systems, improve observability, and enable engineering teams to ship faster with confidence.\n\nResponsibilities:\n• Design and manage containerized infrastructure (Kubernetes, Docker)\n• Build and maintain CI/CD pipelines for multiple product teams\n• Implement monitoring, alerting, and incident response processes\n• Optimize infrastructure costs and improve system reliability\n\nRequirements:\n• 4+ years in DevOps/Platform engineering\n• Deep expertise in Kubernetes and Docker\n• Experience with Terraform and infrastructure as code\n• Strong background in monitoring tools (Datadog, Grafana, PagerDuty)`,
-    requirements: ["Kubernetes", "Terraform", "AWS / GCP", "CI/CD"],
-  },
-  {
-    id: 4,
-    title: "AI / ML Research Engineer",
-    department: "AI Division",
-    location: "Remote",
-    type: "Full-Time",
-    shortDesc:
-      "Research, prototype, and productionize machine learning models for our AI-powered product suite. You'll work at the frontier of applied ML and directly shape our AI roadmap.",
-    fullDesc: `We're building an AI division and need a Research Engineer who can bridge the gap between research and production. You'll design experiments, fine-tune LLMs, and deploy models at scale for our product suite.\n\nResponsibilities:\n• Research and prototype ML models for product use cases\n• Fine-tune and evaluate large language models (LLMs)\n• Build model serving infrastructure and monitoring pipelines\n• Collaborate with product to identify AI opportunities\n\nRequirements:\n• 3+ years ML engineering experience\n• Proficiency in Python, PyTorch / TensorFlow\n• Experience with LLM fine-tuning and prompt engineering\n• Knowledge of MLOps practices and model deployment`,
-    requirements: ["Python", "PyTorch", "LLMs", "MLOps"],
-  },
-];
+// ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const benefits = [
   {
@@ -678,7 +640,7 @@ function JobCard({ job, onApply, revealStyle }) {
             {job.title}
           </h3>
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span className="text-[11px] font-medium text-[#07BEB8]">{job.type}</span>
+            <span className="text-[11px] font-medium text-[#07BEB8]">{JOB_TYPE_LABELS[job.type] || job.type}</span>
             <span className="text-white/25 text-[11px] select-none">·</span>
             <span className="flex items-center gap-1 text-[11px] text-gray-400">
               <MapPin className="w-2.5 h-2.5 shrink-0" />
@@ -835,6 +797,25 @@ function MagneticCTA({ children }) {
 
 export default function Careers() {
   const [modalJob, setModalJob] = useState(null);
+  const [jobs, setJobs] = useState([]);
+  const [jobsLoading, setJobsLoading] = useState(true);
+  const [jobsError, setJobsError] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    getJobs()
+      .then((data) => {
+        if (!alive) return;
+        setJobs(Array.isArray(data) ? data : []);
+        setJobsError(false);
+      })
+      .catch(() => alive && setJobsError(true))
+      .finally(() => alive && setJobsLoading(false));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   const [openingsRef, openingsVisible] = useScrollReveal(0.08);
   const [benefitsRef, benefitsVisible] = useScrollReveal(0.07);
   const [processRef, processVisible] = useScrollReveal(0.07);
@@ -977,16 +958,44 @@ export default function Careers() {
           </div>
 
           {/* Job cards grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {jobs.map((job, idx) => (
-              <JobCard
-                key={job.id}
-                job={job}
-                onApply={setModalJob}
-                revealStyle={revealBase(openingsVisible, 0.1 + idx * 0.1)}
-              />
-            ))}
-          </div>
+          {jobsLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="animate-pulse rounded-2xl border border-[#07BEB8]/18 bg-white/[0.02] p-6"
+                >
+                  <div className="mb-4 h-5 w-2/3 rounded bg-white/10" />
+                  <div className="mb-4 h-3 w-1/3 rounded bg-white/5" />
+                  <div className="mb-2 flex gap-2">
+                    <div className="h-5 w-16 rounded-full bg-white/5" />
+                    <div className="h-5 w-20 rounded-full bg-white/5" />
+                  </div>
+                  <div className="h-3 w-full rounded bg-white/5" />
+                  <div className="mt-2 h-3 w-4/5 rounded bg-white/5" />
+                </div>
+              ))}
+            </div>
+          ) : jobsError ? (
+            <div className="rounded-2xl border border-white/10 bg-white/[0.02] py-16 text-center text-sm text-white/55">
+              We couldn&apos;t load open roles right now. Please try again later.
+            </div>
+          ) : jobs.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-white/12 bg-white/[0.02] py-16 text-center text-sm text-white/45">
+              No open roles at the moment — but we&apos;re always growing. Check back soon.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {jobs.map((job, idx) => (
+                <JobCard
+                  key={job.id}
+                  job={job}
+                  onApply={setModalJob}
+                  revealStyle={revealBase(openingsVisible, 0.1 + idx * 0.1)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
