@@ -220,7 +220,7 @@ export default function PartnersSection() {
                 <stop offset="100%" stopColor="#082322" />
               </radialGradient>
               {/* Whitens a logo (= brightness(0) invert(1)) while keeping its alpha */}
-              <filter id="whiten" x="0%" y="0%" width="100%" height="100%">
+              <filter id="whiten" x="-20%" y="-20%" width="140%" height="140%">
                 <feColorMatrix
                   type="matrix"
                   values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0"
