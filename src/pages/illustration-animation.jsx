@@ -674,6 +674,8 @@ export default function IllustrationAnimation() {
         footerDescription="We also quote multi-video campaigns, complete UI animation libraries, 3D integration projects, and ongoing brand motion retainers."
         footerCtaText="Discuss your motion scope"
         footerCtaHref="/contact"
+        showToggle={false}
+        showPeriod={false}
       />
 
       {/* MOTION TOOLS */}

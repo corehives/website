@@ -22,6 +22,8 @@ export default function PricingSection({
   footerCtaText = "Request a custom quote",
   footerCtaHref = "/contact",
   className,
+  showToggle = true,
+  showPeriod = true,
 }) {
   const initialCycle = cycleOptions.some((cycle) => cycle.id === defaultCycle)
     ? defaultCycle
@@ -61,14 +63,16 @@ export default function PricingSection({
             {description}
           </p>
         </div>
-        <div className="mt-10 flex justify-center">
-          <PricingToggle
-            cycles={cycleOptions}
-            activeCycle={billingCycle}
-            onChange={setBillingCycle}
-            savingsLabel={savingsLabel}
-          />
-        </div>
+        {showToggle && (
+          <div className="mt-10 flex justify-center">
+            <PricingToggle
+              cycles={cycleOptions}
+              activeCycle={billingCycle}
+              onChange={setBillingCycle}
+              savingsLabel={savingsLabel}
+            />
+          </div>
+        )}
 
         <div className="mt-14 grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))] xl:gap-7">
           {visiblePlans.map((plan) => (
@@ -76,6 +80,7 @@ export default function PricingSection({
               key={plan.id}
               plan={plan}
               billingCycle={billingCycle}
+              showPeriod={showPeriod}
             />
           ))}
         </div>

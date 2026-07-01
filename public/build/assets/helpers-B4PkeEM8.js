@@ -1,0 +1,1 @@
+function e(...e){return e.filter(Boolean).join(` `)}function t(e){if(!e)return``;let t=new Date(e);return Number.isNaN(t.getTime())?``:t.toLocaleDateString(`en-US`,{year:`numeric`,month:`long`,day:`numeric`})}function n(e){return e&&{...e,date:e.date||t(e.publishedAt||e.createdAt)}}export{n,e as t};

@@ -677,6 +677,8 @@ export default function Blockchain() {
         footerDescription="We also quote full DeFi protocol ecosystems, cross-chain bridge infrastructure, DAO governance systems, and long-term on-chain engineering partnerships."
         footerCtaText="Discuss your protocol requirements"
         footerCtaHref="/contact"
+        showToggle={false}
+        showPeriod={false}
       />
 
       {/* WEB3 STACK */}

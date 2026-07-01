@@ -36,6 +36,8 @@ export default function AppDevelopment() {
         footerDescription="We also handle discovery workshops, product redesigns, backend-heavy mobile platforms, and app plus web ecosystems with tailored engagement models."
         footerCtaText="Discuss your app scope"
         footerCtaHref="/contact"
+        showToggle={false}
+        showPeriod={false}
       />
       <FaqSection />
       <Suspense fallback={null}>

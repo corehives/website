@@ -674,6 +674,8 @@ export default function WebDevelopment() {
         footerDescription="We also quote enterprise websites, app plus web bundles, and ongoing white-label product partnerships for agencies and in-house teams."
         footerCtaText="Talk through your scope"
         footerCtaHref="/contact"
+        showToggle={false}
+        showPeriod={false}
       />
 
       {/* Tech Expertise */}

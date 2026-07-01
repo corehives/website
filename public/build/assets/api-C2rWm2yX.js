@@ -1,0 +1,1 @@
+import{t as e}from"./axios-DbF61oSn.js";var t=e.create({baseURL:`/api/v1`,timeout:15e3}),n=()=>t.get(`/testimonials`).then(e=>e.data.data),r=(e={})=>t.get(`/blogs`,{params:e}).then(e=>({posts:e.data.data,pagination:e.data.pagination})),i=e=>t.get(`/blogs/${e}`).then(e=>e.data.data),a=()=>t.get(`/jobs`).then(e=>e.data.data);export{n as i,r as n,a as r,i as t};

@@ -3,7 +3,7 @@ import { classNames } from "../../utils/helpers";
 import { getPlanBilling, isInternalHref } from "./pricingHelpers";
 import CTAButton from "../shared/CTAButton";
 
-export default function PricingCard({ plan, billingCycle }) {
+export default function PricingCard({ plan, billingCycle, showPeriod = true }) {
   const billing = getPlanBilling(plan, billingCycle);
   const usesInternalHref = isInternalHref(plan.buttonHref);
 
@@ -49,9 +49,11 @@ export default function PricingCard({ plan, billingCycle }) {
           <span className="text-4xl font-semibold tracking-tight text-white sm:text-[2.75rem]">
             {billing.price}
           </span>
-          <span className="mb-1 text-sm font-medium text-slate-400">
-            {billing.billing}
-          </span>
+          {showPeriod && (
+            <span className="mb-1 text-sm font-medium text-slate-400">
+              {billing.billing}
+            </span>
+          )}
         </div>
 
         <p className="mt-3 text-sm leading-6 text-slate-400">{billing.caption}</p>
