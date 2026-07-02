@@ -1,8 +1,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{REQUEST_URI} ^/api/
-    RewriteRule ^ - [L]
+    # Proxy API requests to backend
+    RewriteRule ^api/(.*) http://localhost:5000/api/$1 [P,L]
 
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
