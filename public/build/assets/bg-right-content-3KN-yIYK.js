@@ -1,1 +1,0 @@
-var e=`/public/build/assets/bg-right-content-CZuVKnvN.webp`;export{e as t};

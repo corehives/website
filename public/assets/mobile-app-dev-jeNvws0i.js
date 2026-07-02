@@ -1,0 +1,1 @@
+var e=`/assets/mobile-app-dev-dRUC7umx.png`;export{e as t};

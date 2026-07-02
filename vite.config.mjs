@@ -2,8 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/public/build/',
-
   plugins: [react()],
   server: {
     proxy: {
@@ -14,7 +12,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'public/build',
+    outDir: 'public',
     target: 'es2020',
     rollupOptions: {
       output: {

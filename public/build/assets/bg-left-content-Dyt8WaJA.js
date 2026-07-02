@@ -1,1 +1,0 @@
-var e=`/public/build/assets/bg-left-content-Cq-nirmX.webp`;export{e as t};

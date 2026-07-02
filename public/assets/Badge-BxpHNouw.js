@@ -1,0 +1,1 @@
+import{zt as e}from"./react-vendor-DH9uhH-f.js";var t=e();function n({children:e,text:n,bg:r,border:i}){return(0,t.jsx)(`span`,{style:{color:n||`#07BEB8`,backgroundColor:r||`rgba(7,190,184,0.08)`,borderColor:i||`rgba(7,190,184,0.2)`},className:`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium whitespace-nowrap`,children:e})}export{n as t};
