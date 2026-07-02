@@ -1,6 +1,6 @@
 // Seeds the admin user + all three content tables with real CoreHives data.
 // Run: npm run db:seed  (node prisma/seed.js)
-require("dotenv").config();
+require("dotenv").config({ path: require("path").join(__dirname, "../../.env") });
 const { PrismaClient } = require("@prisma/client");
 const bcrypt = require("bcryptjs");
 
