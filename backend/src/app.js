@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const path = require("path");
 
 const authRoutes = require("./modules/auth/auth.routes");
 const testimonialRoutes = require("./modules/testimonials/testimonial.routes");
@@ -42,6 +43,16 @@ v1.use("/testimonials", testimonialRoutes);
 v1.use("/blogs", blogRoutes);
 v1.use("/jobs", jobRoutes);
 app.use("/api/v1", v1);
+
+// ─── Static files & SPA routing ──────────────────────────────────────────────
+app.use(express.static(path.join(__dirname, "../../public")));
+
+app.get("*", (req, res, next) => {
+  if (req.path.startsWith("/api") || req.path.startsWith("/health")) {
+    return next();
+  }
+  res.sendFile(path.join(__dirname, "../../public/index.html"));
+});
 
 // ─── Error handling ───────────────────────────────────────────────────────────
 app.use(notFoundHandler);
