@@ -1,1 +1,0 @@
-var e=`/assets/web-cover-B2Tuupix.jpg`;export{e as t};

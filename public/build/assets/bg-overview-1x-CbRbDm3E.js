@@ -1,1 +1,0 @@
-var e=`/assets/bg-overview-1x-Da9DkMEr.webp`;export{e as t};

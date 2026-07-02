@@ -1,0 +1,1 @@
+var e=`/public/build/assets/portfolio-cover-h-17BcQ5.png`;export{e as t};

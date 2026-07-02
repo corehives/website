@@ -1,0 +1,1 @@
+var e=`/public/build/assets/work-Dhlmr2i0.png`;export{e as t};
