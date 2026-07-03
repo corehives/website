@@ -1,0 +1,94 @@
+[
+  {
+    "id": "starter",
+    "name": "Starter",
+    "eyebrow": "Launch-ready foundation",
+    "description": "Best for founders and lean teams that need a polished digital presence quickly.",
+    "features": [
+      "Up to 6 strategic website pages",
+      "Mobile-first responsive interface",
+      "Technical SEO foundation",
+      "CMS-ready build and handoff",
+      "Launch QA plus training session"
+    ],
+    "buttonText": "Start Your Project",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$399",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Flexible monthly delivery and support for fast launches."
+      },
+      "yearly": {
+        "price": "$1,100",
+        "billing": "/year",
+        "discountBadge": "2 months free",
+        "caption": "Annual partnership for continuous iteration at a lower effective rate."
+      }
+    }
+  },
+  {
+    "id": "scale",
+    "name": "Scale",
+    "eyebrow": "High-performance delivery",
+    "description": "For established brands that need custom functionality, integrations, and a dedicated product partner.",
+    "features": [
+      "Up to 15 custom pages or flows",
+      "Custom app-like interactions",
+      "API and workflow integrations",
+      "Performance monitoring and tuning",
+      "Dedicated sprint planning cadence",
+      "Slack channel and priority support"
+    ],
+    "buttonText": "Book a Free Consultation",
+    "buttonHref": "/contact",
+    "popular": true,
+    "billing": {
+      "monthly": {
+        "price": "$799",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "A senior delivery lane for complex products and enterprise growth initiatives."
+      },
+      "yearly": {
+        "price": "$2,000",
+        "billing": "/year",
+        "discountBadge": "Annual retainer savings",
+        "caption": "Designed for long-term build velocity across product, content, and experimentation."
+      }
+    }
+  },
+  {
+    "id": "growth",
+    "name": "Growth",
+    "eyebrow": "Most selected",
+    "description": "Ideal for growing businesses that need more pages, stronger funnels, and ongoing optimization.",
+    "features": [
+      "Unlimited landing pages and campaigns",
+      "Advanced on-page SEO structure",
+      "Conversion-focused UX refinements",
+      "CMS, blog, or landing page system",
+      "Analytics dashboard setup",
+      "Priority support and revisions"
+    ],
+    "buttonText": "Talk to Our Team",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$1,499",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Built for teams scaling marketing, content, and lead generation."
+      },
+      "yearly": {
+        "price": "$1,700",
+        "billing": "/year",
+        "discountBadge": "Save 20%",
+        "caption": "The best balance of delivery speed, flexibility, and retained value."
+      }
+    }
+  }
+]
