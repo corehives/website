@@ -5,6 +5,7 @@ import WebWork from "../assets/web-mock.png";
 import Analytic from "../assets/icons/analytic.png";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation from "../components/animations/bannerleft";
+const Testimonials = lazy(() => import("../components/testimonials.jsx"));
 import Cloud from "../assets/icons/cloud.png";
 import leftLight from "../assets/left-light.png";
 import rightLight from "../assets/right-light.png";
@@ -57,27 +58,27 @@ import { ChevronDown } from "lucide-react";
 
 const services = [
   {
-    title: "Web Development",
+    title: "Business Website Development",
     description:
-      "Creating captivating and functional websites to strengthen your online presence and engage users effectively",
+      "We build custom business websites that reflect your brand, provide a great user experience, and help you connect with your customers.",
     icon: "↗",
   },
   {
-    title: "Mobile App Development",
+    title: "eCommerce Development",
     description:
-      "Designing user-friendly and optimized mobile applications that cater to various platforms and user needs.",
+      "We develop secure and user-friendly online stores with features that make it easy to manage products, orders, and payments.",
     icon: "↗",
   },
   {
-    title: "Plugin Development",
+    title: "Custom Web Applications",
     description:
-      "Crafting custom plugins to enhance the capabilities of your software and tailor it to your specific requirements.",
+      "We create web applications designed around your business processes, helping you automate tasks and improve productivity.",
     icon: "↗",
   },
   {
-    title: "Quality Assurance and Testing",
+    title: "Website Maintenance & Support",
     description:
-      "Ensuring the dependability and performance of your software through testing and quality checks.",
+      "We provide ongoing updates, security improvements, performance optimization, and technical support to keep your website running smoothly.",
     icon: "↗",
   },
 ];
@@ -308,16 +309,14 @@ export default function WebDevelopment() {
 
           {/* Heading */}
           <h1 className="max-w-4xl text-center text-3xl font-extrabold leading-[1] tracking-wider text-white sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-4xl">
-            Technology That{" "}
-            <span className="precision-gradient">Perfectly Aligns</span>
+            Custom <span className="precision-gradient">Web &amp; App</span>
             <br />
-            With Your Needs
+            Development Services
           </h1>
 
           {/* Subtitle */}
           <p className="mt-6 max-w-xl text-center text-sm leading-relaxed text-white sm:text-base">
-            Purpose-driven technology crafted to integrate seamlessly into your
-            operations and evolve with your needs.
+            We design and develop websites, web applications, and mobile apps that help businesses improve their digital presence, simplify operations, and provide a better experience for their customers.
           </p>
         </div>
 
@@ -378,25 +377,28 @@ export default function WebDevelopment() {
                   color: "#FFF",
                 }}
               >
-                Achieve more with less
+                Our Development Services
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
-                Web &amp; App Development
+                From Idea to Launch
               </h2>
             </div>
 
             <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
-              Tired of off-the-shelf solutions that don't quite fit?
+              Every project starts with understanding your business, your users, and your goals.
+              We build websites, web applications, and mobile apps that are designed to solve
+              real problems and support your long-term growth.
+
               <br />
               <br />
-              We specialize in crafting custom web applications, mobile apps,
-              and software tailored to your specific needs. From development and
-              implementation to ongoing maintenance and support, we're your
-              one-stop shop for building the perfect tech solution.
+
+              Our team manages every stage of development, including planning, UI/UX design,
+              development, testing, deployment, and ongoing maintenance, so you have a reliable
+              technology partner from start to finish.
             </p>
 
             <div className="flex items-center flex-wrap gap-x-6 gap-y-5 pt-2 sm:pt-4">
-              <CTAButton href="/contact">Build Creative Project</CTAButton>
+              <CTAButton href="/contact">Request a Free Consultation</CTAButton>
               <div className="flex items-center gap-5 sm:gap-6">
                 {/* Avatar Group Container */}
                 <div className="flex items-center relative">
@@ -460,7 +462,7 @@ export default function WebDevelopment() {
                     80+
                   </span>
                   <span className="text-gray-400 text-xs sm:text-sm mt-1.5">
-                    Total Employee
+                    clients
                   </span>
                 </div>
               </div>
@@ -482,13 +484,14 @@ export default function WebDevelopment() {
             {/* Left - Title */}
             <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Turning your ideas
+                Our <span className="precision-gradient">Development</span>
                 <br />
-                into{" "}
-                <span className="precision-gradient">digital experiences</span>
-                <br />
-                through:
+                Services
               </h2>
+              <p className="mt-5 max-w-md text-gray-300 leading-relaxed">
+                We provide a range of development services to help businesses build,
+                improve, and maintain reliable digital products.
+              </p>
             </div>
 
             {/* Right - Accordion */}
@@ -507,9 +510,8 @@ export default function WebDevelopment() {
                       </h3>
                     </div>
                     <div
-                      className={`flex-shrink-0 ml-4 text-[#07BEB8] transition-transform duration-300 ${
-                        expandedIndex === index ? "rotate-180" : ""
-                      }`}
+                      className={`flex-shrink-0 ml-4 text-[#07BEB8] transition-transform duration-300 ${expandedIndex === index ? "rotate-180" : ""
+                        }`}
                     >
                       <ChevronDown className="w-5 h-5" />
                     </div>
@@ -517,9 +519,8 @@ export default function WebDevelopment() {
 
                   {/* Expanded Content */}
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      expandedIndex === index ? "max-h-96" : "max-h-0"
-                    }`}
+                    className={`overflow-hidden transition-all duration-300 ${expandedIndex === index ? "max-h-96" : "max-h-0"
+                      }`}
                   >
                     <div className="px-4 py-3 text-gray-300 text-sm md:text-base leading-relaxed border-l-2 border-[#07BEB8] ml-2">
                       {service.description}
@@ -532,138 +533,111 @@ export default function WebDevelopment() {
         </div>
       </section>
 
-      {/* Latest Client Work */}
-      <section className="relative px-6 py-16 sm:px-12 md:px-20 lg:px-32">
-        <div className="max-w-7xl mx-auto">
+      {/* How We Work Section */}
+      <section className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32 bg-[#000405] overflow-hidden border-t border-white/5">
+        {/* Glow blob */}
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full z-0 opacity-40"
+          style={{
+            background: "radial-gradient(ellipse, rgba(7,190,184,0.1) 0%, transparent 70%)",
+          }}
+        />
+
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <div className="mb-16 text-center">
-            <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Latest Client <span className="precision-gradient">Work</span>
-            </div>
-            <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">
-              Our team of experts consists of highly skilled software engineers,
-              designers, developers, project managers, and quality assurance
-              specialists. here's what we excel at.
+            <span
+              className="text-xs uppercase tracking-widest text-[#07BEB8] font-bold border border-[#07BEB8]/30 px-4 py-1.5 rounded-full bg-[#07BEB8]/5"
+            >
+              Our Process
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-5">
+              How We <span className="precision-gradient">Work</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mt-3">
+              A structured, transparent process designed to take your web and app ideas from concept to successful launch.
             </p>
           </div>
 
-          {/* 3-Column Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-            {/* ── LEFT COLUMN ── */}
-            <div className="flex flex-col gap-6">
-              {/* Card 1 */}
-              <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6">
-                  <img src={Analytic} className="h-5" alt="Analytic" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
-                  Strong Systems
-                  <br />
-                  Behind the Scenes
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  Scalable, Architecture, Clean Code & Performance-Focused
-                  Development That Drivers Real Results.
-                </p>
+          {/* Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            {/* Step 1 */}
+            <div className="group relative flex flex-col items-center text-center p-8 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-[#07BEB8]/40 hover:bg-[#07BEB8]/[0.02] hover:shadow-[0_0_40px_rgba(7,190,184,0.08)] transition-all duration-300">
+              <div className="w-14 h-14 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8]/10 flex items-center justify-center text-[#07BEB8] font-extrabold text-xl mb-5 group-hover:scale-110 transition-transform duration-300">
+                1
               </div>
-
-              {/* Card 2 */}
-              <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6">
-                  <img src={Analytic} className="h-5" alt="Analytic" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
-                  Quality You
-                  <br />
-                  Can Count On
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  Rigorous Testing Code Reviews & Industry Best Practices To
-                  Deliver Bug-Free & Reliable Solutions.
-                </p>
+              <h3 className="text-lg font-bold text-white mb-3">Discovery Call</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                We understand your goals.
+              </p>
+              
+              {/* Desktop arrow connector */}
+              <div className="hidden md:flex absolute top-14 -right-5 w-10 items-center justify-center text-[#07BEB8]/20 group-hover:text-[#07BEB8] transition-colors duration-300 pointer-events-none z-20">
+                <span className="text-2xl font-light font-mono">→</span>
+              </div>
+              {/* Mobile arrow connector */}
+              <div className="md:hidden mt-6 text-[#07BEB8]/30 text-xl font-mono">
+                ↓
               </div>
             </div>
 
-            {/* ── CENTER COLUMN ── */}
-            <div className="flex flex-col gap-6">
-              {/* Laptop showcase */}
-              <div className="relative flex-1 rounded-2xl overflow-hidden flex items-center justify-center min-h-[400px] bg-gradient-to-br from-teal-900/20 to-transparent">
-                <img
-                  src={WebWork}
-                  alt="Latest client project"
-                  className="w-full h-full object-contain"
-                />
+            {/* Step 2 */}
+            <div className="group relative flex flex-col items-center text-center p-8 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-[#07BEB8]/40 hover:bg-[#07BEB8]/[0.02] hover:shadow-[0_0_40px_rgba(7,190,184,0.08)] transition-all duration-300">
+              <div className="w-14 h-14 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8]/10 flex items-center justify-center text-[#07BEB8] font-extrabold text-xl mb-5 group-hover:scale-110 transition-transform duration-300">
+                2
               </div>
-
-              {/* Stats card with avatars */}
-              <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
-                <div className="flex mx-auto items-center gap-3">
-                  <div className="flex items-center">
-                    <img
-                      src={avatar4}
-                      alt=""
-                      className="w-15 h-15 rounded-full border-2object-cover"
-                    />
-                    <img
-                      src={avatar5}
-                      alt=""
-                      className="w-15 h-15 rounded-full border-2object-cover -ml-6"
-                    />
-                    <img
-                      src={avatar6}
-                      alt=""
-                      className="w-15 h-15 rounded-full border-2object-cover -ml-6"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-[#07BEB8] leading-none">
-                      80+
-                    </p>
-                    <p className="text-gray-400 text-xs mt-1">
-                      Total Satisfied Clients
-                    </p>
-                  </div>
-                </div>
+              <h3 className="text-lg font-bold text-white mb-3">Planning</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                We define the scope and timeline.
+              </p>
+              
+              {/* Desktop arrow connector */}
+              <div className="hidden md:flex absolute top-14 -right-5 w-10 items-center justify-center text-[#07BEB8]/20 group-hover:text-[#07BEB8] transition-colors duration-300 pointer-events-none z-20">
+                <span className="text-2xl font-light font-mono">→</span>
+              </div>
+              {/* Mobile arrow connector */}
+              <div className="md:hidden mt-6 text-[#07BEB8]/30 text-xl font-mono">
+                ↓
               </div>
             </div>
 
-            {/* ── RIGHT COLUMN ── */}
-            <div className="flex flex-col gap-6">
-              {/* Card 3 */}
-              <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6">
-                  <img src={Analytic} className="h-5" alt="Analytic" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
-                  Custom Web
-                  <br />
-                  Platforms
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  High-Performance, Secure Web Applications Built to Scale with
-                  your Business and users.
-                </p>
+            {/* Step 3 */}
+            <div className="group relative flex flex-col items-center text-center p-8 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-[#07BEB8]/40 hover:bg-[#07BEB8]/[0.02] hover:shadow-[0_0_40px_rgba(7,190,184,0.08)] transition-all duration-300">
+              <div className="w-14 h-14 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8]/10 flex items-center justify-center text-[#07BEB8] font-extrabold text-xl mb-5 group-hover:scale-110 transition-transform duration-300">
+                3
               </div>
-
-              {/* Card 4 */}
-              <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
-                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6">
-                  <img src={Analytic} className="h-5" alt="Analytic" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
-                  Mobile App
-                  <br />
-                  Development
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  Feature-Rich, Intuitive & High-Performing Mobile Apps For iOS
-                  & Andorid.
-                </p>
+              <h3 className="text-lg font-bold text-white mb-3">Design & Development</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Your product is built with regular updates.
+              </p>
+              
+              {/* Desktop arrow connector */}
+              <div className="hidden md:flex absolute top-14 -right-5 w-10 items-center justify-center text-[#07BEB8]/20 group-hover:text-[#07BEB8] transition-colors duration-300 pointer-events-none z-20">
+                <span className="text-2xl font-light font-mono">→</span>
+              </div>
+              {/* Mobile arrow connector */}
+              <div className="md:hidden mt-6 text-[#07BEB8]/30 text-xl font-mono">
+                ↓
               </div>
             </div>
+
+            {/* Step 4 */}
+            <div className="group relative flex flex-col items-center text-center p-8 rounded-2xl border border-white/5 bg-white/[0.01] hover:border-[#07BEB8]/40 hover:bg-[#07BEB8]/[0.02] hover:shadow-[0_0_40px_rgba(7,190,184,0.08)] transition-all duration-300">
+              <div className="w-14 h-14 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8]/10 flex items-center justify-center text-[#07BEB8] font-extrabold text-xl mb-5 group-hover:scale-110 transition-transform duration-300">
+                4
+              </div>
+              <h3 className="text-lg font-bold text-white mb-3">Launch & Support</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Deployment, maintenance, and ongoing improvements.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
+
+      <Testimonials />
 
       <PricingSection
         eyebrow="Transparent delivery retainers"
@@ -705,11 +679,10 @@ export default function WebDevelopment() {
                 <button
                   key={tab}
                   onClick={() => setActiveTechTab(tab)}
-                  className={`shrink-0 px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${
-                    active
+                  className={`shrink-0 px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all border ${active
                       ? "bg-[#07BEB8] text-white border-[#07BEB8] "
                       : "bg-transparent text-gray-200 border-white/25 hover:border-white/50"
-                  }`}
+                    }`}
                 >
                   {tab}
                 </button>
