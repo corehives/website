@@ -64,7 +64,6 @@ export default function OverviewSection() {
                 operational costs at significantly affordable rates.
               </p>
 
-              <CTAButton href="/contact">Explore All Case Studies</CTAButton>
             </div>
           </div>
 
