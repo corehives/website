@@ -1,0 +1,94 @@
+[
+  {
+    "id": "dedicated-developer",
+    "name": "Embedded Developer",
+    "eyebrow": "Individual senior talent",
+    "description": "Perfect for teams that need to add specific technical skills or scale up sprint velocity.",
+    "features": [
+      "1 Embedded Senior Software Engineer",
+      "Dedicated full-time focus (40 hrs/week)",
+      "Timezone-matched to your core hours",
+      "Direct integration into your Slack & tools",
+      "2-week risk-free trial sprint"
+    ],
+    "buttonText": "Hire an Embedded Developer",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$3,499",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Flexible monthly rolling contract for immediate capacity."
+      },
+      "yearly": {
+        "price": "$34,999",
+        "billing": "/year",
+        "discountBadge": "2 months free",
+        "caption": "Long-term partnership for ongoing roadmap execution."
+      }
+    }
+  },
+  {
+    "id": "team-augmentation",
+    "name": "Augmented Team",
+    "eyebrow": "Most requested",
+    "description": "Built for teams shipping major product features or scaling their engineering footprint.",
+    "features": [
+      "3 Embedded Senior Engineers",
+      "Fully aligned to your timezone & standups",
+      "Direct communication & sprint integration",
+      "Scales up or down with 2 weeks notice",
+      "2-week risk-free trial sprint per engineer",
+      "Priority communication channels"
+    ],
+    "buttonText": "Book a Free Consultation",
+    "buttonHref": "/contact",
+    "popular": true,
+    "billing": {
+      "monthly": {
+        "price": "$8,999",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Flexible scaling for teams pushing major product roadmap milestones."
+      },
+      "yearly": {
+        "price": "$89,999",
+        "billing": "/year",
+        "discountBadge": "Save 17%",
+        "caption": "The strongest fit for long-term product lines and division scaling."
+      }
+    }
+  },
+  {
+    "id": "project-squad",
+    "name": "Project Squad",
+    "eyebrow": "End-to-end delivery",
+    "description": "A cross-functional squad assembled to deliver a specific product or feature from discovery through launch.",
+    "features": [
+      "Dedicated PM, UX/UI designer & 2 engineers",
+      "Part-time QA specialist included",
+      "End-to-end roadmap ownership & reporting",
+      "Milestone-based delivery checkpoints",
+      "Direct Slack integration & weekly syncs",
+      "Priority communication channel"
+    ],
+    "buttonText": "Talk to Our Team",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$14,999",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Best for founders launching a new product without an in-house engineering team."
+      },
+      "yearly": {
+        "price": "$149,999",
+        "billing": "/year",
+        "discountBadge": "Annual partner rate",
+        "caption": "Ideal for ongoing multi-product delivery, support, and continuous feature expansion."
+      }
+    }
+  }
+]
