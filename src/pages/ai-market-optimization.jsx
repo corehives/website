@@ -14,6 +14,7 @@ import BgApp from "../assets/bg-app.png";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
+import aiMarketOptimizationPricingPlans from "../components/pricing/aiMarketOptimizationPricingData.json";
 import { FaReact, FaPython, FaLinkedin } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -298,6 +299,7 @@ export default function AIMarketOptimization() {
       </section>
 
       <PricingSection
+        plans={aiMarketOptimizationPricingPlans}
         eyebrow="Transparent AI growth investment tiers"
         title="AI marketing packages built for measurable revenue outcomes"
         description="From organic SEO systems to full-funnel AI growth programmes — structured engagements with weekly reporting, clear KPIs, and results tied directly to business metrics."

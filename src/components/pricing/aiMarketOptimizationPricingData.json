@@ -1,0 +1,94 @@
+[
+  {
+    "id": "ai-seo",
+    "name": "AI SEO & Authority",
+    "eyebrow": "Organic intelligence",
+    "description": "Perfect for companies looking to establish topical authority, boost organic traffic, and optimize crawl efficiency.",
+    "features": [
+      "Programmatic content cluster strategy",
+      "Semantic search & entity optimization",
+      "Daily keyword intelligence tracking",
+      "Core web vitals & technical SEO audit",
+      "Weekly performance dashboards"
+    ],
+    "buttonText": "Start SEO Growth",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$499",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "A data-driven organic search strategy to rank higher and capture search intent."
+      },
+      "yearly": {
+        "price": "$4,500",
+        "billing": "/year",
+        "discountBadge": "Save 25%",
+        "caption": "Long-term compounding search value and ongoing keyword optimizations."
+      }
+    }
+  },
+  {
+    "id": "paid-media-ai",
+    "name": "Paid Media AI",
+    "eyebrow": "Most requested",
+    "description": "Designed to optimize paid search, social campaigns, and bidding loops to drive high-intent leads and reduce CAC.",
+    "features": [
+      "Cross-channel paid media orchestration",
+      "Meta Advantage+ & Google PMax setups",
+      "Real-time bid optimization loops",
+      "Dynamic creative generation & testing",
+      "Direct API integration & dashboard syncs",
+      "Priority communication channel"
+    ],
+    "buttonText": "Book a Free Consultation",
+    "buttonHref": "/contact",
+    "popular": true,
+    "billing": {
+      "monthly": {
+        "price": "$999",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Ideal for scaling campaign budget efficiency, ROAS, and reducing acquisition costs."
+      },
+      "yearly": {
+        "price": "$8,999",
+        "billing": "/year",
+        "discountBadge": "2 months free",
+        "caption": "Continuous cross-channel optimization sprints and dedicated strategy reviews."
+      }
+    }
+  },
+  {
+    "id": "full-funnel-ai",
+    "name": "Full-Funnel AI",
+    "eyebrow": "Enterprise coverage",
+    "description": "A complete AI-driven growth partnership managing organic search, paid campaigns, predictive analytics, and CRO.",
+    "features": [
+      "Complete organic SEO & paid media ownership",
+      "Funnel CRO & dynamic landing page engines",
+      "Custom predictive ML models (LTV, churn)",
+      "GA4 + BigQuery pipeline setups",
+      "Dedicated growth squads & strategy cadences",
+      "Weekly engineering integrations"
+    ],
+    "buttonText": "Talk to Our Team",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$1,999",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Best for established platforms needing full pipeline automation and machine learning models."
+      },
+      "yearly": {
+        "price": "$17,999",
+        "billing": "/year",
+        "discountBadge": "Annual partner rate",
+        "caption": "Year-round end-to-end growth squads, ML model tuning, and data pipeline management."
+      }
+    }
+  }
+]
