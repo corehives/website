@@ -11,7 +11,7 @@
       "CMS-ready build and handoff",
       "Launch QA plus training session"
     ],
-    "buttonText": "Start With Starter",
+    "buttonText": "Start Your Project",
     "buttonHref": "/contact",
     "popular": false,
     "billing": {
@@ -42,7 +42,7 @@
       "Dedicated sprint planning cadence",
       "Slack channel and priority support"
     ],
-    "buttonText": "Talk To Sales",
+    "buttonText": "Book a Free Consultation",
     "buttonHref": "/contact",
     "popular": true,
     "billing": {
@@ -73,7 +73,7 @@
       "Analytics dashboard setup",
       "Priority support and revisions"
     ],
-    "buttonText": "Choose Growth",
+    "buttonText": "Talk to Our Team",
     "buttonHref": "/contact",
     "popular": false,
     "billing": {
