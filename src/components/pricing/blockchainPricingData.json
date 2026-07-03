@@ -1,0 +1,94 @@
+[
+  {
+    "id": "token-foundation",
+    "name": "Token Foundation",
+    "eyebrow": "Contract & audit essentials",
+    "description": "Perfect for projects launching ERC-20/SPL tokens, basic staking contracts, or seeking code audits.",
+    "features": [
+      "Custom Smart Contract Design (Solidity/Rust)",
+      "Standard ERC-20, ERC-721, or SPL Implementations",
+      "Internal Security Vetting & Gas Optimisation",
+      "Integration-Ready ABI & ABI Documentation",
+      "1 Full Contract Security Review & Report"
+    ],
+    "buttonText": "Start Contract Project",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$1,499",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "A lean, security-focused contract development lane for fast token launches."
+      },
+      "yearly": {
+        "price": "$11,999",
+        "billing": "/year",
+        "discountBadge": "2 months free",
+        "caption": "Ongoing contract maintenance, security review cycles, and multi-chain updates."
+      }
+    }
+  },
+  {
+    "id": "dapp-protocol",
+    "name": "dApp Protocol",
+    "eyebrow": "Most requested",
+    "description": "Built for teams launching complete decentralised applications, custom NFT minting engines, or basic DeFi pools.",
+    "features": [
+      "Advanced Smart Contracts & Yield Staking",
+      "Web3 Wallet Integration (Metamask, Phantom)",
+      "Interactive Web3 dApp Frontend (React/Next.js)",
+      "Subgraph & Indexer Setup for Live Data",
+      "Smart Contract Mainnet Deploy Support",
+      "Priority communication channel"
+    ],
+    "buttonText": "Book a Free Consultation",
+    "buttonHref": "/contact",
+    "popular": true,
+    "billing": {
+      "monthly": {
+        "price": "$2,999",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Ideal for projects needing end-to-end integration between contracts and Web3 frontend."
+      },
+      "yearly": {
+        "price": "$24,999",
+        "billing": "/year",
+        "discountBadge": "Save 17%",
+        "caption": "Continuous dApp feature upgrades, cross-chain support, and wallet optimizations."
+      }
+    }
+  },
+  {
+    "id": "defi-custom",
+    "name": "DeFi Protocol",
+    "eyebrow": "Complete protocol coverage",
+    "description": "Dedicated end-to-end blockchain engineering for custom protocols, DeFi lending, cross-chain bridges, or L2 chains.",
+    "features": [
+      "Complex Multi-Contract Protocol Architecture",
+      "Custom Yield Optimisation & Liquidity Pools",
+      "Cross-Chain Bridge & Oracle Integrations",
+      "Multi-Role Engineering Squad & Dedicated PM",
+      "Assistance with Third-Party Audits (CertiK, etc.)",
+      "24/7 Production Post-Launch Monitoring"
+    ],
+    "buttonText": "Talk to Our Team",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$4,999",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Best for companies building large-scale, high-TVL protocol architectures."
+      },
+      "yearly": {
+        "price": "$39,999",
+        "billing": "/year",
+        "discountBadge": "Annual partner rate",
+        "caption": "Year-round contract iterations, protocol upgrades, security monitoring, and custom chain setups."
+      }
+    }
+  }
+]

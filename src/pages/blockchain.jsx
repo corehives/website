@@ -15,6 +15,7 @@ import BgApp from "../assets/bg-app.png";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
+import blockchainPricingPlans from "../components/pricing/blockchainPricingData.json";
 import { FaReact } from "react-icons/fa";
 import {
   SiSolidity,
@@ -669,6 +670,7 @@ export default function Blockchain() {
       </section>
 
       <PricingSection
+        plans={blockchainPricingPlans}
         eyebrow="Transparent blockchain project pricing"
         title="Web3 engineering packages built for production-grade protocols"
         description="From single smart contract audits to full DeFi protocol builds — structured engagements with clear security standards, milestone-based delivery, and post-launch support included."
