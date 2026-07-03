@@ -38,6 +38,7 @@ import BgApp from "../assets/bg-app.png";
 import { ArrowRight } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
+import websitePricingPlans from "../components/pricing/websitePricingData.json";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
@@ -674,6 +675,7 @@ export default function WebDevelopment() {
       <Testimonials />
 
       <PricingSection
+        plans={websitePricingPlans}
         eyebrow="Transparent delivery retainers"
         title="Premium pricing for teams that care about quality and momentum"
         description="Each plan is structured for a different growth stage, with the same focus on clean execution, fast communication, and measurable business impact."
