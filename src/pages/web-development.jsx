@@ -254,9 +254,43 @@ const techTabData = {
   ],
 };
 
+const webFaqData = [
+  {
+    id: "tech-stack",
+    question: "What technologies and frameworks do you use for web development?",
+    answer: "We specialize in modern, high-performance tech stacks including React, Next.js, Node.js, PHP/Laravel, and Python, built on scalable cloud infrastructure like AWS, Google Cloud, and Vercel."
+  },
+  {
+    id: "responsive",
+    question: "Will my website or web app be mobile-friendly and responsive?",
+    answer: "Yes, absolutely. Every web application and website we build is fully responsive, optimized for performance, and tested across all major devices, operating systems, and browser platforms."
+  },
+  {
+    id: "timeline",
+    question: "How long does it take to build a custom web application?",
+    answer: "Development timelines depend on the project scope. A standard landing page or simple website can take 2–3 weeks, while complex custom SaaS platforms or enterprise ERP systems can take 3–6 months. We define clear milestones and deliverables in our planning stage."
+  },
+  {
+    id: "seo",
+    question: "Do you build websites with Search Engine Optimization (SEO) in mind?",
+    answer: "Yes. All our web developments include search-engine-friendly structure, schema markups, fast page speeds, clean semantic HTML, and accessibility features to ensure high organic rankings from day one."
+  },
+  {
+    id: "custom-erp",
+    question: "Can you integrate the website with existing systems or third-party APIs?",
+    answer: "Yes. We have extensive experience integrating custom web platforms with external APIs, CRMs (like Salesforce, HubSpot), payment gateways (Stripe, PayPal), ERPs, and database systems."
+  },
+  {
+    id: "maintenance",
+    question: "Do you offer post-launch support and maintenance?",
+    answer: "Yes, we provide flexible monthly support retainers and SLAs covering security patches, version updates, content changes, speed optimizations, and ongoing improvements."
+  }
+];
+
 export default function WebDevelopment() {
   const [expandedIndex, setExpandedIndex] = useState(0);
   const [activeTechTab, setActiveTechTab] = useState("Data Engineering");
+  const [openFaqId, setOpenFaqId] = useState("tech-stack");
 
   return (
     <>
@@ -708,6 +742,57 @@ export default function WebDevelopment() {
           </div>
         </div>
       </section>
+
+      {/* Frequently Asked Questions */}
+      <section className="bg-black px-5 sm:px-10 lg:px-20 py-20 sm:py-28 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              Frequently Asked
+              <br />
+              <span className="precision-gradient">Questions!</span>
+            </h2>
+          </div>
+
+          {/* FAQ list */}
+          <div className="divide-y divide-white/10">
+            {webFaqData.map((item) => {
+              const isOpen = openFaqId === item.id;
+              return (
+                <div key={item.id} className="py-2">
+                  <button
+                    onClick={() => setOpenFaqId(isOpen ? null : item.id)}
+                    className="w-full flex items-center justify-between py-4 text-left focus:outline-none group cursor-pointer"
+                  >
+                    <span
+                      className={`text-sm sm:text-base font-semibold transition-colors duration-200 pr-6 ${
+                        isOpen ? "text-[#07BEB8]" : "text-white/80 group-hover:text-white"
+                      }`}
+                    >
+                      {item.question}
+                    </span>
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full border border-[#07BEB8] flex items-center justify-center text-[#07BEB8] text-lg leading-none font-light">
+                      {isOpen ? "−" : "+"}
+                    </span>
+                  </button>
+
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      isOpen ? "max-h-48 pb-4 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
