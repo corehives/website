@@ -1,0 +1,94 @@
+[
+  {
+    "id": "startup-identity",
+    "name": "Startup Identity",
+    "eyebrow": "Launch-ready foundation",
+    "description": "Perfect for early-stage startups that need a professional, memorable, and polished brand system quickly.",
+    "features": [
+      "Custom Logo Design & Wordmarks",
+      "1 Core Visual Identity Concept",
+      "Visual Assets (Iconography, Typography)",
+      "Digital Brand Style Guide (PDF)",
+      "Basic Social Media Starter Kit"
+    ],
+    "buttonText": "Start Your Brand Launch",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$999",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "A fast-paced branding lane to launch your product with professional credibility."
+      },
+      "yearly": {
+        "price": "$7,999",
+        "billing": "/year",
+        "discountBadge": "2 months free",
+        "caption": "Ongoing brand assets, iteration, and design support across your roadmap."
+      }
+    }
+  },
+  {
+    "id": "growth-brand",
+    "name": "Growth Brand",
+    "eyebrow": "Most requested",
+    "description": "Built for scaling companies needing comprehensive positioning, guidelines, and assets for multiple channels.",
+    "features": [
+      "Multi-Format Logo Suites (Horizontal, Vertical)",
+      "3 Visual Identity Concepts & Directions",
+      "Complete Typography & Color Systems",
+      "Full Brand Book & Strategy Playbook",
+      "Collateral Designs (Decks, Cards, Signage)",
+      "Marketing & Social Media Brand Assets"
+    ],
+    "buttonText": "Book a Free Consultation",
+    "buttonHref": "/contact",
+    "popular": true,
+    "billing": {
+      "monthly": {
+        "price": "$1,999",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Designed for scaling marketing campaigns and aligning customer perception."
+      },
+      "yearly": {
+        "price": "$15,999",
+        "billing": "/year",
+        "discountBadge": "Save 20%",
+        "caption": "Continuous brand execution, campaign updates, and asset updates."
+      }
+    }
+  },
+  {
+    "id": "enterprise-guardianship",
+    "name": "Enterprise Brand",
+    "eyebrow": "Complete coverage",
+    "description": "A dedicated brand partnership for enterprise rebrands, mergers, and long-term brand management.",
+    "features": [
+      "Full Corporate Identity Rebranding",
+      "Complex Brand Architecture & Hierarchy",
+      "Global Brand Asset Manager System",
+      "Multi-Brand Guidelines & Asset Templates",
+      "Dedicated Design Squad & Weekly Syncs",
+      "Complete Trademark-Ready Handover Assets"
+    ],
+    "buttonText": "Talk to Our Team",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$3,499",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Best for established companies running major rebranding or corporate expansions."
+      },
+      "yearly": {
+        "price": "$29,999",
+        "billing": "/year",
+        "discountBadge": "Annual partner rate",
+        "caption": "Year-round brand guardianship, campaign assets, and long-term positioning support."
+      }
+    }
+  }
+]

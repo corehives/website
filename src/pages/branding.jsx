@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
+import brandingPricingPlans from "../components/pricing/brandingPricingData.json";
 import useScrollReveal from "../hooks/useScrollReveal.js";
 import {
   SiFigma, SiSketch, SiCanva, SiFramer, SiMiro, SiInvision,
@@ -768,6 +769,7 @@ export default function Branding() {
           PRICING
       ══════════════════════════════════════════════════════════════ */}
       <PricingSection
+        plans={brandingPricingPlans}
         eyebrow="Transparent brand investment tiers"
         title="Brand packages built for the growth stage you're in"
         description="From startup identity launches to full enterprise rebrands — structured engagements with clear deliverables, timelines, and measurable business outcomes."
