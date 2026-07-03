@@ -296,8 +296,8 @@ export default function Branding() {
                 ))}
               </div>
               <div>
-                <p className="text-2xl font-bold text-[#07BEB8] leading-none">150+</p>
-                <p className="text-gray-400 text-xs mt-0.5">Brands Delivered</p>
+                <p className="text-2xl font-bold text-[#07BEB8] leading-none">110+</p>
+                <p className="text-gray-400 text-xs mt-0.5">Clients Servered</p>
               </div>
             </div>
           </div>
