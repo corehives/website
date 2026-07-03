@@ -31,6 +31,7 @@ const cards = [
   {
     title: "Artificial Intelligence Solutions",
     desc: "Be Future-Ready with our Artificial Intelligence & Machine Learning Solutions",
+    to: "/services/ai-market-optimization",
     preview: (
       <div className="flex flex-col items-center w-full p-4 relative">
         <div className="flex justify-between w-full mb-6">
@@ -64,6 +65,7 @@ const cards = [
   {
     title: "Web & App Development",
     desc: "Creating Powerful Web and Mobile Apps for Businesses of all kinds.",
+    to: "/web-development",
     preview: (
       <div className="flex items-end justify-center gap-3 w-full p-4 relative h-38 mb-21">
         <div className="absolute top-5 right-0 flex flex-row gap-1 z-20">
@@ -92,6 +94,7 @@ const cards = [
   {
     title: "Tech Staff Outsourcing",
     desc: "Hire Skilled Tech Professionals for less than half the Price!",
+    to: "/services/tech-staff-outsourcing",
     preview: (
       <div className="w-full h-full p-2 relative">
         <div
@@ -263,7 +266,11 @@ function GlowCard({ card }) {
             {card.desc}
           </p>
           <div className="mt-auto">
-            <CTAButton href="#">Read More</CTAButton>
+            {card.to ? (
+              <CTAButton to={card.to}>Read More</CTAButton>
+            ) : (
+              <CTAButton href="#">Read More</CTAButton>
+            )}
           </div>
         </div>
       </div>
@@ -571,9 +578,7 @@ export default function PartnersSection() {
               to take weeks into days.
             </p>
 
-            <CTAButton href="#" className="mt-6 mb-10 w-fit">
-              Read More
-            </CTAButton>
+
 
             {/* Accordions */}
             <div className="flex flex-col mt-2">
