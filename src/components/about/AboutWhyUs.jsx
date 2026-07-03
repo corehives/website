@@ -13,51 +13,51 @@ import BgRight from "../../assets/bg-right-content.webp";
 const features = [
   {
     icon: Zap,
-    title: "Low-Code Speed Advantage",
+    title: "Efficient Development",
     tag: "Faster Delivery",
-    desc: "Our proprietary low-code approach cuts development timelines by up to 60%. What takes other agencies months, we ship in weeks — without compromising architecture quality or scalability.",
+    desc: "Our development process helps reduce project timelines while maintaining code quality, performance, and long-term reliability.",
     metric: "60%",
     metricLabel: "Faster Time to Market",
   },
   {
     icon: ShieldCheck,
-    title: "Senior-Only Engineering",
-    tag: "Expert Execution",
-    desc: "No juniors. No learning on your dime. Every CoreHives engineer brings a minimum of 5 years of production-grade experience. Your project is always in expert hands.",
-    metric: "5+",
+    title: "Experienced Team",
+    tag: "Expertise",
+    desc: "Our engineers have hands-on experience building web, mobile, AI, blockchain, and enterprise applications for businesses across different industries.",
+    metric: "7+",
     metricLabel: "Years Avg. Experience",
   },
   {
     icon: Layers,
-    title: "Full-Spectrum Capability",
+    title: "End-to-End Services",
     tag: "One Partner",
-    desc: "Design, frontend, backend, DevOps, AI, mobile, blockchain — under one roof. No coordination nightmares across agencies. One team, one vision, one point of accountability.",
-    metric: "8+",
+    desc: "From planning and design to development, deployment, and support, we handle every stage of the project with one dedicated team.",
+    metric: "10+",
     metricLabel: "Technology Practices",
   },
   {
     icon: TrendingUp,
-    title: "Growth-Oriented Architecture",
-    tag: "Built to Scale",
-    desc: "We don't just build for today. Every solution is architected to support 10× growth. Clean code, CI/CD pipelines, cloud-native infrastructure — built for where you're going.",
+    title: "Scalable Solutions",
+    tag: "Built for Growth",
+    desc: "We build software that is easy to maintain, expand, and support as your business grows and your requirements change.",
     metric: "10×",
     metricLabel: "Scale Readiness",
   },
   {
     icon: HeadphonesIcon,
-    title: "Always-On Support",
-    tag: "Continuous Care",
-    desc: "Production issues don't respect business hours. Our support team monitors critical systems 24/7 and responds with urgency. We're not just vendors — we're your digital safety net.",
+    title: "Reliable Support",
+    tag: "Ongoing Assistance",
+    desc: "Our team continues to provide maintenance, updates, and technical support after launch to keep your applications running reliably.",
     metric: "24/7",
     metricLabel: "Support Coverage",
   },
   {
     icon: Users,
-    title: "Transparent Collaboration",
-    tag: "Real Partnership",
-    desc: "Weekly syncs, live project dashboards, Slack integration, and proactive updates. You'll never wonder where your project stands. We treat your business like our own.",
+    title: "Clear Communication",
+    tag: "Collaboration",
+    desc: "We keep clients informed with regular updates, honest discussions, and direct communication throughout the entire project.",
     metric: "100%",
-    metricLabel: "Visibility Guarantee",
+    metricLabel: "Project Transparency",
   },
 ];
 
@@ -183,7 +183,7 @@ export default function AboutWhyUs() {
               letterSpacing: "0.18em",
             }}
           >
-            Our Difference
+            Why Choose Us
           </p>
           <h2
             ref={headRef}
@@ -191,14 +191,15 @@ export default function AboutWhyUs() {
           >
             Why <span className="precision-gradient">CoreHives</span>?
           </h2>
+
           <p
             ref={paraRef}
             className="mx-auto max-w-2xl text-sm sm:text-base leading-relaxed"
             style={{ color: "#8ca0b0" }}
           >
-            There are hundreds of digital agencies. Here's what makes CoreHives
-            a genuinely different choice for businesses that can't afford to
-            compromise.
+            Choosing the right technology partner is an important decision. At
+            CoreHives, we combine technical expertise, clear communication, and a
+            practical approach to deliver solutions that support your business goals.
           </p>
         </div>
 

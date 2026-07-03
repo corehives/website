@@ -3,28 +3,28 @@ import useScrollReveal from "../../hooks/useScrollReveal";
 
 const milestones = [
   {
-    year: "2019",
+    year: "2023",
     icon: Rocket,
-    title: "The Beginning",
-    desc: "CoreHives was founded with a simple mission: make enterprise-grade technology accessible to growth-stage businesses. We started as a tight-knit team of three developers with a shared belief — great software shouldn't be a privilege.",
-  },
-  {
-    year: "2020",
-    icon: Users,
-    title: "First 25 Clients",
-    desc: "Despite a global pandemic, we doubled down. Our low-code approach helped clients launch faster and spend less. By year-end we had delivered 25 projects across 8 countries and built our first dedicated AI team.",
-  },
-  {
-    year: "2022",
-    icon: TrendingUp,
-    title: "Scaling Up",
-    desc: "We expanded to a 30+ person team, added blockchain and staff outsourcing practices, and received our first Clutch Top Developer recognition. Revenue grew 3× as word-of-mouth referrals became our primary channel.",
+    title: "Company Founded",
+    desc: "CoreHives was founded with a mission to help businesses turn ideas into reliable digital solutions. From day one, we focused on building high-quality web, mobile, and custom software that solves real business challenges.",
   },
   {
     year: "2024",
+    icon: Users,
+    title: "Growing Client Partnerships",
+    desc: "As our client base grew, we delivered projects across industries including healthcare, fintech, logistics, eCommerce, and enterprise software. Our focus remained on building long-term partnerships through quality and reliability.",
+  },
+  {
+    year: "2025",
+    icon: TrendingUp,
+    title: "Expanding Our Expertise",
+    desc: "We expanded our services to include blockchain development, AI solutions, UI/UX design, cloud technologies, and dedicated development teams, helping businesses accelerate their digital transformation.",
+  },
+  {
+    year: "2026",
     icon: Globe,
-    title: "Global Recognition",
-    desc: "150+ projects delivered across 20+ countries. Recognized on Clutch, GoodFirms, G2, Google, and Trustpilot. We now serve clients from Fortune 500 enterprises to fast-moving startups — all with the same obsession over quality.",
+    title: "Building for the Future",
+    desc: "Today, CoreHives works with startups, growing businesses, and established organizations around the world. We continue to create scalable, secure, and innovative software while staying committed to quality, transparency, and lasting client relationships.",
   },
 ];
 
@@ -194,7 +194,7 @@ export default function AboutStory() {
             ref={paraRef}
             className="text-gray-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed"
           >
-            From a three-person founding team to a global technology partner — every milestone shaped how we build, who we serve, and what we stand for.
+            From a four-person founding team to a global technology partner, every milestone shaped how we build, who we serve, and what we stand for.
           </p>
         </div>
 

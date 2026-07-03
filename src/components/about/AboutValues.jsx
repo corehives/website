@@ -4,23 +4,23 @@ import useScrollReveal from "../../hooks/useScrollReveal";
 const values = [
   {
     icon: Lightbulb,
-    title: "Innovation First",
-    desc: "We embrace emerging technology before it becomes mainstream. Our teams invest in R&D so your product ships with capabilities your competitors haven't discovered yet.",
+    title: "Innovation",
+    desc: "We continuously explore new technologies and practical solutions to help our clients stay ahead. Every project is an opportunity to improve, adapt, and create lasting value.",
   },
   {
     icon: Gem,
-    title: "Quality Obsession",
-    desc: "Every line of code, every pixel, every micro-interaction matters. We hold ourselves to a standard where 'good enough' is never enough — only exceptional ships.",
+    title: "Quality",
+    desc: "We are committed to delivering reliable, secure, and well-crafted software. Every project is built with attention to detail, performance, and long-term maintainability.",
   },
   {
     icon: Handshake,
-    title: "Client Partnership",
-    desc: "We don't deliver projects and disappear. We build long-term relationships where your goals become our goals and your wins become our proudest case studies.",
+    title: "Partnership",
+    desc: "We believe the best results come from strong collaboration. By understanding our clients' goals and working closely together, we build lasting relationships based on trust and shared success.",
   },
   {
     icon: MessageSquare,
-    title: "Radical Transparency",
-    desc: "Clear communication, honest timelines, no surprises. You always know where your project stands. We believe trust is earned through consistent honesty — not polished pitches.",
+    title: "Transparency",
+    desc: "We keep communication open and honest throughout every stage of a project. Clear updates, realistic timelines, and straightforward discussions help build confidence and long-term trust.",
   },
 ];
 
