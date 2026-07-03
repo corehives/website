@@ -64,6 +64,8 @@ const PortfolioBranding = lazy(() => import("./pages/portfolio/branding.jsx"));
 const Careers    = lazy(() => import("./pages/careers.jsx"));
 const Blogs      = lazy(() => import("./pages/blogs.jsx"));
 const BlogDetail = lazy(() => import("./pages/blog-detail.jsx"));
+const PrivacyPolicy = lazy(() => import("./pages/privacy.jsx"));
+const CookiePolicy = lazy(() => import("./pages/cookie-policy.jsx"));
 
 // Eagerly download every route chunk as soon as this module is evaluated.
 // import() is deduplicated by Vite/the module registry — these reuse the
@@ -99,6 +101,8 @@ import("./pages/portfolio/branding.jsx");
 import("./pages/careers.jsx");
 import("./pages/blogs.jsx");
 import("./pages/blog-detail.jsx");
+import("./pages/privacy.jsx");
+import("./pages/cookie-policy.jsx");
 
 function HomePage() {
   return (
@@ -239,6 +243,16 @@ function AppRoutes() {
         {/* Careers */}
         <Route path="/careers" element={
           <Suspense fallback={<LoadingScreen />}><Careers /></Suspense>
+        } />
+
+        {/* Privacy Policy */}
+        <Route path="/privacy" element={
+          <Suspense fallback={<LoadingScreen />}><PrivacyPolicy /></Suspense>
+        } />
+
+        {/* Cookie Policy */}
+        <Route path="/cookie-policy" element={
+          <Suspense fallback={<LoadingScreen />}><CookiePolicy /></Suspense>
         } />
 
         {/* Blog */}
