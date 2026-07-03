@@ -32,9 +32,6 @@ export default function PricingCard({ plan, billingCycle, showPeriod = true }) {
             <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-[1.75rem]">
               {plan.name}
             </h3>
-            <p className="mt-3 text-sm leading-6 text-slate-300">
-              {plan.description}
-            </p>
           </div>
 
           {plan.popular ? (
@@ -44,6 +41,10 @@ export default function PricingCard({ plan, billingCycle, showPeriod = true }) {
             </span>
           ) : null}
         </div>
+
+        <p className="mt-3 text-sm leading-6 text-slate-300">
+          {plan.description}
+        </p>
 
         <div className="mt-8 flex items-end gap-2">
           <span className="text-4xl font-semibold tracking-tight text-white sm:text-[2.75rem]">
@@ -81,7 +82,12 @@ export default function PricingCard({ plan, billingCycle, showPeriod = true }) {
         <CTAButton
           to={usesInternalHref ? plan.buttonHref : undefined}
           href={!usesInternalHref ? (plan.buttonHref ?? "/contact") : undefined}
-          className="mt-8 w-full justify-center"
+          className={classNames(
+            "mt-8 w-full justify-center",
+            plan.popular
+              ? "border-[#07BEB8] bg-[#07BEB8] text-black hover:bg-[#05a39e] hover:text-black font-bold shadow-[0_0_20px_rgba(7,190,184,0.3)]"
+              : ""
+          )}
         >
           {plan.buttonText}
         </CTAButton>

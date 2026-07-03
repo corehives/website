@@ -15,6 +15,7 @@ import BgApp from "../assets/bg-app.png";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
+import illustrationAnimationPricingPlans from "../components/pricing/illustrationAnimationPricingData.json";
 import {
   SiFigma,
   SiBlender,
@@ -666,6 +667,7 @@ export default function IllustrationAnimation() {
       </section>
 
       <PricingSection
+        plans={illustrationAnimationPricingPlans}
         eyebrow="Transparent creative project pricing"
         title="Motion design packages built for every production scale"
         description="From single Lottie animations to full explainer video + brand motion systems — structured engagements with clear deliverables and zero revision surprises."

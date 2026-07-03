@@ -1,0 +1,94 @@
+[
+  {
+    "id": "starter-creative",
+    "name": "Starter Creative",
+    "eyebrow": "Essential assets",
+    "description": "Perfect for startups needing clean custom illustrations and micro-animations for their web/app interface.",
+    "features": [
+      "Up to 3 custom vector illustrations",
+      "2 Lottie UI/micro-animations",
+      "Standard exports (Lottie JSON, SVG, PNG)",
+      "Source files (Figma, Illustrator, After Effects)",
+      "Dedicated review and revision cycles"
+    ],
+    "buttonText": "Start Your Project",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$299",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "A simple design lane for clean, branded web and mobile interface assets."
+      },
+      "yearly": {
+        "price": "$800",
+        "billing": "/year",
+        "discountBadge": "2 months free",
+        "caption": "Annual retainer for continuous asset generation and support."
+      }
+    }
+  },
+  {
+    "id": "growth-motion",
+    "name": "Growth Motion",
+    "eyebrow": "Most requested",
+    "description": "Ideal for marketing and product teams that need complete explainer videos or brand motion systems.",
+    "features": [
+      "1 Custom explainer video (up to 60s) or 6 social clips",
+      "Full scriptwriting, storyboarding, and voiceover",
+      "Complete custom illustration system (up to 8 assets)",
+      "Advanced Lottie UI animations (up to 5 assets)",
+      "Dynamic motion branding transitions & logo intros",
+      "Priority communication channel"
+    ],
+    "buttonText": "Book a Free Consultation",
+    "buttonHref": "/contact",
+    "popular": true,
+    "billing": {
+      "monthly": {
+        "price": "$499",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Ideal for launching product explanation campaigns and upgrading brand aesthetics."
+      },
+      "yearly": {
+        "price": "$1,500",
+        "billing": "/year",
+        "discountBadge": "Save 20%",
+        "caption": "The best choice for continuous video, social, and interface design production."
+      }
+    }
+  },
+  {
+    "id": "creative-partner",
+    "name": "Creative Partner",
+    "eyebrow": "Complete coverage",
+    "description": "A dedicated design partnership for high-fidelity multi-video campaigns and full interactive UI systems.",
+    "features": [
+      "Multi-video campaigns or complete UI motion libraries",
+      "Custom character designs and interactive animations",
+      "Advanced 3D assets and dynamic motion integration",
+      "Dedicated creative squad and sprint planning",
+      "Complete brand illustration system and guidelines",
+      "Priority communication and feedback loops"
+    ],
+    "buttonText": "Talk to Our Team",
+    "buttonHref": "/contact",
+    "popular": false,
+    "billing": {
+      "monthly": {
+        "price": "$799",
+        "billing": "/month",
+        "discountBadge": null,
+        "caption": "Designed for brands that want consistent, high-end motion and design embedded in their team."
+      },
+      "yearly": {
+        "price": "$2,500",
+        "billing": "/year",
+        "discountBadge": "Annual partner rate",
+        "caption": "Designed for ongoing design sprints, scaling libraries, and continuous video content production."
+      }
+    }
+  }
+]
