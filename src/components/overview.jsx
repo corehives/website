@@ -1,28 +1,33 @@
 import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import CTAButton from "./shared/CTAButton";
 import BgOverview from "../assets/bg-overview-1x.webp";
-import SliderPreview1 from "../assets/slider-preview-1.png";
-import SliderPreview2 from "../assets/slider-preview-2.png";
+import FinTrackImg from "../assets/fintrack-showcase.png";
+import NexaCorpImg from "../assets/nexacorp-showcase.png";
+import LogiOpsImg from "../assets/logiops-showcase.png";
 
 const projects = [
   {
-    title: "Zach Moore Personal Training",
-    desc: "Zach Moore specializes in strength training, injury prevention, and nutrition coaching for high-income professionals in Miami.",
-    image: SliderPreview1,
-    tag: "Health & Fitness",
+    title: "FinTrack — Personal Finance App",
+    desc: "A multi-currency budgeting and investment tracking application for iOS and Android with open banking integration and real-time portfolio analysis.",
+    image: FinTrackImg,
+    tag: "FinTech",
+    to: "/portfolio/mobile-app-development",
   },
   {
-    title: "AI Dashboard",
-    desc: "Modern analytics dashboard with predictive insights and automation tools for enterprise teams.",
-    image: SliderPreview2,
+    title: "NexaCorp — SaaS Platform",
+    desc: "A multi-tenant B2B SaaS platform with role-based access, real-time collaboration, and Stripe-powered subscription billing handling $2M+ ARR.",
+    image: NexaCorpImg,
     tag: "SaaS / Analytics",
+    to: "/portfolio/web-development",
   },
   {
-    title: "E-Commerce Platform",
-    desc: "Scalable commerce solution with seamless checkout and deep third-party integrations.",
-    image: SliderPreview1,
+    title: "LogiOps — Logistics ERP",
+    desc: "A custom ERP for a regional logistics group managing 500+ vehicles, 2M+ parcels per month, and multi-depot warehouse operations. Replaced 6 separate legacy systems.",
+    image: LogiOpsImg,
     tag: "E-Commerce",
+    to: "/portfolio/custom-software",
   },
 ];
 
@@ -124,7 +129,7 @@ export default function OverviewSection() {
               </p>
 
               {/* CTA */}
-              <CTAButton href="/contact">View Case Studies</CTAButton>
+              <CTAButton to={projects[index].to || "/contact"}>View Case Studies</CTAButton>
             </div>
 
             {/* ───── Right Slider ───── */}
@@ -136,28 +141,44 @@ export default function OverviewSection() {
                   gap: "24px",
                 }}
               >
-                {projects.map((p, i) => (
-                  <div
-                    key={i}
-                    className="flex-shrink-0 cursor-pointer"
-                    style={{ width: "calc(72% - 12px)" }}
-                    onClick={() => setIndex(i)}
-                  >
+                {projects.map((p, i) => {
+                  const isActive = i === index;
+                  const cardContent = (
                     <div className="rounded-2xl overflow-hidden border-[3px] border-[#cccccca1] transition-all duration-500">
                       <div className="relative">
                         <img
                           src={p.image}
-                          className="w-full h-auto object-cover"
+                          className="w-full aspect-[16/10] object-cover object-top"
                           alt={p.title}
                           loading="lazy"
                         />
-                        {i !== index && (
+                        {!isActive && (
                           <div className="absolute inset-0 bg-[#021b1a]/40" />
                         )}
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+
+                  return isActive ? (
+                    <Link
+                      key={i}
+                      to={p.to || "/contact"}
+                      className="flex-shrink-0 cursor-pointer"
+                      style={{ width: "calc(72% - 12px)" }}
+                    >
+                      {cardContent}
+                    </Link>
+                  ) : (
+                    <div
+                      key={i}
+                      className="flex-shrink-0 cursor-pointer"
+                      style={{ width: "calc(72% - 12px)" }}
+                      onClick={() => setIndex(i)}
+                    >
+                      {cardContent}
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Mobile dot indicators */}
