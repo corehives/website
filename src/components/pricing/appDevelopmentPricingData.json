@@ -42,7 +42,7 @@
       "App store deployment support",
       "Priority fixes and release iterations"
     ],
-    "buttonText": "Choose Growth App",
+    "buttonText": "Book a Free Consultation",
     "buttonHref": "/contact",
     "popular": true,
     "billing": {
@@ -73,7 +73,7 @@
       "Dedicated release planning and reporting",
       "Priority communication channel"
     ],
-    "buttonText": "Talk To Product Team",
+    "buttonText": "Talk To Our Team",
     "buttonHref": "/contact",
     "popular": false,
     "billing": {

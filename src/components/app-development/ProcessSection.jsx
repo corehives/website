@@ -40,12 +40,9 @@ export default function ProcessSection() {
               <h3 className="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-[#07BEB8] transition-colors">
                 {process.title}
               </h3>
-              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6 line-clamp-4">
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed line-clamp-4">
                 {process.description}
               </p>
-              <CTAButton href="#">
-                Read More
-              </CTAButton>
             </div>
           ))}
         </div>

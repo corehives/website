@@ -7,7 +7,6 @@ import ProcessSection from "../components/app-development/ProcessSection";
 import WhyCoreHivesSection from "../components/app-development/WhyCoreHivesSection";
 import ProjectsSection from "../components/app-development/ProjectsSection";
 import BenefitsSection from "../components/app-development/BenefitsSection";
-import InsightsSection from "../components/app-development/InsightsSection";
 import FaqSection from "../components/app-development/FaqSection";
 import PricingSection from "../components/pricing/PricingSection";
 import appDevelopmentPricingPlans from "../components/pricing/appDevelopmentPricingData.json";
@@ -25,7 +24,6 @@ export default function AppDevelopment() {
       <WhyCoreHivesSection />
       <ProjectsSection />
       <BenefitsSection />
-      <InsightsSection />
       <PricingSection
         plans={appDevelopmentPricingPlans}
         eyebrow="Mobile product engagement models"
