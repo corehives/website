@@ -15,6 +15,8 @@ const routeMap = {
   "Why CoreHives": "/about",
   "Our Approach": "/about",
   Partnerships: "/about",
+  Privacy: "/privacy",
+  "Cookie Policy": "/cookie-policy",
 };
 
 const navLinks = {
@@ -25,7 +27,7 @@ const navLinks = {
     "Tech Staff Outsourcing",
   ],
   COMPANY: ["Why CoreHives", "Our Approach", "Partnerships"],
-  INFORMATION: ["Privacy", "FAQ", "Cookie Policy", "Partners"],
+  INFORMATION: ["Privacy", "Cookie Policy"],
 };
 
 const socialLinks = [
