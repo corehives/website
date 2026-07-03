@@ -31,7 +31,9 @@ const CTAButton = forwardRef(function CTAButton(
     "group inline-flex items-center gap-2 rounded-full border py-1.5 pl-5 pr-1.5 text-sm font-medium transition-all",
     isLoading
       ? "cursor-not-allowed border-[#07BEB8]/30 bg-[#07BEB8]/10 text-[#8efcf8]"
-      : "border-white/50 text-white hover:bg-[#017c785e]",
+      : className.includes("bg-")
+        ? ""
+        : "border-white/50 text-white hover:bg-[#017c785e]",
     disabled && !isLoading ? "cursor-not-allowed opacity-50" : "",
     className,
   ]
