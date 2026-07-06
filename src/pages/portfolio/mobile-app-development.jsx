@@ -24,12 +24,12 @@ const data = {
     { num: "4.8★", label: "Avg App Store Rating", sub: "User ratings across our client app portfolio." },
   ],
   projects: [
-    { number: "01", title: "FinTrack — Personal Finance App", description: "A multi-currency budgeting and investment tracking application for iOS and Android with open banking integration and real-time portfolio analysis.", tags: ["FinTech", "iOS", "Android"] },
-    { number: "02", title: "MediBook — Healthcare Scheduling", description: "Patient-facing appointment booking and telehealth platform integrated with NHS and private clinic EMR systems. Handles 50K+ bookings monthly.", tags: ["Healthcare", "React Native"] },
-    { number: "03", title: "ShopNow — E-Commerce App", description: "A headless commerce mobile application supporting 200+ product categories, AR try-on, and one-tap checkout with Apple Pay and Google Pay.", tags: ["E-Commerce", "Flutter"] },
-    { number: "04", title: "FitLoop — Fitness & Coaching", description: "A personalised workout and nutrition coaching app with Apple Watch integration, trainer video library, and adaptive programme generation.", tags: ["Health & Fitness", "iOS"] },
-    { number: "05", title: "EduPath — Learning Platform", description: "An adaptive learning mobile platform for K-12 students featuring gamification, offline course downloads, and AI-powered quiz generation.", tags: ["EdTech", "React Native"] },
-    { number: "06", title: "LogiTrack — Fleet Management", description: "Real-time fleet tracking and driver management app with route optimisation, fuel logging, and maintenance scheduling for logistics operators.", tags: ["Logistics", "Android"] },
+    { number: "01", title: "FinTrack, Personal Finance App", description: "A multi-currency budgeting and investment tracking application for iOS and Android with open banking integration and real-time portfolio analysis.", tags: ["FinTech", "iOS", "Android"] },
+    { number: "02", title: "MediBook, Healthcare Scheduling", description: "Patient-facing appointment booking and telehealth platform integrated with NHS and private clinic EMR systems. Handles 50K+ bookings monthly.", tags: ["Healthcare", "React Native"] },
+    { number: "03", title: "ShopNow, E-Commerce App", description: "A headless commerce mobile application supporting 200+ product categories, AR try-on, and one-tap checkout with Apple Pay and Google Pay.", tags: ["E-Commerce", "Flutter"] },
+    { number: "04", title: "FitLoop, Fitness & Coaching", description: "A personalised workout and nutrition coaching app with Apple Watch integration, trainer video library, and adaptive programme generation.", tags: ["Health & Fitness", "iOS"] },
+    { number: "05", title: "EduPath, Learning Platform", description: "An adaptive learning mobile platform for K-12 students featuring gamification, offline course downloads, and AI-powered quiz generation.", tags: ["EdTech", "React Native"] },
+    { number: "06", title: "LogiTrack, Fleet Management", description: "Real-time fleet tracking and driver management app with route optimisation, fuel logging, and maintenance scheduling for logistics operators.", tags: ["Logistics", "Android"] },
   ],
   process: [
     { number: "01", title: "Discovery & Scoping", description: "User research, competitive benchmarking, and technical feasibility review to define a clear product specification and delivery timeline." },
@@ -42,10 +42,10 @@ const data = {
   ctaHeading: "Ready to Launch Your Mobile App?",
   clientCount: 50,
   problems: [
-    { title: "Slow Time to Market?", description: "Our agile mobile delivery framework ships testable builds every two weeks — getting your app in front of users months faster than traditional agencies.", bg: "bg-[#07BEB8]", textColor: "text-[#062E2C]" },
-    { title: "Cross-Platform Costs?", description: "We maximise shared code between iOS and Android using React Native and Flutter — reducing development cost by up to 40%.", bg: "bg-[#E5F8F2]", textColor: "text-[#062E2C]" },
+    { title: "Slow Time to Market?", description: "Our agile mobile delivery framework ships testable builds every two weeks, getting your app in front of users months faster than traditional agencies.", bg: "bg-[#07BEB8]", textColor: "text-[#062E2C]" },
+    { title: "Cross-Platform Costs?", description: "We maximise shared code between iOS and Android using React Native and Flutter, reducing development cost by up to 40%.", bg: "bg-[#E5F8F2]", textColor: "text-[#062E2C]" },
     { title: "Poor App Ratings?", description: "Our UX research process identifies usability issues before launch. Clients average a 4.7★ rating on their first app release.", bg: "bg-[#FFF3DC]", textColor: "text-[#3a2e14]" },
-    { title: "Backend Bottlenecks?", description: "We architect mobile-first APIs built to scale — from your first 100 users to your first million without re-platforming.", bg: "bg-[#F5F5F5]", textColor: "text-[#0a0a0a]" },
+    { title: "Backend Bottlenecks?", description: "We architect mobile-first APIs built to scale, from your first 100 users to your first million without re-platforming.", bg: "bg-[#F5F5F5]", textColor: "text-[#0a0a0a]" },
     { title: "Maintenance Burden?", description: "Our retainer plans handle OS updates, crash fixes, and feature additions on a predictable monthly budget.", bg: "bg-[#E6FEFE]", textColor: "text-[#0a0a0a]" },
   ],
 };

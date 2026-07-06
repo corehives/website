@@ -35,7 +35,7 @@ const services = [
   {
     title: "Dedicated Developer Embedding",
     description:
-      "A single senior engineer embedded full-time in your team — attends your standups, uses your tools, ships your features. Exclusive focus, zero coordination overhead, measurable velocity from week one.",
+      "A single senior engineer embedded full-time in your team, attends your standups, uses your tools, ships your features. Exclusive focus, zero coordination overhead, measurable velocity from week one.",
   },
   {
     title: "Team Augmentation",
@@ -45,12 +45,12 @@ const services = [
   {
     title: "Project Squad",
     description:
-      "A cross-functional squad — PM, designer, engineers, QA — assembled to deliver a specific product or feature set from discovery through launch. Fixed-scope ownership with milestone-based delivery.",
+      "A cross-functional squad, PM, designer, engineers, QA, assembled to deliver a specific product or feature set from discovery through launch. Fixed-scope ownership with milestone-based delivery.",
   },
   {
     title: "Fractional CTO",
     description:
-      "A senior technical leader — 20–40 hrs/week — driving architecture decisions, hiring strategy, and engineering culture without the full-time executive cost. Ideal for Series A-B startups.",
+      "A senior technical leader, 20–40 hrs/week, driving architecture decisions, hiring strategy, and engineering culture without the full-time executive cost. Ideal for Series A-B startups.",
   },
 ];
 
@@ -59,7 +59,7 @@ const whyItems = [
     id: "speed",
     title: "72-Hour Placement Guarantee",
     description:
-      "From brief to shortlisted engineer profiles in 48 hours. From accepted offer to first commit in 72 hours. We don't pad timelines to manage expectations — we deliver within them.",
+      "From brief to shortlisted engineer profiles in 48 hours. From accepted offer to first commit in 72 hours. We don't pad timelines to manage expectations, we deliver within them.",
   },
   {
     id: "senior",
@@ -71,19 +71,19 @@ const whyItems = [
     id: "timezone",
     title: "Timezone-Matched by Default",
     description:
-      "Engineers are matched to your primary working hours — standups, Slack, and code reviews happen in real time, not the next morning.",
+      "Engineers are matched to your primary working hours, standups, Slack, and code reviews happen in real time, not the next morning.",
   },
   {
     id: "trial",
     title: "2-Week Trial Sprint, No Commitment",
     description:
-      "Every engagement starts with a paid 2-week trial sprint — a real deliverable from your backlog. You verify quality before any long-term commitment is made.",
+      "Every engagement starts with a paid 2-week trial sprint, a real deliverable from your backlog. You verify quality before any long-term commitment is made.",
   },
   {
     id: "ip",
     title: "IP Ownership & NDAs Built In",
     description:
-      "Full IP assignment, strict NDAs, and data-handling compliance are included in every engagement by default — not sold as premium add-ons.",
+      "Full IP assignment, strict NDAs, and data-handling compliance are included in every engagement by default, not sold as premium add-ons.",
   },
 ];
 
@@ -254,7 +254,7 @@ export default function TechStaffOutsourcing() {
             On Demand
           </h1>
           <p className="mt-6 max-w-xl text-center text-sm leading-relaxed text-white sm:text-base">
-            Embed senior engineers directly into your team — zero recruitment
+            Embed senior engineers directly into your team, zero recruitment
             overhead, no onboarding delays, first commit in 72 hours.
           </p>
         </div>
@@ -319,7 +319,7 @@ export default function TechStaffOutsourcing() {
               Hiring takes months. CoreHives takes 72 hours.
               <br />
               <br />
-              We place pre-vetted senior engineers directly into your team —
+              We place pre-vetted senior engineers directly into your team,
               using your tools, attending your standups, shipping your features.
               No recruitment overhead, no probation risk, no minimum 12-month
               commitment. Scale your engineering capacity the moment your
@@ -402,7 +402,7 @@ export default function TechStaffOutsourcing() {
             </h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">
               Senior engineers embedded into growth-stage startups and scale-ups
-              — shipping features, not excuses.
+             , shipping features, not excuses.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
@@ -418,7 +418,7 @@ export default function TechStaffOutsourcing() {
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   From Brief to First Engineer Embedded in Your Team in 72 Hours
-                  — No Recruitment, No Delays.
+                 , No Recruitment, No Delays.
                 </p>
               </div>
               <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
@@ -432,7 +432,7 @@ export default function TechStaffOutsourcing() {
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Engineers Who Stay, Deliver, and Build Deep Product Knowledge
-                  — Not Contractors Who Disappear.
+                 , Not Contractors Who Disappear.
                 </p>
               </div>
             </div>
@@ -468,7 +468,7 @@ export default function TechStaffOutsourcing() {
                   Process
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  Only the Top 5% of Applicants Make the Roster — Technical
+                  Only the Top 5% of Applicants Make the Roster, Technical
                   Assessment, Live Architecture Review & Trial Sprint.
                 </p>
               </div>
@@ -482,7 +482,7 @@ export default function TechStaffOutsourcing() {
                   Disciplines
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  Full-Stack, Mobile, DevOps, AI/ML, Blockchain, QA & More — One
+                  Full-Stack, Mobile, DevOps, AI/ML, Blockchain, QA & More, One
                   Roster, Every Skill Your Roadmap Demands.
                 </p>
               </div>
@@ -501,7 +501,7 @@ export default function TechStaffOutsourcing() {
               Outperforms Traditional Hiring
             </h2>
             <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm mx-auto xl:mx-0">
-              Senior talent, no friction, no long-term lock-in — engineering
+              Senior talent, no friction, no long-term lock-in, engineering
               capacity on demand.
             </p>
           </div>
@@ -542,7 +542,7 @@ export default function TechStaffOutsourcing() {
         plans={techStaffOutsourcingPricingPlans}
         eyebrow="Flexible engineering engagement models"
         title="Staff outsourcing pricing built for every team structure"
-        description="From a single dedicated engineer to a full project squad — structured engagements with transparent rates, clear SLAs, and the flexibility to scale as your roadmap evolves."
+        description="From a single dedicated engineer to a full project squad, structured engagements with transparent rates, clear SLAs, and the flexibility to scale as your roadmap evolves."
         savingsLabel="Save up to 20% on 6-month+ engineering retainers"
         footerNote="Need a custom engineering team structure or enterprise scope?"
         footerDescription="We also quote multi-discipline squads, fractional CTO + team combinations, white-label product teams, and long-term engineering partnerships."
@@ -559,7 +559,7 @@ export default function TechStaffOutsourcing() {
               <span className="precision-gradient">Coverage</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-              Senior engineers across every modern stack — no generalists, no
+              Senior engineers across every modern stack, no generalists, no
               juniors. Every discipline covered by specialists with
               production-grade experience.
             </p>

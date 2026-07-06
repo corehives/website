@@ -30,13 +30,13 @@ const services = [
     number: "01", icon: Palette,
     title: "Brand Identity Design",
     description:
-      "Your logo, colour palette, typography, and visual language — all built as a cohesive system. Identities that are instantly recognisable and built to last across every touchpoint.",
+      "Your logo, colour palette, typography, and visual language, all built as a cohesive system. Identities that are instantly recognisable and built to last across every touchpoint.",
   },
   {
     number: "02", icon: Target,
     title: "Brand Strategy & Positioning",
     description:
-      "Positioning, messaging hierarchy, tone of voice, and competitive differentiation. Strategy that gives every design decision a clear reason to exist — and a measurable business objective.",
+      "Positioning, messaging hierarchy, tone of voice, and competitive differentiation. Strategy that gives every design decision a clear reason to exist, and a measurable business objective.",
   },
   {
     number: "03", icon: Layers,
@@ -48,14 +48,14 @@ const services = [
     number: "04", icon: Package,
     title: "Brand Collateral & Print",
     description:
-      "Business cards, decks, packaging, signage, and campaign assets — all produced within your brand system to a premium standard, print-ready and digitally optimised.",
+      "Business cards, decks, packaging, signage, and campaign assets, all produced within your brand system to a premium standard, print-ready and digitally optimised.",
   },
 ];
 
 const processSteps = [
   { number: "01", icon: Search,  title: "Discovery",  description: "Deep-dive market analysis and audience research to find your brand's unique positioning space." },
   { number: "02", icon: Compass, title: "Strategy",   description: "Define messaging hierarchy, tone of voice, and brand narrative that resonates with your market." },
-  { number: "03", icon: Palette, title: "Design",     description: "Create the visual identity — logo, colour system, typography — as a fully cohesive design language." },
+  { number: "03", icon: Palette, title: "Design",     description: "Create the visual identity, logo, colour system, typography, as a fully cohesive design language." },
   { number: "04", icon: Settings, title: "Build",     description: "Produce the complete brand system, guidelines, templates, and asset library your team can own." },
   { number: "05", icon: Zap,     title: "Launch",     description: "Deploy your brand across all channels with full handover documentation and team training." },
 ];
@@ -68,14 +68,14 @@ const stats = [
 ];
 
 const whyItems = [
-  { id: "research",    title: "Research-Led Brand Positioning",    description: "Every brand decision is grounded in market research, competitor analysis, and audience insight — not aesthetic preference. We find the white space in your market and build your brand to own it." },
-  { id: "system",      title: "Brand Systems, Not Just Logos",      description: "We don't deliver a logo and disappear. Every engagement produces a complete brand system — guidelines, templates, and component libraries your team can actually use." },
-  { id: "commercial",  title: "Commercially Focused Design",        description: "Beautiful brands that don't convert are expensive art. We design with conversion, recall, and market share in mind — every visual choice serves a commercial objective." },
+  { id: "research",    title: "Research-Led Brand Positioning",    description: "Every brand decision is grounded in market research, competitor analysis, and audience insight, not aesthetic preference. We find the white space in your market and build your brand to own it." },
+  { id: "system",      title: "Brand Systems, Not Just Logos",      description: "We don't deliver a logo and disappear. Every engagement produces a complete brand system, guidelines, templates, and component libraries your team can actually use." },
+  { id: "commercial",  title: "Commercially Focused Design",        description: "Beautiful brands that don't convert are expensive art. We design with conversion, recall, and market share in mind, every visual choice serves a commercial objective." },
   { id: "consistency", title: "Multi-Channel Brand Consistency",    description: "From digital to print to environmental design, your brand looks and feels identical across every touchpoint. Consistency builds trust. Trust builds revenue." },
   { id: "handover",    title: "Fully Documented Handover",          description: "Every brand project closes with a comprehensive brand book, asset library, usage guidelines, and a team training session. You own your brand completely." },
 ];
 
-/* Adobe-style letter badge — matches the official product icon visual language */
+/* Adobe-style letter badge, matches the official product icon visual language */
 const ab = (letters, fg, bg) => (
   <div
     className="w-11 h-11 rounded-[9px] flex items-center justify-center font-black text-[15px] tracking-tight select-none"
@@ -85,7 +85,7 @@ const ab = (letters, fg, bg) => (
   </div>
 );
 
-/* si helper — keeps icon size uniform */
+/* si helper, keeps icon size uniform */
 const si = (Comp, color) => (
   <Comp className="w-11 h-11" style={{ color }} />
 );
@@ -118,7 +118,7 @@ const toolsByTab = {
 };
 
 const TAB_DESCS = {
-  "Design Tools":    "Core visual design software for crafting brand identities, digital interfaces, and scalable design systems — from initial concept to production-ready assets.",
+  "Design Tools":    "Core visual design software for crafting brand identities, digital interfaces, and scalable design systems, from initial concept to production-ready assets.",
   "Brand Strategy":  "Collaboration, documentation, and ideation tools that power the strategic research and systematic thinking behind every brand identity we deliver.",
   "Motion & Print":  "Production-grade software for motion branding, video content, and premium print collateral across every physical and digital brand touchpoint.",
 };
@@ -186,7 +186,7 @@ export default function Branding() {
           </h1>
 
           <p className="mt-6 max-w-xl text-center text-sm leading-relaxed text-white sm:text-base">
-            Strategic brand identities that position your business for the market it deserves — designed to be remembered, trusted, and chosen.
+            Strategic brand identities that position your business for the market it deserves, designed to be remembered, trusted, and chosen.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -216,7 +216,7 @@ export default function Branding() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          HERO SHOWCASE  —  3D canvas + text
+          HERO SHOWCASE ,  3D canvas + text
       ══════════════════════════════════════════════════════════════ */}
       <section className="relative px-6 py-20 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
         <div
@@ -226,7 +226,7 @@ export default function Branding() {
 
         <div ref={r0} className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          {/* 3-D canvas — gradient-border wrapper */}
+          {/* 3-D canvas, gradient-border wrapper */}
           <div
             className="relative h-[420px] md:h-[520px] rounded-[18px] p-px"
             style={{
@@ -234,7 +234,7 @@ export default function Branding() {
               boxShadow: "0 0 48px rgba(7,190,184,0.09), 0 0 100px rgba(7,190,184,0.04)",
             }}
           >
-            {/* inner container — transparent so the neural net floats on the page bg */}
+            {/* inner container, transparent so the neural net floats on the page bg */}
             <div
               className="relative w-full h-full rounded-2xl overflow-hidden"
               style={{ background: "radial-gradient(ellipse 65% 55% at 50% 35%, rgba(7,190,184,0.04) 0%, transparent 70%)" }}
@@ -271,7 +271,7 @@ export default function Branding() {
             </h2>
 
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-              Your brand is the first thing your market judges you on — before your product, before your pricing, before a single conversation.
+              Your brand is the first thing your market judges you on, before your product, before your pricing, before a single conversation.
             </p>
 
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
@@ -382,7 +382,7 @@ export default function Branding() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          BRAND PROCESS  — alternating spine timeline
+          BRAND PROCESS , alternating spine timeline
       ══════════════════════════════════════════════════════════════ */}
       <section ref={r3} className="relative py-10 px-6 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
 
@@ -436,7 +436,7 @@ export default function Branding() {
                 const Icon = step.icon;
                 const isLeft = i % 2 === 0;
 
-                /* icon block — reused on whichever side gets the icon */
+                /* icon block, reused on whichever side gets the icon */
                 const iconEl = (
                   <div className="relative group-hover:scale-105 transition-transform duration-500">
                     {/* Soft outer glow */}
@@ -475,7 +475,7 @@ export default function Branding() {
                   </div>
                 );
 
-                /* text block — right-aligned when on the left column */
+                /* text block, right-aligned when on the left column */
                 const textRight = (
                   <div className="max-w-[265px] text-right ml-auto">
                     <h3 className="text-xl font-bold text-white mb-2 leading-snug group-hover:text-[#07BEB8] transition-colors duration-300">
@@ -491,7 +491,7 @@ export default function Branding() {
                   </div>
                 );
 
-                /* text block — left-aligned when on the right column */
+                /* text block, left-aligned when on the right column */
                 const textLeft = (
                   <div className="max-w-[265px]">
                     <h3 className="text-xl font-bold text-white mb-2 leading-snug group-hover:text-[#07BEB8] transition-colors duration-300">
@@ -613,7 +613,7 @@ export default function Branding() {
               Featured <span className="precision-gradient">Brand Work</span>
             </h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">
-              Brand identities built for growth-stage companies, scale-ups, and enterprise rebrands — each one designed to own its market position.
+              Brand identities built for growth-stage companies, scale-ups, and enterprise rebrands, each one designed to own its market position.
             </p>
           </div>
 
@@ -622,7 +622,7 @@ export default function Branding() {
             <div className="flex flex-col gap-5">
               {[
                 { Icon: Target, title: "Strategic Brand Positioning", desc: "Research-Led Positioning That Places Your Brand Exactly Where Your Market Can't Ignore It." },
-                { Icon: Layers, title: "Identity Systems That Scale",  desc: "Complete Brand Frameworks Your Team Can Use Independently — Without Losing Consistency." },
+                { Icon: Layers, title: "Identity Systems That Scale",  desc: "Complete Brand Frameworks Your Team Can Use Independently, Without Losing Consistency." },
               ].map(({ Icon, title, desc }, i) => (
                 <div
                   key={i}
@@ -757,7 +757,7 @@ export default function Branding() {
         plans={brandingPricingPlans}
         eyebrow="Transparent brand investment tiers"
         title="Brand packages built for the growth stage you're in"
-        description="From startup identity launches to full enterprise rebrands — structured engagements with clear deliverables, timelines, and measurable business outcomes."
+        description="From startup identity launches to full enterprise rebrands, structured engagements with clear deliverables, timelines, and measurable business outcomes."
         savingsLabel="Save up to 20% on annual brand retainers"
         footerNote="Need a custom brand scope or rebrand strategy?"
         footerDescription="We also quote full enterprise rebrands, brand mergers, multi-brand portfolio management, and long-term brand guardianship retainers."
@@ -766,7 +766,7 @@ export default function Branding() {
       />
 
       {/* ══════════════════════════════════════════════════════════════
-          DESIGN TOOLS — dynamic tab-switched expertise showcase
+          DESIGN TOOLS, dynamic tab-switched expertise showcase
       ══════════════════════════════════════════════════════════════ */}
       <section className="relative px-6 py-10 sm:px-12 md:px-20 lg:px-32 overflow-hidden">
         {/* Ambient glow */}
@@ -822,7 +822,7 @@ export default function Branding() {
             {TAB_DESCS[activeTechTab]}
           </p>
 
-          {/* Tool grid — fades + slides on tab switch */}
+          {/* Tool grid, fades + slides on tab switch */}
           <div
             className="grid grid-cols-2 sm:grid-cols-3 gap-4"
             style={{
@@ -899,7 +899,7 @@ export default function Branding() {
           </h2>
 
           <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-10">
-            From startup identity launches to full enterprise rebrands — our brand strategists and designers are ready to build something market-defining with you.
+            From startup identity launches to full enterprise rebrands, our brand strategists and designers are ready to build something market-defining with you.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">

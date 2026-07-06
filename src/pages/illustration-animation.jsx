@@ -38,22 +38,22 @@ const services = [
   {
     title: "2D Illustration & Character Design",
     description:
-      "Custom illustration systems, character design, and editorial artwork — built to a consistent style that works across web, mobile, print, and social media without losing visual cohesion.",
+      "Custom illustration systems, character design, and editorial artwork, built to a consistent style that works across web, mobile, print, and social media without losing visual cohesion.",
   },
   {
     title: "Motion Graphics & Explainer Video",
     description:
-      "Animated explainer videos, product demos, and motion graphics that communicate complex ideas clearly in 60–90 seconds. Script, storyboard, animation, and sound design — end to end.",
+      "Animated explainer videos, product demos, and motion graphics that communicate complex ideas clearly in 60–90 seconds. Script, storyboard, animation, and sound design, end to end.",
   },
   {
     title: "Lottie UI Animations",
     description:
-      "Lightweight, scalable Lottie JSON animations for web and mobile — micro-interactions, onboarding flows, loading states, and success animations that delight users and boost retention.",
+      "Lightweight, scalable Lottie JSON animations for web and mobile, micro-interactions, onboarding flows, loading states, and success animations that delight users and boost retention.",
   },
   {
     title: "Social & Brand Motion Content",
     description:
-      "Animated social media assets, brand intros, logo animations, and digital advertising motion — built to your brand guidelines and formatted for every platform out of the box.",
+      "Animated social media assets, brand intros, logo animations, and digital advertising motion, built to your brand guidelines and formatted for every platform out of the box.",
   },
 ];
 
@@ -62,25 +62,25 @@ const whyItems = [
     id: "craft",
     title: "Craft-Level Motion Quality",
     description:
-      "We treat timing, easing, and rhythm as crafts — not afterthoughts. Every animation is frame-accurate with intentional motion language that reinforces your brand personality.",
+      "We treat timing, easing, and rhythm as crafts, not afterthoughts. Every animation is frame-accurate with intentional motion language that reinforces your brand personality.",
   },
   {
     id: "lottie",
     title: "Developer-Ready Lottie Deliverables",
     description:
-      "All UI animations exported as Lottie JSON — lightweight, vector-based, and drop-in ready for React, Vue, iOS, Android, and Flutter without any additional engineering.",
+      "All UI animations exported as Lottie JSON, lightweight, vector-based, and drop-in ready for React, Vue, iOS, Android, and Flutter without any additional engineering.",
   },
   {
     id: "script",
     title: "Script Writing Included",
     description:
-      "For explainer videos, our copywriters craft the narrative before a frame is animated. A weak script produces a weak video — we write tight, conversion-focused scripts as standard.",
+      "For explainer videos, our copywriters craft the narrative before a frame is animated. A weak script produces a weak video, we write tight, conversion-focused scripts as standard.",
   },
   {
     id: "brand",
     title: "Brand-Consistent Visual Language",
     description:
-      "Every illustration and animation is built within your existing brand system — or we establish a new one. Visual language is never invented randomly; it's designed to be owned.",
+      "Every illustration and animation is built within your existing brand system, or we establish a new one. Visual language is never invented randomly; it's designed to be owned.",
   },
   {
     id: "formats",
@@ -385,7 +385,7 @@ export default function IllustrationAnimation() {
               <br />
               <br />
               CoreHives creates illustration systems and motion content that
-              communicate your product's value in seconds — explainer videos,
+              communicate your product's value in seconds, explainer videos,
               Lottie UI animations, brand motion packages, and social content
               built to move audiences from awareness to action.
             </p>
@@ -466,7 +466,7 @@ export default function IllustrationAnimation() {
             </h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">
               Explainer videos, UI animation systems, and brand motion packages
-              — built for measurable business outcomes, not just aesthetic
+             , built for measurable business outcomes, not just aesthetic
               awards.
             </p>
           </div>
@@ -483,7 +483,7 @@ export default function IllustrationAnimation() {
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Animated Content Outperforms Static Posts Across Every Major
-                  Social Platform — Consistently & Measurably.
+                  Social Platform, Consistently & Measurably.
                 </p>
               </div>
               <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
@@ -565,7 +565,7 @@ export default function IllustrationAnimation() {
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   MP4, WebM, GIF, Lottie JSON & Source Files Delivered as
-                  Standard — No Extra Charge for Format Variants.
+                  Standard, No Extra Charge for Format Variants.
                 </p>
               </div>
             </div>
@@ -582,7 +582,7 @@ export default function IllustrationAnimation() {
               <span className="precision-gradient">Motion Work</span> Converts
             </h2>
             <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">
-              Craft-level animation built for commercial outcomes — not just
+              Craft-level animation built for commercial outcomes, not just
               aesthetics.
             </p>
           </div>
@@ -623,7 +623,7 @@ export default function IllustrationAnimation() {
         plans={illustrationAnimationPricingPlans}
         eyebrow="Transparent creative project pricing"
         title="Motion design packages built for every production scale"
-        description="From single Lottie animations to full explainer video + brand motion systems — structured engagements with clear deliverables and zero revision surprises."
+        description="From single Lottie animations to full explainer video + brand motion systems, structured engagements with clear deliverables and zero revision surprises."
         savingsLabel="Save up to 20% on ongoing motion retainers"
         footerNote="Need a custom motion scope or full animation system?"
         footerDescription="We also quote multi-video campaigns, complete UI animation libraries, 3D integration projects, and ongoing brand motion retainers."

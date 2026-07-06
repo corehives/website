@@ -39,22 +39,22 @@ const services = [
   {
     title: "Smart Contract Development",
     description:
-      "Full-lifecycle smart contract engineering — architecture, Solidity/Rust development, gas optimisation, and multi-stage security auditing. We write contracts we wouldn't hesitate to stake our own tokens on.",
+      "Full-lifecycle smart contract engineering, architecture, Solidity/Rust development, gas optimisation, and multi-stage security auditing. We write contracts we wouldn't hesitate to stake our own tokens on.",
   },
   {
     title: "DeFi Protocol Engineering",
     description:
-      "AMMs, lending protocols, yield vaults, and stablecoin mechanisms — built with the rigour that billions of dollars in TVL demands. No copy-paste forks, no shortcuts on security.",
+      "AMMs, lending protocols, yield vaults, and stablecoin mechanisms, built with the rigour that billions of dollars in TVL demands. No copy-paste forks, no shortcuts on security.",
   },
   {
     title: "NFT Platforms & Web3 dApps",
     description:
-      "Full-stack NFT ecosystems — ERC-721/1155 contracts, marketplace infrastructure, royalty enforcement, and React/Next.js front ends with wallet integrations and gasless meta-transactions.",
+      "Full-stack NFT ecosystems, ERC-721/1155 contracts, marketplace infrastructure, royalty enforcement, and React/Next.js front ends with wallet integrations and gasless meta-transactions.",
   },
   {
     title: "Blockchain Strategy & Consulting",
     description:
-      "Chain selection, tokenomics design, governance architecture, and regulatory positioning — strategic guidance from engineers who have shipped production protocols, not just written whitepapers.",
+      "Chain selection, tokenomics design, governance architecture, and regulatory positioning, strategic guidance from engineers who have shipped production protocols, not just written whitepapers.",
   },
 ];
 
@@ -63,31 +63,31 @@ const whyItems = [
     id: "security",
     title: "Security-First By Design",
     description:
-      "Every contract ships with 100% test coverage, fuzz testing, Slither/MythX static analysis, and a full internal audit. Security isn't a post-deployment checklist — it's baked into every line of implementation.",
+      "Every contract ships with 100% test coverage, fuzz testing, Slither/MythX static analysis, and a full internal audit. Security isn't a post-deployment checklist, it's baked into every line of implementation.",
   },
   {
     id: "gas",
     title: "Gas-Optimised as Standard",
     description:
-      "Storage layout, opcode efficiency, and batching strategies are considered from the first design pass — not applied as a patch after deployment makes them expensive to change.",
+      "Storage layout, opcode efficiency, and batching strategies are considered from the first design pass, not applied as a patch after deployment makes them expensive to change.",
   },
   {
     id: "fullstack",
     title: "Full-Stack Web3, One Team",
     description:
-      "From Solidity to React — protocol layer, subgraph indexing, and front-end wallet UX built by the same team that wrote the contracts. No handoffs, no seams, no finger-pointing.",
+      "From Solidity to React, protocol layer, subgraph indexing, and front-end wallet UX built by the same team that wrote the contracts. No handoffs, no seams, no finger-pointing.",
   },
   {
     id: "multichain",
     title: "14+ Chains, One Relationship",
     description:
-      "EVM chains (Ethereum, Arbitrum, Polygon, Base), Solana, and more — without the overhead of managing separate chain-specialist relationships for every deployment target.",
+      "EVM chains (Ethereum, Arbitrum, Polygon, Base), Solana, and more, without the overhead of managing separate chain-specialist relationships for every deployment target.",
   },
   {
     id: "postlaunch",
     title: "30-Day Post-Launch Support",
     description:
-      "Staged deployments, monitoring infrastructure, and a 30-day incident response window included as standard. You don't go to mainnet alone — and you're not left alone after it either.",
+      "Staged deployments, monitoring infrastructure, and a 30-day incident response window included as standard. You don't go to mainnet alone, and you're not left alone after it either.",
   },
 ];
 
@@ -314,7 +314,7 @@ export default function Blockchain() {
             Confidence
           </h1>
           <p className="mt-6 max-w-xl text-center text-sm leading-relaxed text-white sm:text-base">
-            Production-grade blockchain engineering — from smart contract
+            Production-grade blockchain engineering, from smart contract
             architecture to full-stack dApp deployment, security-first and
             battle-tested.
           </p>
@@ -377,7 +377,7 @@ export default function Blockchain() {
               </h2>
             </div>
             <p className="text-gray-300 leading-relaxed">
-              On-chain bugs aren't patches — they're exploits. We build
+              On-chain bugs aren't patches, they're exploits. We build
               accordingly.
               <br />
               <br />
@@ -463,7 +463,7 @@ export default function Blockchain() {
               <span className="precision-gradient">to Mainnet</span>
             </h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">
-              DeFi protocols, NFT platforms, and yield infrastructure — deployed
+              DeFi protocols, NFT platforms, and yield infrastructure, deployed
               to mainnet with zero critical security incidents.
             </p>
           </div>
@@ -480,7 +480,7 @@ export default function Blockchain() {
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Total Value Locked Across DeFi Protocols Engineered by
-                  CoreHives — Zero Critical Security Incidents.
+                  CoreHives, Zero Critical Security Incidents.
                 </p>
               </div>
               <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
@@ -494,7 +494,7 @@ export default function Blockchain() {
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
                   Every Contract Deployed Has Passed Internal Security Audit
-                  With Zero Critical Findings — No Exceptions.
+                  With Zero Critical Findings, No Exceptions.
                 </p>
               </div>
             </div>
@@ -530,7 +530,7 @@ export default function Blockchain() {
                   Supported
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  EVM Chains, Solana, Cosmos & More — Full Cross-Chain
+                  EVM Chains, Solana, Cosmos & More, Full Cross-Chain
                   Engineering Capability Without Extra Specialists.
                 </p>
               </div>
@@ -544,7 +544,7 @@ export default function Blockchain() {
                   Engineering
                 </h3>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  Protocol to Frontend — Smart Contracts, Subgraphs, Wallet UX &
+                  Protocol to Frontend, Smart Contracts, Subgraphs, Wallet UX &
                   dApp Built by One Team With No Handoffs.
                 </p>
               </div>
@@ -563,7 +563,7 @@ export default function Blockchain() {
               Stands Out
             </h2>
             <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">
-              Security-first, gas-optimised, battle-tested — production
+              Security-first, gas-optimised, battle-tested, production
               blockchain engineering with zero compromises.
             </p>
           </div>
@@ -604,7 +604,7 @@ export default function Blockchain() {
         plans={blockchainPricingPlans}
         eyebrow="Transparent blockchain project pricing"
         title="Web3 engineering packages built for production-grade protocols"
-        description="From single smart contract audits to full DeFi protocol builds — structured engagements with clear security standards, milestone-based delivery, and post-launch support included."
+        description="From single smart contract audits to full DeFi protocol builds, structured engagements with clear security standards, milestone-based delivery, and post-launch support included."
         savingsLabel="Save up to 20% on ongoing protocol maintenance retainers"
         footerNote="Need a custom blockchain scope or multi-chain protocol build?"
         footerDescription="We also quote full DeFi protocol ecosystems, cross-chain bridge infrastructure, DAO governance systems, and long-term on-chain engineering partnerships."
@@ -628,7 +628,7 @@ export default function Blockchain() {
             </p>
           </div>
 
-          {/* Tabs — single row at every breakpoint */}
+          {/* Tabs, single row at every breakpoint */}
           <div className="grid grid-cols-3 gap-1.5 sm:gap-4 mb-10 sm:mb-12 sm:flex sm:flex-wrap sm:justify-center">
             {["Smart Contracts", "Web3 Frontend", "DeFi & Tools"].map((tab) => {
               const active = tab === activeTechTab;

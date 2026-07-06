@@ -42,7 +42,7 @@ export const appServicesData = {
   crossplatform: {
     title: "Cross-Platform Mobile App Development",
     description:
-      "Reach both iOS and Android users with a single codebase using Flutter or React Native. Our cross-platform apps deliver native-like performance and a consistent user experience across all devices — saving time and development costs without sacrificing quality.",
+      "Reach both iOS and Android users with a single codebase using Flutter or React Native. Our cross-platform apps deliver native-like performance and a consistent user experience across all devices, saving time and development costs without sacrificing quality.",
     image: CrossPlatformImage,
   },
 };
@@ -69,13 +69,13 @@ export const projectsData = {
   fmcg: {
     title: "Fast Moving Consumer Goods",
     description:
-      "We design FMCG apps that connect brands directly with retailers and consumers — covering distribution tracking, sales force automation, inventory visibility, and instant reordering.",
+      "We design FMCG apps that connect brands directly with retailers and consumers, covering distribution tracking, sales force automation, inventory visibility, and instant reordering.",
     image: FmcgImg,
   },
   logistics: {
     title: "Logistics & Warehousing",
     description:
-      "Our logistics solutions deliver real-time fleet tracking, route optimization, warehouse management, and shipment visibility — helping operators move faster, cut costs, and improve accuracy.",
+      "Our logistics solutions deliver real-time fleet tracking, route optimization, warehouse management, and shipment visibility, helping operators move faster, cut costs, and improve accuracy.",
     image: LogisticsImg,
   },
   ecommerce: {
@@ -100,7 +100,7 @@ export const insightsData = [
     id: 1,
     date: "02 December 2022",
     readTime: "3 Min. To Read",
-    title: "The Future of Generative AI — Possibilities and Challenges",
+    title: "The Future of Generative AI, Possibilities and Challenges",
     description:
       "McKinsey suggests that Generative AI could create a massive economic impact in the next few decades, adding between $2.6 trillion and $4.4 trillion annually.",
     image: FutureGenAi1,
@@ -146,7 +146,7 @@ export const whyItems = [
     id: "customer",
     title: "Customer-Centric Approach",
     description:
-      "We put your goals at the center of everything we do. From the first consultation to post-launch support, our process is built around your vision, your users, and your business outcomes — ensuring every decision we make serves your success.",
+      "We put your goals at the center of everything we do. From the first consultation to post-launch support, our process is built around your vision, your users, and your business outcomes, ensuring every decision we make serves your success.",
   },
   {
     id: "innovative",
@@ -164,7 +164,7 @@ export const whyItems = [
     id: "support",
     title: "Comprehensive Support",
     description:
-      "Our relationship doesn't end at launch. CoreHives provides ongoing maintenance, updates, and dedicated support to keep your app performing at its best — so you can focus on growing your business.",
+      "Our relationship doesn't end at launch. CoreHives provides ongoing maintenance, updates, and dedicated support to keep your app performing at its best, so you can focus on growing your business.",
   },
 ];
 

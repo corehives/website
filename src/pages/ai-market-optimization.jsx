@@ -27,31 +27,31 @@ const services = [
   {
     title: "AI-Driven SEO & Content Intelligence",
     description:
-      "Programmatic content cluster strategy, AI-powered keyword intelligence, entity optimisation, and automated internal linking — systems that build topical authority faster than any manual editorial calendar could.",
+      "Programmatic content cluster strategy, AI-powered keyword intelligence, entity optimisation, and automated internal linking, systems that build topical authority faster than any manual editorial calendar could.",
   },
   {
     title: "Paid Media AI Automation",
     description:
-      "Google PMax, Meta Advantage+, LinkedIn ABM, and TikTok Paid — AI-managed campaigns with dynamic creative optimisation, real-time bid adjustments, and cross-channel attribution that tells you what's actually driving revenue.",
+      "Google PMax, Meta Advantage+, LinkedIn ABM, and TikTok Paid, AI-managed campaigns with dynamic creative optimisation, real-time bid adjustments, and cross-channel attribution that tells you what's actually driving revenue.",
   },
   {
     title: "Conversion Rate Optimisation",
     description:
-      "Full-funnel CRO — AI-personalised landing pages, behavioural heatmap analysis, multivariate testing, and funnel leak detection. We find where revenue is escaping and seal it systematically.",
+      "Full-funnel CRO, AI-personalised landing pages, behavioural heatmap analysis, multivariate testing, and funnel leak detection. We find where revenue is escaping and seal it systematically.",
   },
   {
     title: "Predictive Analytics & Intelligence",
     description:
-      "Custom ML models forecasting customer LTV, churn probability, content performance, and campaign outcomes — giving your team actionable intelligence before your competitors react.",
+      "Custom ML models forecasting customer LTV, churn probability, content performance, and campaign outcomes, giving your team actionable intelligence before your competitors react.",
   },
 ];
 
 const whyItems = [
-  { id: "compound", title: "Compounding Growth, Not Campaigns", description: "We build marketing systems, not campaigns. Every AI optimisation loop compounds — organic authority, paid efficiency, and conversion rate all improve together the longer the engagement runs." },
-  { id: "attribution", title: "Single Source of Truth Reporting", description: "Custom attribution models, GA4 + BigQuery pipelines, and unified dashboards give your team clarity on what's actually driving revenue — not vanity metrics." },
-  { id: "noblackbox", title: "No Black Boxes, No Vague KPIs", description: "Every action has a measurable output tied to a business metric. Traffic, CAC, ROAS, conversion rate — we agree the KPIs upfront and report against them every week." },
-  { id: "fullstack", title: "Full-Funnel Ownership", description: "One team manages organic, paid, and conversion — eliminating the coordination overhead of fragmented agency relationships and the finger-pointing when channels underperform." },
-  { id: "audit", title: "Free AI Growth Audit Included", description: "Every engagement starts with a comprehensive audit of your current organic, paid, and conversion performance — identifying every gap and opportunity before a single budget decision is made." },
+  { id: "compound", title: "Compounding Growth, Not Campaigns", description: "We build marketing systems, not campaigns. Every AI optimisation loop compounds, organic authority, paid efficiency, and conversion rate all improve together the longer the engagement runs." },
+  { id: "attribution", title: "Single Source of Truth Reporting", description: "Custom attribution models, GA4 + BigQuery pipelines, and unified dashboards give your team clarity on what's actually driving revenue, not vanity metrics." },
+  { id: "noblackbox", title: "No Black Boxes, No Vague KPIs", description: "Every action has a measurable output tied to a business metric. Traffic, CAC, ROAS, conversion rate, we agree the KPIs upfront and report against them every week." },
+  { id: "fullstack", title: "Full-Funnel Ownership", description: "One team manages organic, paid, and conversion, eliminating the coordination overhead of fragmented agency relationships and the finger-pointing when channels underperform." },
+  { id: "audit", title: "Free AI Growth Audit Included", description: "Every engagement starts with a comprehensive audit of your current organic, paid, and conversion performance, identifying every gap and opportunity before a single budget decision is made." },
 ];
 
 const techTabData = {
@@ -108,7 +108,7 @@ export default function AIMarketOptimization() {
             Powered by AI
           </h1>
           <p className="mt-6 max-w-xl text-center text-sm leading-relaxed text-white sm:text-base">
-            AI-driven marketing systems that optimise every channel simultaneously — compounding gains that manual teams simply can't match.
+            AI-driven marketing systems that optimise every channel simultaneously, compounding gains that manual teams simply can't match.
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export default function AIMarketOptimization() {
             <p className="text-gray-300 leading-relaxed">
               Traditional marketing agencies run campaigns. CoreHives builds AI-driven growth systems.
               <br /><br />
-              We deploy machine learning across your entire marketing funnel — analysing every signal, automating optimisation loops, and compounding performance gains that no manual team can replicate at scale. Your competitors are still A/B testing manually. You'll be running 40 tests simultaneously.
+              We deploy machine learning across your entire marketing funnel, analysing every signal, automating optimisation loops, and compounding performance gains that no manual team can replicate at scale. Your competitors are still A/B testing manually. You'll be running 40 tests simultaneously.
             </p>
             <div className="flex items-center flex-wrap gap-4 pt-4">
               <CTAButton href="/contact">
@@ -200,7 +200,7 @@ export default function AIMarketOptimization() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">AI Growth Results <span className="precision-gradient">Worth Showing</span></h2>
-            <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">Measurable outcomes across organic, paid, and conversion — not vanity metrics, not vague "brand awareness."</p>
+            <p className="text-gray-400 max-w-3xl mx-auto text-sm md:text-base">Measurable outcomes across organic, paid, and conversion, not vanity metrics, not vague "brand awareness."</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             <div className="flex flex-col gap-6">
@@ -212,7 +212,7 @@ export default function AIMarketOptimization() {
               <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6"><img src={Analytic} className="h-5" alt="" /></div>
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">7.8× Average<br />ROAS at Scale</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">Return on Ad Spend Achieved Across Paid Media Engagements — AI Bidding Outperforming Manual by 3.2×.</p>
+                <p className="text-gray-300 text-sm leading-relaxed">Return on Ad Spend Achieved Across Paid Media Engagements, AI Bidding Outperforming Manual by 3.2×.</p>
               </div>
             </div>
             <div className="flex flex-col gap-6">
@@ -232,12 +232,12 @@ export default function AIMarketOptimization() {
               <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6"><img src={Analytic} className="h-5" alt="" /></div>
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">–58% Average<br />Cost Per Acquisition</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">AI Bid Optimisation Eliminates Wasted Spend on Underperforming Segments — More Revenue, Less Budget.</p>
+                <p className="text-gray-300 text-sm leading-relaxed">AI Bid Optimisation Eliminates Wasted Spend on Underperforming Segments, More Revenue, Less Budget.</p>
               </div>
               <div className="group relative overflow-hidden rounded-2xl border border-[#07BEB8]/40 hover:border-[#07BEB8] bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-7 transition-all flex-1">
                 <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6"><img src={Analytic} className="h-5" alt="" /></div>
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">+4.2× Conversion<br />Rate Lift</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">AI-Personalised Landing Experiences Outperform Static Pages by 4.2× on Conversion Rate — Consistently.</p>
+                <p className="text-gray-300 text-sm leading-relaxed">AI-Personalised Landing Experiences Outperform Static Pages by 4.2× on Conversion Rate, Consistently.</p>
               </div>
             </div>
           </div>
@@ -251,7 +251,7 @@ export default function AIMarketOptimization() {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Why <span className="precision-gradient">AI Marketing</span> Outperforms Traditional Agencies
             </h2>
-            <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">Systems that compound, not campaigns that expire — AI-driven growth with full-funnel transparency.</p>
+            <p className="mt-6 text-white text-sm sm:text-base leading-relaxed max-w-sm">Systems that compound, not campaigns that expire, AI-driven growth with full-funnel transparency.</p>
           </div>
           <div className="flex flex-col gap-3">
             {whyItems.map((item) => {
@@ -276,7 +276,7 @@ export default function AIMarketOptimization() {
         plans={aiMarketOptimizationPricingPlans}
         eyebrow="Transparent AI growth investment tiers"
         title="AI marketing packages built for measurable revenue outcomes"
-        description="From organic SEO systems to full-funnel AI growth programmes — structured engagements with weekly reporting, clear KPIs, and results tied directly to business metrics."
+        description="From organic SEO systems to full-funnel AI growth programmes, structured engagements with weekly reporting, clear KPIs, and results tied directly to business metrics."
         savingsLabel="Save up to 20% on 6-month+ AI growth retainers"
         footerNote="Need a custom AI marketing programme or enterprise growth scope?"
         footerDescription="We also quote full-funnel AI growth programmes, enterprise data infrastructure builds, multi-brand marketing operations, and bespoke ML model development."
@@ -289,7 +289,7 @@ export default function AIMarketOptimization() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Marketing <span className="precision-gradient">Stack & Tools </span></h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Best-in-class analytics, advertising, and SEO platforms — operated by specialists who extract maximum performance from every tool.</p>
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">Best-in-class analytics, advertising, and SEO platforms, operated by specialists who extract maximum performance from every tool.</p>
           </div>
           <div className="flex flex-nowrap overflow-x-auto gap-3 sm:gap-4 mb-12 pb-1 -mx-6 px-6 sm:-mx-12 sm:px-12 md:-mx-20 md:px-20 lg:mx-0 lg:px-0 lg:justify-center">
             {["Analytics & SEO", "Paid Media", "AI & Data"].map((tab) => {
