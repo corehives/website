@@ -62,7 +62,6 @@ function Banner({ badge, title, titleAccent, subtitle }) {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <CTAButton to="/contact">Get Started</CTAButton>
-          <CTAButton href="#overview">Learn More</CTAButton>
         </div>
       </div>
 

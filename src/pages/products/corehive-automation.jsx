@@ -15,7 +15,7 @@ import {
 const data = {
   banner: {
     badge: "CoreHives Product",
-    title: "CoreHive Automation —",
+    title: "CoreHive Automation",
     titleAccent: "Eliminate Manual Work at Scale",
     subtitle:
       "A no-code/low-code business process automation platform that connects your apps, automates repetitive workflows, and frees your team to focus on high-value work.",

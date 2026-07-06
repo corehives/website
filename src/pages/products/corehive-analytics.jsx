@@ -15,7 +15,7 @@ import {
 const data = {
   banner: {
     badge: "CoreHives Product",
-    title: "CoreHive Analytics —",
+    title: "CoreHive Analytics",
     titleAccent: "Turn Data Into Decisions",
     subtitle:
       "A real-time business intelligence platform that connects every data source, surfaces actionable insights, and puts the right metrics in front of the right people.",

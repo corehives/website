@@ -14,7 +14,7 @@ import {
 const data = {
   banner: {
     badge: "CoreHives Product",
-    title: "CoreHive CRM —",
+    title: "CoreHive CRM",
     titleAccent: "Relationships That Drive Revenue",
     subtitle:
       "A powerful Customer Relationship Management platform built to help your sales, support, and marketing teams work seamlessly from one unified workspace.",
