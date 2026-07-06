@@ -7,9 +7,6 @@ import leftLight from "../../assets/left-light.png";
 import rightLight from "../../assets/right-light.png";
 import Cloud from "../../assets/icons/cloud.png";
 import BgApp from "../../assets/bg-app.png";
-import avatar5 from "../../assets/avatar-7.png";
-import avatar4 from "../../assets/avatar-8.png";
-import avatar6 from "../../assets/avatar-9.png";
 import BannerRightAnimation from "../animations/bannerRight";
 import BannerLeftAnimation from "../animations/bannerleft";
 
@@ -236,11 +233,6 @@ function ProblemCta({ heading, clientCount, problems }) {
                 Start a project
               </CTAButton>
               <div className="flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  <img src={avatar4} alt="" className="h-12 w-12 rounded-full object-cover" />
-                  <img src={avatar5} alt="" className="h-12 w-12 rounded-full object-cover -ml-3" />
-                  <img src={avatar6} alt="" className="h-12 w-12 rounded-full object-cover -ml-3" />
-                </div>
                 <div>
                   <div className="text-lg font-bold text-[#07BEB8] leading-none">80+</div>
                   <div className="text-[10px] text-gray-500">Total Clients</div>
