@@ -279,7 +279,7 @@ export default function ContactSection() {
           </h2>
 
           <p className="text-white text-sm leading-relaxed mb-6 lg:mb-10 max-w-sm">
-            Whether you're ready to start or just exploring your options — we'd
+            Whether you're ready to start or just exploring your options, we'd
             love to hear from you. Fill out the form and one of our expert
             agents will get back to you shortly.
           </p>
