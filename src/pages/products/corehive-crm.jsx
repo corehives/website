@@ -24,19 +24,19 @@ const data = {
     accentHeading: "Unify Your Customer Data",
     heading: "with a CRM Built for Modern Teams",
     paragraphs: [
-      "CoreHive CRM is a fully integrated customer relationship management platform designed for growing businesses. It centralises every customer interaction — from first touch to renewal — giving your teams a single source of truth for contacts, deals, and support tickets.",
+      "CoreHive CRM is a fully integrated customer relationship management platform designed for growing businesses. It centralises every customer interaction, from first touch to renewal, giving your teams a single source of truth for contacts, deals, and support tickets.",
       "With intuitive pipeline management, AI-assisted follow-up suggestions, and deep analytics built in, CoreHive CRM helps your team close deals faster, retain customers longer, and make smarter decisions every step of the way.",
     ],
   },
   features: [
     { Icon: Users, title: "Contact Management", description: "Organise and segment every contact and company in one searchable database with custom fields and relationship mapping." },
     { Icon: BarChart2, title: "Sales Pipeline", description: "Drag-and-drop deal boards with stage-level forecasting, probability scoring, and weighted revenue projections." },
-    { Icon: Mail, title: "Email Integration", description: "Two-way Gmail and Outlook sync with tracked opens, clicks, and reply detection — all logged automatically to the contact record." },
+    { Icon: Mail, title: "Email Integration", description: "Two-way Gmail and Outlook sync with tracked opens, clicks, and reply detection, all logged automatically to the contact record." },
     { Icon: Zap, title: "Automation Workflows", description: "Visual workflow builder to automate follow-ups, field updates, task assignments, and notification triggers without code." },
     { Icon: BarChart2, title: "Analytics Dashboard", description: "Real-time reports on deal velocity, rep performance, conversion rates, and pipeline health across every stage." },
     { Icon: MessageSquare, title: "Team Collaboration", description: "Shared inboxes, internal notes, @mentions, and activity feeds keep every stakeholder aligned on every account." },
     { Icon: Bell, title: "Smart Alerts", description: "AI-powered alerts surface at-risk deals, overdue tasks, and engagement signals before they become missed opportunities." },
-    { Icon: Shield, title: "Role-Based Access", description: "Granular permission settings ensure each team member sees exactly what they need — nothing more, nothing less." },
+    { Icon: Shield, title: "Role-Based Access", description: "Granular permission settings ensure each team member sees exactly what they need, nothing more, nothing less." },
     { Icon: Globe, title: "Multi-Currency Support", description: "Manage deals in any currency with automatic conversion and localised reporting for global sales teams." },
   ],
   processHeading:
@@ -45,8 +45,8 @@ const data = {
     { number: "01", title: "Account Setup", description: "Configure your workspace, import existing contacts via CSV or API, and connect your email and calendar in under 30 minutes." },
     { number: "02", title: "Pipeline Design", description: "Map your existing sales stages to CoreHive CRM deal boards and customise fields to match your qualification criteria." },
     { number: "03", title: "Team Onboarding", description: "Invite your sales, marketing, and support reps. Role-based templates get everyone up to speed in a single training session." },
-    { number: "04", title: "Automation Build", description: "Use the visual workflow builder to automate repetitive tasks — follow-up sequences, lead routing, deal stage triggers." },
-    { number: "05", title: "Go Live", description: "Activate integrations with your existing stack — marketing tools, billing systems, support desks — and launch with confidence." },
+    { number: "04", title: "Automation Build", description: "Use the visual workflow builder to automate repetitive tasks, follow-up sequences, lead routing, deal stage triggers." },
+    { number: "05", title: "Go Live", description: "Activate integrations with your existing stack, marketing tools, billing systems, support desks, and launch with confidence." },
     { number: "06", title: "Optimise & Scale", description: "Review weekly pipeline reports, A/B test email sequences, and expand automation coverage as your team grows." },
   ],
   technologies: [
@@ -63,7 +63,7 @@ const data = {
   benefits: [
     { title: "Close 35% More Deals", description: "Pipeline visibility and AI-assisted follow-up prompts help reps focus on the right opportunities at the right time." },
     { title: "Cut Admin by 60%", description: "Automated data entry, email logging, and task creation reclaim hours your team can reinvest in selling." },
-    { title: "Unified Customer View", description: "Sales, support, and marketing share one contact record — no more siloed spreadsheets or missed context." },
+    { title: "Unified Customer View", description: "Sales, support, and marketing share one contact record, no more siloed spreadsheets or missed context." },
     { title: "Faster Onboarding", description: "New reps reach full productivity in days, not weeks, with guided pipelines and templated workflows ready on day one." },
     { title: "Forecast with Confidence", description: "Weighted pipeline forecasts and historical win-rate analysis make your revenue projections dependable." },
     { title: "Enterprise-Grade Security", description: "SOC 2 Type II compliant with end-to-end encryption, SSO, and audit logs that satisfy the most demanding compliance teams." },

@@ -25,13 +25,13 @@ const data = {
     accentHeading: "Production-Ready AI",
     heading: "Without the Research Overhead",
     paragraphs: [
-      "CoreHive AI Suite is a collection of pre-trained, fine-tuneable AI modules that plug into your products and workflows. Instead of building AI infrastructure from scratch, your team gets battle-tested models for NLP, computer vision, predictive analytics, and content generation — all served through a single unified API.",
+      "CoreHive AI Suite is a collection of pre-trained, fine-tuneable AI modules that plug into your products and workflows. Instead of building AI infrastructure from scratch, your team gets battle-tested models for NLP, computer vision, predictive analytics, and content generation, all served through a single unified API.",
       "Each module is configurable, trainable on your own data, and observable through real-time performance dashboards. From AI-powered customer support to predictive inventory management, CoreHive AI Suite turns months of ML engineering into days of configuration.",
     ],
   },
   features: [
     { Icon: MessageSquare, title: "AI Chat & NLP", description: "Deploy context-aware chatbots and virtual assistants trained on your knowledge base, product docs, and support history." },
-    { Icon: BarChart2, title: "Predictive Modelling", description: "Pre-built models for churn prediction, demand forecasting, credit scoring, and lead qualification — fine-tuned on your data." },
+    { Icon: BarChart2, title: "Predictive Modelling", description: "Pre-built models for churn prediction, demand forecasting, credit scoring, and lead qualification, fine-tuned on your data." },
     { Icon: TrendingUp, title: "Sentiment Analysis", description: "Real-time sentiment scoring across customer reviews, support tickets, social mentions, and survey responses." },
     { Icon: Code2, title: "Content Generation", description: "Generate product descriptions, email drafts, report summaries, and ad copy at scale using guided generative templates." },
     { Icon: Globe, title: "Multilingual Support", description: "All NLP modules support 80+ languages with automatic language detection and cross-lingual training data support." },

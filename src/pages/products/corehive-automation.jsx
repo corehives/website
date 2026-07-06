@@ -26,7 +26,7 @@ const data = {
     heading: "from Simple Tasks to Complex Enterprise Workflows",
     paragraphs: [
       "CoreHive Automation is a visual workflow engine that sits between all the tools your business already uses. With a drag-and-drop builder, pre-built action library, and conditional logic blocks, your operations team can automate multi-step processes without touching a single line of code.",
-      "From lead routing and invoice generation to data synchronisation and compliance reporting, CoreHive Automation executes workflows reliably at any scale — processing millions of events per day with built-in error handling, retry logic, and full audit trails.",
+      "From lead routing and invoice generation to data synchronisation and compliance reporting, CoreHive Automation executes workflows reliably at any scale, processing millions of events per day with built-in error handling, retry logic, and full audit trails.",
     ],
   },
   features: [
@@ -34,7 +34,7 @@ const data = {
     { Icon: Zap, title: "Trigger Library", description: "400+ pre-built triggers across apps, webhooks, schedules, database events, email conditions, and form submissions." },
     { Icon: Code2, title: "Custom Code Blocks", description: "Drop a JavaScript or Python code block anywhere in your workflow when pre-built actions do not cover your edge case." },
     { Icon: Shield, title: "Error Handling", description: "Automatic retries with exponential back-off, dead-letter queues, and Slack/email alerts when workflows encounter failures." },
-    { Icon: Database, title: "Data Transformation", description: "Map, filter, and transform data between steps using a formula editor with 200+ built-in functions — no ETL tool required." },
+    { Icon: Database, title: "Data Transformation", description: "Map, filter, and transform data between steps using a formula editor with 200+ built-in functions, no ETL tool required." },
     { Icon: Bell, title: "Real-Time Monitoring", description: "Live execution logs, step-level timing, and payload inspection let you debug and optimise every workflow run." },
     { Icon: Globe, title: "API & Webhook Engine", description: "Turn any workflow into a callable HTTP endpoint or subscribe to external webhooks with automatic payload validation." },
     { Icon: Settings, title: "Version Control", description: "Full workflow versioning with one-click rollback, environment promotion (dev → staging → prod), and change history." },
@@ -44,7 +44,7 @@ const data = {
     "From process mapping to fully automated production workflow in two weeks.",
   process: [
     { number: "01", title: "Process Mapping", description: "Workshop your most time-consuming manual processes, identify automation candidates, and prioritise by ROI impact." },
-    { number: "02", title: "Connector Setup", description: "Connect CoreHive Automation to your existing stack — CRM, ERP, billing, support desk, communication tools — using native connectors." },
+    { number: "02", title: "Connector Setup", description: "Connect CoreHive Automation to your existing stack, CRM, ERP, billing, support desk, communication tools, using native connectors." },
     { number: "03", title: "Workflow Design", description: "Build the automation flows on the visual canvas, configure conditional logic, and set up data transformation rules." },
     { number: "04", title: "Testing & Validation", description: "Run each workflow against real test data in a sandboxed environment, validate outputs, and tune error handling rules." },
     { number: "05", title: "Production Deployment", description: "Promote tested workflows to production, activate triggers, and confirm end-to-end execution with live monitoring." },
@@ -63,11 +63,11 @@ const data = {
   ],
   benefits: [
     { title: "Save 40+ Hours Per Week", description: "Automating repetitive tasks across your ops, finance, and HR teams frees dozens of hours that go straight back into strategic work." },
-    { title: "Zero Human Errors", description: "Rules-based automation executes processes exactly the same way every time — no copy-paste mistakes, missed steps, or forgotten follow-ups." },
+    { title: "Zero Human Errors", description: "Rules-based automation executes processes exactly the same way every time, no copy-paste mistakes, missed steps, or forgotten follow-ups." },
     { title: "Scale Without Headcount", description: "Handle 10× the volume of requests, orders, or tickets without proportionally growing your operations team." },
     { title: "Instant Process Visibility", description: "Every workflow run is logged with full payload and timing data. Auditors and managers get complete transparency with zero effort." },
     { title: "Connect Any Tool", description: "With 400+ pre-built connectors and a custom HTTP action, CoreHive Automation integrates with virtually every tool in your stack." },
-    { title: "Non-Technical Ownership", description: "Operations managers and business analysts build and modify automations independently — no engineering tickets required." },
+    { title: "Non-Technical Ownership", description: "Operations managers and business analysts build and modify automations independently, no engineering tickets required." },
   ],
   stats: [
     { number: "40+", label: "Hours Saved Per Week", description: "Average time reclaimed per operations team after full workflow automation deployment." },
@@ -84,7 +84,7 @@ const data = {
   ],
   cta: {
     heading: "Automate Your Business",
-    subtitle: "Tell us your three biggest manual processes and we will show you exactly how to automate them — live, in 30 minutes.",
+    subtitle: "Tell us your three biggest manual processes and we will show you exactly how to automate them, live, in 30 minutes.",
     highlights: ["Free process audit", "12-day trial", "No engineering required"],
     buttonText: "Book a Free Audit",
     buttonHref: "/contact",
