@@ -7,7 +7,7 @@ const data = {
     title: "Digital Marketing",
     titleAccent: "Portfolio",
     subtitle:
-      "Data-driven campaigns that fill pipelines, grow audiences, and deliver measurable ROI — a look at how we have helped brands dominate their digital channels.",
+      "Data-driven campaigns that fill pipelines, grow audiences, and deliver measurable ROI, a look at how we have helped brands dominate their digital channels.",
   },
   showcaseImage: showcaseImg,
   categories: [
@@ -23,12 +23,12 @@ const data = {
     { num: "50+", label: "Brands Grown", sub: "Clients across SaaS, e-commerce, professional services, and retail." },
   ],
   projects: [
-    { number: "01", title: "TechFlow SaaS — B2B Lead Gen", description: "A full-funnel content and PPC strategy that grew qualified demo requests from 40/month to 380/month in 6 months. CAC reduced by 55%.", tags: ["SaaS", "SEO", "PPC"] },
-    { number: "02", title: "LuxeStyle — E-Commerce Growth", description: "Google Shopping and Meta Ads strategy that scaled an online fashion retailer from £200K to £1.2M monthly revenue in 12 months with a 6:1 ROAS.", tags: ["E-Commerce", "Meta Ads", "Google Shopping"] },
-    { number: "03", title: "GreenHome — SEO Domination", description: "A technical SEO and content programme that took a sustainable home products brand from page 4 to position 1 for 45 high-intent keywords.", tags: ["Retail", "SEO", "Content"] },
-    { number: "04", title: "CapaBank — App Downloads", description: "A mobile-first paid social campaign that drove 120K+ app installs at £0.82 CPI for a challenger banking app launch, beating the target CPI by 38%.", tags: ["FinTech", "Social Ads", "App Marketing"] },
-    { number: "05", title: "EduPath — Email Automation", description: "A 12-stage onboarding and re-engagement email series that increased free-to-paid conversion from 8% to 19% and reduced churn by 24%.", tags: ["EdTech", "Email", "Automation"] },
-    { number: "06", title: "PropMap — LinkedIn B2B", description: "An account-based marketing campaign targeting property developers and investors on LinkedIn that generated 85 qualified pipeline opportunities in Q1.", tags: ["PropTech", "LinkedIn Ads", "ABM"] },
+    { number: "01", title: "TechFlow SaaS, B2B Lead Gen", description: "A full-funnel content and PPC strategy that grew qualified demo requests from 40/month to 380/month in 6 months. CAC reduced by 55%.", tags: ["SaaS", "SEO", "PPC"] },
+    { number: "02", title: "LuxeStyle, E-Commerce Growth", description: "Google Shopping and Meta Ads strategy that scaled an online fashion retailer from £200K to £1.2M monthly revenue in 12 months with a 6:1 ROAS.", tags: ["E-Commerce", "Meta Ads", "Google Shopping"] },
+    { number: "03", title: "GreenHome, SEO Domination", description: "A technical SEO and content programme that took a sustainable home products brand from page 4 to position 1 for 45 high-intent keywords.", tags: ["Retail", "SEO", "Content"] },
+    { number: "04", title: "CapaBank, App Downloads", description: "A mobile-first paid social campaign that drove 120K+ app installs at £0.82 CPI for a challenger banking app launch, beating the target CPI by 38%.", tags: ["FinTech", "Social Ads", "App Marketing"] },
+    { number: "05", title: "EduPath, Email Automation", description: "A 12-stage onboarding and re-engagement email series that increased free-to-paid conversion from 8% to 19% and reduced churn by 24%.", tags: ["EdTech", "Email", "Automation"] },
+    { number: "06", title: "PropMap, LinkedIn B2B", description: "An account-based marketing campaign targeting property developers and investors on LinkedIn that generated 85 qualified pipeline opportunities in Q1.", tags: ["PropTech", "LinkedIn Ads", "ABM"] },
   ],
   process: [
     { number: "01", title: "Audit & Strategy", description: "A full audit of your current digital presence, competitor landscape, and audience data to build a channel strategy with clear revenue targets." },
@@ -42,10 +42,10 @@ const data = {
   clientCount: 50,
   problems: [
     { title: "Wasting Ad Budget?", description: "Our audit process typically identifies 20–35% of ad spend going to non-converting audiences or keywords within the first 30 days of engagement.", bg: "bg-[#07BEB8]", textColor: "text-[#062E2C]" },
-    { title: "Invisible on Google?", description: "Our technical SEO framework has moved clients from page 4 to page 1 for competitive keywords — without paid shortcuts.", bg: "bg-[#E5F8F2]", textColor: "text-[#062E2C]" },
+    { title: "Invisible on Google?", description: "Our technical SEO framework has moved clients from page 4 to page 1 for competitive keywords, without paid shortcuts.", bg: "bg-[#E5F8F2]", textColor: "text-[#062E2C]" },
     { title: "Low Social Engagement?", description: "Data-led content strategy and A/B-tested creative consistently outperform generic social posting by 3–5× in reach and engagement.", bg: "bg-[#FFF3DC]", textColor: "text-[#3a2e14]" },
-    { title: "Can't Prove ROI?", description: "Full attribution setup ensures every deal in your CRM is linked to the marketing touchpoints that influenced it — no more vanity metrics.", bg: "bg-[#F5F5F5]", textColor: "text-[#0a0a0a]" },
-    { title: "Inconsistent Lead Flow?", description: "Multi-channel campaign architecture smooths out lead volume peaks and troughs — delivering a predictable pipeline month after month.", bg: "bg-[#E6FEFE]", textColor: "text-[#0a0a0a]" },
+    { title: "Can't Prove ROI?", description: "Full attribution setup ensures every deal in your CRM is linked to the marketing touchpoints that influenced it, no more vanity metrics.", bg: "bg-[#F5F5F5]", textColor: "text-[#0a0a0a]" },
+    { title: "Inconsistent Lead Flow?", description: "Multi-channel campaign architecture smooths out lead volume peaks and troughs, delivering a predictable pipeline month after month.", bg: "bg-[#E6FEFE]", textColor: "text-[#0a0a0a]" },
   ],
 };
 

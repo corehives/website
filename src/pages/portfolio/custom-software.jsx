@@ -7,7 +7,7 @@ const data = {
     title: "Custom Software Development",
     titleAccent: "Portfolio",
     subtitle:
-      "Bespoke software built around your exact processes — from enterprise ERPs and operational tools to industry-specific platforms that off-the-shelf solutions cannot address.",
+      "Bespoke software built around your exact processes, from enterprise ERPs and operational tools to industry-specific platforms that off-the-shelf solutions cannot address.",
   },
   showcaseImage: showcaseImg,
   categories: [
@@ -23,12 +23,12 @@ const data = {
     { num: "10+", label: "Industries Served", sub: "Healthcare, logistics, finance, legal, retail, and more." },
   ],
   projects: [
-    { number: "01", title: "LogiOps — Logistics ERP", description: "A custom ERP for a regional logistics group managing 500+ vehicles, 2M+ parcels per month, and multi-depot warehouse operations. Replaced 6 separate legacy systems.", tags: ["Logistics", "ERP", "Node.js"] },
-    { number: "02", title: "LegalVault — Document Platform", description: "A secure legal document management and e-signature platform with matter management, time tracking, and client billing for a 200-lawyer firm.", tags: ["Legal Tech", "Django", "AWS"] },
-    { number: "03", title: "MedCore — Hospital Management", description: "A HIPAA-compliant hospital management system covering patient records, bed management, theatre scheduling, and pharmacy inventory for a 500-bed facility.", tags: ["Healthcare", "React", "PostgreSQL"] },
-    { number: "04", title: "InventIQ — Warehouse System", description: "An AI-assisted inventory management platform with barcode scanning, predictive reorder alerts, and multi-location stock reconciliation for a consumer electronics distributor.", tags: ["Retail", "Python", "FastAPI"] },
-    { number: "05", title: "BuildTrack — Construction PM", description: "A project management and cost-tracking platform for a construction group managing 80+ concurrent sites with Gantt views, subcontractor management, and budget forecasting.", tags: ["Construction", "Vue.js", "Laravel"] },
-    { number: "06", title: "GrantHub — Non-Profit CRM", description: "A grant management and donor relationship platform for a charitable foundation, tracking $50M+ in annual grant distributions with compliance reporting and impact dashboards.", tags: ["Non-Profit", "React", "Node.js"] },
+    { number: "01", title: "LogiOps, Logistics ERP", description: "A custom ERP for a regional logistics group managing 500+ vehicles, 2M+ parcels per month, and multi-depot warehouse operations. Replaced 6 separate legacy systems.", tags: ["Logistics", "ERP", "Node.js"] },
+    { number: "02", title: "LegalVault, Document Platform", description: "A secure legal document management and e-signature platform with matter management, time tracking, and client billing for a 200-lawyer firm.", tags: ["Legal Tech", "Django", "AWS"] },
+    { number: "03", title: "MedCore, Hospital Management", description: "A HIPAA-compliant hospital management system covering patient records, bed management, theatre scheduling, and pharmacy inventory for a 500-bed facility.", tags: ["Healthcare", "React", "PostgreSQL"] },
+    { number: "04", title: "InventIQ, Warehouse System", description: "An AI-assisted inventory management platform with barcode scanning, predictive reorder alerts, and multi-location stock reconciliation for a consumer electronics distributor.", tags: ["Retail", "Python", "FastAPI"] },
+    { number: "05", title: "BuildTrack, Construction PM", description: "A project management and cost-tracking platform for a construction group managing 80+ concurrent sites with Gantt views, subcontractor management, and budget forecasting.", tags: ["Construction", "Vue.js", "Laravel"] },
+    { number: "06", title: "GrantHub, Non-Profit CRM", description: "A grant management and donor relationship platform for a charitable foundation, tracking $50M+ in annual grant distributions with compliance reporting and impact dashboards.", tags: ["Non-Profit", "React", "Node.js"] },
   ],
   process: [
     { number: "01", title: "Business Analysis", description: "In-depth workshops with your operations, IT, and leadership teams to document requirements, data flows, and integration dependencies." },
@@ -41,8 +41,8 @@ const data = {
   ctaHeading: "Have a Complex Software Challenge?",
   clientCount: 30,
   problems: [
-    { title: "Off-the-Shelf Doesn't Fit?", description: "We build software around your exact processes — not the other way around. No workarounds, no compromises on the features that matter most.", bg: "bg-[#07BEB8]", textColor: "text-[#062E2C]" },
-    { title: "Legacy System Risk?", description: "We modernise ageing systems incrementally — strangler fig migrations that reduce risk while keeping the business running throughout the transition.", bg: "bg-[#E5F8F2]", textColor: "text-[#062E2C]" },
+    { title: "Off-the-Shelf Doesn't Fit?", description: "We build software around your exact processes, not the other way around. No workarounds, no compromises on the features that matter most.", bg: "bg-[#07BEB8]", textColor: "text-[#062E2C]" },
+    { title: "Legacy System Risk?", description: "We modernise ageing systems incrementally, strangler fig migrations that reduce risk while keeping the business running throughout the transition.", bg: "bg-[#E5F8F2]", textColor: "text-[#062E2C]" },
     { title: "Integration Complexity?", description: "Our API-first architecture ensures every system we build connects cleanly to your existing stack and the tools you add in the future.", bg: "bg-[#FFF3DC]", textColor: "text-[#3a2e14]" },
     { title: "Vendor Lock-In?", description: "You own 100% of the source code, documentation, and infrastructure configuration. No dependency on our continued involvement.", bg: "bg-[#F5F5F5]", textColor: "text-[#0a0a0a]" },
     { title: "Post-Launch Maintenance?", description: "Retainer-based maintenance plans with guaranteed SLAs cover security patches, feature additions, and platform scaling as your business grows.", bg: "bg-[#E6FEFE]", textColor: "text-[#0a0a0a]" },
