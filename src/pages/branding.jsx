@@ -4,9 +4,6 @@ import WebWork   from "../assets/work.png";
 import Cloud     from "../assets/icons/cloud.png";
 import leftLight  from "../assets/left-light.png";
 import rightLight from "../assets/right-light.png";
-import avatar5   from "../assets/avatar-7.png";
-import avatar4   from "../assets/avatar-8.png";
-import avatar6   from "../assets/avatar-9.png";
 import BgApp     from "../assets/bg-app.png";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation  from "../components/animations/bannerleft";
@@ -287,15 +284,8 @@ export default function Branding() {
               </CTAButton>
             </div>
 
-            {/* avatar stack + count */}
+            {/* count */}
             <div className="flex items-center gap-6 pt-2">
-              <div className="flex">
-                {[avatar4, avatar5, avatar6].map((av, i) => (
-                  <div key={i} className="w-16 h-16 rounded-full overflow-hidden" style={{ marginLeft: i > 0 ? -30 : 0 }}>
-                    <img src={av} alt="" className="w-full h-full object-cover" />
-                  </div>
-                ))}
-              </div>
               <div>
                 <p className="text-2xl font-bold text-[#07BEB8] leading-none">110+</p>
                 <p className="text-gray-400 text-xs mt-0.5">Clients Servered</p>
@@ -659,11 +649,6 @@ export default function Branding() {
               {/* stat bar */}
               <div className="rounded-2xl border border-[#07BEB8]/30 bg-gradient-to-br from-teal-950/40 via-black/60 to-black/80 p-3 flex items-center justify-between">
                 <div className="flex mx-auto items-center gap-3">
-                  <div className="flex">
-                    {[avatar4, avatar5, avatar6].map((av, i) => (
-                      <img key={i} src={av} alt="" className="w-16 h-16 rounded-fullobject-cover" style={{ marginLeft: i > 0 ? -30 : 0 }} />
-                    ))}
-                  </div>
                   <div>
                     <p className="text-2xl font-bold text-[#07BEB8] leading-none">150+</p>
                     <p className="text-gray-400 text-xs mt-0.5">Brands Delivered</p>

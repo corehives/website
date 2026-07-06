@@ -8,9 +8,6 @@ import BannerLeftAnimation from "../components/animations/bannerleft";
 import Cloud from "../assets/icons/cloud.png";
 import leftLight from "../assets/left-light.png";
 import rightLight from "../assets/right-light.png";
-import avatar5 from "../assets/avatar-7.png";
-import avatar4 from "../assets/avatar-8.png";
-import avatar6 from "../assets/avatar-9.png";
 import BgApp from "../assets/bg-app.png";
 import { ArrowRight, ChevronDown, Globe, Smartphone, Cpu } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
@@ -330,62 +327,13 @@ export default function TechStaffOutsourcing() {
             </p>
             <div className="flex items-center  justify-center md:justify-start flex-wrap gap-x-6 gap-y-5 pt-2 sm:pt-4">
               <CTAButton href="/contact">Build Your Team</CTAButton>
-              <div className="flex items-center gap-5 sm:gap-6">
-                <div className="flex items-center relative">
-                  <div
-                    className="relative flex-shrink-0"
-                    style={{ zIndex: 30 }}
-                  >
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-[5.5rem] lg:h-[5.5rem] rounded-full">
-                      <img
-                        src={avatar4}
-                        alt=""
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="relative flex-shrink-0 -ml-5 sm:-ml-6 lg:-ml-12"
-                    style={{ zIndex: 20 }}
-                  >
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-[5.5rem] lg:h-[5.5rem] rounded-full">
-                      <img
-                        src={avatar5}
-                        alt=""
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="relative flex-shrink-0 -ml-5 sm:-ml-6 lg:-ml-12"
-                    style={{ zIndex: 10 }}
-                  >
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-[5.5rem] lg:h-[5.5rem] rounded-full">
-                      <img
-                        src={avatar6}
-                        alt=""
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="relative flex-shrink-0 -ml-3 sm:-ml-4 lg:-ml-6"
-                    style={{ zIndex: 0 }}
-                  >
-                    <div className="w-9 h-9 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full border-[3px] lg:border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-1.5 lg:gap-2">
-                      <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-[#07BEB8]" />
-                      <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-[#07beb89c]" />
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-3xl sm:text-4xl font-bold text-[#07BEB8] leading-none">
-                    50+
-                  </span>
-                  <span className="text-gray-400 text-xs sm:text-sm mt-1.5">
-                    Senior Engineers
-                  </span>
-                </div>
+              <div className="flex flex-col ml-2 sm:ml-4">
+                <span className="text-3xl sm:text-4xl font-bold text-[#07BEB8] leading-none">
+                  50+
+                </span>
+                <span className="text-gray-400 text-xs sm:text-sm mt-1.5">
+                  Senior Engineers
+                </span>
               </div>
             </div>
           </div>
@@ -498,23 +446,6 @@ export default function TechStaffOutsourcing() {
               </div>
               <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
                 <div className="flex mx-auto items-center gap-3">
-                  <div className="flex items-center">
-                    <img
-                      src={avatar4}
-                      alt=""
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
-                    <img
-                      src={avatar5}
-                      alt=""
-                      className="w-16 h-16 rounded-full object-cover -ml-6"
-                    />
-                    <img
-                      src={avatar6}
-                      alt=""
-                      className="w-16 h-16 rounded-full object-cover -ml-6"
-                    />
-                  </div>
                   <div>
                     <p className="text-2xl font-bold text-[#07BEB8] leading-none">
                       50+

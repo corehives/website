@@ -8,9 +8,6 @@ import BannerLeftAnimation from "../components/animations/bannerleft";
 import Cloud from "../assets/icons/cloud.png";
 import leftLight from "../assets/left-light.png";
 import rightLight from "../assets/right-light.png";
-import avatar5 from "../assets/avatar-7.png";
-import avatar4 from "../assets/avatar-8.png";
-import avatar6 from "../assets/avatar-9.png";
 import BgApp from "../assets/bg-app.png";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
@@ -389,62 +386,13 @@ export default function IllustrationAnimation() {
             </p>
             <div className="flex items-center flex-wrap gap-4 pt-4">
               <CTAButton href="/contact">Build Creative Project</CTAButton>
-              <div className="flex items-center gap-4">
-                <div className="flex items-center justify-start relative h-32">
-                  <div
-                    className="relative flex-shrink-0"
-                    style={{ zIndex: 30 }}
-                  >
-                    <div className="w-12 h-12 rounded-full overflow-hidden">
-                      <img
-                        src={avatar4}
-                        alt=""
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="relative flex-shrink-0"
-                    style={{ marginLeft: "-20px", zIndex: 20 }}
-                  >
-                    <div className="w-12 h-12 rounded-full overflow-hidden">
-                      <img
-                        src={avatar5}
-                        alt=""
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="relative flex-shrink-0"
-                    style={{ marginLeft: "-20px", zIndex: 10 }}
-                  >
-                    <div className="w-12 h-12 rounded-full overflow-hidden">
-                      <img
-                        src={avatar6}
-                        alt=""
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className="relative flex-shrink-0  -mt-1"
-                    style={{ marginLeft: "-20px", zIndex: 0 }}
-                  >
-                    <div className="w-9 h-9 rounded-full border-4 border-gray-300 bg-gray-100 flex items-center justify-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#07BEB8]" />
-                      <div className="w-2 h-2 rounded-full bg-[#07beb89c]" />
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-3xl font-bold text-[#07BEB8]">
-                    500+
-                  </span>
-                  <span className="text-gray-400 text-sm">
-                    Animations Delivered
-                  </span>
-                </div>
+              <div className="flex flex-col ml-2 sm:ml-4">
+                <span className="text-3xl font-bold text-[#07BEB8]">
+                  500+
+                </span>
+                <span className="text-gray-400 text-sm">
+                  Animations Delivered
+                </span>
               </div>
             </div>
           </div>
