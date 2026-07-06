@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import CTAButton from "../shared/CTAButton";
 import Logo from "../../assets/logo.png";
-import LogoInitials from "../../assets/logo-initials.png";
 
 const serviceLinks = [
   { label: "Web Development", href: "/web-development" },
@@ -19,33 +18,28 @@ const serviceLinks = [
 ];
 
 const productLinks = [
-  { label: "Curelia.pro", href: "/products/corehive-crm" },
-  { label: "Ascendera.ai", href: "/products/corehive-analytics" },
-  { label: "thedrivingdesk.com", href: "/products/corehive-automation" },
-  // { label: "AI Suite", href: "/products/corehive-ai-suite" },
+  { label: "Curelia", href: "/products/corehive-crm" },
+  { label: "Ascendera", href: "/products/corehive-analytics" },
+  { label: "Driving Desk", href: "/products/corehive-automation" }
 
 ];
 
 const portfolioLinks = [
-  {
-    label: "Mobile App Development",
-    href: "/portfolio/mobile-app-development",
-  },
   { label: "Web Development", href: "/portfolio/web-development" },
+  { label: "Mobile App Development", href: "/portfolio/mobile-app-development" },
+  { label: "Branding & Illustration", href: "/portfolio/branding" },
   { label: "UI/UX Design", href: "/portfolio/ui-ux-design" },
   { label: "Custom Software", href: "/portfolio/custom-software" },
   { label: "Digital Marketing", href: "/portfolio/digital-marketing" },
-  { label: "Branding & Illustration", href: "/portfolio/branding" },
 ];
 
 const navItems = [
   { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
   { label: "Our Services", menuKey: "services", links: serviceLinks },
   { label: "Our Products", menuKey: "products", links: productLinks },
   { label: "Portfolio", menuKey: "portfolio", links: portfolioLinks },
-  { label: "Blog", to: "/blogs" },
-  // { label: "Careers", to: "/careers" },
+  { label: "About Us", to: "/about" },
+  { label: "Blog", to: "/blogs" }
 ];
 
 export default function Header() {
