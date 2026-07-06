@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState } from "react";
 import hero_bg   from "../assets/hero-bgs.webp";
-import WebWork   from "../assets/work.png";
+import BrandingShowcase from "../assets/branding-showcase.png";
 import Cloud     from "../assets/icons/cloud.png";
 import leftLight  from "../assets/left-light.png";
 import rightLight from "../assets/right-light.png";
@@ -643,7 +643,7 @@ export default function Branding() {
                 className="relative flex-1 rounded-2xl overflow-hidden flex items-center justify-center min-h-[380px]"
                 style={{ background: "radial-gradient(ellipse at center, rgba(7,190,184,0.12) 0%, rgba(0,0,0,0.8) 70%)" }}
               >
-                <img src={WebWork} alt="brand work" className="w-full h-full object-contain p-4" />
+                <img src={BrandingShowcase} alt="brand work" className="w-full h-full object-contain p-4" />
               </div>
 
               {/* stat bar */}

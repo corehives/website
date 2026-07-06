@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
-import WebWork from "../assets/work.png";
+import AiMarketHero from "../assets/ai-market-hero.png";
+import AiGrowthChart from "../assets/ai-growth-chart.png";
 import Analytic from "../assets/icons/analytic.png";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation from "../components/animations/bannerleft";
@@ -134,7 +135,7 @@ export default function AIMarketOptimization() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
           <div className="relative">
             <div className="relative group overflow-hidden rounded-lg border border-[#07BEB8]/30">
-              <img src={WebWork} alt="AI market optimization" className="w-full h-72 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src={AiMarketHero} alt="AI market optimization" className="w-full h-72 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             </div>
           </div>
@@ -216,7 +217,7 @@ export default function AIMarketOptimization() {
             </div>
             <div className="flex flex-col gap-6">
               <div className="relative flex-1 rounded-2xl overflow-hidden flex items-center justify-center min-h-[400px] bg-gradient-to-br from-teal-900/20 to-transparent">
-                <img src={WebWork} alt="AI growth results" className="w-full h-full object-contain" />
+                <img src={AiGrowthChart} alt="AI growth results" className="w-full h-full object-contain" />
               </div>
               <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
                 <div className="flex mx-auto items-center gap-3">

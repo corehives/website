@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
 import IosApp from "../assets/enterprise-app-dev.png";
-import WebWork from "../assets/work.png";
+import BlockchainProtocols from "../assets/blockchain-protocols.png";
 import Analytic from "../assets/icons/analytic.png";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation from "../components/animations/bannerleft";
@@ -501,7 +501,7 @@ export default function Blockchain() {
             <div className="flex flex-col gap-6">
               <div className="relative flex-1 rounded-2xl overflow-hidden flex items-center justify-center min-h-[400px] bg-gradient-to-br from-teal-900/20 to-transparent">
                 <img
-                  src={WebWork}
+                  src={BlockchainProtocols}
                   alt="blockchain work"
                   className="w-full h-full object-contain"
                 />
