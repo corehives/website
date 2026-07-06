@@ -65,8 +65,8 @@ function FeaturedProjects({ image, categories }) {
     <section className="px-5 sm:px-10 lg:px-20 pt-16 sm:pt-20">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-12 gap-5 rounded-2xl overflow-hidden">
-          <div className="col-span-12 lg:col-span-8 relative flex items-center justify-center min-h-[260px] sm:min-h-[320px]">
-            <img src={image} alt="Portfolio showcase" className="w-full h-full object-contain max-h-[320px]" />
+          <div className="col-span-12 lg:col-span-8 relative flex items-center justify-center min-h-[300px] sm:min-h-[400px] lg:min-h-[450px] bg-black/40">
+            <img src={image} alt="Portfolio showcase" className="w-full h-full object-cover absolute inset-0" />
           </div>
 
           <div className="col-span-12 lg:col-span-4 p-6 sm:p-8 lg:p-10 flex flex-col justify-start space-y-4">
