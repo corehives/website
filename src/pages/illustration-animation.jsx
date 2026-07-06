@@ -1,7 +1,7 @@
 import { lazy, Suspense, useState } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
 import Animation from "../assets/animation.png";
-import WebWork from "../assets/work.png";
+import MotionTimeline from "../assets/motion-timeline.png";
 import Analytic from "../assets/icons/analytic.png";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation from "../components/animations/bannerleft";
@@ -504,30 +504,13 @@ export default function IllustrationAnimation() {
             <div className="flex flex-col gap-6">
               <div className="relative flex-1 rounded-2xl overflow-hidden flex items-center justify-center min-h-[400px] bg-gradient-to-br from-teal-900/20 to-transparent">
                 <img
-                  src={WebWork}
+                  src={MotionTimeline}
                   alt="animation work"
                   className="w-full h-full object-contain"
                 />
               </div>
               <div className="rounded-2xl border border-[#07BEB8]/40 bg-gradient-to-br from-teal-900/50 via-black/60 to-black/80 p-2 flex items-center justify-between">
                 <div className="flex mx-auto items-center gap-3">
-                  <div className="flex items-center">
-                    <img
-                      src={avatar4}
-                      alt=""
-                      className="w-15 h-15 rounded-full object-cover"
-                    />
-                    <img
-                      src={avatar5}
-                      alt=""
-                      className="w-15 h-15 rounded-full object-cover -ml-6"
-                    />
-                    <img
-                      src={avatar6}
-                      alt=""
-                      className="w-15 h-15 rounded-full object-cover -ml-6"
-                    />
-                  </div>
                   <div>
                     <p className="text-2xl font-bold text-[#07BEB8] leading-none">
                       500+
