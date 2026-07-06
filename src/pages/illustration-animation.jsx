@@ -13,6 +13,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";
 import illustrationAnimationPricingPlans from "../components/pricing/illustrationAnimationPricingData.json";
+import { ErrorBoundary } from "../components/shared/ErrorBoundary.jsx";
 import {
   SiFigma,
   SiBlender,
@@ -319,7 +320,9 @@ export default function IllustrationAnimation() {
         </div>
 
         <div className="pointer-events-none absolute inset-0 z-[3] -top-18 -right-[60rem] flex items-center justify-center">
-          <BannerRightAnimation />
+          <ErrorBoundary>
+            <BannerRightAnimation />
+          </ErrorBoundary>
           <div className="absolute flex items-center gap-6">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-white to-white flex items-center justify-center overflow-hidden border border-gray-500/30 absolute -top-16 -right-16 p-2">
               <img
@@ -331,7 +334,9 @@ export default function IllustrationAnimation() {
           </div>
         </div>
         <div className="pointer-events-none absolute inset-0 z-[3] -top-16 -left-[60rem] flex items-center justify-center">
-          <BannerLeftAnimation />
+          <ErrorBoundary>
+            <BannerLeftAnimation />
+          </ErrorBoundary>
           <div className="absolute flex items-center gap-6">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-white to-white flex items-center justify-center overflow-hidden border border-gray-500/30 absolute top-26 -left-20 p-2">
               <img
