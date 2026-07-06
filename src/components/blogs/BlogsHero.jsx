@@ -67,32 +67,8 @@ export default function BlogsHero({ onSearch }) {
 
         {/* Subtitle */}
         <p className="mt-6 max-w-xl text-center text-sm leading-relaxed text-white/70 sm:text-base">
-          Perspectives on technology, design, and building digital products —
-          from the team at CoreHives.
+          Perspectives on technology, design, and building digital products from the team at CoreHives.
         </p>
-
-        {/* Stats row */}
-        <div className="mt-8 flex items-center gap-6 flex-wrap justify-center">
-          {[
-            { value: "24+",       label: "Articles"  },
-            { value: "8",         label: "Topics"    },
-            { value: "Bi-weekly", label: "Updates"   },
-          ].map((stat, i) => (
-            <div key={stat.label} className="flex items-center gap-6">
-              {i > 0 && (
-                <span className="w-1 h-1 rounded-full bg-white/20" />
-              )}
-              <div className="flex flex-col items-center gap-0.5">
-                <span className="text-2xl font-extrabold text-[#07BEB8] leading-none tracking-tight">
-                  {stat.value}
-                </span>
-                <span className="text-[10px] uppercase tracking-[0.12em] text-white/35 font-medium">
-                  {stat.label}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* Search bar */}
         <form

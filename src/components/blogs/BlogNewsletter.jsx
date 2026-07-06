@@ -201,15 +201,14 @@ export default function BlogNewsletter() {
                 maxWidth: 340,
               }}
             >
-              The best articles on AI, web development, design, and digital strategy —
-              straight to your inbox every two weeks.
+              The best articles on AI, web development, design, and digital strategy straight to your inbox every two weeks.
             </p>
 
             {/* Perks */}
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {[
                 "Curated picks from the CoreHives team",
-                "No spam, ever — unsubscribe in one click",
+                "No spam, ever, unsubscribe in one click",
               ].map((perk) => (
                 <div
                   key={perk}

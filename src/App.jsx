@@ -52,7 +52,6 @@ const Blockchain = lazy(() => import("./pages/blockchain.jsx"));
 const CoreHiveCrm = lazy(() => import("./pages/products/corehive-crm.jsx"));
 const CoreHiveAnalytics = lazy(() => import("./pages/products/corehive-analytics.jsx"));
 const CoreHiveAutomation = lazy(() => import("./pages/products/corehive-automation.jsx"));
-const CoreHiveAiSuite = lazy(() => import("./pages/products/corehive-ai-suite.jsx"));
 
 // Portfolio service pages
 const PortfolioMobileApp = lazy(() => import("./pages/portfolio/mobile-app-development.jsx"));
@@ -91,7 +90,6 @@ import("./pages/blockchain.jsx");
 import("./pages/products/corehive-crm.jsx");
 import("./pages/products/corehive-analytics.jsx");
 import("./pages/products/corehive-automation.jsx");
-import("./pages/products/corehive-ai-suite.jsx");
 import("./pages/portfolio/mobile-app-development.jsx");
 import("./pages/portfolio/web-development.jsx");
 import("./pages/portfolio/ui-ux-design.jsx");
@@ -215,9 +213,6 @@ function AppRoutes() {
         } />
         <Route path="/products/corehive-automation" element={
           <Suspense fallback={<LoadingScreen />}><CoreHiveAutomation /></Suspense>
-        } />
-        <Route path="/products/corehive-ai-suite" element={
-          <Suspense fallback={<LoadingScreen />}><CoreHiveAiSuite /></Suspense>
         } />
 
         {/* Portfolio service pages */}

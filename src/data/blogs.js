@@ -9,7 +9,7 @@ export const ALL_POSTS = [
     category: "Development",
     title: "Why Most Software Projects Fail Before Development Even Begins",
     excerpt:
-      "When a software project fails, people often blame poor development, missed deadlines, or technical challenges. But the real problem almost always starts much earlier — in the planning stage.",
+      "When a software project fails, people often blame poor development, missed deadlines, or technical challenges. But the real problem almost always starts much earlier, in the planning stage.",
     author: "CoreHives",
     authorInitials: "CH",
     authorRole: "CoreHives Team",
@@ -155,7 +155,7 @@ export const ALL_POSTS = [
     category: "Design",
     title: "Why Good Design Is More Than Just Making Things Look Nice",
     excerpt:
-      "Many businesses think design is mainly about colors and visual appeal. But good design goes far beyond aesthetics — it shapes how users behave, builds trust, and drives real business results.",
+      "Many businesses think design is mainly about colors and visual appeal. But good design goes far beyond aesthetics, it shapes how users behave, builds trust, and drives real business results.",
     author: "CoreHives",
     authorInitials: "CH",
     authorRole: "Senior UX Designer",
@@ -203,7 +203,7 @@ export const ALL_POSTS = [
       },
       {
         type: "callout",
-        text: "Real-world example: When Airbnb redesigned their platform in 2014 with a focus on trust signals, cleaner layouts, and better photography presentation, their booking conversion rate increased significantly. The change wasn't more features — it was better design.",
+        text: "Real-world example: When Airbnb redesigned their platform in 2014 with a focus on trust signals, cleaner layouts, and better photography presentation, their booking conversion rate increased significantly. The change wasn't more features, it was better design.",
       },
       {
         type: "heading2",
@@ -377,7 +377,7 @@ export const ALL_POSTS = [
       },
       {
         type: "callout",
-        text: "Example: For a remote collaboration tool, the MVP should include scheduling, invites, and one-click joining — not analytics or advanced automation.",
+        text: "Example: For a remote collaboration tool, the MVP should include scheduling, invites, and one-click joining, not analytics or advanced automation.",
       },
       {
         type: "heading2",

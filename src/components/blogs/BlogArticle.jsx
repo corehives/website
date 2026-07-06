@@ -126,7 +126,7 @@ function Block({ block }) {
                 fontStyle: "normal",
               }}
             >
-              — {block.author}
+             , {block.author}
             </cite>
           )}
         </blockquote>
