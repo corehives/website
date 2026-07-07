@@ -21,7 +21,6 @@ const productLinks = [
   { label: "Curelia", href: "/products/corehive-crm" },
   { label: "Ascendera", href: "/products/corehive-analytics" },
   { label: "Driving Desk", href: "/products/corehive-automation" }
-
 ];
 
 const portfolioLinks = [
@@ -36,7 +35,7 @@ const portfolioLinks = [
 const navItems = [
   { label: "Home", to: "/" },
   { label: "Our Services", menuKey: "services", links: serviceLinks },
-  { label: "Our Products", menuKey: "products", links: productLinks },
+  // { label: "Our Products", menuKey: "products", links: productLinks },
   { label: "Portfolio", menuKey: "portfolio", links: portfolioLinks },
   { label: "About Us", to: "/about" },
   { label: "Blog", to: "/blogs" }
