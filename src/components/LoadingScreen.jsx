@@ -91,7 +91,7 @@ const REDUCED =
 // ─────────────────────────────────────────────────────────────────────────────
 // MAIN EXPORT
 // ─────────────────────────────────────────────────────────────────────────────
-export default function LoadingScreen({ visible = true }) {
+export default function LoadingScreen({ visible = true, duration = 1200 }) {
   return (
     <div
       role="status"
@@ -187,7 +187,7 @@ export default function LoadingScreen({ visible = true }) {
         </div>
 
         {/* Progress bar */}
-        <ProgressBar duration={2400} />
+        <ProgressBar duration={duration} />
       </div>
 
       {/* ── Keyframes ── */}

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Header from "./components/layout/header.jsx";
 import TawkToChat from "./components/TawkToChat.jsx";
@@ -152,22 +152,27 @@ function AppRoutes() {
   const location = useLocation();
   const [loading, setLoading]   = useState(true);
   const [mounted, setMounted]   = useState(true);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setLoading(true);
-    setMounted(true);
-    const SHOW = 2100; // minimum display ms
-    const FADE = 820;  // must exceed LoadingScreen CSS transition (0.75s)
-    const t1 = setTimeout(() => setLoading(false), SHOW);
-    const t2 = setTimeout(() => setMounted(false), SHOW + FADE);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      const SHOW = 1200; // minimum display ms
+      const FADE = 750;  // must exceed LoadingScreen CSS transition (0.75s)
+      const t1 = setTimeout(() => setLoading(false), SHOW);
+      const t2 = setTimeout(() => setMounted(false), SHOW + FADE);
+      return () => { clearTimeout(t1); clearTimeout(t2); };
+    } else {
+      setLoading(false);
+      setMounted(false);
+    }
   }, [location.pathname]);
 
   return (
     <>
-      {mounted && <LoadingScreen visible={loading} />}
+      {mounted && <LoadingScreen visible={loading} duration={1200} />}
       <Suspense fallback={<LoadingScreen />}>
         <Routes location={location}>
         {/* Core pages */}
