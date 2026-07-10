@@ -28,8 +28,8 @@ const GlobeFallback = () => (
     <div
       className="absolute rounded-full blur-[80px]"
       style={{
-        width: "clamp(320px, 52vw, 490px)",
-        height: "clamp(320px, 52vw, 490px)",
+        width: "clamp(240px, 36vw, 360px)",
+        height: "clamp(240px, 36vw, 360px)",
         background:
           "radial-gradient(circle, rgba(7,190,184,0.22) 0%, rgba(7,190,184,0.08) 42%, transparent 72%)",
       }}
@@ -42,7 +42,7 @@ const GlobeFallback = () => (
         position: "absolute",
         top: "50%",
         left: "50%",
-        width: "clamp(300px, 50vw, 460px)",
+        width: "clamp(220px, 32vw, 330px)",
         height: "auto",
         objectFit: "cover",
         opacity: 0.95,
