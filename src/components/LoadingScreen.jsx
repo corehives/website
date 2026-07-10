@@ -183,7 +183,7 @@ export default function LoadingScreen({ visible = true }) {
           height: "clamp(340px, 72vmin, 720px)",
           animation: REDUCED ? "none" : "lsFloat 5s ease-in-out infinite",
         }}>
-          <GlobeScene loaderMode />
+          <GlobeScene />
         </div>
 
         {/* Progress bar */}
