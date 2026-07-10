@@ -57,7 +57,7 @@ const GlobeFallback = () => (
       src={HalfLogo}
       alt="CoreHives mark"
       className="relative object-contain opacity-90"
-      style={{ width: "clamp(70px, 12vw, 200px)", height: "auto" }}
+      style={{ width: "clamp(50px, 8vw, 120px)", height: "auto" }}
       decoding="async"
     />
   </div>

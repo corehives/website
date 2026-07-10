@@ -259,7 +259,7 @@ export default function GlobeScene({ loaderMode = false }) {
           src={HalfLogo}
           alt="logo"
           style={{
-            width: loaderMode ? "clamp(130px, 22vmin, 260px)" : "clamp(70px, 12vw, 200px)",
+            width: loaderMode ? "clamp(130px, 22vmin, 260px)" : "clamp(50px, 8vw, 120px)",
             height: "auto",
             objectFit: "contain",
             opacity: 0.9,
