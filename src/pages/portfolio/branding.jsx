@@ -1,10 +1,10 @@
 import PortfolioServiceTemplate from "../../components/shared/PortfolioServiceTemplate";
 import showcaseImg from "../../assets/portfolio-branding-showcase.png";
 import brandIdentityShowcase from "../../assets/brand-identity-showcase.webp";
-import brandStrategyShowcase from "../../assets/brand-strategy-showcase.webp";
-import illustrationShowcase from "../../assets/illustration-showcase.webp";
-import brandCollateralShowcase from "../../assets/brand-collateral-showcase.webp";
-import digitalBrandShowcase from "../../assets/digital-brand-showcase.webp";
+import brandStrategyShowcase from "../../assets/brand-strategy-showcase.png";
+import illustrationShowcase from "../../assets/illustration-showcase.png";
+import brandCollateralShowcase from "../../assets/brand-collateral-showcase.png";
+import digitalBrandShowcase from "../../assets/digital-brand-showcase.png";
 
 const data = {
   banner: {
