@@ -1,5 +1,10 @@
 import PortfolioServiceTemplate from "../../components/shared/PortfolioServiceTemplate";
 import showcaseImg from "../../assets/portfolio-branding-showcase.png";
+import brandIdentityShowcase from "../../assets/brand-identity-showcase.webp";
+import brandStrategyShowcase from "../../assets/brand-strategy-showcase.webp";
+import illustrationShowcase from "../../assets/illustration-showcase.webp";
+import brandCollateralShowcase from "../../assets/brand-collateral-showcase.webp";
+import digitalBrandShowcase from "../../assets/digital-brand-showcase.webp";
 
 const data = {
   banner: {
@@ -11,11 +16,31 @@ const data = {
   },
   showcaseImage: showcaseImg,
   categories: [
-    { title: "Brand Identity", items: ["Logo & Visual Language", "Colour & Typography Systems", "Brand Guidelines"] },
-    { title: "Brand Strategy", items: ["Positioning & Messaging", "Naming & Taglines", "Competitor Differentiation"] },
-    { title: "Illustration", items: ["UI Illustration Sets", "Editorial & Infographic", "Motion & Lottie Animation"] },
-    { title: "Brand Collateral", items: ["Pitch Decks & Reports", "Packaging Design", "Environmental Signage"] },
-    { title: "Digital Brand", items: ["Social Media Templates", "Email Design Systems", "Brand in Motion"] },
+    { 
+      title: "Brand Identity", 
+      items: ["Logo & Visual Language", "Colour & Typography Systems", "Brand Guidelines"],
+      image: brandIdentityShowcase
+    },
+    { 
+      title: "Brand Strategy", 
+      items: ["Positioning & Messaging", "Naming & Taglines", "Competitor Differentiation"],
+      image: brandStrategyShowcase
+    },
+    { 
+      title: "Illustration", 
+      items: ["UI Illustration Sets", "Editorial & Infographic", "Motion & Lottie Animation"],
+      image: illustrationShowcase
+    },
+    { 
+      title: "Brand Collateral", 
+      items: ["Pitch Decks & Reports", "Packaging Design", "Environmental Signage"],
+      image: brandCollateralShowcase
+    },
+    { 
+      title: "Digital Brand", 
+      items: ["Social Media Templates", "Email Design Systems", "Brand in Motion"],
+      image: digitalBrandShowcase
+    },
   ],
   stats: [
     { num: "150+", label: "Brands Built", sub: "Identities designed across 12+ industries globally." },

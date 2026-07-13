@@ -61,12 +61,17 @@ function Banner({ badge, title, titleAccent, subtitle }) {
 function FeaturedProjects({ image, categories }) {
   const [expandedCategory, setExpandedCategory] = useState(0);
 
+  const displayImage =
+    expandedCategory !== -1 && categories[expandedCategory]?.image
+      ? categories[expandedCategory].image
+      : image;
+
   return (
     <section className="px-5 sm:px-10 lg:px-20 pt-16 sm:pt-20">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-12 gap-5 rounded-2xl overflow-hidden">
-          <div className="col-span-12 lg:col-span-8 relative flex items-center justify-center min-h-[300px] sm:min-h-[400px] lg:min-h-[450px] bg-black/40">
-            <img src={image} alt="Portfolio showcase" className="w-full h-full object-cover absolute inset-0" />
+          <div className="col-span-12 lg:col-span-8 relative flex items-center justify-center min-h-[240px] sm:min-h-[320px] lg:min-h-[360px] bg-black/40">
+            <img src={displayImage} alt="Portfolio showcase" className="w-full h-full object-cover absolute inset-0" />
           </div>
 
           <div className="col-span-12 lg:col-span-4 p-6 sm:p-8 lg:p-10 flex flex-col justify-start space-y-4">
