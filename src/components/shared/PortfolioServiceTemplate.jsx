@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import CTAButton from "./CTAButton";
@@ -60,6 +60,19 @@ function Banner({ badge, title, titleAccent, subtitle }) {
 /* ── Featured Projects ───────────────────────────────────────────────────────── */
 function FeaturedProjects({ image, categories }) {
   const [expandedCategory, setExpandedCategory] = useState(0);
+
+  useEffect(() => {
+    if (image) {
+      const img = new Image();
+      img.src = image;
+    }
+    categories.forEach((category) => {
+      if (category.image) {
+        const img = new Image();
+        img.src = category.image;
+      }
+    });
+  }, [image, categories]);
 
   const displayImage =
     expandedCategory !== -1 && categories[expandedCategory]?.image
