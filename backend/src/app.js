@@ -12,7 +12,11 @@ const { errorHandler, notFoundHandler } = require("./middlewares/error.middlewar
 const app = express();
 
 // ─── Core middleware ──────────────────────────────────────────────────────────
-const allowedOrigins = [process.env.FRONTEND_URL || "http://localhost:5173"];
+const allowedOrigins = [
+  process.env.FRONTEND_URL || "http://localhost:5173",
+  "https://corehives.com",
+  "https://api.corehives.com",
+];
 
 app.use(
   cors({
