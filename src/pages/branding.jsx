@@ -17,9 +17,22 @@ import PricingSection from "../components/pricing/PricingSection.jsx";
 import brandingPricingPlans from "../components/pricing/brandingPricingData.json";
 import useScrollReveal from "../hooks/useScrollReveal.js";
 import {
-  SiFigma, SiSketch, SiCanva, SiFramer, SiMiro, SiInvision,
+  SiFigma, SiSketch, SiFramer, SiMiro,
   SiBlender, SiNotion, SiAirtable, SiLinear, SiWebflow,
 } from "react-icons/si";
+
+const SiCanva = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2" />
+    <path d="M15 8.5C13.5 7.5 10.5 7.5 9 9C7.5 10.5 7.5 13.5 9 15C10.5 16.5 13.5 16.5 15 15.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const SiInvision = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.8 17.5H8.3v-8.3h1.9v8.3zm-.95-9.6c-.63 0-1.14-.51-1.14-1.14 0-.63.51-1.14 1.14-1.14.63 0 1.14.51 1.14 1.14 0 .63-.51 1.14-1.14 1.14zm7.65 9.6h-1.9v-4.5c0-1.1-.4-1.7-1.3-1.7-.8 0-1.2.6-1.2 1.5v4.7h-1.9v-8.3h1.9v1.2c.3-.5 1-.9 1.8-.9 1.9 0 2.6 1.3 2.6 3.1v4.9z" />
+  </svg>
+);
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
