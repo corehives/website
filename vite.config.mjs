@@ -15,6 +15,7 @@ export default defineConfig({
   build: {
     outDir: 'public',
     target: 'es2020',
+    chunkSizeWarningLimit: 1500,
     rollupOptions: {
       output: {
         manualChunks(id) {

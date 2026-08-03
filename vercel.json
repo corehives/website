@@ -1,15 +1,5 @@
 {
-  "outputDirectory": "public/build",
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag"
-        }
-      ]
-    }
-  ],
+  "outputDirectory": "public",
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]
