@@ -7,8 +7,6 @@ dist
 dist-ssr
 
 # Environment variables
-.env
-.env.*
 !.env.example
 
 # Logs
