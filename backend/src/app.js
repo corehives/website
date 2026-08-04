@@ -7,6 +7,7 @@ const testimonialRoutes = require("./modules/testimonials/testimonial.routes");
 const blogRoutes = require("./modules/blogs/blog.routes");
 const jobRoutes = require("./modules/jobs/job.routes");
 const contactRoutes = require("./modules/contact/contact.routes");
+const { getSitemap } = require("./modules/sitemap/sitemap.controller");
 const { errorHandler, notFoundHandler } = require("./middlewares/error.middleware");
 
 const app = express();
@@ -35,6 +36,9 @@ if (process.env.NODE_ENV === "development") {
 app.get("/health", (req, res) => {
   res.json({ success: true, message: "CoreHives API is running" });
 });
+
+// ─── Sitemap route ───────────────────────────────────────────────────────────
+app.get("/sitemap.xml", getSitemap);
 
 // ─── Contact route ───────────────────────────────────────────────────────────
 app.use("/api/contact", contactRoutes);
