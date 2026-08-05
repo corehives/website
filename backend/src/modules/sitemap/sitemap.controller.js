@@ -1,6 +1,8 @@
+const fs = require("fs");
+const path = require("path");
 const prisma = require("../../config/db");
 
-async function getSitemap(req, res) {
+async function generateAndSaveSitemap() {
   try {
     // 1. Fetch published blogs from DB
     const blogs = await prisma.blog.findMany({
@@ -66,7 +68,36 @@ async function getSitemap(req, res) {
 
     xml += `</urlset>`;
 
-    // 4. Return XML with correct header
+    // Define target files where the sitemap should be written.
+    const repoRoot = path.resolve(__dirname, "../../../..");
+    const targets = [
+      path.join(repoRoot, "../public_html/sitemap.xml"), // production public_html
+      path.join(repoRoot, "static/sitemap.xml"),         // development static folder
+      path.join(repoRoot, "public/sitemap.xml"),         // development public/dist folder
+    ];
+
+    for (const target of targets) {
+      const dir = path.dirname(target);
+      if (fs.existsSync(dir)) {
+        try {
+          fs.writeFileSync(target, xml, "utf8");
+          console.log(`[Sitemap] Successfully wrote static sitemap to ${target}`);
+        } catch (writeErr) {
+          console.error(`[Sitemap] Failed to write sitemap to ${target}:`, writeErr);
+        }
+      }
+    }
+
+    return { success: true, xml };
+  } catch (error) {
+    console.error("Error generating sitemap:", error);
+    throw error;
+  }
+}
+
+async function getSitemap(req, res) {
+  try {
+    const { xml } = await generateAndSaveSitemap();
     res.header("Content-Type", "application/xml");
     res.status(200).send(xml);
   } catch (error) {
@@ -75,4 +106,4 @@ async function getSitemap(req, res) {
   }
 }
 
-module.exports = { getSitemap };
+module.exports = { getSitemap, generateAndSaveSitemap };

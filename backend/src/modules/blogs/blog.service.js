@@ -1,5 +1,6 @@
 // Service layer — the only place that talks to Prisma for blogs.
 const prisma = require("../../config/db");
+const { generateAndSaveSitemap } = require("../sitemap/sitemap.controller");
 
 // Public list: only published, optional category filter, paginated.
 async function findPublished({ category, page = 1, limit = 10 }) {
@@ -25,12 +26,15 @@ function findBySlug(slug) {
   return prisma.blog.findUniqueOrThrow({ where: { slug } });
 }
 
-function create(data) {
+async function create(data) {
   const payload = { ...data };
   if (payload.isPublished && !payload.publishedAt) {
     payload.publishedAt = new Date();
   }
-  return prisma.blog.create({ data: payload });
+  const result = await prisma.blog.create({ data: payload });
+  // Update sitemap asynchronously
+  generateAndSaveSitemap().catch((err) => console.error("[Sitemap] Update failed on create:", err));
+  return result;
 }
 
 async function update(id, data) {
@@ -40,12 +44,18 @@ async function update(id, data) {
     const existing = await prisma.blog.findUniqueOrThrow({ where: { id } });
     if (!existing.publishedAt) payload.publishedAt = new Date();
   }
-  return prisma.blog.update({ where: { id }, data: payload });
+  const result = await prisma.blog.update({ where: { id }, data: payload });
+  // Update sitemap asynchronously
+  generateAndSaveSitemap().catch((err) => console.error("[Sitemap] Update failed on update:", err));
+  return result;
 }
 
 // Hard delete
-function remove(id) {
-  return prisma.blog.delete({ where: { id } });
+async function remove(id) {
+  const result = await prisma.blog.delete({ where: { id } });
+  // Update sitemap asynchronously
+  generateAndSaveSitemap().catch((err) => console.error("[Sitemap] Update failed on delete:", err));
+  return result;
 }
 
 module.exports = { findPublished, findBySlug, create, update, remove };
