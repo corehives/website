@@ -4,8 +4,8 @@
     # Proxy API requests to backend
     RewriteRule ^api/(.*) http://localhost:5000/api/$1 [P,L]
 
-    # Proxy sitemap.xml requests to backend
-    RewriteRule ^sitemap\.xml$ http://localhost:5000/sitemap.xml [P,L]
+    # Proxy sitemap.xml requests to backend (Disabled - now served statically)
+    # RewriteRule ^sitemap\.xml$ http://localhost:5000/sitemap.xml [P,L]
 
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
