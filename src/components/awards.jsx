@@ -198,13 +198,9 @@ export default function AwardsSection() {
               lineHeight: 1.75,
             }}
           >
-            We've got some global recognition under our belt too! Serving as a
-            testament to our unending efforts to digitize businesses across the
-            globe.
+            We're proud to be recognized on trusted platforms, building credibility as we grow our track record of delivering results for clients worldwide.
           </p>
-        </div>
-
-        {/* Row 1 — 4 cards */}
+        </div>        {/* Row 1 — 3 cards */}
         <div
           style={{
             display: "flex",
@@ -214,24 +210,6 @@ export default function AwardsSection() {
             marginBottom: 16,
           }}
         >
-          {/* Clutch Award 1 */}
-          <AwardCard
-            href="#"
-            style={{
-              flex: "1 1 220px",
-              minWidth: 220,
-              height: 130,
-            }}
-            borderColor="rgba(244,166,35,0.5)"
-            glowColor="rgba(244,166,35,0.1)"
-          >
-            <ClutchBadge
-              label="Top Development Company"
-              sublabel="Mobile App Development"
-              color="#F4A623"
-            />
-          </AwardCard>
-
           {/* Trustpilot */}
           <AwardCard
             href="https://www.trustpilot.com/review/corehives.com"
@@ -272,26 +250,8 @@ export default function AwardsSection() {
                 </span>
               </div>
 
-              <StarRow count={5} color="#00B67A" />
+              <StarRow count={5} color="#FBBC04" />
             </div>
-          </AwardCard>
-
-          {/* Clutch Award 2 */}
-          <AwardCard
-            href="#"
-            style={{
-              flex: "1 1 220px",
-              minWidth: 220,
-              height: 130,
-            }}
-            borderColor="rgba(244,166,35,0.5)"
-            glowColor="rgba(244,166,35,0.1)"
-          >
-            <ClutchBadge
-              label="Top Web Development"
-              sublabel="Agency · 2024"
-              color="#F4A623"
-            />
           </AwardCard>
 
           {/* GoodFirms */}
@@ -302,23 +262,32 @@ export default function AwardsSection() {
               minWidth: 220,
               height: 130,
             }}
-            borderColor="rgba(7,190,184,0.4)"
-            glowColor="rgba(7,190,184,0.08)"
+            borderColor="rgba(213,164,61,0.45)"
+            glowColor="rgba(213,164,61,0.08)"
           >
-            <div style={{ textAlign: "center" }}>
-              <div style={{ marginBottom: 6 }}>
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="15"
-                    stroke="#07BEB8"
-                    strokeWidth="1.5"
-                    fill="rgba(7,190,184,0.08)"
-                  />
+            <div style={{ textAlign: "center", width: "100%" }}>
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: 6 }}>
+                <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+                  {/* Left half (lighter gold) */}
                   <path
-                    d="M10 16C10 12.686 12.686 10 16 10C18.21 10 20.15 11.19 21.2 12.97L18.5 14.5C17.98 13.58 17.06 13 16 13C14.34 13 13 14.34 13 16C13 17.66 14.34 19 16 19C17.3 19 18.41 18.21 18.86 17H16V14.5H22V16C22 19.314 19.314 22 16 22C12.686 22 10 19.314 10 16Z"
-                    fill="#07BEB8"
+                    d="M 50,11 C 38,11 26,9 18,9 C 15,9 13.5,11 13.5,14 L 13.5,58 C 13.5,75 26,86 50,92 Z"
+                    fill="#D5A43D"
+                  />
+                  {/* Right half (darker gold) */}
+                  <path
+                    d="M 50,11 C 62,11 74,9 82,9 C 85,9 86.5,11 86.5,14 L 86.5,58 C 86.5,75 74,86 50,92 Z"
+                    fill="#BA8A2D"
+                  />
+                  {/* Star Shadow */}
+                  <polygon
+                    points="50,26 54.2,36.2 65.2,37.1 56.8,44.2 59.4,54.9 50,49.2 40.6,54.9 43.2,44.2 34.8,37.1 45.8,36.2"
+                    fill="#8C6212"
+                    transform="translate(1.5, 2)"
+                  />
+                  {/* White Star */}
+                  <polygon
+                    points="50,26 54.2,36.2 65.2,37.1 56.8,44.2 59.4,54.9 50,49.2 40.6,54.9 43.2,44.2 34.8,37.1 45.8,36.2"
+                    fill="#FFFFFF"
                   />
                 </svg>
               </div>
@@ -328,54 +297,14 @@ export default function AwardsSection() {
                   fontSize: 9,
                   fontWeight: 700,
                   letterSpacing: "0.14em",
-                  color: "#07BEB8",
+                  color: "#D5A43D",
                   textTransform: "uppercase",
                 }}
               >
                 GoodFirms
               </span>
 
-              <div style={{ marginTop: 4 }}>
-                <span
-                  style={{
-                    fontSize: 8,
-                    color: "rgba(255,255,255,0.45)",
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  ✓ Verified Agency · 2024
-                </span>
-              </div>
             </div>
-          </AwardCard>
-        </div>
-
-        {/* Row 2 — 3 cards */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 16,
-            flexWrap: "wrap",
-          }}
-        >
-          {/* Clutch Award 3 */}
-          <AwardCard
-            href="#"
-            style={{
-              flex: "1 1 260px",
-              minWidth: 260,
-              height: 130,
-            }}
-            borderColor="rgba(244,166,35,0.5)"
-            glowColor="rgba(244,166,35,0.1)"
-          >
-            <ClutchBadge
-              label="Top Software Development"
-              sublabel="TechReviewer · 2024"
-              color="#F4A623"
-            />
           </AwardCard>
 
           {/* Google Reviews */}
@@ -436,81 +365,6 @@ export default function AwardsSection() {
                 >
                   Reviews
                 </span>
-              </span>
-
-              <StarRow count={5} color="#FBBC04" />
-            </div>
-          </AwardCard>
-
-          {/* G2 */}
-          <AwardCard
-            href="#"
-            style={{
-              flex: "1 1 260px",
-              minWidth: 260,
-              height: 130,
-            }}
-            borderColor="rgba(255,100,60,0.4)"
-            glowColor="rgba(255,100,60,0.08)"
-          >
-            <div style={{ textAlign: "center" }}>
-              <div style={{ marginBottom: 4 }}>
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-                  <circle
-                    cx="15"
-                    cy="15"
-                    r="14"
-                    stroke="rgba(255,100,60,0.6)"
-                    strokeWidth="1.2"
-                    fill="rgba(255,100,60,0.08)"
-                  />
-                  <text
-                    x="15"
-                    y="20"
-                    textAnchor="middle"
-                    fill="#FF643C"
-                    fontSize="14"
-                    fontWeight="800"
-                  >
-                    G2
-                  </text>
-                </svg>
-              </div>
-
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: "#fff",
-                  letterSpacing: "0.04em",
-                  display: "block",
-                }}
-              >
-                High
-              </span>
-
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: "#fff",
-                  display: "block",
-                }}
-              >
-                Performer
-              </span>
-
-              <span
-                style={{
-                  fontSize: 8,
-                  color: "rgba(255,255,255,0.4)",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  display: "block",
-                  marginTop: 3,
-                }}
-              >
-                Fall 2024
               </span>
             </div>
           </AwardCard>

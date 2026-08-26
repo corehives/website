@@ -197,6 +197,26 @@ export default function Hero() {
           and accelerate your digital transformation.
         </p>
 
+        {/* Trustpilot Review Badge */}
+        <div
+          className="mx-auto mt-4 flex items-center justify-center gap-1.5 text-xs text-white/50"
+          style={{
+            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.95s both",
+            willChange: "opacity, transform",
+          }}
+        >
+          <a
+            href="https://www.trustpilot.com/review/corehives.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 transition-colors duration-200 hover:text-[#07BEB8]"
+          >
+            <span className="text-[#07BEB8] text-sm tracking-wide leading-none">★★★★☆</span>
+            <span>4.5 Rated on</span>
+            <span className="font-semibold text-white/85">Trustpilot</span>
+          </a>
+        </div>
+
         {/* Visuals — responsive container */}
         <div className="relative w-full" style={visualsStyle}>
           {shouldLoadVisuals ? (
