@@ -359,7 +359,7 @@ export default function PartnersSection() {
   const isLargeScreen = useIsLargeScreen();
 
   return (
-    <section className="section-auto-render min-h-screen flex flex-col justify-center text-[#e8f0f4]">
+    <section className="section-auto-render min-h-screen flex flex-col justify-center text-[#e8f0f4] relative overflow-hidden">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
@@ -371,13 +371,13 @@ export default function PartnersSection() {
         <img
           src={BgRight}
           alt=""
-          className="absolute top-2/2 right-0 w-1/2 h-auto opacity-90"
+          className="absolute bottom-0 right-0 w-1/2 h-auto opacity-90"
           loading="lazy"
         />
         <img
           src={BGBoxes}
           alt=""
-          className="absolute top-6/2 right-0 w-1/5 h-auto"
+          className="absolute top-1/3 right-0 w-1/5 h-auto"
           loading="lazy"
         />
         <div
@@ -461,6 +461,43 @@ export default function PartnersSection() {
             );
           })}
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function LowCodeSection() {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  return (
+    <section className="section-auto-render min-h-screen flex flex-col justify-center text-[#e8f0f4] relative overflow-hidden">
+      {/* Background Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src={BgLeft}
+          alt=""
+          className="absolute top-0 left-0 w-full h-auto opacity-90"
+          loading="lazy"
+        />
+        <img
+          src={BgRight}
+          alt=""
+          className="absolute bottom-0 right-0 w-1/2 h-auto opacity-90"
+          loading="lazy"
+        />
+        <img
+          src={BGBoxes}
+          alt=""
+          className="absolute top-1/3 right-0 w-1/5 h-auto"
+          loading="lazy"
+        />
+        <div
+          className="absolute -left-40 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(7,190,184,0.08) 0%, transparent 70%)",
+          }}
+        />
       </div>
 
       {/* ── Low-Code Section ── */}

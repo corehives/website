@@ -28,18 +28,18 @@ function AdminFallback() {
 }
 
 // Home page sections
-const Solution = lazy(() => import("./components/solution.jsx"));
-const ProcessSection = lazy(() => import("./components/ProcessSection.jsx"));
-const TechnologiesSection = lazy(() => import("./components/TechnologiesSection.jsx"));
-const IndustriesSection = lazy(() => import("./components/IndustriesSection.jsx"));
-const OverView = lazy(() => import("./components/overview.jsx"));
-const CTASection = lazy(() => import("./components/CTASection.jsx"));
-const Partners = lazy(() => import("./components/partners.jsx"));
-const Testimonials = lazy(() => import("./components/testimonials.jsx"));
-const Awards = lazy(() => import("./components/awards.jsx"));
-const FAQSection = lazy(() => import("./components/FAQSection.jsx"));
-const ContactSection = lazy(() => import("./components/contact.jsx"));
-const Footer = lazy(() => import("./components/layout/footer.jsx"));
+import Solution, { LowCodeSection } from "./components/solution.jsx";
+import ProcessSection from "./components/ProcessSection.jsx";
+import TechnologiesSection from "./components/TechnologiesSection.jsx";
+import IndustriesSection from "./components/IndustriesSection.jsx";
+import OverView from "./components/overview.jsx";
+import CTASection from "./components/CTASection.jsx";
+import Partners from "./components/partners.jsx";
+import Testimonials from "./components/testimonials.jsx";
+import Awards from "./components/awards.jsx";
+import FAQSection from "./components/FAQSection.jsx";
+import ContactSection from "./components/contact.jsx";
+import Footer from "./components/layout/footer.jsx";
 
 // Service pages
 const WebDevelopment = lazy(() => import("./pages/web-development.jsx"));
@@ -75,17 +75,6 @@ const CookiePolicy = lazy(() => import("./pages/cookie-policy.jsx"));
 // import() is deduplicated by Vite/the module registry — these reuse the
 // exact same chunks as the lazy() declarations above, no double-fetch.
 // The 2100ms loader window is the budget; chunks arrive before dismiss.
-import("./components/solution.jsx");
-import("./components/ProcessSection.jsx");
-import("./components/IndustriesSection.jsx");
-import("./components/overview.jsx");
-import("./components/CTASection.jsx");
-import("./components/partners.jsx");
-import("./components/testimonials.jsx");
-import("./components/awards.jsx");
-import("./components/FAQSection.jsx");
-import("./components/contact.jsx");
-import("./components/layout/footer.jsx");
 import("./pages/web-development.jsx");
 import("./pages/our-portfolio.jsx");
 import("./pages/app-development.jsx");
@@ -118,13 +107,13 @@ function HomePage() {
         <Hero />
         <Suspense fallback={null}>
           <Solution />
+          <OverView />
+          <Testimonials />
           <ProcessSection />
           <TechnologiesSection />
           <IndustriesSection />
-          <OverView />
+          <LowCodeSection />
           <CTASection />
-          {/* <Partners /> */}
-          <Testimonials />
           <Awards />
           <FAQSection />
           <ContactSection />
