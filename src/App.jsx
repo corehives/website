@@ -121,7 +121,7 @@ function HomePage() {
           <IndustriesSection />
           <OverView />
           <CTASection />
-          <Partners />
+          {/* <Partners /> */}
           <Testimonials />
           <Awards />
           <FAQSection />
