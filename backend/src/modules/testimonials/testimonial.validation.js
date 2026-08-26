@@ -2,18 +2,22 @@ const Joi = require("joi");
 
 const create = Joi.object({
   name: Joi.string().min(1).max(100).required(),
-  initials: Joi.string().min(1).max(5).required(),
   role: Joi.string().min(1).max(150).required(),
   rating: Joi.number().integer().min(1).max(5).default(5),
-  title: Joi.string().min(1).max(255).required(),
   text: Joi.string().min(10).required(),
+  company: Joi.string().allow("").optional().allow(null),
+  website: Joi.string().allow("").optional().allow(null),
+  country: Joi.string().allow("").optional().allow(null),
+  initials: Joi.string().allow("").optional().allow(null),
+  title: Joi.string().allow("").optional().allow(null),
+  sortOrder: Joi.number().integer().optional().allow(null),
   isActive: Joi.boolean().default(true),
-  sortOrder: Joi.number().integer().min(0).default(0),
 });
 
 const update = create.fork(
-  ["name", "initials", "role", "rating", "title", "text", "isActive", "sortOrder"],
+  ["name", "role", "rating", "text", "company", "website", "country", "initials", "title", "sortOrder", "isActive"],
   (field) => field.optional()
 );
 
 module.exports = { create, update };
+

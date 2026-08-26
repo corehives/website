@@ -4,7 +4,7 @@ const prisma = require("../../config/db");
 function findAllActive() {
   return prisma.testimonial.findMany({
     where: { isActive: true },
-    orderBy: { sortOrder: "asc" },
+    orderBy: { createdAt: "desc" },
   });
 }
 

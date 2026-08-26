@@ -9,23 +9,51 @@ import ErrorBanner from "../../components/admin/ErrorBanner.jsx";
 import AdminInput from "../../components/admin/AdminInput.jsx";
 import AdminTextarea from "../../components/admin/AdminTextarea.jsx";
 
+const COUNTRIES = [
+  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+  "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
+  "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo (Congo-Brazzaville)", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czechia (Czech Republic)",
+  "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+  "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+  "Fiji", "Finland", "France",
+  "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
+  "Haiti", "Holy See", "Honduras", "Hungary",
+  "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast",
+  "Jamaica", "Japan", "Jordan",
+  "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan",
+  "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+  "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)",
+  "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway",
+  "Oman",
+  "Pakistan", "Palau", "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+  "Qatar",
+  "Romania", "Russia", "Rwanda",
+  "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+  "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+  "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
+  "Vanuatu", "Venezuela", "Vietnam",
+  "Yemen",
+  "Zambia", "Zimbabwe"
+];
+
 const COLUMNS = [
   { key: "name", label: "Name" },
   { key: "role", label: "Role" },
   { key: "rating", label: "Rating" },
+  { key: "company", label: "Company" },
+  { key: "country", label: "Country" },
   { key: "isActive", label: "Active" },
-  { key: "sortOrder", label: "Sort order" },
   { key: "actions", label: "Actions", className: "text-right" },
 ];
 
 const emptyForm = {
   name: "",
-  initials: "",
   role: "",
   rating: 5,
-  title: "",
   text: "",
-  sortOrder: 0,
+  company: "",
+  website: "",
+  country: "",
   isActive: true,
 };
 
@@ -76,12 +104,12 @@ function TestimonialsAdmin() {
     setEditing(row);
     setForm({
       name: row.name ?? "",
-      initials: row.initials ?? "",
       role: row.role ?? "",
       rating: row.rating ?? 5,
-      title: row.title ?? "",
       text: row.text ?? "",
-      sortOrder: row.sortOrder ?? 0,
+      company: row.company ?? "",
+      website: row.website ?? "",
+      country: row.country ?? "",
       isActive: row.isActive ?? true,
     });
     setFormError("");
@@ -105,12 +133,12 @@ function TestimonialsAdmin() {
     setFormError("");
     const payload = {
       name: form.name.trim(),
-      initials: form.initials.trim(),
       role: form.role.trim(),
       rating: Number(form.rating),
-      title: form.title.trim(),
       text: form.text.trim(),
-      sortOrder: Number(form.sortOrder) || 0,
+      company: form.company.trim(),
+      website: form.website.trim(),
+      country: form.country,
       isActive: !!form.isActive,
     };
     setSaving(true);
@@ -253,14 +281,6 @@ function TestimonialsAdmin() {
             placeholder="Jane Smith"
           />
           <AdminInput
-            label="Initials"
-            name="initials"
-            maxLength={5}
-            value={form.initials}
-            onChange={(e) => setField("initials", e.target.value)}
-            placeholder="JS"
-          />
-          <AdminInput
             label="Role"
             name="role"
             value={form.role}
@@ -277,12 +297,34 @@ function TestimonialsAdmin() {
             onChange={(e) => setField("rating", e.target.value)}
           />
           <AdminInput
-            label="Title"
-            name="title"
-            value={form.title}
-            onChange={(e) => setField("title", e.target.value)}
-            placeholder="A great experience"
+            label="Company (Optional)"
+            name="company"
+            value={form.company}
+            onChange={(e) => setField("company", e.target.value)}
+            placeholder="Acme Corp"
           />
+          <AdminInput
+            label="Website URL (Optional)"
+            name="website"
+            value={form.website}
+            onChange={(e) => setField("website", e.target.value)}
+            placeholder="https://acme.com"
+          />
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-semibold text-white/50 uppercase tracking-wider">Country</label>
+            <select
+              value={form.country}
+              onChange={(e) => setField("country", e.target.value)}
+              className="w-full rounded-2xl border border-white/10 bg-[#000405] px-4 py-3 text-sm text-white focus:border-[#07BEB8]/40 focus:outline-none"
+            >
+              <option value="">Select Country</option>
+              {COUNTRIES.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
           <AdminTextarea
             label="Text"
             name="text"
@@ -290,13 +332,6 @@ function TestimonialsAdmin() {
             value={form.text}
             onChange={(e) => setField("text", e.target.value)}
             placeholder="Their testimonial (at least 10 characters)…"
-          />
-          <AdminInput
-            label="Sort order"
-            name="sortOrder"
-            type="number"
-            value={form.sortOrder}
-            onChange={(e) => setField("sortOrder", e.target.value)}
           />
           <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-[#000405] px-4 py-3">
             <span className="text-sm text-white/70">Is active</span>

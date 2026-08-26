@@ -22,11 +22,14 @@ model User {
 model Testimonial {
   id        Int      @id @default(autoincrement())
   name      String
-  initials  String
+  initials  String?
   role      String
   rating    Int      @default(5)
-  title     String
+  title     String?
   text      String   @db.LongText
+  company   String?
+  website   String?
+  country   String?
   isActive  Boolean  @default(true)
   sortOrder Int      @default(0)
   createdAt DateTime @default(now())

@@ -88,6 +88,15 @@ function AvatarImg({ initials, name, size = 56 }) {
   );
 }
 
+function getInitials(name) {
+  if (!name) return "";
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 1) {
+    return parts[0].slice(0, 2).toUpperCase();
+  }
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
 function TestimonialCard({ testimonial, active, cw, ch }) {
   const compact = cw < 310;
   const pad = active ? (compact ? 16 : 24) : compact ? 12 : 20;
@@ -97,7 +106,7 @@ function TestimonialCard({ testimonial, active, cw, ch }) {
     <div
       style={{
         width: cw,
-        height: ch,
+        minHeight: ch,
         flexShrink: 0,
         borderRadius: 16,
         padding: pad,
@@ -132,7 +141,7 @@ function TestimonialCard({ testimonial, active, cw, ch }) {
 
       <div className="flex items-center gap-3 mb-3">
         <AvatarImg
-          initials={testimonial.initials}
+          initials={testimonial.initials || getInitials(testimonial.name)}
           name={testimonial.name}
           size={avatarSize}
         />
@@ -151,37 +160,33 @@ function TestimonialCard({ testimonial, active, cw, ch }) {
             }}
           >
             {testimonial.role}
+            {testimonial.company && (
+              <>
+                {" · "}
+                {testimonial.website ? (
+                  <a
+                    href={testimonial.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline text-[#07BEB8]"
+                  >
+                    {testimonial.company}
+                  </a>
+                ) : (
+                  testimonial.company
+                )}
+              </>
+            )}
+            {testimonial.country && ` · ${testimonial.country}`}
           </p>
         </div>
       </div>
-
-      {active && testimonial.title && (
-        <p
-          style={{
-            fontSize: compact ? 12 : 13,
-            fontWeight: 700,
-            color: "#fff",
-            margin: "0 0 6px",
-            lineHeight: 1.35,
-            display: "-webkit-box",
-            WebkitLineClamp: 1,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-          }}
-        >
-          {testimonial.title}
-        </p>
-      )}
 
       <p
         style={{
           fontSize: active ? 13 : 11,
           lineHeight: 1.7,
           color: active ? "rgba(255,255,255,0.82)" : "rgba(255,255,255,0.52)",
-          display: "-webkit-box",
-          WebkitLineClamp: active ? (compact ? 4 : 5) : compact ? 3 : 4,
-          WebkitBoxOrient: "vertical",
-          overflow: "hidden",
           margin: 0,
         }}
       >

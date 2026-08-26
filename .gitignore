@@ -2,13 +2,17 @@
 node_modules
 
 # Build output
-# public/build
+public/
+public/build
 dist
 dist-ssr
 
 # Environment variables
-!.env.example
-!.env
+.env
+
+# Sitemaps
+sitemap.xml
+static/sitemap.xml
 
 # Logs
 logs
