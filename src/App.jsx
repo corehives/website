@@ -30,6 +30,7 @@ function AdminFallback() {
 // Home page sections
 const Solution = lazy(() => import("./components/solution.jsx"));
 const ProcessSection = lazy(() => import("./components/ProcessSection.jsx"));
+const TechnologiesSection = lazy(() => import("./components/TechnologiesSection.jsx"));
 const IndustriesSection = lazy(() => import("./components/IndustriesSection.jsx"));
 const OverView = lazy(() => import("./components/overview.jsx"));
 const CTASection = lazy(() => import("./components/CTASection.jsx"));
@@ -118,6 +119,7 @@ function HomePage() {
         <Suspense fallback={null}>
           <Solution />
           <ProcessSection />
+          <TechnologiesSection />
           <IndustriesSection />
           <OverView />
           <CTASection />
