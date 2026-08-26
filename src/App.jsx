@@ -29,10 +29,14 @@ function AdminFallback() {
 
 // Home page sections
 const Solution = lazy(() => import("./components/solution.jsx"));
+const ProcessSection = lazy(() => import("./components/ProcessSection.jsx"));
+const IndustriesSection = lazy(() => import("./components/IndustriesSection.jsx"));
 const OverView = lazy(() => import("./components/overview.jsx"));
+const CTASection = lazy(() => import("./components/CTASection.jsx"));
 const Partners = lazy(() => import("./components/partners.jsx"));
 const Testimonials = lazy(() => import("./components/testimonials.jsx"));
 const Awards = lazy(() => import("./components/awards.jsx"));
+const FAQSection = lazy(() => import("./components/FAQSection.jsx"));
 const ContactSection = lazy(() => import("./components/contact.jsx"));
 const Footer = lazy(() => import("./components/layout/footer.jsx"));
 
@@ -71,10 +75,14 @@ const CookiePolicy = lazy(() => import("./pages/cookie-policy.jsx"));
 // exact same chunks as the lazy() declarations above, no double-fetch.
 // The 2100ms loader window is the budget; chunks arrive before dismiss.
 import("./components/solution.jsx");
+import("./components/ProcessSection.jsx");
+import("./components/IndustriesSection.jsx");
 import("./components/overview.jsx");
+import("./components/CTASection.jsx");
 import("./components/partners.jsx");
 import("./components/testimonials.jsx");
 import("./components/awards.jsx");
+import("./components/FAQSection.jsx");
 import("./components/contact.jsx");
 import("./components/layout/footer.jsx");
 import("./pages/web-development.jsx");
@@ -109,10 +117,14 @@ function HomePage() {
         <Hero />
         <Suspense fallback={null}>
           <Solution />
+          <ProcessSection />
+          <IndustriesSection />
           <OverView />
+          <CTASection />
           <Partners />
           <Testimonials />
           <Awards />
+          <FAQSection />
           <ContactSection />
         </Suspense>
       </main>
