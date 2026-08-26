@@ -186,8 +186,8 @@ export default function AboutStory() {
             ref={headRef}
             className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.1] tracking-tight mb-5"
           >
-            Four milestones.{" "}
-            <span className="precision-gradient">One unstoppable story.</span>
+            Four Milestones,{" "}
+            <span className="precision-gradient">One Unstoppable Story</span>
           </h2>
 
           <p
