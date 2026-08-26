@@ -9,9 +9,13 @@ const routeMap = {
   "Our Services": "/services/branding",
   Company: "/about",
   Careers: "/careers",
-  "Web & App Development": "/web-development",
-  "Artificial Intelligence Solutions": "/services/ai-market-optimization",
+  "Web Development": "/web-development",
+  "Mobile App Development": "/mobile-app-development",
+  Branding: "/services/branding",
+  "Illustration & Animation": "/services/illustration-animation",
   "Tech Staff Outsourcing": "/services/tech-staff-outsourcing",
+  "AI Market Optimization": "/services/ai-market-optimization",
+  Blockchain: "/services/blockchain",
   "Why CoreHives": "/about",
   "Our Approach": "/about",
   Partnerships: "/about",
@@ -20,14 +24,19 @@ const routeMap = {
 };
 
 const navLinks = {
-  "QUICK LINKS": ["Home", "Our Services", "Company", "Careers"],
+  "QUICK LINKS": ["Home", "Company", "Careers"],
   "OUR SERVICES": [
-    "Web & App Development",
-    "Artificial Intelligence Solutions",
-    "Tech Staff Outsourcing",
+    "Web Development",
+    "Mobile App Development",
+    "Branding",
+    "Illustration & Animation",
   ],
-  COMPANY: ["Why CoreHives", "Our Approach", "Partnerships"],
-  INFORMATION: ["Privacy", "Cookie Policy"],
+  "MORE SERVICES": [
+    "Tech Staff Outsourcing",
+    "AI Market Optimization",
+    "Blockchain",
+  ],
+  COMPANY: ["Why CoreHives", "Privacy", "Cookie Policy"],
 };
 
 const socialLinks = [
