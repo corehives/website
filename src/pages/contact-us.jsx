@@ -569,6 +569,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-10">
             {/* ── Left: Contact Info ── */}
             <div className="lg:col-span-2 flex flex-col gap-4">
+              <h2 className="text-white font-bold text-base mb-1">Our Offices</h2>
               {contactInfo.map((item) => (
                 <ContactInfoCard key={item.label} {...item} />
               ))}

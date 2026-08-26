@@ -291,7 +291,7 @@ export default function ContactSection() {
 
           {/* Office heading */}
           <p className="text-white font-bold text-base mb-5">
-            CoreHives Development Office
+            Our Offices
           </p>
 
           {/* Contact info items */}
