@@ -137,30 +137,54 @@ function ProjectsGrid({ projects }) {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((proj, i) => (
-            <div key={i} className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden transition-all duration-300 hover:border-[#07BEB8]/40 hover:shadow-lg hover:shadow-[#07BEB8]/10">
-              <div className="relative overflow-hidden h-48 bg-gradient-to-br from-[#07BEB8]/10 to-[#010A11]">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-5xl font-black text-[#07BEB8]/20 group-hover:text-[#07BEB8]/30 transition-colors">
-                    {proj.number}
-                  </span>
-                </div>
-                <div className="absolute bottom-4 left-4">
-                  {proj.tags.map((tag, j) => (
-                    <span key={j} className="mr-2 inline-block rounded-full bg-[#07BEB8]/20 px-3 py-1 text-xs font-medium text-[#07BEB8]">
-                      {tag}
+          {projects.map((proj, i) => {
+            const cardInner = (
+              <>
+                <div className="relative overflow-hidden h-48 bg-gradient-to-br from-[#07BEB8]/10 to-[#010A11]">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-5xl font-black text-[#07BEB8]/20 group-hover:text-[#07BEB8]/30 transition-colors">
+                      {proj.number}
                     </span>
-                  ))}
+                  </div>
+                  {proj.to && (
+                    <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/70 group-hover:bg-[#07BEB8] group-hover:text-black transition-colors">
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
+                  )}
+                  <div className="absolute bottom-4 left-4">
+                    {proj.tags.map((tag, j) => (
+                      <span key={j} className="mr-2 inline-block rounded-full bg-[#07BEB8]/20 px-3 py-1 text-xs font-medium text-[#07BEB8]">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+                <div className="p-5">
+                  <h3 className="text-base font-semibold text-white mb-2 group-hover:text-[#07BEB8] transition-colors">
+                    {proj.title}
+                  </h3>
+                  <p className="text-xs text-gray-400 leading-relaxed">{proj.description}</p>
+                </div>
+              </>
+            );
+
+            return proj.to ? (
+              <Link
+                key={i}
+                to={proj.to}
+                className="group block rounded-2xl border border-white/10 bg-white/5 overflow-hidden transition-all duration-300 hover:border-[#07BEB8]/40 hover:shadow-lg hover:shadow-[#07BEB8]/10"
+              >
+                {cardInner}
+              </Link>
+            ) : (
+              <div
+                key={i}
+                className="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden transition-all duration-300 hover:border-[#07BEB8]/40 hover:shadow-lg hover:shadow-[#07BEB8]/10"
+              >
+                {cardInner}
               </div>
-              <div className="p-5">
-                <h3 className="text-base font-semibold text-white mb-2 group-hover:text-[#07BEB8] transition-colors">
-                  {proj.title}
-                </h3>
-                <p className="text-xs text-gray-400 leading-relaxed">{proj.description}</p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
