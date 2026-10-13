@@ -18,7 +18,7 @@ import {
   SiNextdotjs,
   SiGoogleanalytics, SiGooglesearchconsole, SiSemrush, SiHotjar, SiMixpanel, SiHubspot,
   SiGoogleads, SiMeta, SiTiktok, SiX, SiMailchimp,
-  SiTensorflow, SiHuggingface, SiGooglebigquery, SiDatadog,
+  SiTensorflow, SiHuggingface, SiGooglebigquery, SiDatadog, SiOpenai,
 } from "react-icons/si";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));

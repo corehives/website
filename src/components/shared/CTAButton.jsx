@@ -22,6 +22,7 @@ const CTAButton = forwardRef(function CTAButton(
     rel,
     className = "",
     children,
+    ...rest
   },
   ref,
 ) {
@@ -52,7 +53,7 @@ const CTAButton = forwardRef(function CTAButton(
 
   if (to) {
     return (
-      <Link ref={ref} to={to} className={baseClass}>
+      <Link ref={ref} to={to} className={baseClass} {...rest}>
         {children}
         {icon}
       </Link>
@@ -61,7 +62,7 @@ const CTAButton = forwardRef(function CTAButton(
 
   if (href) {
     return (
-      <a ref={ref} href={href} target={target} rel={rel} onClick={onClick} className={baseClass}>
+      <a ref={ref} href={href} target={target} rel={rel} onClick={onClick} className={baseClass} {...rest}>
         {children}
         {icon}
       </a>
@@ -75,6 +76,7 @@ const CTAButton = forwardRef(function CTAButton(
       onClick={onClick}
       disabled={disabled || loading}
       className={baseClass}
+      {...rest}
     >
       {children}
       {icon}

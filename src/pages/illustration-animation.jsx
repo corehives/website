@@ -21,6 +21,7 @@ import {
   SiCinema4D,
   SiFramer,
   SiDribbble,
+  SiCanva,
   SiDavinciresolve,
   SiSketch,
   SiInkscape,

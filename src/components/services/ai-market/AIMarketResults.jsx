@@ -91,7 +91,7 @@ function CaseCard({ cs, delay }) {
             <span className="block text-sm font-bold" style={{ color: cs.accentColor }}>{cs.result}</span>
             <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>{cs.result2}</span>
           </div>
-          <button className="flex items-center justify-center w-9 h-9 rounded-full border border-white/12 text-white/35 transition-all duration-300 group-hover:border-[#F472B6] group-hover:text-[#F472B6]">
+          <button aria-label="View case study" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/12 text-white/35 transition-all duration-300 group-hover:border-[#F472B6] group-hover:text-[#F472B6]">
             <ArrowUpRight className="h-4 w-4" />
           </button>
         </div>

@@ -448,12 +448,14 @@ export default function TestimonialsSection() {
             <div className="flex items-center justify-center gap-4 mt-12 px-4">
               <button
                 onClick={scrollPrev}
+                aria-label="Previous testimonial"
                 className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
               >
                 <ArrowLeft size={18} />
               </button>
               <button
                 onClick={scrollNext}
+                aria-label="Next testimonial"
                 className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
               >
                 <ArrowRight size={18} />

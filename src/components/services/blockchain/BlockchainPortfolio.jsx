@@ -86,7 +86,7 @@ function ProjectCard({ project, delay }) {
             <span className="block text-sm font-bold" style={{ color: project.accentColor }}>{project.result}</span>
             <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>{project.result2}</span>
           </div>
-          <button className="flex items-center justify-center w-9 h-9 rounded-full border border-white/12 text-white/35 transition-all duration-300 group-hover:border-[#34D399] group-hover:text-[#34D399]">
+          <button aria-label="View project details" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/12 text-white/35 transition-all duration-300 group-hover:border-[#34D399] group-hover:text-[#34D399]">
             <ArrowUpRight className="h-4 w-4" />
           </button>
         </div>

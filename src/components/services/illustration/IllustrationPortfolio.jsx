@@ -124,7 +124,7 @@ function PortCard({ project, delay }) {
             <span className="block text-sm font-bold" style={{ color: project.accentColor }}>{project.result}</span>
             <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>{project.result2}</span>
           </div>
-          <button className="flex items-center justify-center w-9 h-9 rounded-full border border-white/12 text-white/35 transition-all duration-300 group-hover:border-[#A78BFA] group-hover:text-[#A78BFA]">
+          <button aria-label="View illustration project" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/12 text-white/35 transition-all duration-300 group-hover:border-[#A78BFA] group-hover:text-[#A78BFA]">
             <ArrowUpRight className="h-4 w-4" />
           </button>
         </div>

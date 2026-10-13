@@ -267,9 +267,13 @@ function GlowCard({ card }) {
           </p>
           <div className="mt-auto">
             {card.to ? (
-              <CTAButton to={card.to}>Read More</CTAButton>
+              <CTAButton to={card.to} aria-label={`Read more about ${card.title}`}>
+                Read More
+              </CTAButton>
             ) : (
-              <CTAButton href="#">Read More</CTAButton>
+              <CTAButton href="#" aria-label={`Read more about ${card.title}`}>
+                Read More
+              </CTAButton>
             )}
           </div>
         </div>
@@ -400,10 +404,10 @@ export default function PartnersSection() {
             >
               What We Offer
             </p>
-            <h1 className="text-4xl sm:text-[2.625rem] font-extrabold leading-tight text-white">
+            <h2 className="text-4xl sm:text-[2.625rem] font-extrabold leading-tight text-white">
               Your <span className="precision-gradient">Partners</span> in
               Digital Transformation
-            </h1>
+            </h2>
           </div>
           <div className="flex-1 max-w-lg md:pt-14">
             <p className="text-sm sm:text-base leading-relaxed text-white">

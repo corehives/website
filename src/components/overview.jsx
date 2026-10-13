@@ -99,6 +99,7 @@ export default function OverviewSection() {
                 <div className="flex gap-3 flex-shrink-0">
                   <button
                     onClick={prev}
+                    aria-label="Previous project"
                     className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
                   >
                     <ArrowLeft size={16} />
@@ -106,6 +107,7 @@ export default function OverviewSection() {
 
                   <button
                     onClick={next}
+                    aria-label="Next project"
                     className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-black hover:bg-[#07BEB8]"
                   >
                     <ArrowRight size={16} />

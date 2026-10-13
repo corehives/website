@@ -181,7 +181,7 @@ function PortfolioCard({ project, delay }) {
               {project.result2}
             </span>
           </div>
-          <button className="flex items-center justify-center w-9 h-9 rounded-full border border-white/15 text-white/40 transition-all duration-300 group-hover:border-[#07BEB8] group-hover:text-[#07BEB8]">
+          <button aria-label="View brand project" className="flex items-center justify-center w-9 h-9 rounded-full border border-white/15 text-white/40 transition-all duration-300 group-hover:border-[#07BEB8] group-hover:text-[#07BEB8]">
             <ArrowUpRight className="h-4 w-4" />
           </button>
         </div>
