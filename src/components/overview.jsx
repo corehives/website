@@ -3,17 +3,18 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import CTAButton from "./shared/CTAButton";
 import BgOverview from "../assets/bg-overview-1x.webp";
-import FinTrackImg from "../assets/fintrack-showcase.webp";
+import BaileyBeauImg from "../assets/bailey-beau-showcase.webp";
 import NexaCorpImg from "../assets/nexacorp-showcase.webp";
 import LogiOpsImg from "../assets/logiops-showcase.webp";
 
 const projects = [
   {
-    title: "FinTrack — Personal Finance App",
-    desc: "A multi-currency budgeting and investment tracking application for iOS and Android with open banking integration and real-time portfolio analysis.",
-    image: FinTrackImg,
-    tag: "FinTech",
-    to: "/portfolio/mobile-app-development",
+    title: "Bailey & Beau | Interactive Family Reading Platform",
+    desc: "An interactive family reading and learning platform that brings children and distant loved ones together through live video, synchronized storybooks, collaborative drawing, and engaging educational activities.",
+    image: BaileyBeauImg,
+    tag: "EdTech | Custom Software Development",
+    to: "/portfolio/bailey-and-beau",
+    ctaText: "View Case Study",
   },
   {
     title: "NexaCorp — SaaS Platform",
@@ -21,6 +22,7 @@ const projects = [
     image: NexaCorpImg,
     tag: "SaaS / Analytics",
     to: "/portfolio/web-development",
+    ctaText: "View Case Studies",
   },
   {
     title: "LogiOps — Logistics ERP",
@@ -28,6 +30,7 @@ const projects = [
     image: LogiOpsImg,
     tag: "E-Commerce",
     to: "/portfolio/custom-software",
+    ctaText: "View Case Studies",
   },
 ];
 
@@ -131,7 +134,9 @@ export default function OverviewSection() {
               </p>
 
               {/* CTA */}
-              <CTAButton to={projects[index].to || "/contact"}>View Case Studies</CTAButton>
+              <CTAButton to={projects[index].to || "/contact"}>
+                {projects[index].ctaText || "View Case Studies"}
+              </CTAButton>
             </div>
 
             {/* ───── Right Slider ───── */}
