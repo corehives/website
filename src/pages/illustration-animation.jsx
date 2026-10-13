@@ -21,7 +21,6 @@ import {
   SiCinema4D,
   SiFramer,
   SiDribbble,
-  SiCanva,
   SiDavinciresolve,
   SiSketch,
   SiInkscape,
@@ -30,6 +29,13 @@ import {
   SiUnity,
   SiSketchup,
 } from "react-icons/si";
+
+const SiCanva = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2" />
+    <path d="M15 8.5C13.5 7.5 10.5 7.5 9 9C7.5 10.5 7.5 13.5 9 15C10.5 16.5 13.5 16.5 15 15.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
