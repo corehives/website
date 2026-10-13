@@ -1,6 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import CTAButton from "./CTAButton";
 import hero_bg from "../../assets/hero-bgs.webp";
 import leftLight from "../../assets/left-light.webp";
