@@ -38,6 +38,8 @@ const GlobeFallback = () => (
       src={GlobeLogo}
       alt=""
       aria-hidden="true"
+      width={330}
+      height={330}
       style={{
         position: "absolute",
         top: "50%",
