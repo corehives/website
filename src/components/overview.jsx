@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import CTAButton from "./shared/CTAButton";
 import BgOverview from "../assets/bg-overview-1x.webp";
 import BaileyBeauImg from "../assets/bailey-beau-showcase.webp";
-import NexaCorpImg from "../assets/nexacorp-showcase.webp";
+import DoorsImg from "../assets/doors/login-portal.webp";
 import LogiOpsImg from "../assets/logiops-showcase.webp";
 
 const projects = [
@@ -17,12 +17,12 @@ const projects = [
     ctaText: "View Case Study",
   },
   {
-    title: "NexaCorp — SaaS Platform",
-    desc: "A multi-tenant B2B SaaS platform with role-based access, real-time collaboration, and Stripe-powered subscription billing handling $2M+ ARR.",
-    image: NexaCorpImg,
-    tag: "SaaS / Analytics",
-    to: "/portfolio/web-development",
-    ctaText: "View Case Studies",
+    title: "Doors | Multi-Vendor E-Commerce Marketplace",
+    desc: "A multi-vendor e-commerce marketplace built for the Saudi Arabian retail market, connecting merchants and shoppers through product management, mobile commerce APIs, secure payment processing, and integrated delivery operations.",
+    image: DoorsImg,
+    tag: "E-Commerce | Marketplace Development",
+    to: "/portfolio/doors-ecommerce-marketplace",
+    ctaText: "View Case Study",
   },
   {
     title: "LogiOps — Logistics ERP",

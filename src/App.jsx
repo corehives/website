@@ -34,7 +34,6 @@ import TechnologiesSection from "./components/TechnologiesSection.jsx";
 import IndustriesSection from "./components/IndustriesSection.jsx";
 import OverView from "./components/overview.jsx";
 import CTASection from "./components/CTASection.jsx";
-import Partners from "./components/partners.jsx";
 import Testimonials from "./components/testimonials.jsx";
 import Awards from "./components/awards.jsx";
 import FAQSection from "./components/FAQSection.jsx";
@@ -66,6 +65,7 @@ const PortfolioCustomSoftware = lazy(() => import("./pages/portfolio/custom-soft
 const PortfolioDigitalMarketing = lazy(() => import("./pages/portfolio/digital-marketing.jsx"));
 const PortfolioBranding = lazy(() => import("./pages/portfolio/branding.jsx"));
 const BaileyAndBeauCaseStudy = lazy(() => import("./pages/portfolio/bailey-and-beau.jsx"));
+const DoorsCaseStudy = lazy(() => import("./pages/portfolio/doors-ecommerce-marketplace.jsx"));
 const Careers    = lazy(() => import("./pages/careers.jsx"));
 const Blogs      = lazy(() => import("./pages/blogs.jsx"));
 const BlogDetail = lazy(() => import("./pages/blog-detail.jsx"));
@@ -96,6 +96,7 @@ import("./pages/portfolio/custom-software.jsx");
 import("./pages/portfolio/digital-marketing.jsx");
 import("./pages/portfolio/branding.jsx");
 import("./pages/portfolio/bailey-and-beau.jsx");
+import("./pages/portfolio/doors-ecommerce-marketplace.jsx");
 import("./pages/careers.jsx");
 import("./pages/blogs.jsx");
 import("./pages/blog-detail.jsx");
@@ -246,6 +247,9 @@ function AppRoutes() {
         } />
         <Route path="/portfolio/bailey-and-beau" element={
           <Suspense fallback={<LoadingScreen />}><BaileyAndBeauCaseStudy /></Suspense>
+        } />
+        <Route path="/portfolio/doors-ecommerce-marketplace" element={
+          <Suspense fallback={<LoadingScreen />}><DoorsCaseStudy /></Suspense>
         } />
 
         {/* Careers */}
