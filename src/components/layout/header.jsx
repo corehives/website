@@ -27,9 +27,9 @@ const portfolioLinks = [
   { label: "Web Development", href: "/portfolio/web-development" },
   { label: "Mobile App Development", href: "/portfolio/mobile-app-development" },
   { label: "Branding & Illustration", href: "/portfolio/branding" },
-  { label: "UI/UX Design", href: "/portfolio/ui-ux-design" },
-  { label: "Custom Software", href: "/portfolio/custom-software" },
-  { label: "Digital Marketing", href: "/portfolio/digital-marketing" },
+  // { label: "UI/UX Design", href: "/portfolio/ui-ux-design" },
+  // { label: "Custom Software", href: "/portfolio/custom-software" },
+  // { label: "Digital Marketing", href: "/portfolio/digital-marketing" },
 ];
 
 const navItems = [
