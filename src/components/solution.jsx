@@ -275,11 +275,11 @@ function GlowCard({ card }) {
           <div className="mt-auto">
             {card.to ? (
               <CTAButton to={card.to} aria-label={`Read more about ${card.title}`}>
-                Read More
+                Read More <span className="sr-only">about {card.title}</span>
               </CTAButton>
             ) : (
               <CTAButton href="#" aria-label={`Read more about ${card.title}`}>
-                Read More
+                Read More <span className="sr-only">about {card.title}</span>
               </CTAButton>
             )}
           </div>

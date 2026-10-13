@@ -135,8 +135,8 @@ export default function InsightsSection() {
                 </p>
 
                 <div className="mt-4">
-                  <CTAButton href="#">
-                    Read More
+                  <CTAButton href="#" aria-label={`Read more about ${post.title}`}>
+                    Read More <span className="sr-only">about {post.title}</span>
                   </CTAButton>
                 </div>
               </div>
