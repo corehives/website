@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import BgApp from "../../assets/bg-app.png";
+import BgApp from "../../assets/bg-app.webp";
 import { insightsData } from "./data";
 import { ArrowRight } from "lucide-react";
 import CTAButton from "../shared/CTAButton";

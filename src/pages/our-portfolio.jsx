@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
-import WebCover from "../assets/portfolio-cover.png";
+import WebCover from "../assets/portfolio-cover.webp";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation from "../components/animations/bannerleft";
-import Cloud from "../assets/icons/cloud.png";
-import leftLight from "../assets/left-light.png";
-import rightLight from "../assets/right-light.png";
-import avatar5 from "../assets/avatar-7.png";
-import avatar4 from "../assets/avatar-8.png";
-import avatar6 from "../assets/avatar-9.png";
+import Cloud from "../assets/icons/cloud.webp";
+import leftLight from "../assets/left-light.webp";
+import rightLight from "../assets/right-light.webp";
+import avatar5 from "../assets/avatar-7.webp";
+import avatar4 from "../assets/avatar-8.webp";
+import avatar6 from "../assets/avatar-9.webp";
 import { lazy, Suspense } from "react";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));

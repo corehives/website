@@ -1,8 +1,8 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import HalfLogo from "../../assets/logo-half.png";
-import GlobeLogo from "../../assets/globe-frame.png";
+import HalfLogo from "../../assets/logo-half.webp";
+import GlobeLogo from "../../assets/globe-frame.webp";
 import {
   DECORATIVE_CANVAS_DPR,
   DECORATIVE_CANVAS_GL,

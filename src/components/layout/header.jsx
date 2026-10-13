@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import CTAButton from "../shared/CTAButton";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo.webp";
 
 const serviceLinks = [
   { label: "Web Development", href: "/web-development" },

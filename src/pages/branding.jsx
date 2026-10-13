@@ -1,10 +1,10 @@
 import { lazy, Suspense, useState } from "react";
 import hero_bg   from "../assets/hero-bgs.webp";
-import BrandingShowcase from "../assets/branding-showcase.png";
-import Cloud     from "../assets/icons/cloud.png";
-import leftLight  from "../assets/left-light.png";
-import rightLight from "../assets/right-light.png";
-import BgApp     from "../assets/bg-app.png";
+import BrandingShowcase from "../assets/branding-showcase.webp";
+import Cloud     from "../assets/icons/cloud.webp";
+import leftLight  from "../assets/left-light.webp";
+import rightLight from "../assets/right-light.webp";
+import BgApp     from "../assets/bg-app.webp";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation  from "../components/animations/bannerleft";
 import BrandingHero3D       from "../components/animations/BrandingHero3D";

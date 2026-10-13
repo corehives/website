@@ -1,4 +1,4 @@
-import MobileApp from "../../assets/mobile-app-dev.png";
+import MobileApp from "../../assets/mobile-app-dev.webp";
 
 export default function HeroContentSection() {
   return (

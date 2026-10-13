@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import CTAButton from "./shared/CTAButton";
-import BGSquare from "../assets/bg-square.png";
+import BGSquare from "../assets/bg-square.webp";
 import BgLeft from "../assets/bg-left-content.webp";
 
 const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL || "/api/contact";

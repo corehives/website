@@ -1,5 +1,5 @@
 import PortfolioServiceTemplate from "../../components/shared/PortfolioServiceTemplate";
-import showcaseImg from "../../assets/web-cover.jpg";
+import showcaseImg from "../../assets/web-cover.webp";
 
 const data = {
   banner: {

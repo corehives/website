@@ -1,9 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { useMemo } from "react";
-import bgImage from "../../assets/bg-digital-chip.png";
-import Icon1 from "../../assets/icons/icon-digi-inov-1.png";
-import Icon2 from "../../assets/icons/icon-digi-inov-2.png";
-import Icon3 from "../../assets/icons/icon-digi-inov-3.png";
+import bgImage from "../../assets/bg-digital-chip.webp";
+import Icon1 from "../../assets/icons/icon-digi-inov-1.webp";
+import Icon2 from "../../assets/icons/icon-digi-inov-2.webp";
+import Icon3 from "../../assets/icons/icon-digi-inov-3.webp";
 import * as THREE from "three";
 import {
   DECORATIVE_CANVAS_DPR,

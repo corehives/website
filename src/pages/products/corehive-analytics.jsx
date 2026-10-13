@@ -1,5 +1,5 @@
 import ProductPageTemplate from "../../components/shared/ProductPageTemplate";
-import overviewImg from "../../assets/web-cover.jpg";
+import overviewImg from "../../assets/web-cover.webp";
 import {
   BarChart2, PieChart, TrendingUp, Bell, Database,
   Layout, Zap, Globe, Shield,

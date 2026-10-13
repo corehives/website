@@ -3,9 +3,9 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import CTAButton from "./shared/CTAButton";
 import BgOverview from "../assets/bg-overview-1x.webp";
-import FinTrackImg from "../assets/fintrack-showcase.png";
-import NexaCorpImg from "../assets/nexacorp-showcase.png";
-import LogiOpsImg from "../assets/logiops-showcase.png";
+import FinTrackImg from "../assets/fintrack-showcase.webp";
+import NexaCorpImg from "../assets/nexacorp-showcase.webp";
+import LogiOpsImg from "../assets/logiops-showcase.webp";
 
 const projects = [
   {

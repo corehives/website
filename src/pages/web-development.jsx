@@ -1,14 +1,14 @@
 import { lazy, Suspense, useState } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
-import WebCover from "../assets/web-app-dev.png";
-import WebWork from "../assets/web-mock.png";
-import Analytic from "../assets/icons/analytic.png";
+import WebCover from "../assets/web-app-dev.webp";
+import WebWork from "../assets/web-mock.webp";
+import Analytic from "../assets/icons/analytic.webp";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation from "../components/animations/bannerleft";
 const Testimonials = lazy(() => import("../components/testimonials.jsx"));
-import Cloud from "../assets/icons/cloud.png";
-import leftLight from "../assets/left-light.png";
-import rightLight from "../assets/right-light.png";
+import Cloud from "../assets/icons/cloud.webp";
+import leftLight from "../assets/left-light.webp";
+import rightLight from "../assets/right-light.webp";
 import {
   SiJavascript,
   SiFlutter,
@@ -31,7 +31,7 @@ import {
   SiDigitalocean,
   SiCloudflare,
 } from "react-icons/si";
-import BgApp from "../assets/bg-app.png";
+import BgApp from "../assets/bg-app.webp";
 import { ArrowRight } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import PricingSection from "../components/pricing/PricingSection.jsx";

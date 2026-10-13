@@ -1,5 +1,5 @@
 import ProductPageTemplate from "../../components/shared/ProductPageTemplate";
-import overviewImg from "../../assets/mobile-app-dev.png";
+import overviewImg from "../../assets/mobile-app-dev.webp";
 import {
   Users, BarChart2, Mail, Zap, Shield, GitBranch,
   Database, Bell, MessageSquare, Globe,

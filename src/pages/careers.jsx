@@ -1,9 +1,9 @@
 import { lazy, Suspense, useState, useRef, useEffect } from "react";
 import hero_bg from "../assets/hero-bgs.webp";
-import leftLight from "../assets/left-light.png";
-import rightLight from "../assets/right-light.png";
-import Cloud from "../assets/icons/cloud.png";
-import BgApp from "../assets/bg-app.png";
+import leftLight from "../assets/left-light.webp";
+import rightLight from "../assets/right-light.webp";
+import Cloud from "../assets/icons/cloud.webp";
+import BgApp from "../assets/bg-app.webp";
 import BannerRightAnimation from "../components/animations/bannerRight";
 import BannerLeftAnimation from "../components/animations/bannerleft";
 import CTAButton from "../components/shared/CTAButton";

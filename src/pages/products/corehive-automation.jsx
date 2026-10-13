@@ -1,5 +1,5 @@
 import ProductPageTemplate from "../../components/shared/ProductPageTemplate";
-import overviewImg from "../../assets/work.png";
+import overviewImg from "../../assets/work.webp";
 import {
   Zap, GitBranch, Shield, Database, Bell,
   Settings, Code2, Globe, Layers,

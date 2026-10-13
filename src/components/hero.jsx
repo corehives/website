@@ -1,8 +1,8 @@
 import hero_bg from "../assets/hero-bgs.webp";
-import leftLight from "../assets/left-light.png";
-import rightLight from "../assets/right-light.png";
-import GlobeLogo from "../assets/globe-frame.png";
-import HalfLogo from "../assets/logo-half.png";
+import leftLight from "../assets/left-light.webp";
+import rightLight from "../assets/right-light.webp";
+import GlobeLogo from "../assets/globe-frame.webp";
+import HalfLogo from "../assets/logo-half.webp";
 import { ShieldCheck } from "lucide-react";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 

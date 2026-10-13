@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import CTAButton from "../shared/CTAButton";
-import BgApp from "../../assets/bg-app.png";
+import BgApp from "../../assets/bg-app.webp";
 import { processSteps } from "./data";
 
 export default function ProcessSection() {

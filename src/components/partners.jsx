@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import IbmImg from "../assets/icons/ibm.png";
-import DellImg from "../assets/icons/dell.png";
-import RingImg from "../assets/icons/ring.png";
+import IbmImg from "../assets/icons/ibm.webp";
+import DellImg from "../assets/icons/dell.webp";
+import RingImg from "../assets/icons/ring.webp";
 // import AwsImg from "../assets/icons/aws.png";
 // import CiscoImg from "../assets/icons/cisco.png";
 // import MicrosoftImg from "../assets/icons/microsoft.png";

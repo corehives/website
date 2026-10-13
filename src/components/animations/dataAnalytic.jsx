@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { useMemo } from "react";
-import bgImage from "../../assets/bg-data-analytic.png";
-import Analytic from "../../assets/icons/analytic.png";
+import bgImage from "../../assets/bg-data-analytic.webp";
+import Analytic from "../../assets/icons/analytic.webp";
 import * as THREE from "three";
 import {
   DECORATIVE_CANVAS_DPR,

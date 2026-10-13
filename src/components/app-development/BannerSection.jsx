@@ -1,7 +1,7 @@
 import hero_bg from "../../assets/hero-bgs.webp";
-import Cloud from "../../assets/icons/cloud.png";
-import leftLight from "../../assets/left-light.png";
-import rightLight from "../../assets/right-light.png";
+import Cloud from "../../assets/icons/cloud.webp";
+import leftLight from "../../assets/left-light.webp";
+import rightLight from "../../assets/right-light.webp";
 import BannerRightAnimation from "../animations/bannerRight";
 import BannerLeftAnimation from "../animations/bannerleft";
 

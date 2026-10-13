@@ -1,10 +1,10 @@
 import { Canvas } from "@react-three/fiber";
 import { useMemo } from "react";
-import bgImage from "../../assets/bg-circuit-chip.png";
-import Setting from "../../assets/icons/setting.png";
-import avatar1 from "../../assets/avatar-1.png";
-import avatar2 from "../../assets/avatar-2.png";
-import avatar3 from "../../assets/avatar-3.png";
+import bgImage from "../../assets/bg-circuit-chip.webp";
+import Setting from "../../assets/icons/setting.webp";
+import avatar1 from "../../assets/avatar-1.webp";
+import avatar2 from "../../assets/avatar-2.webp";
+import avatar3 from "../../assets/avatar-3.webp";
 import * as THREE from "three";
 import {
   DECORATIVE_CANVAS_DPR,

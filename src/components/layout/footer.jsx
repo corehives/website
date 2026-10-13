@@ -1,8 +1,8 @@
 import { ChevronUp, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import CTAButton from "../shared/CTAButton";
-import BgLeftContent from "../../assets/footer-bg-left.png";
-import BgRightContent from "../../assets/footer-bg-right.png";
+import BgLeftContent from "../../assets/footer-bg-left.webp";
+import BgRightContent from "../../assets/footer-bg-right.webp";
 
 const routeMap = {
   Home: "/",

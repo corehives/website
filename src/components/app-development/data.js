@@ -1,18 +1,18 @@
-import MobileApp from "../../assets/mobile-app.png";
-import FutureGenAi3 from "../../assets/future-gen-ai-1.png";
-import FutureGenAi2 from "../../assets/future-gen-ai-2.png";
-import FutureGenAi1 from "../../assets/future-gen-ai-3.png";
-import iOSImage from "../../assets/ios-app-dev.png";
-import AndroidImage from "../../assets/android-app-dev.png";
-import EcommerceImage from "../../assets/e-comm-dev.png";
-import CrossPlatformImage from "../../assets/cross-platform-dev.png";
-import EnterpriseAppImage from "../../assets/enterprise-app-dev.png";
-import BankingImg from "../../assets/bank.png";
-import AgricultureImg from "../../assets/agriculture.png";
-import HospitalityImg from "../../assets/resturant.png";
-import FmcgImg from "../../assets/consumers-good.png";
-import LogisticsImg from "../../assets/logistics.png";
-import EcommerceProjImg from "../../assets/e-com-full.png";
+import MobileApp from "../../assets/mobile-app.webp";
+import FutureGenAi3 from "../../assets/future-gen-ai-1.webp";
+import FutureGenAi2 from "../../assets/future-gen-ai-2.webp";
+import FutureGenAi1 from "../../assets/future-gen-ai-3.webp";
+import iOSImage from "../../assets/ios-app-dev.webp";
+import AndroidImage from "../../assets/android-app-dev.webp";
+import EcommerceImage from "../../assets/e-comm-dev.webp";
+import CrossPlatformImage from "../../assets/cross-platform-dev.webp";
+import EnterpriseAppImage from "../../assets/enterprise-app-dev.webp";
+import BankingImg from "../../assets/bank.webp";
+import AgricultureImg from "../../assets/agriculture.webp";
+import HospitalityImg from "../../assets/resturant.webp";
+import FmcgImg from "../../assets/consumers-good.webp";
+import LogisticsImg from "../../assets/logistics.webp";
+import EcommerceProjImg from "../../assets/e-com-full.webp";
 
 export const appServicesData = {
   ios: {

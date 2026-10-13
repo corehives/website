@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import GlobeScene from "./animations/globe.jsx";
 import heroBg from "../assets/hero-bgs.webp";
-import leftLight from "../assets/left-light.png";
-import rightLight from "../assets/right-light.png";
+import leftLight from "../assets/left-light.webp";
+import rightLight from "../assets/right-light.webp";
 
 // ── Minimal progress bar — visual only, zero text ─────────────────────────────
 function ProgressBar({ duration }) {

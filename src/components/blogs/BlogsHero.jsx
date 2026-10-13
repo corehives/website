@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
 import hero_bg    from "../../assets/hero-bgs.webp";
-import leftLight  from "../../assets/left-light.png";
-import rightLight from "../../assets/right-light.png";
-import Cloud      from "../../assets/icons/cloud.png";
+import leftLight  from "../../assets/left-light.webp";
+import rightLight from "../../assets/right-light.webp";
+import Cloud      from "../../assets/icons/cloud.webp";
 import BannerRightAnimation from "../animations/bannerRight";
 import BannerLeftAnimation  from "../animations/bannerleft";
 

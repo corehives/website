@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import leftLight from "../assets/left-light.png";
-import rightLight from "../assets/right-light.png";
+import leftLight from "../assets/left-light.webp";
+import rightLight from "../assets/right-light.webp";
 import { Info } from "lucide-react";
 import Footer from "../components/layout/footer";
 

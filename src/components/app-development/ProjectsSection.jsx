@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BgApp from "../../assets/bg-app.png";
+import BgApp from "../../assets/bg-app.webp";
 import { projectsData, projectTabs } from "./data";
 
 export default function ProjectsSection() {

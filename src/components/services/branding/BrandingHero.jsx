@@ -1,7 +1,7 @@
 import { ArrowRight, Palette, Layers, FileText } from "lucide-react";
 import CTAButton from "../../shared/CTAButton";
-import leftLight from "../../../assets/left-light.png";
-import rightLight from "../../../assets/right-light.png";
+import leftLight from "../../../assets/left-light.webp";
+import rightLight from "../../../assets/right-light.webp";
 import heroBg from "../../../assets/hero-bgs.webp";
 
 const statPills = [

@@ -1,8 +1,8 @@
 import useScrollReveal from "../hooks/useScrollReveal";
-import DiscoverImg from "../assets/process-discover.jpg";
-import DesignImg from "../assets/process-design.jpg";
-import DevelopImg from "../assets/process-develop.jpg";
-import LaunchImg from "../assets/process-launch.jpg";
+import DiscoverImg from "../assets/process-discover.webp";
+import DesignImg from "../assets/process-design.webp";
+import DevelopImg from "../assets/process-develop.webp";
+import LaunchImg from "../assets/process-launch.webp";
 
 const steps = [
   {
