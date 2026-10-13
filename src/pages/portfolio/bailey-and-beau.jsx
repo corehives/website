@@ -35,42 +35,22 @@ import activityDrawingImg from "../../assets/bailey-beau/activity-drawing.webp";
 
 const Footer = lazy(() => import("../../components/layout/footer.jsx"));
 
-// Custom Tech SVGs
-const NextJsIcon = () => (
-  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.665 21.978C16.745 23.255 14.457 24 12 24 5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12c0 3.197-1.252 6.1-3.295 8.243l-8.986-11.58h-1.85v10.674h1.706v-8.28l8.09 10.921zm-1.042-12.875h1.706v6.398h-1.706V9.103z" />
-  </svg>
-);
+import {
+  SiNextdotjs,
+  SiDjango,
+  SiPostgresql,
+  SiLivekit,
+  SiStripe,
+} from "react-icons/si";
+import { FaAws } from "react-icons/fa";
 
-const DjangoIcon = () => (
-  <svg className="w-6 h-6 text-[#092E20]" viewBox="0 0 24 24" fill="#2BA977">
-    <path d="M11.146 0h3.332v17.472c-1.579.336-2.617.448-3.782.448-3.725 0-5.741-1.708-5.741-4.872 0-3.136 2.072-4.984 5.236-4.984.392 0 .672.028.955.084V0zm0 10.556a3.298 3.298 0 0 0-.84-.112c-1.68 0-2.66.868-2.66 2.576 0 1.624.952 2.52 2.576 2.52.308 0 .644-.028.924-.084v-4.9zm4.789 2.52h3.304V24h-3.304V13.076zM15.935 0h3.304v9.632h-3.304V0zM0 8.092h3.332v6.692c0 2.296-.084 3.78-.28 4.704h3.304c.168-.784.224-2.128.224-4.704V8.092h3.332v-3.36H0v3.36z" />
-  </svg>
-);
-
-const PostgresIcon = () => (
-  <svg className="w-6 h-6 text-[#336791]" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.2 17.5c-3.1 0-5.7-1.9-6.8-4.7.7-.3 1.5-.5 2.3-.5 2.8 0 5.1 1.9 5.8 4.6-.4.4-.8.6-1.3.6zm5.3-3.4c-1.1-2.6-3.7-4.4-6.7-4.4-.7 0-1.4.1-2 .3-.1-.5-.2-1-.2-1.5 0-3.3 2.7-6 6-6s6 2.7 6 6c0 2.2-1.2 4.2-3.1 5.6z" />
-  </svg>
-);
-
-const LiveKitIcon = () => (
-  <svg className="w-6 h-6 text-[#07BEB8]" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z" />
-  </svg>
-);
-
-const AwsIcon = () => (
-  <svg className="w-6 h-6 text-[#FF9900]" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a7.5 7.5 0 0 1-5-2 1 1 0 1 1 1.4-1.4 5.5 5.5 0 0 0 3.6 1.4 5.5 5.5 0 0 0 3.6-1.4 1 1 0 1 1 1.4 1.4 7.5 7.5 0 0 1-5 2zm3.5-6.5a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1-1.5 1.5zm-7 0A1.5 1.5 0 1 1 8 8.5a1.5 1.5 0 0 1 1.5 1.5z" />
-  </svg>
-);
-
-const StripeIcon = () => (
-  <svg className="w-6 h-6 text-[#635BFF]" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.068.966 15.753.5 12.827.5 6.782.5 2.9 3.69 2.9 8.675c0 4.985 3.906 6.55 7.643 8.012 2.628 1.026 3.528 1.708 3.528 2.766 0 .979-.853 1.543-2.316 1.543-2.073 0-4.908-.953-6.908-2.053l-.927 5.584c2.251 1.056 5.092 1.473 7.859 1.473 6.324 0 10.421-3.084 10.421-8.318 0-4.93-3.662-6.536-8.224-7.532z" />
-  </svg>
-);
+// Official Brand Icons
+const NextJsIcon = () => <SiNextdotjs className="w-6 h-6 text-white" />;
+const DjangoIcon = () => <SiDjango className="w-6 h-6 text-[#44B78B]" />;
+const PostgresIcon = () => <SiPostgresql className="w-6 h-6 text-[#336791]" />;
+const LiveKitIcon = () => <SiLivekit className="w-6 h-6 text-[#07BEB8]" />;
+const AwsIcon = () => <FaAws className="w-6 h-6 text-[#FF9900]" />;
+const StripeIcon = () => <SiStripe className="w-6 h-6 text-[#635BFF]" />;
 
 export default function BaileyAndBeauCaseStudy() {
   const [activeTab, setActiveTab] = useState("reading");
