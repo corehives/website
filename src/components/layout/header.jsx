@@ -117,11 +117,17 @@ export default function Header() {
             <img
               src={Logo}
               alt="CoreHives logo"
+              width={168}
+              height={48}
+              decoding="async"
               className="h-12 w-auto sm:hidden"
             />
             <img
               src={Logo}
               alt="CoreHives logo"
+              width={210}
+              height={60}
+              decoding="async"
               className="hidden h-15 w-auto sm:block"
             />
           </Link>

@@ -116,13 +116,19 @@ export default function AwardsSection() {
     >
       <img
         src={BGLeftContent}
-        className="absolute z-0 -top-1/2 w-1/2 left-0 opacity-90"
+        className="pointer-events-none absolute z-0 -top-1/2 w-1/2 left-0 opacity-90"
         alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
       <img
         src={BGRightContent}
-        className="absolute z-0 -top-1/2 w-1/2 right-0 opacity-90"
+        className="pointer-events-none absolute z-0 -top-1/2 w-1/2 right-0 opacity-90"
         alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
       {/* Radial glow center */}
       <div

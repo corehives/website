@@ -261,14 +261,20 @@ export default function ContactSection() {
   return (
     <section className="section-auto-render relative overflow-hidden bg-[#000405] py-16 px-4 sm:px-6 lg:py-40">
       <img
-        className="absolute -top-2/2 z-0 w-1/1 -right-20"
+        className="pointer-events-none absolute -top-2/2 z-0 w-1/1 -right-20 opacity-80"
         src={BGSquare}
         alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
       <img
-        className="absolute -top-1/4 z-0 w-1/2 -left-0"
+        className="pointer-events-none absolute -top-1/4 z-0 w-1/2 -left-0 opacity-80"
         src={BgLeft}
         alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
       {/* Main content */}
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">

@@ -118,6 +118,10 @@ const cards = [
                 key={i}
                 src={src}
                 alt={`avatar-${i}`}
+                width={34}
+                height={34}
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "34px",
                   height: "34px",
@@ -160,7 +164,10 @@ const cards = [
             className="absolute bottom-0 h-[60%]"
             style={{ left: "30%" }}
             alt=""
+            width={140}
+            height={140}
             loading="lazy"
+            decoding="async"
           />
 
           {/* Right sidebar strip */}

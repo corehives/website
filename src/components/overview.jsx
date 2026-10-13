@@ -152,7 +152,10 @@ export default function OverviewSection() {
                           src={p.image}
                           className="w-full aspect-[16/10] object-cover object-top"
                           alt={p.title}
+                          width={560}
+                          height={350}
                           loading="lazy"
+                          decoding="async"
                         />
                         {!isActive && (
                           <div className="absolute inset-0 bg-[#021b1a]/40" />
