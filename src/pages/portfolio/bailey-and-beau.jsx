@@ -1,32 +1,26 @@
-import { useEffect, useState, lazy, Suspense } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, lazy, Suspense } from "react";
 import {
-  ArrowRight,
   BookOpen,
   Video,
   Sparkles,
-  Users,
   ShieldCheck,
   RefreshCw,
   Layers,
   Palette,
   CheckCircle2,
-  ChevronRight,
   FileCheck2,
   Gamepad2,
   ExternalLink,
-  Clock,
-  Lock,
-  Zap,
-  Star,
   Quote,
+  Star,
+  Zap,
 } from "lucide-react";
 import CTAButton from "../../components/shared/CTAButton";
 import hero_bg from "../../assets/hero-bgs.webp";
 import leftLight from "../../assets/left-light.webp";
 import rightLight from "../../assets/right-light.webp";
 
-// Real project assets
+// Authentic project assets
 import readingRoomImg from "../../assets/bailey-beau/reading-room.webp";
 import activityHubImg from "../../assets/bailey-beau/activity-hub.webp";
 import activityQuizImg from "../../assets/bailey-beau/activity-quiz.webp";
@@ -53,15 +47,13 @@ const AwsIcon = () => <FaAws className="w-6 h-6 text-[#FF9900]" />;
 const StripeIcon = () => <SiStripe className="w-6 h-6 text-[#635BFF]" />;
 
 export default function BaileyAndBeauCaseStudy() {
-  const [activeTab, setActiveTab] = useState("reading");
-
   useEffect(() => {
     // Scroll to top on mount
     window.scrollTo(0, 0);
 
     // SEO Title & Meta
     document.title =
-      "Bailey & Beau Case Study | Custom Software Development | CoreHives";
+      "Bailey & Beau Case Study | Interactive Family Reading Platform | CoreHives";
 
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -70,7 +62,7 @@ export default function BaileyAndBeauCaseStudy() {
       document.head.appendChild(metaDesc);
     }
     metaDesc.content =
-      "Explore how CoreHives approaches an interactive family reading platform combining shared storybooks, real-time video, educational activities, and custom software engineering.";
+      "Explore how CoreHives engineered Bailey & Beau, an interactive family reading platform combining live video, synchronized storybooks, collaborative drawing, and educational activities.";
 
     // Canonical Link
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -127,28 +119,32 @@ export default function BaileyAndBeauCaseStudy() {
           <div className="flex items-center gap-2 mb-4">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wider uppercase border border-[#07BEB8]/40 bg-[#07BEB8]/10 text-[#07BEB8]">
               <Sparkles className="w-3.5 h-3.5" />
-              CASE STUDY | EDTECH
+              CASE STUDY | EDTECH & FAMILY PLATFORM
             </span>
           </div>
 
-          {/* Heading */}
+          {/* Heading & Subtitle */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-3">
-            Bailey & Beau
+            Bailey &amp; Beau
           </h1>
           <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#8efcf8] mb-6 max-w-4xl leading-snug">
             Bringing Families Together Through Interactive Digital Reading
           </p>
 
-          {/* Description */}
-          <p className="text-base sm:text-lg text-gray-300 max-w-3xl leading-relaxed mb-8">
-            An interactive family reading platform designed to connect children
-            with parents, grandparents, and loved ones through shared stories,
-            real-time collaboration, and educational activities.
+          {/* Description (Exact requested copy) */}
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed mb-8">
+            An interactive family reading platform combining live video,
+            synchronized storybooks, collaborative drawing, and educational
+            activities to help families share meaningful learning experiences
+            remotely.
           </p>
 
           {/* Hero CTAs */}
           <div className="flex flex-wrap items-center gap-4 mb-12">
-            <CTAButton onClick={scrollToSolution} className="bg-[#07BEB8] text-[#001925] border-transparent hover:bg-[#07BEB8]/90">
+            <CTAButton
+              onClick={scrollToSolution}
+              className="bg-[#07BEB8] text-[#001925] border-transparent hover:bg-[#07BEB8]/90 font-semibold"
+            >
               Explore the Solution
             </CTAButton>
             <CTAButton to="/contact">
@@ -172,7 +168,7 @@ export default function BaileyAndBeauCaseStudy() {
                 Industry
               </p>
               <p className="text-sm font-medium text-white">
-                Education Technology
+                Education Technology &amp; Publishing
               </p>
             </div>
             <div>
@@ -223,7 +219,7 @@ export default function BaileyAndBeauCaseStudy() {
                   baileyandbeauco.com / reading-room / live-session
                 </a>
               </div>
-              <span className="text-[11px] font-medium text-[#07BEB8] bg-[#07BEB8]/10 px-2 py-0.5 rounded-full border border-[#07BEB8]/30">
+              <span className="text-[11px] font-medium text-[#07BEB8] bg-[#07BEB8]/10 px-2.5 py-0.5 rounded-full border border-[#07BEB8]/30">
                 LiveKit Synchronized Session
               </span>
             </div>
@@ -240,86 +236,108 @@ export default function BaileyAndBeauCaseStudy() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 2: PROJECT OVERVIEW
+          SECTION 2: PROJECT OVERVIEW AND CHALLENGE (Consolidated)
       ───────────────────────────────────────────────────────────── */}
       <section id="overview" className="py-20 md:py-28 relative border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Copy Column */}
-            <div className="lg:col-span-6">
+            {/* Editorial Copy */}
+            <div className="lg:col-span-7">
               <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-3 block">
-                PROJECT OVERVIEW
+                OVERVIEW &amp; CHALLENGE
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
-                A More Connected Way to Read Together
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+                Bridging Distance Through Shared Digital Reading
               </h2>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-6">
-                Bailey & Beau is an interactive family reading platform designed to make remote reading sessions more engaging and collaborative. The experience combines video communication, shared digital storybooks, drawing tools, and interactive educational activities within a unified application.
+                Standard video conferencing apps were built for workplace meetings,
+                not for a grandparent reading a bedtime story to a young child
+                hundreds of miles away. Passive screen-sharing creates disconnected
+                experiences—children lose focus, page turns lag, and there is no
+                shared physical engagement.
               </p>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-8">
-                Rather than treating digital reading as a passive video call with a shared screen, the system provides native synchronized turn mechanics, low-latency live video, and interactive learning modules that keep children invested in every story.
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-8">
+                Bailey &amp; Beau was created to turn remote reading into a warm,
+                collaborative family ritual. To make this vision a reality, CoreHives
+                tackled four foundational engineering and interaction challenges:
               </p>
 
-              {/* Highlights List */}
+              {/* 4 Core Challenge Areas */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                  <BookOpen className="w-5 h-5 text-[#07BEB8] mb-2" />
-                  <h3 className="text-sm font-bold text-white mb-1">
-                    Synchronized Storybooks
+                <div className="p-5 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-3">
+                    <BookOpen className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-1.5">
+                    Synchronized Dual-Page Reading
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    Host-controlled page turns and synchronized viewports.
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    Eliminating navigation race conditions with host-controlled pacing so readers and children remain locked to the exact same page spread across diverse screens.
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                  <Video className="w-5 h-5 text-[#07BEB8] mb-2" />
-                  <h3 className="text-sm font-bold text-white mb-1">
-                    Integrated Video
+
+                <div className="p-5 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-3">
+                    <Video className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-1.5">
+                    Integrated Real-Time Video
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    Built-in low-latency WebRTC streams powered by LiveKit.
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    Delivering low-latency WebRTC video directly alongside the storybook, maintaining face-to-face eye contact without cumbersome multi-window setups.
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                  <Palette className="w-5 h-5 text-[#07BEB8] mb-2" />
-                  <h3 className="text-sm font-bold text-white mb-1">
-                    Live Drawing Canvas
+
+                <div className="p-5 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-3">
+                    <Palette className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-1.5">
+                    Live Collaborative Drawing
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    Real-time collaborative annotations and coloring.
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    Supporting simultaneous multi-user pen strokes, highlights, and coloring directly over story pages with sub-50ms synchronized rendering.
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                  <Gamepad2 className="w-5 h-5 text-[#07BEB8] mb-2" />
-                  <h3 className="text-sm font-bold text-white mb-1">
-                    Interactive Activities
+
+                <div className="p-5 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-3">
+                    <Zap className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-1.5">
+                    Session Recovery &amp; Resilience
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    Quizzes, feeling matches, coloring, and hotspot discovery.
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    Providing frictionless family invite codes with automated state restoration to gracefully withstand transient mobile and home Wi-Fi drops.
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Visual Column */}
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden border border-white/15 bg-[#010e14] shadow-xl relative group">
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl overflow-hidden border border-white/15 bg-[#010e14] shadow-2xl relative group">
+                <div className="p-3 bg-[#00151c] border-b border-white/10 flex items-center justify-between">
+                  <span className="text-xs font-semibold text-gray-300">
+                    Activity Hub &amp; Shared Selection
+                  </span>
+                  <span className="text-[11px] text-[#07BEB8] font-mono">
+                    2 Participants Active
+                  </span>
+                </div>
                 <img
                   src={activityHubImg}
-                  alt="Bailey & Beau Activity Room Hub"
+                  alt="Bailey & Beau Activity Hub selection showing Story Quest, Place & Play, and Discovery Spots"
                   width={1024}
                   height={682}
                   className="w-full h-auto object-cover"
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="p-4 bg-[#001017] border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-gray-300">
-                    Activity Selection Hub: Story Quest, Place & Play, Discovery Spots
-                  </span>
-                  <span className="text-[11px] text-[#07BEB8] font-mono">
-                    2 Participants Active
-                  </span>
+                <div className="p-4 bg-[#001017] border-t border-white/10">
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    The interactive hub allows family members to transition seamlessly between book reading and collaborative learning modules in one session.
+                  </p>
                 </div>
               </div>
             </div>
@@ -328,89 +346,9 @@ export default function BaileyAndBeauCaseStudy() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 3: THE CHALLENGE
+          SECTION 3: THE SOLUTION (Two Core Experiences)
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 relative border-b border-white/10 bg-[#00080d]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-3 block">
-              THE CHALLENGE
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-5 leading-tight">
-              Moving Beyond Traditional Video Calls
-            </h2>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              Standard consumer video calling apps were built for meetings, not for young children reading with grandparents. Creating a purposeful family reading platform required solving several technical and interaction design challenges:
-            </p>
-          </div>
-
-          {/* Challenges Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: BookOpen,
-                title: "Shared Storybook Viewing",
-                desc: "Enabling remote family members to read the same book together with precise typography, dual-page layout rendering, and clean scaling across phones, tablets, and laptops.",
-              },
-              {
-                icon: RefreshCw,
-                title: "Synchronized Page Navigation",
-                desc: "Keeping storybook navigation synchronized between participants without race conditions, so remote readers and children are always on the exact same page.",
-              },
-              {
-                icon: Palette,
-                title: "Collaborative Real-Time Drawing",
-                desc: "Supporting simultaneous pen strokes, highlighters, and annotations across active devices without lag or state collisions.",
-              },
-              {
-                icon: Sparkles,
-                title: "Integrated Educational Activities",
-                desc: "Introducing educational activities connected directly to illustrated story content rather than relying on disconnected mini-games.",
-              },
-              {
-                icon: Lock,
-                title: "Invitation-Based Session Access",
-                desc: "Providing safe, friction-free session invitations and access controls suitable for children, parents, and older family members.",
-              },
-              {
-                icon: Zap,
-                title: "Connection Recovery & Resilience",
-                desc: "Gracefully handling intermittent mobile Wi-Fi drops, reconnecting participants automatically, and preserving reading progress.",
-              },
-              {
-                icon: Layers,
-                title: "Content & Subscription Management",
-                desc: "Supporting modular content management for newly released titles alongside Stripe-powered subscription plans for families.",
-              },
-            ].map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className={`p-6 rounded-2xl bg-[#01141c]/50 border border-white/10 hover:border-[#07BEB8]/40 transition-all duration-300 ${
-                    idx === 6 ? "md:col-span-2 lg:col-span-3" : ""
-                  }`}
-                >
-                  <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 4: THE SOLUTION (TWO EXPERIENCES)
-      ───────────────────────────────────────────────────────────── */}
-      <section id="solution" className="py-20 md:py-28 relative border-b border-white/10">
+      <section id="solution" className="py-20 md:py-28 relative border-b border-white/10 bg-[#00080d]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-3 block">
@@ -420,36 +358,44 @@ export default function BaileyAndBeauCaseStudy() {
               One Platform. Two Interactive Experiences.
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              CoreHives structured Bailey & Beau into two purpose-built digital environments: the Reading Room for shared live storytelling, and the Activity Room for guided interactive learning.
+              CoreHives structured Bailey &amp; Beau into two purpose-built digital
+              environments: the <strong>Reading Room</strong> for shared live
+              storytelling, and the <strong>Activity Room</strong> for guided
+              educational discovery.
             </p>
           </div>
 
-          {/* ── Sub-section A: Reading Room ── */}
-          <div className="mb-24 p-6 sm:p-8 lg:p-10 rounded-3xl bg-[#011119] border border-white/10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-10">
+          {/* ── Sub-experience A: Reading Room ── */}
+          <div className="mb-20 p-6 sm:p-8 lg:p-10 rounded-3xl bg-[#011119] border border-white/10 shadow-xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-5">
-                <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-widest mb-2 block">
-                  EXPERIENCE A
+                <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-widest mb-2 block font-bold">
+                  EXPERIENCE 01
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                   The Reading Room
                 </h3>
                 <p className="text-base text-gray-300 leading-relaxed mb-6">
-                  The Reading Room provides a shared digital reading experience where family members can participate in a story session together.
+                  The Reading Room connects family members in a synchronized virtual
+                  environment where books feel alive. Real-time video feeds keep
+                  smiles and reactions front-and-center, while host navigation
+                  ensures child and adult stay fully in sync.
                 </p>
-                <div className="space-y-3">
+                <div className="space-y-3.5 mb-6">
                   {[
-                    "Live video sessions powered by LiveKit",
-                    "Shared book viewing with dual-page rendering",
-                    "Host-controlled, synchronized page navigation",
-                    "Collaborative drawing and annotations",
-                    "Session timer and advance warnings",
-                    "Invitation-based session joining",
-                    "Reconnection and session recovery functionality",
+                    "Live WebRTC two-way video streams powered by LiveKit",
+                    "Dual-page illustrated storybook rendering with responsive zoom",
+                    "Host-controlled page navigation with synchronized viewports",
+                    "Live collaborative drawing, highlight pens, and erasers",
+                    "Gentle session timer notifications and wrap-up warnings",
+                    "Frictionless room joining via secure alphanumeric invite codes",
+                    "Automatic reconnection and reading progress restoration",
                   ].map((feat, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-[#07BEB8] shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-300">{feat}</span>
+                      <span className="text-sm sm:text-base text-gray-300 leading-snug">
+                        {feat}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -471,38 +417,42 @@ export default function BaileyAndBeauCaseStudy() {
             </div>
           </div>
 
-          {/* ── Sub-section B: Activity Room ── */}
+          {/* ── Sub-experience B: Activity Room ── */}
           <div>
             <div className="max-w-3xl mb-12">
-              <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-widest mb-2 block">
-                EXPERIENCE B
+              <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-widest mb-2 block font-bold">
+                EXPERIENCE 02
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
                 The Activity Room
               </h3>
-              <p className="text-base text-gray-300 leading-relaxed">
-                The Activity Room extends the reading experience with interactive educational activities that encourage children to explore, answer questions, and create.
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                Extending the narrative beyond the final page, the Activity Room
+                offers four interactive learning experiences that reinforce reading
+                comprehension, emotional literacy, and artistic expression.
               </p>
             </div>
 
-            {/* 4 Activity Concept Cards */}
+            {/* 4 Activity Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Card 1: Quiz */}
-              <div className="rounded-2xl overflow-hidden bg-[#011119] border border-white/10 hover:border-[#07BEB8]/40 transition-all flex flex-col">
-                <div className="p-3 bg-[#00151c] border-b border-white/10 flex items-center justify-between">
+              <div className="rounded-2xl overflow-hidden bg-[#011119] border border-white/10 hover:border-[#07BEB8]/40 transition-all flex flex-col group">
+                <div className="p-3.5 bg-[#00151c] border-b border-white/10 flex items-center justify-between">
                   <span className="text-xs font-bold text-white flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#07BEB8]" />
-                    1. Quiz — Story Quest
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#07BEB8]" />
+                    1. Story Quest — Comprehension Quizzes
                   </span>
-                  <span className="text-[11px] text-gray-400">Comprehension & Questions</span>
+                  <span className="text-[11px] text-[#07BEB8] font-mono">
+                    Story Quiz
+                  </span>
                 </div>
                 <div className="overflow-hidden bg-black aspect-[16/10]">
                   <img
                     src={activityQuizImg}
-                    alt="Bailey & Beau Quiz Activity Room Concept"
+                    alt="Bailey & Beau Quiz Activity Room Interface"
                     width={1024}
                     height={682}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
                     loading="lazy"
                     decoding="async"
                   />
@@ -510,9 +460,9 @@ export default function BaileyAndBeauCaseStudy() {
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <h4 className="text-lg font-bold text-white mb-2">
-                      Illustrated Questions & Answer Feedback
+                      Illustrated Questions &amp; Instant Feedback
                     </h4>
-                    <p className="text-sm text-gray-400 leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                       Children explore story comprehension through illustrated question cards, instant visual feedback, sound cues, and guided host interaction.
                     </p>
                   </div>
@@ -520,13 +470,15 @@ export default function BaileyAndBeauCaseStudy() {
               </div>
 
               {/* Card 2: Drag & Drop */}
-              <div className="rounded-2xl overflow-hidden bg-[#011119] border border-white/10 hover:border-[#07BEB8]/40 transition-all flex flex-col">
-                <div className="p-3 bg-[#00151c] border-b border-white/10 flex items-center justify-between">
+              <div className="rounded-2xl overflow-hidden bg-[#011119] border border-white/10 hover:border-[#07BEB8]/40 transition-all flex flex-col group">
+                <div className="p-3.5 bg-[#00151c] border-b border-white/10 flex items-center justify-between">
                   <span className="text-xs font-bold text-white flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#07BEB8]" />
-                    2. Drag & Drop — Place & Play
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#07BEB8]" />
+                    2. Place &amp; Play — Match the Feeling
                   </span>
-                  <span className="text-[11px] text-gray-400">Match the Feeling</span>
+                  <span className="text-[11px] text-[#07BEB8] font-mono">
+                    Drag &amp; Drop
+                  </span>
                 </div>
                 <div className="overflow-hidden bg-black aspect-[16/10]">
                   <img
@@ -534,7 +486,7 @@ export default function BaileyAndBeauCaseStudy() {
                     alt="Bailey & Beau Drag and Drop Match the Feeling Activity"
                     width={1024}
                     height={682}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
                     loading="lazy"
                     decoding="async"
                   />
@@ -542,9 +494,9 @@ export default function BaileyAndBeauCaseStudy() {
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <h4 className="text-lg font-bold text-white mb-2">
-                      Drop Zones & Draggable Text Labels
+                      Drop Zones &amp; Draggable Emotion Labels
                     </h4>
-                    <p className="text-sm text-gray-400 leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                       Interactive drop zones where young readers match emotion words (Excited, Curious, Brave, Surprised) to characters in the illustrated story scenes.
                     </p>
                   </div>
@@ -552,13 +504,15 @@ export default function BaileyAndBeauCaseStudy() {
               </div>
 
               {/* Card 3: Drawing & Coloring */}
-              <div className="rounded-2xl overflow-hidden bg-[#011119] border border-white/10 hover:border-[#07BEB8]/40 transition-all flex flex-col">
-                <div className="p-3 bg-[#00151c] border-b border-white/10 flex items-center justify-between">
+              <div className="rounded-2xl overflow-hidden bg-[#011119] border border-white/10 hover:border-[#07BEB8]/40 transition-all flex flex-col group">
+                <div className="p-3.5 bg-[#00151c] border-b border-white/10 flex items-center justify-between">
                   <span className="text-xs font-bold text-white flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#07BEB8]" />
-                    3. Drawing & Coloring — Create Together
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#07BEB8]" />
+                    3. Create Together — Interactive Coloring
                   </span>
-                  <span className="text-[11px] text-gray-400">Interactive Canvas</span>
+                  <span className="text-[11px] text-[#07BEB8] font-mono">
+                    Drawing Canvas
+                  </span>
                 </div>
                 <div className="overflow-hidden bg-black aspect-[16/10]">
                   <img
@@ -566,7 +520,7 @@ export default function BaileyAndBeauCaseStudy() {
                     alt="Bailey & Beau Drawing and Coloring Canvas"
                     width={1024}
                     height={682}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
                     loading="lazy"
                     decoding="async"
                   />
@@ -574,9 +528,9 @@ export default function BaileyAndBeauCaseStudy() {
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <h4 className="text-lg font-bold text-white mb-2">
-                      Collaborative Drawing & Palette Tools
+                      Collaborative Digital Canvas &amp; Palettes
                     </h4>
-                    <p className="text-sm text-gray-400 leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                       A digital art canvas providing pens, erasers, bucket fills, and rich color palettes for coloring story lineart or freeform sketching with loved ones.
                     </p>
                   </div>
@@ -584,13 +538,15 @@ export default function BaileyAndBeauCaseStudy() {
               </div>
 
               {/* Card 4: Discovery Spots */}
-              <div className="rounded-2xl overflow-hidden bg-[#011119] border border-white/10 hover:border-[#07BEB8]/40 transition-all flex flex-col">
-                <div className="p-3 bg-[#00151c] border-b border-white/10 flex items-center justify-between">
+              <div className="rounded-2xl overflow-hidden bg-[#011119] border border-white/10 hover:border-[#07BEB8]/40 transition-all flex flex-col group">
+                <div className="p-3.5 bg-[#00151c] border-b border-white/10 flex items-center justify-between">
                   <span className="text-xs font-bold text-white flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#07BEB8]" />
-                    4. Discovery Spots
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#07BEB8]" />
+                    4. Discovery Spots — Hotspot Exploration
                   </span>
-                  <span className="text-[11px] text-gray-400">Interactive Hotspots</span>
+                  <span className="text-[11px] text-[#07BEB8] font-mono">
+                    Hotspot Discovery
+                  </span>
                 </div>
                 <div className="overflow-hidden bg-black aspect-[16/10]">
                   <img
@@ -598,7 +554,7 @@ export default function BaileyAndBeauCaseStudy() {
                     alt="Bailey & Beau Discovery Spots Activity Hub"
                     width={1024}
                     height={682}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
                     loading="lazy"
                     decoding="async"
                   />
@@ -606,9 +562,9 @@ export default function BaileyAndBeauCaseStudy() {
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <h4 className="text-lg font-bold text-white mb-2">
-                      Hotspots & Educational Discoveries
+                      Hotspots &amp; Hidden Discoveries
                     </h4>
-                    <p className="text-sm text-gray-400 leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                       Interactive glowing hotspots positioned across story art that reveal educational facts, voiceover clips, and hidden surprises when tapped.
                     </p>
                   </div>
@@ -620,78 +576,86 @@ export default function BaileyAndBeauCaseStudy() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 5: CONTENT MANAGEMENT
+          SECTION 4: EDUCATIONAL CONTENT MANAGEMENT
       ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 relative border-b border-white/10 bg-[#00080d]">
+      <section className="py-20 md:py-28 relative border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
               <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-3 block">
-                ADMINISTRATION & PUBLISHING
+                ADMINISTRATION &amp; PUBLISHING
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
-                Designed for Reusable Educational Content
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+                Scalable Architecture for Reusable Educational Content
               </h2>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-6">
-                The platform includes an administrative content management approach for managing books and configuring activities. By adopting a template-driven content architecture, the editorial team can publish new interactive activities and book releases without requiring bespoke code updates.
+                To enable Bailey &amp; Beau to continuously expand its story
+                catalog without requiring engineering handoffs, CoreHives
+                architected a schema-driven content management system. Editorial
+                teams can configure, preview, and launch interactive learning
+                modules independently.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                  <BookOpen className="w-5 h-5 text-[#07BEB8] mb-2" />
-                  <h3 className="text-sm font-bold text-white mb-1">
-                    Book & Illustration Management
+                <div className="p-5 rounded-xl bg-[#01141c]/60 border border-white/10">
+                  <Layers className="w-5 h-5 text-[#07BEB8] mb-2.5" />
+                  <h3 className="text-base font-bold text-white mb-1.5">
+                    Reusable Activity Schemas
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    Structured storage and delivery of high-resolution storybook spreads and audio narration tracks.
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    Standardized JSON templates for quiz options, drop coordinates, and canvas backgrounds that render dynamically across all devices.
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                  <FileCheck2 className="w-5 h-5 text-[#07BEB8] mb-2" />
-                  <h3 className="text-sm font-bold text-white mb-1">
-                    Activity Configuration & Publishing
+                <div className="p-5 rounded-xl bg-[#01141c]/60 border border-white/10">
+                  <FileCheck2 className="w-5 h-5 text-[#07BEB8] mb-2.5" />
+                  <h3 className="text-base font-bold text-white mb-1.5">
+                    Decoupled Media Pipeline
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    Visual configuration of quizzes, drop coordinates, and hotspot metadata without engineering handoffs.
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    High-resolution illustrated story spreads and audio tracks are managed in AWS S3 and served via CDN independently of core code.
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                  <Layers className="w-5 h-5 text-[#07BEB8] mb-2" />
-                  <h3 className="text-sm font-bold text-white mb-1">
-                    Reusable Activity Templates
+                <div className="p-5 rounded-xl bg-[#01141c]/60 border border-white/10">
+                  <ShieldCheck className="w-5 h-5 text-[#07BEB8] mb-2.5" />
+                  <h3 className="text-base font-bold text-white mb-1.5">
+                    Staging &amp; Release Control
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    Consistent engine schemas for Quiz, Place & Play, and Canvas coloring that scale with content volume.
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    Draft, preview, and scheduled publishing workflows allow content creators to test sessions thoroughly before public release.
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                  <ShieldCheck className="w-5 h-5 text-[#07BEB8] mb-2" />
-                  <h3 className="text-sm font-bold text-white mb-1">
-                    Publishing & Access Controls
+                <div className="p-5 rounded-xl bg-[#01141c]/60 border border-white/10">
+                  <Gamepad2 className="w-5 h-5 text-[#07BEB8] mb-2.5" />
+                  <h3 className="text-base font-bold text-white mb-1.5">
+                    Subscription Tier Gating
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    Draft, preview, and scheduled release workflows aligned with family subscription tiers.
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    Granular permission rules link individual books and activity packs directly to user membership tiers managed via Stripe.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-5">
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-[#01141c] to-[#001017] border border-white/15">
-                <span className="text-xs font-mono uppercase text-[#07BEB8] mb-2 block">
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-[#01141c] to-[#001017] border border-white/15 shadow-xl">
+                <span className="text-xs font-mono uppercase text-[#07BEB8] mb-2 block font-bold">
                   ARCHITECTURAL BENEFIT
                 </span>
                 <h3 className="text-xl font-bold text-white mb-4">
                   Decoupling Content From Code
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed mb-6">
-                  Allowing the content team to independently create and manage supported content is vital for platform growth. Educators and illustrators configure activities via standardized schema definitions, eliminating the need to write new code for every newly released story.
+                <p className="text-base text-gray-300 leading-relaxed mb-6">
+                  Allowing the editorial team to create and launch new storybooks
+                  independently accelerates curriculum growth. Illustrators and
+                  educators configure interactive hotspots, quizzes, and coloring
+                  templates using structured schemas without writing code or
+                  triggering deployments.
                 </p>
                 <div className="p-4 rounded-xl bg-[#001d26]/80 border border-[#07BEB8]/30">
-                  <p className="text-xs text-[#8efcf8] font-mono leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#8efcf8] font-mono leading-relaxed">
                     &bull; Zero-code activity creation<br />
-                    &bull; Instant multi-device sync<br />
-                    &bull; Scalable educational library
+                    &bull; Instant cross-platform schema validation<br />
+                    &bull; Infinitely scalable educational library
                   </p>
                 </div>
               </div>
@@ -701,23 +665,26 @@ export default function BaileyAndBeauCaseStudy() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 6: TECHNICAL ARCHITECTURE
+          SECTION 5: TECHNOLOGY AND ENGINEERING (Consolidated)
       ───────────────────────────────────────────────────────────── */}
-      <section id="architecture" className="py-20 md:py-28 relative border-b border-white/10">
+      <section id="architecture" className="py-20 md:py-28 relative border-b border-white/10 bg-[#00080d]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16">
             <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-3 block">
-              ARCHITECTURE & INFRASTRUCTURE
+              TECHNOLOGY &amp; ENGINEERING ARCHITECTURE
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-              The Technology Behind the Experience
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4">
+              Engineered for Real-Time Reliability
             </h2>
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              Bailey & Beau relies on a modern, decoupled cloud architecture designed to handle real-time WebRTC media streams, state synchronization, and secure content delivery.
+              Combining WebRTC video feeds, synchronized drawing, and interactive
+              educational logic inside a single web application required a resilient,
+              decoupled cloud architecture and rigorous real-time state management.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Tech Stack 6 Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {[
               {
                 icon: NextJsIcon,
@@ -784,26 +751,8 @@ export default function BaileyAndBeauCaseStudy() {
               );
             })}
           </div>
-        </div>
-      </section>
 
-      {/* ─────────────────────────────────────────────────────────────
-          SECTION 7: ENGINEERING CHALLENGES
-      ───────────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 relative border-b border-white/10 bg-[#00080d]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-3 block">
-              ENGINEERING INSIGHTS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-              Engineering a Synchronized Experience
-            </h2>
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-              Bringing live video and interactive education into a single screen demanded thoughtful architectural compromises and careful state management.
-            </p>
-          </div>
-
+          {/* 3 Core Engineering Pillars */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="p-8 rounded-2xl bg-[#01141c]/60 border border-white/10 flex flex-col justify-between">
               <div>
@@ -813,7 +762,7 @@ export default function BaileyAndBeauCaseStudy() {
                 <h3 className="text-xl font-bold text-white mb-3">
                   Real-Time Synchronization
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   Multiple participants must see consistent storybook pages and shared interactions during an active session. CoreHives engineered real-time data channel messaging so page flips, drawing strokes, and quiz choices stay synchronized between adults and children across varying network conditions.
                 </p>
               </div>
@@ -827,7 +776,7 @@ export default function BaileyAndBeauCaseStudy() {
                 <h3 className="text-xl font-bold text-white mb-3">
                   Session Reliability
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   Invitation handling, participant connections, reconnection, and recovery of session state are important to preserving the shared experience. The platform monitors connection health and seamlessly restores session state when transient network drops occur.
                 </p>
               </div>
@@ -839,9 +788,9 @@ export default function BaileyAndBeauCaseStudy() {
                   <Layers className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">
-                  Configurable Activities
+                  Configurable Activity Engine
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   A reusable activity model allows the content team to create different educational experiences without building a separate application for every activity. By structuring quizzes, puzzles, and hotspot data into modular JSON schemas, new activities deploy rapidly.
                 </p>
               </div>
@@ -851,7 +800,7 @@ export default function BaileyAndBeauCaseStudy() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 8: PROJECT OUTCOME
+          SECTION 6: PROJECT OUTCOME
       ───────────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 relative border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -862,30 +811,57 @@ export default function BaileyAndBeauCaseStudy() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
               Bringing Reading, Interaction, and Technology Together
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-12">
-              Bailey & Beau brings shared reading, real-time communication, creative collaboration, and interactive learning into a unified product experience. Its configurable activity approach provides a foundation for expanding the educational content library while maintaining a consistent user experience.
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-12">
+              Bailey &amp; Beau brings shared reading, real-time communication, creative
+              collaboration, and interactive learning into a unified product experience.
+              Its configurable activity approach provides a foundation for expanding the
+              educational content library while maintaining a consistent user experience.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-left">
-              <div className="p-5 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">01 / FEATURE</span>
-                <p className="text-sm font-bold text-white mb-1">Synchronized Storytelling</p>
-                <p className="text-xs text-gray-400">Host-controlled page navigation with dual-page rendering.</p>
+              <div className="p-5 rounded-2xl bg-[#01141c]/60 border border-white/10">
+                <span className="text-xs font-mono text-[#07BEB8] block mb-1">
+                  01 / CAPABILITY
+                </span>
+                <p className="text-base font-bold text-white mb-1">
+                  Synchronized Storytelling
+                </p>
+                <p className="text-xs sm:text-sm text-gray-400">
+                  Host-controlled page navigation with dual-page rendering.
+                </p>
               </div>
-              <div className="p-5 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">02 / MEDIA</span>
-                <p className="text-sm font-bold text-white mb-1">Live WebRTC Video</p>
-                <p className="text-xs text-gray-400">Integrated low-latency video calling powered by LiveKit.</p>
+              <div className="p-5 rounded-2xl bg-[#01141c]/60 border border-white/10">
+                <span className="text-xs font-mono text-[#07BEB8] block mb-1">
+                  02 / MEDIA
+                </span>
+                <p className="text-base font-bold text-white mb-1">
+                  Live WebRTC Video
+                </p>
+                <p className="text-xs sm:text-sm text-gray-400">
+                  Integrated low-latency video calling powered by LiveKit.
+                </p>
               </div>
-              <div className="p-5 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">03 / ACTIVITIES</span>
-                <p className="text-sm font-bold text-white mb-1">4 Educational Modules</p>
-                <p className="text-xs text-gray-400">Story Quest, Place & Play, Create Together, Discovery Spots.</p>
+              <div className="p-5 rounded-2xl bg-[#01141c]/60 border border-white/10">
+                <span className="text-xs font-mono text-[#07BEB8] block mb-1">
+                  03 / ACTIVITIES
+                </span>
+                <p className="text-base font-bold text-white mb-1">
+                  4 Educational Modules
+                </p>
+                <p className="text-xs sm:text-sm text-gray-400">
+                  Story Quest, Place &amp; Play, Create Together, Discovery Spots.
+                </p>
               </div>
-              <div className="p-5 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">04 / CONTENT</span>
-                <p className="text-sm font-bold text-white mb-1">Reusable CMS Schema</p>
-                <p className="text-xs text-gray-400">Zero-code activity configuration and publishing workflows.</p>
+              <div className="p-5 rounded-2xl bg-[#01141c]/60 border border-white/10">
+                <span className="text-xs font-mono text-[#07BEB8] block mb-1">
+                  04 / CONTENT
+                </span>
+                <p className="text-base font-bold text-white mb-1">
+                  Reusable CMS Schema
+                </p>
+                <p className="text-xs sm:text-sm text-gray-400">
+                  Zero-code activity configuration and publishing workflows.
+                </p>
               </div>
             </div>
           </div>
@@ -893,10 +869,22 @@ export default function BaileyAndBeauCaseStudy() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          CLIENT REVIEW & TESTIMONIAL
+          SECTION 7: CLIENT REVIEW (Immediately after Outcome, before CTA)
       ───────────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 relative border-b border-white/10 bg-[#00080d]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-2 block">
+              CLIENT TESTIMONIAL
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
+              What Our Client Says
+            </h2>
+            <p className="text-base sm:text-lg text-gray-400">
+              Feedback on the collaboration and the work delivered by CoreHives.
+            </p>
+          </div>
+
           <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#01141c] via-[#010e14] to-[#001017] border border-[#07BEB8]/30 shadow-[0_20px_60px_rgba(7,190,184,0.1)] relative overflow-hidden">
             {/* Ambient background glow */}
             <div
@@ -908,15 +896,15 @@ export default function BaileyAndBeauCaseStudy() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
               <div>
                 <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-1 block">
-                  CLIENT TESTIMONIAL
+                  AUTHENTIC CLIENT FEEDBACK
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                  Client Feedback from Bailey & Beau
+                  Bailey &amp; Beau
                 </h3>
               </div>
 
               {/* 5 Star Rating */}
-              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#001925] border border-white/10">
+              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#001925] border border-white/10 self-start sm:self-auto">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-[#FFD139] text-[#FFD139]" />
                 ))}
@@ -949,7 +937,7 @@ export default function BaileyAndBeauCaseStudy() {
                 </div>
                 <div>
                   <h4 className="text-base font-bold text-white">Sherry Foley</h4>
-                  <p className="text-xs text-gray-400">Founder & Creator, Bailey & Beau</p>
+                  <p className="text-xs text-gray-400">Founder &amp; Creator, Bailey &amp; Beau</p>
                 </div>
               </div>
 
@@ -968,7 +956,7 @@ export default function BaileyAndBeauCaseStudy() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 9: FINAL CTA
+          SECTION 8: FINAL CTA (Immediately after Client Review)
       ───────────────────────────────────────────────────────────── */}
       <section className="py-24 md:py-32 relative bg-gradient-to-b from-[#000405] to-[#011119]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -978,12 +966,15 @@ export default function BaileyAndBeauCaseStudy() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6">
             Have a Complex Digital Product in Mind?
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl mx-auto">
             From interactive web applications to real-time platforms and custom business software, CoreHives helps businesses turn product ideas into practical digital experiences.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <CTAButton to="/contact" className="bg-[#07BEB8] text-[#001925] border-transparent hover:bg-[#07BEB8]/90 font-semibold px-6 py-2.5">
+            <CTAButton
+              to="/contact"
+              className="bg-[#07BEB8] text-[#001925] border-transparent hover:bg-[#07BEB8]/90 font-semibold px-6 py-2.5"
+            >
               Discuss Your Project
             </CTAButton>
             <CTAButton to="/our-portfolio">
