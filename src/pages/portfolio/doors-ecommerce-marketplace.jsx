@@ -1,4 +1,5 @@
 import { useEffect, useState, lazy, Suspense } from "react";
+import { Link } from "react-router-dom";
 import {
   Sparkles,
   ShieldCheck,
@@ -13,6 +14,8 @@ import {
   Server,
   KeyRound,
   ArrowRight,
+  ArrowUpRight,
+  ChevronRight,
   Radio,
   Smartphone,
   Store,
@@ -29,6 +32,12 @@ import adminCategoriesImg from "../../assets/doors/admin-categories.webp";
 import adminOrdersImg from "../../assets/doors/admin-orders.webp";
 import vendorProductsImg from "../../assets/doors/vendor-products.webp";
 import loginPortalImg from "../../assets/doors/login-portal.webp";
+
+// Other case study covers for footer navigation
+import BaileyBeauImg from "../../assets/bailey-beau-showcase.webp";
+import ProDocetImg from "../../assets/prodocet-showcase.webp";
+import ProStartImg from "../../assets/prostart-showcase.webp";
+import RescueSpotImg from "../../assets/rescue-spot-showcase.webp";
 
 const Footer = lazy(() => import("../../components/layout/footer.jsx"));
 
@@ -1218,6 +1227,149 @@ export default function DoorsCaseStudy() {
             <CTAButton to="/our-portfolio">
               Explore More Projects
             </CTAButton>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────
+          SECTION 10: EXPLORE MORE CASE STUDIES
+      ───────────────────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 relative border-t border-white/10 bg-[#00080d]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-4">
+            <div>
+              <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-2 block">
+                MORE CASE STUDIES
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+                Discover Other Platforms Built and Scaled by CoreHives LLC
+              </h2>
+            </div>
+            <Link
+              to="/portfolio/web-development"
+              className="inline-flex items-center gap-2 text-sm text-[#07BEB8] hover:text-[#4eecea] transition-colors font-semibold self-start sm:self-auto"
+            >
+              <span>View All Projects</span>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Bailey & Beau */}
+            <Link
+              to="/portfolio/bailey-and-beau"
+              className="group block rounded-2xl border border-white/10 bg-[#01141c]/60 overflow-hidden hover:border-[#07BEB8]/50 transition-all hover:shadow-xl hover:shadow-[#07BEB8]/10"
+            >
+              <div className="h-44 overflow-hidden relative bg-black/40">
+                <img
+                  src={BaileyBeauImg}
+                  alt="Bailey & Beau"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-white/80 group-hover:bg-[#07BEB8] group-hover:text-black transition-colors">
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+              <div className="p-5">
+                <span className="text-[11px] font-mono uppercase font-semibold text-[#07BEB8] block mb-1">
+                  EdTech &amp; Family Platform
+                </span>
+                <h3 className="text-base font-bold text-white group-hover:text-[#07BEB8] transition-colors">
+                  Bailey &amp; Beau
+                </h3>
+                <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                  Interactive remote family reading with synchronized WebRTC video and live drawing canvas.
+                </p>
+              </div>
+            </Link>
+
+            {/* ProDocet LMS */}
+            <Link
+              to="/portfolio/prodocet-lms"
+              className="group block rounded-2xl border border-white/10 bg-[#01141c]/60 overflow-hidden hover:border-[#07BEB8]/50 transition-all hover:shadow-xl hover:shadow-[#07BEB8]/10"
+            >
+              <div className="h-44 overflow-hidden relative bg-black/40">
+                <img
+                  src={ProDocetImg}
+                  alt="ProDocet LMS"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-white/80 group-hover:bg-[#07BEB8] group-hover:text-black transition-colors">
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+              <div className="p-5">
+                <span className="text-[11px] font-mono uppercase font-semibold text-[#07BEB8] block mb-1">
+                  EdTech &amp; School LMS
+                </span>
+                <h3 className="text-base font-bold text-white group-hover:text-[#07BEB8] transition-colors">
+                  ProDocet LMS
+                </h3>
+                <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                  Unified school platform centralizing curriculum, automated scheduling, attendance, and billing.
+                </p>
+              </div>
+            </Link>
+
+            {/* ProStartLeasing */}
+            <Link
+              to="/portfolio/prostartleasing"
+              className="group block rounded-2xl border border-white/10 bg-[#01141c]/60 overflow-hidden hover:border-[#07BEB8]/50 transition-all hover:shadow-xl hover:shadow-[#07BEB8]/10"
+            >
+              <div className="h-44 overflow-hidden relative bg-black/40">
+                <img
+                  src={ProStartImg}
+                  alt="ProStartLeasing"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-white/80 group-hover:bg-[#07BEB8] group-hover:text-black transition-colors">
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+              <div className="p-5">
+                <span className="text-[11px] font-mono uppercase font-semibold text-[#07BEB8] block mb-1">
+                  FinTech &amp; Equipment Leasing
+                </span>
+                <h3 className="text-base font-bold text-white group-hover:text-[#07BEB8] transition-colors">
+                  ProStartLeasing
+                </h3>
+                <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                  Commercial vehicle and equipment leasing portal with automated credit underwriting and payment calculators.
+                </p>
+              </div>
+            </Link>
+
+            {/* Rescue Spot */}
+            <Link
+              to="/portfolio/rescue-spot"
+              className="group block rounded-2xl border border-white/10 bg-[#01141c]/60 overflow-hidden hover:border-[#07BEB8]/50 transition-all hover:shadow-xl hover:shadow-[#07BEB8]/10"
+            >
+              <div className="h-44 overflow-hidden relative bg-black/40">
+                <img
+                  src={RescueSpotImg}
+                  alt="Rescue Spot Pet Adoption Platform"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 flex items-center justify-center text-white/80 group-hover:bg-[#07BEB8] group-hover:text-black transition-colors">
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+              <div className="p-5">
+                <span className="text-[11px] font-mono uppercase font-semibold text-[#07BEB8] block mb-1">
+                  PetTech &amp; Animal Rescue
+                </span>
+                <h3 className="text-base font-bold text-white group-hover:text-[#07BEB8] transition-colors">
+                  Rescue Spot
+                </h3>
+                <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                  US-based pet adoption platform with unified multi-shelter applications and 46,000+ pet catalog search.
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

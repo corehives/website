@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   ArrowRight,
   ArrowUpRight,
-  Play,
   Quote,
   Star,
   Database,
@@ -232,7 +231,7 @@ export default function RescueSpotCaseStudy() {
             families, volunteers, and rescue shelters through a unified digital experience.
             Working as Full Stack Developer for approximately 8 months, I contributed
             core API integrations, shelter management dashboard enhancements, and
-            ongoing platform maintenance under the direction of founder &amp; CEO Nicole Patrik.
+            ongoing platform maintenance under the direction of founder &amp; CEO Nicole Patrick.
           </p>
 
           {/* Hero CTAs */}
@@ -1114,23 +1113,11 @@ export default function RescueSpotCaseStudy() {
               <div className="lg:col-span-7 relative text-gray-300 text-base sm:text-lg leading-relaxed space-y-4">
                 <Quote className="w-10 h-10 text-[#07BEB8]/20 absolute -top-4 -left-3 -z-0" />
                 <p className="relative z-10 text-xl sm:text-2xl font-bold text-white leading-snug">
-                  &ldquo;I have worked with Hanzalah for about 8 months now. He has been an integral part of our updates.&rdquo;
+                  &ldquo;I have worked with Hanzalah ( CTO - CoreHives ) for about 8 months now. He has been an integral part of our updates.&rdquo;
                 </p>
                 <p className="relative z-10 text-sm sm:text-base text-gray-300 leading-relaxed">
-                  Nicole Patrik, CEO &amp; Founder of Rescue Spot, highlights our 8-month engagement supporting the platform through core full-stack updates, API enhancements, and consistent technical execution.
+                  Nicole Patrick, CEO &amp; Founder of Rescue Spot, highlights our 8-month engagement supporting the platform through core full-stack updates, API enhancements, and consistent technical execution.
                 </p>
-                <div className="pt-2">
-                  <a
-                    href="https://youtube.com/shorts/RoBbZznKk54?feature=share"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-500 text-white font-semibold text-sm transition-all shadow-md"
-                  >
-                    <Play className="w-4 h-4 fill-white" />
-                    <span>Watch Full Video on YouTube</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-                  </a>
-                </div>
               </div>
 
               {/* Embedded Player */}
@@ -1138,7 +1125,7 @@ export default function RescueSpotCaseStudy() {
                 <div className="w-full max-w-[280px] rounded-2xl overflow-hidden border-2 border-[#07BEB8]/40 shadow-2xl bg-black relative aspect-[9/16]">
                   <iframe
                     src="https://www.youtube.com/embed/RoBbZznKk54"
-                    title="Nicole Patrik Testimonial for Hanzalah - Rescue Spot"
+                    title="Nicole Patrick Testimonial for Hanzalah - Rescue Spot"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="w-full h-full border-0"
@@ -1154,7 +1141,7 @@ export default function RescueSpotCaseStudy() {
                   NP
                 </div>
                 <div>
-                  <h4 className="text-base font-bold text-white">Nicole Patrik</h4>
+                  <h4 className="text-base font-bold text-white">Nicole Patrick</h4>
                   <p className="text-xs text-gray-400">CEO &amp; Founder, Rescue Spot</p>
                 </div>
               </div>
