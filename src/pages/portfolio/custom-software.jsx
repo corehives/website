@@ -23,7 +23,7 @@ const data = {
     { num: "10+", label: "Industries Served", sub: "Healthcare, logistics, finance, legal, retail, and more." },
   ],
   projects: [
-    { number: "01", title: "LogiOps, Logistics ERP", description: "A custom ERP for a regional logistics group managing 500+ vehicles, 2M+ parcels per month, and multi-depot warehouse operations. Replaced 6 separate legacy systems.", tags: ["Logistics", "ERP", "Node.js"] },
+    { number: "01", title: "ProDocet LMS, School Management", description: "A comprehensive school management platform that centralizes curriculum planning, automated class scheduling, student attendance, academic grading, tuition tracking, and teacher invoicing in one system.", tags: ["EdTech", "LMS", "Laravel"], to: "/portfolio/prodocet-lms" },
     { number: "02", title: "LegalVault, Document Platform", description: "A secure legal document management and e-signature platform with matter management, time tracking, and client billing for a 200-lawyer firm.", tags: ["Legal Tech", "Django", "AWS"] },
     { number: "03", title: "MedCore, Hospital Management", description: "A HIPAA-compliant hospital management system covering patient records, bed management, theatre scheduling, and pharmacy inventory for a 500-bed facility.", tags: ["Healthcare", "React", "PostgreSQL"] },
     { number: "04", title: "InventIQ, Warehouse System", description: "An AI-assisted inventory management platform with barcode scanning, predictive reorder alerts, and multi-location stock reconciliation for a consumer electronics distributor.", tags: ["Retail", "Python", "FastAPI"] },

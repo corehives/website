@@ -5,7 +5,7 @@ import CTAButton from "./shared/CTAButton";
 import BgOverview from "../assets/bg-overview-1x.webp";
 import BaileyBeauImg from "../assets/bailey-beau-showcase.webp";
 import DoorsImg from "../assets/doors/login-portal.webp";
-import LogiOpsImg from "../assets/logiops-showcase.webp";
+import ProDocetImg from "../assets/prodocet-showcase.webp";
 
 const projects = [
   {
@@ -25,12 +25,12 @@ const projects = [
     ctaText: "View Case Study",
   },
   {
-    title: "LogiOps — Logistics ERP",
-    desc: "A custom ERP for a regional logistics group managing 500+ vehicles, 2M+ parcels per month, and multi-depot warehouse operations. Replaced 6 separate legacy systems.",
-    image: LogiOpsImg,
-    tag: "E-Commerce",
-    to: "/portfolio/custom-software",
-    ctaText: "View Case Studies",
+    title: "ProDocet LMS | School Learning Management System",
+    desc: "A comprehensive school management platform that centralizes curriculum planning, automated class scheduling, student attendance, academic grading, tuition tracking, and teacher invoicing in one system.",
+    image: ProDocetImg,
+    tag: "EdTech | Education Management",
+    to: "/portfolio/prodocet-lms",
+    ctaText: "View Case Study",
   },
 ];
 
