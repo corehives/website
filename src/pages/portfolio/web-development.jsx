@@ -1,5 +1,10 @@
 import PortfolioServiceTemplate from "../../components/shared/PortfolioServiceTemplate";
 import showcaseImg from "../../assets/web-cover.webp";
+import frontendShowcase from "../../assets/frontend-showcase.webp";
+import backendShowcase from "../../assets/backend-showcase.webp";
+import ecommerceShowcase from "../../assets/ecommerce-showcase.webp";
+import cmsShowcase from "../../assets/cms-showcase.webp";
+import devopsShowcase from "../../assets/devops-showcase.webp";
 import BaileyBeauImg from "../../assets/bailey-beau-showcase.webp";
 import DoorsImg from "../../assets/doors-showcase.webp";
 import ProDocetImg from "../../assets/prodocet-showcase.webp";
@@ -15,11 +20,31 @@ const data = {
   },
   showcaseImage: showcaseImg,
   categories: [
-    { title: "Frontend Engineering", items: ["React & Next.js", "Vue.js & Nuxt", "Performance Optimisation (Core Web Vitals)"] },
-    { title: "Backend & APIs", items: ["Node.js / Laravel", "REST & GraphQL APIs", "Microservices Architecture"] },
-    { title: "E-Commerce", items: ["Shopify Custom Development", "WooCommerce", "Headless Commerce (Hydrogen)"] },
-    { title: "CMS & Content", items: ["Headless CMS (Contentful, Sanity)", "WordPress Custom Themes", "Multilingual Sites"] },
-    { title: "DevOps & Infrastructure", items: ["AWS / GCP Hosting", "CI/CD Pipelines", "99.9% Uptime SLAs"] },
+    {
+      title: "Frontend Engineering",
+      items: ["React & Next.js", "Vue.js & Nuxt", "Performance Optimisation (Core Web Vitals)"],
+      image: frontendShowcase,
+    },
+    {
+      title: "Backend & APIs",
+      items: ["Node.js / Laravel", "REST & GraphQL APIs", "Microservices Architecture"],
+      image: backendShowcase,
+    },
+    {
+      title: "E-Commerce",
+      items: ["Shopify Custom Development", "WooCommerce", "Headless Commerce (Hydrogen)"],
+      image: ecommerceShowcase,
+    },
+    {
+      title: "CMS & Content",
+      items: ["Headless CMS (Contentful, Sanity)", "WordPress Custom Themes", "Multilingual Sites"],
+      image: cmsShowcase,
+    },
+    {
+      title: "DevOps & Infrastructure",
+      items: ["AWS / GCP Hosting", "CI/CD Pipelines", "99.9% Uptime SLAs"],
+      image: devopsShowcase,
+    },
   ],
   stats: [
     { num: "100+", label: "Sites Launched", sub: "From MVPs to enterprise platforms across all major industries." },
