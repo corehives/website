@@ -67,6 +67,7 @@ const PortfolioBranding = lazy(() => import("./pages/portfolio/branding.jsx"));
 const BaileyAndBeauCaseStudy = lazy(() => import("./pages/portfolio/bailey-and-beau.jsx"));
 const DoorsCaseStudy = lazy(() => import("./pages/portfolio/doors-ecommerce-marketplace.jsx"));
 const ProDocetLmsCaseStudy = lazy(() => import("./pages/portfolio/prodocet-lms.jsx"));
+const ProStartLeasingCaseStudy = lazy(() => import("./pages/portfolio/prostartleasing.jsx"));
 const Careers    = lazy(() => import("./pages/careers.jsx"));
 const Blogs      = lazy(() => import("./pages/blogs.jsx"));
 const BlogDetail = lazy(() => import("./pages/blog-detail.jsx"));
@@ -99,6 +100,7 @@ import("./pages/portfolio/branding.jsx");
 import("./pages/portfolio/bailey-and-beau.jsx");
 import("./pages/portfolio/doors-ecommerce-marketplace.jsx");
 import("./pages/portfolio/prodocet-lms.jsx");
+import("./pages/portfolio/prostartleasing.jsx");
 import("./pages/careers.jsx");
 import("./pages/blogs.jsx");
 import("./pages/blog-detail.jsx");
@@ -255,6 +257,9 @@ function AppRoutes() {
         } />
         <Route path="/portfolio/prodocet-lms" element={
           <Suspense fallback={<LoadingScreen />}><ProDocetLmsCaseStudy /></Suspense>
+        } />
+        <Route path="/portfolio/prostartleasing" element={
+          <Suspense fallback={<LoadingScreen />}><ProStartLeasingCaseStudy /></Suspense>
         } />
 
         {/* Careers */}
