@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import CTAButton from "./shared/CTAButton";
 import BgOverview from "../assets/bg-overview-1x.webp";
 import BaileyBeauImg from "../assets/bailey-beau-showcase.webp";
-import DoorsImg from "../assets/doors/login-portal.webp";
+import DoorsImg from "../assets/doors-showcase.webp";
 import ProDocetImg from "../assets/prodocet-showcase.webp";
 
 const projects = [

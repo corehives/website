@@ -21,6 +21,7 @@ import leftLight from "../../assets/left-light.webp";
 import rightLight from "../../assets/right-light.webp";
 
 // Authentic project screenshots
+import showcaseImg from "../../assets/prodocet-showcase.webp";
 import dashboardImg from "../../assets/prodocet/dashboard.webp";
 import coursesImg from "../../assets/prodocet/courses.webp";
 import attendanceImg from "../../assets/prodocet/attendance.webp";
@@ -42,7 +43,7 @@ const PhpIcon = () => <SiPhp className="w-6 h-6 text-[#777BB4]" />;
 const BootstrapIcon = () => <SiBootstrap className="w-6 h-6 text-[#7952B3]" />;
 
 export default function ProDocetLmsCaseStudy() {
-  const [heroView, setHeroView] = useState("dashboard");
+  const [heroView, setHeroView] = useState("showcase");
   const [activeWorkflowStep, setActiveWorkflowStep] = useState(0);
 
   useEffect(() => {
@@ -238,12 +239,22 @@ export default function ProDocetLmsCaseStudy() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 <span className="ml-3 text-xs text-gray-400 font-mono hidden sm:inline">
-                  prodocet.internal / {heroView === "dashboard" ? "admin/dashboard" : heroView === "courses" ? "admin/courses" : heroView === "attendance" ? "admin/attendance" : "admin/reports"}
+                  prodocet.internal / {heroView === "showcase" ? "showcase" : heroView === "dashboard" ? "admin/dashboard" : heroView === "courses" ? "admin/courses" : heroView === "attendance" ? "admin/attendance" : "admin/reports"}
                 </span>
               </div>
 
               {/* View Selector Tabs */}
               <div className="flex items-center gap-1.5 bg-[#000a0f] p-1 rounded-lg border border-white/10 self-start sm:self-auto">
+                <button
+                  onClick={() => setHeroView("showcase")}
+                  className={`px-3 py-1 rounded text-xs font-medium transition-all ${
+                    heroView === "showcase"
+                      ? "bg-[#07BEB8] text-[#00151c] font-bold"
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                >
+                  Showcase
+                </button>
                 <button
                   onClick={() => setHeroView("dashboard")}
                   className={`px-3 py-1 rounded text-xs font-medium transition-all ${
@@ -291,7 +302,9 @@ export default function ProDocetLmsCaseStudy() {
             <div className="relative bg-[#020d13] flex justify-center items-start min-h-[420px] max-h-[640px] overflow-hidden">
               <img
                 src={
-                  heroView === "dashboard"
+                  heroView === "showcase"
+                    ? showcaseImg
+                    : heroView === "dashboard"
                     ? dashboardImg
                     : heroView === "courses"
                     ? coursesImg
@@ -307,7 +320,9 @@ export default function ProDocetLmsCaseStudy() {
               />
               <div className="absolute bottom-4 right-4 bg-[#00151c]/90 backdrop-blur-md px-3.5 py-1.5 rounded-lg border border-[#07BEB8]/30 text-xs text-[#8efcf8] font-medium flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#07BEB8]" />
-                {heroView === "dashboard"
+                {heroView === "showcase"
+                  ? "ProDocet LMS • School Learning Management System"
+                  : heroView === "dashboard"
                   ? "School Executive Dashboard • Registration Trends & Analytics"
                   : heroView === "courses"
                   ? "Curriculum Catalog • Multi-Level Subject Taxonomy"
