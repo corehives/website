@@ -11,7 +11,6 @@ import {
   CreditCard,
   Users,
   UserCheck,
-  ArrowRight,
   Award,
   Video,
 } from "lucide-react";
@@ -44,7 +43,6 @@ const BootstrapIcon = () => <SiBootstrap className="w-6 h-6 text-[#7952B3]" />;
 
 export default function ProDocetLmsCaseStudy() {
   const [heroView, setHeroView] = useState("showcase");
-  const [activeWorkflowStep, setActiveWorkflowStep] = useState(0);
 
   useEffect(() => {
     // Scroll to top on mount
@@ -315,7 +313,11 @@ export default function ProDocetLmsCaseStudy() {
                 alt="ProDocet School Learning Management System Interface"
                 width={1024}
                 height={640}
-                className="w-full h-auto object-cover object-top"
+                className={`w-full ${
+                  heroView === "dashboard"
+                    ? "max-w-md mx-auto h-auto object-contain py-4"
+                    : "h-auto object-cover object-top"
+                }`}
                 loading="eager"
               />
               <div className="absolute bottom-4 right-4 bg-[#00151c]/90 backdrop-blur-md px-3.5 py-1.5 rounded-lg border border-[#07BEB8]/30 text-xs text-[#8efcf8] font-medium flex items-center gap-2">
@@ -360,21 +362,21 @@ export default function ProDocetLmsCaseStudy() {
             </p>
           </div>
 
-          {/* 5 Stakeholder Roles Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 5 Stakeholder Roles Grid - Single line on desktop */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5">
             {/* Role 1 */}
-            <div className="p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
-                  <ShieldCheck className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
+                  <ShieldCheck className="w-5 h-5" />
                 </div>
                 <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-wider block mb-1">
                   ROLE 01
                 </span>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-base font-bold text-white mb-2">
                   School Administrators
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                   Manage users, courses, rate schemes, academic operations, and
                   teacher invoice approvals with comprehensive governance tools.
                 </p>
@@ -382,18 +384,18 @@ export default function ProDocetLmsCaseStudy() {
             </div>
 
             {/* Role 2 */}
-            <div className="p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
-                  <BookOpen className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
+                  <BookOpen className="w-5 h-5" />
                 </div>
                 <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-wider block mb-1">
                   ROLE 02
                 </span>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-base font-bold text-white mb-2">
                   Curriculum &amp; Academic Teams
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                   Organize syllabi, subject topics, lesson materials, academic
                   levels, and enrollment workflows with structured progression paths.
                 </p>
@@ -401,18 +403,18 @@ export default function ProDocetLmsCaseStudy() {
             </div>
 
             {/* Role 3 */}
-            <div className="p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
-                  <Users className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
+                  <Users className="w-5 h-5" />
                 </div>
                 <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-wider block mb-1">
                   ROLE 03
                 </span>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-base font-bold text-white mb-2">
                   Teachers
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                   View personalized schedules, record attendance, assess student
                   performance, and manage monthly teaching invoices with transparent multipliers.
                 </p>
@@ -420,18 +422,18 @@ export default function ProDocetLmsCaseStudy() {
             </div>
 
             {/* Role 4 */}
-            <div className="p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
-                  <GraduationCap className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
+                  <GraduationCap className="w-5 h-5" />
                 </div>
                 <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-wider block mb-1">
                   ROLE 04
                 </span>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-base font-bold text-white mb-2">
                   Students
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                   View timetables, join classes via virtual links, confirm attendance,
                   review competency grades, and monitor remaining tuition hours.
                 </p>
@@ -439,18 +441,18 @@ export default function ProDocetLmsCaseStudy() {
             </div>
 
             {/* Role 5 */}
-            <div className="p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between md:col-span-2 lg:col-span-2">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#01141c]/60 border border-white/10 hover:border-[#07BEB8]/40 transition-colors flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
-                  <UserCheck className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-xl bg-[#07BEB8]/10 border border-[#07BEB8]/30 flex items-center justify-center text-[#07BEB8] mb-4">
+                  <UserCheck className="w-5 h-5" />
                 </div>
                 <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-wider block mb-1">
                   ROLE 05
                 </span>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  Sponsor &amp; Client HR Teams
+                <h3 className="text-base font-bold text-white mb-2">
+                  Sponsor &amp; Client HR
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                   Oversee assigned student cohorts, review attendance and academic
                   progress, and manage absence justifications within strictly
                   scoped organizational permissions.
@@ -559,7 +561,7 @@ export default function ProDocetLmsCaseStudy() {
           <div className="space-y-16">
             {/* 4A. Curriculum and Course Management */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-6 sm:p-8 lg:p-10 rounded-3xl bg-[#011119] border border-white/10">
-              <div className="lg:col-span-6">
+              <div className="lg:col-span-5">
                 <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-wider block mb-2 font-bold">
                   CAPABILITY A
                 </span>
@@ -606,7 +608,7 @@ export default function ProDocetLmsCaseStudy() {
                     alt="ProDocet LMS Courses and Curriculum Management Interface"
                     width={1024}
                     height={861}
-                    className="w-full h-auto object-cover"
+                    className="w-full aspect-[16/10] object-cover object-top"
                     loading="lazy"
                   />
                 </div>
@@ -634,26 +636,27 @@ export default function ProDocetLmsCaseStudy() {
                 <span className="text-xs font-mono text-[#07BEB8] uppercase block mb-3 font-semibold">
                   TIMETABLE GENERATION PIPELINE
                 </span>
-                <div className="flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm text-gray-200 font-medium">
-                  <span className="px-3 py-1.5 rounded-lg bg-[#01141c] border border-white/10">
-                    Student Availability
-                  </span>
-                  <span className="text-[#07BEB8] font-bold">+</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-[#01141c] border border-white/10">
-                    Teacher Availability
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-[#07BEB8]" />
-                  <span className="px-3 py-1.5 rounded-lg bg-[#01141c] border border-white/10">
-                    Subject &amp; Slot Matching
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-[#07BEB8]" />
-                  <span className="px-3 py-1.5 rounded-lg bg-[#01141c] border border-white/10">
-                    Holiday Validation
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-[#07BEB8]" />
-                  <span className="px-3 py-1.5 rounded-lg bg-[#07BEB8]/20 border border-[#07BEB8] text-[#8efcf8]">
-                    Calendar &amp; Classroom Link
-                  </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs sm:text-sm text-gray-200 font-medium">
+                  <div className="p-3 rounded-xl bg-[#01141c] border border-white/10 flex flex-col justify-between">
+                    <span className="text-[10px] font-mono text-[#07BEB8] font-bold mb-1">01. INPUT</span>
+                    <span>Student Availability</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#01141c] border border-white/10 flex flex-col justify-between">
+                    <span className="text-[10px] font-mono text-[#07BEB8] font-bold mb-1">02. INPUT</span>
+                    <span>Teacher Working Hours</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#01141c] border border-white/10 flex flex-col justify-between">
+                    <span className="text-[10px] font-mono text-[#07BEB8] font-bold mb-1">03. ENGINE</span>
+                    <span>Subject &amp; Slot Matching</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#01141c] border border-white/10 flex flex-col justify-between">
+                    <span className="text-[10px] font-mono text-[#07BEB8] font-bold mb-1">04. VALIDATION</span>
+                    <span>Holiday &amp; Room Exclusion</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-[#07BEB8]/15 border border-[#07BEB8]/40 text-[#8efcf8] flex flex-col justify-between">
+                    <span className="text-[10px] font-mono text-[#07BEB8] font-bold mb-1">05. OUTPUT</span>
+                    <span className="font-semibold">FullCalendar &amp; Meet URL</span>
+                  </div>
                 </div>
               </div>
 
@@ -678,7 +681,7 @@ export default function ProDocetLmsCaseStudy() {
 
             {/* 4C. Attendance and Academic Performance */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-6 sm:p-8 lg:p-10 rounded-3xl bg-[#011119] border border-white/10">
-              <div className="lg:col-span-6 order-1 lg:order-2">
+              <div className="lg:col-span-5 order-1 lg:order-2">
                 <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-wider block mb-2 font-bold">
                   CAPABILITY C
                 </span>
@@ -721,7 +724,7 @@ export default function ProDocetLmsCaseStudy() {
                     alt="ProDocet LMS Attendance Management and Student Verification Interface"
                     width={1012}
                     height={1024}
-                    className="w-full h-auto object-cover"
+                    className="w-full aspect-[16/10] object-cover object-top"
                     loading="lazy"
                   />
                 </div>
@@ -730,7 +733,7 @@ export default function ProDocetLmsCaseStudy() {
 
             {/* 4D. Tuition Accounting and Teacher Invoicing */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-6 sm:p-8 lg:p-10 rounded-3xl bg-[#011119] border border-white/10">
-              <div className="lg:col-span-6">
+              <div className="lg:col-span-5">
                 <span className="text-xs font-mono uppercase text-[#07BEB8] tracking-wider block mb-2 font-bold">
                   CAPABILITY D
                 </span>
@@ -776,7 +779,7 @@ export default function ProDocetLmsCaseStudy() {
                     alt="ProDocet LMS Reports, Analytics, and Financial Invoicing Interface"
                     width={839}
                     height={1024}
-                    className="w-full h-auto object-cover"
+                    className="w-full aspect-[16/10] object-cover object-top"
                     loading="lazy"
                   />
                 </div>
@@ -808,14 +811,7 @@ export default function ProDocetLmsCaseStudy() {
             {workflowSteps.map((step, idx) => (
               <div
                 key={idx}
-                onClick={() => setActiveWorkflowStep(idx)}
-                role="button"
-                tabIndex={0}
-                className={`p-6 rounded-2xl border transition-all text-left flex flex-col justify-between cursor-pointer ${
-                  activeWorkflowStep === idx
-                    ? "bg-[#07BEB8]/15 border-[#07BEB8] shadow-lg shadow-[#07BEB8]/10"
-                    : "bg-[#01141c]/60 border-white/10 hover:border-white/20"
-                }`}
+                className="p-6 rounded-2xl border transition-all text-left flex flex-col justify-between bg-[#01141c]/60 border-white/10 hover:border-[#07BEB8]/40 hover:bg-[#07BEB8]/5"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -1095,53 +1091,53 @@ export default function ProDocetLmsCaseStudy() {
       ───────────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 relative border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center mb-16">
             <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-3 block">
               PROJECT OUTCOME
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
               A More Connected Approach to School Management
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-12">
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               ProDocet LMS brings curriculum planning, scheduling, attendance,
               academic assessment, tuition tracking, and teacher invoicing into one
               coordinated platform. Its role-based workflows and structured
               academic records provide a foundation for managing the complete
               teaching lifecycle across multiple subjects and stakeholder groups.
             </p>
+          </div>
 
-            {/* Verified Project Facts Strip */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-left">
-              <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">CORE STACK</span>
-                <p className="text-sm font-bold text-white">Laravel 10</p>
-                <p className="text-xs text-gray-400">PHP 8.2 &amp; Blade</p>
-              </div>
-              <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">DATABASE</span>
-                <p className="text-sm font-bold text-white">MySQL 8</p>
-                <p className="text-xs text-gray-400">38 Domain Models</p>
-              </div>
-              <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">STAKEHOLDERS</span>
-                <p className="text-sm font-bold text-white">5 Roles</p>
-                <p className="text-xs text-gray-400">Admin, Teacher, Student, etc.</p>
-              </div>
-              <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">SCHEDULING</span>
-                <p className="text-sm font-bold text-white">FullCalendar 6</p>
-                <p className="text-xs text-gray-400">Availability &amp; Holiday Logic</p>
-              </div>
-              <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">ATTENDANCE</span>
-                <p className="text-sm font-bold text-white">Dual Verify</p>
-                <p className="text-xs text-gray-400">Teacher &amp; Student Auditing</p>
-              </div>
-              <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
-                <span className="text-xs font-mono text-[#07BEB8] block mb-1">FINANCIALS</span>
-                <p className="text-sm font-bold text-white">Rule Multipliers</p>
-                <p className="text-xs text-gray-400">Tuition &amp; Invoicing Engine</p>
-              </div>
+          {/* Verified Project Facts Strip */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-left">
+            <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
+              <span className="text-xs font-mono text-[#07BEB8] block mb-1">CORE STACK</span>
+              <p className="text-sm font-bold text-white">Laravel 10</p>
+              <p className="text-xs text-gray-400">PHP 8.2 &amp; Blade</p>
+            </div>
+            <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
+              <span className="text-xs font-mono text-[#07BEB8] block mb-1">DATABASE</span>
+              <p className="text-sm font-bold text-white">MySQL 8</p>
+              <p className="text-xs text-gray-400">38 Domain Models</p>
+            </div>
+            <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
+              <span className="text-xs font-mono text-[#07BEB8] block mb-1">STAKEHOLDERS</span>
+              <p className="text-sm font-bold text-white">5 Roles</p>
+              <p className="text-xs text-gray-400">Admin, Teacher, Student, etc.</p>
+            </div>
+            <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
+              <span className="text-xs font-mono text-[#07BEB8] block mb-1">SCHEDULING</span>
+              <p className="text-sm font-bold text-white">FullCalendar 6</p>
+              <p className="text-xs text-gray-400">Availability &amp; Holiday Logic</p>
+            </div>
+            <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
+              <span className="text-xs font-mono text-[#07BEB8] block mb-1">ATTENDANCE</span>
+              <p className="text-sm font-bold text-white">Dual Verify</p>
+              <p className="text-xs text-gray-400">Teacher &amp; Student Auditing</p>
+            </div>
+            <div className="p-4 rounded-xl bg-[#01141c]/60 border border-white/10">
+              <span className="text-xs font-mono text-[#07BEB8] block mb-1">FINANCIALS</span>
+              <p className="text-sm font-bold text-white">Rule Multipliers</p>
+              <p className="text-xs text-gray-400">Tuition &amp; Invoicing Engine</p>
             </div>
           </div>
         </div>
@@ -1151,7 +1147,7 @@ export default function ProDocetLmsCaseStudy() {
           SECTION 9: PROJECT HIGHLIGHTS & PLATFORM VALIDATION
       ───────────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 relative border-b border-white/10 bg-[#00080d]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs uppercase font-bold tracking-widest text-[#07BEB8] mb-2 block">
               PLATFORM VALIDATION
@@ -1164,7 +1160,7 @@ export default function ProDocetLmsCaseStudy() {
             </p>
           </div>
 
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#01141c] via-[#010e14] to-[#001017] border border-[#07BEB8]/30 shadow-[0_20px_60px_rgba(7,190,184,0.1)] relative overflow-hidden">
+          <div className="max-w-5xl mx-auto p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#01141c] via-[#010e14] to-[#001017] border border-[#07BEB8]/30 shadow-[0_20px_60px_rgba(7,190,184,0.1)] relative overflow-hidden">
             {/* Ambient background glow */}
             <div
               className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full blur-[90px] pointer-events-none"
