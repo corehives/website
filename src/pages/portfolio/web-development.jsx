@@ -1,5 +1,8 @@
 import PortfolioServiceTemplate from "../../components/shared/PortfolioServiceTemplate";
 import showcaseImg from "../../assets/web-cover.webp";
+import BaileyBeauImg from "../../assets/bailey-beau-showcase.webp";
+import DoorsImg from "../../assets/doors-showcase.webp";
+import ProDocetImg from "../../assets/prodocet-showcase.webp";
 
 const data = {
   banner: {
@@ -23,9 +26,9 @@ const data = {
     { num: "< 2s", label: "Avg Page Load", sub: "Core Web Vitals scores we target for every build." },
   ],
   projects: [
-    { number: "01", title: "Bailey & Beau | Interactive Family Reading Platform", description: "An interactive family reading and learning platform connecting children and distant loved ones through live video, synchronized digital storybooks, and collaborative activities.", tags: ["EdTech", "Next.js", "Django", "LiveKit"], to: "/portfolio/bailey-and-beau" },
-    { number: "02", title: "Doors | Multi-Vendor E-Commerce Marketplace", description: "A multi-vendor e-commerce platform for the Saudi Arabian retail market, connecting merchants and shoppers through storefront management, order splitting, MyFatoorah payments, and OTO logistics.", tags: ["E-Commerce", "Laravel", "MySQL", "MyFatoorah"], to: "/portfolio/doors-ecommerce-marketplace" },
-    { number: "03", title: "PulseMedia, Publishing Platform", description: "A JAMstack editorial platform handling 5M+ monthly page views with CDN-first delivery, automated image optimisation, and SSG/ISR.", tags: ["Media", "Next.js", "Contentful"] },
+    { number: "01", title: "Bailey & Beau | Interactive Family Reading Platform", description: "An interactive family reading and learning platform connecting children and distant loved ones through live video, synchronized digital storybooks, and collaborative activities.", image: BaileyBeauImg, tags: ["EdTech", "Next.js", "Django", "LiveKit"], to: "/portfolio/bailey-and-beau" },
+    { number: "02", title: "Doors | Multi-Vendor E-Commerce Marketplace", description: "A multi-vendor e-commerce platform for the Saudi Arabian retail market, connecting merchants and shoppers through storefront management, order splitting, MyFatoorah payments, and OTO logistics.", image: DoorsImg, tags: ["E-Commerce", "Laravel", "MySQL", "MyFatoorah"], to: "/portfolio/doors-ecommerce-marketplace" },
+    { number: "03", title: "ProDocet LMS | School Learning Management System", description: "A comprehensive school management platform that centralizes curriculum planning, automated class scheduling, student attendance, academic grading, tuition tracking, and teacher invoicing in one system.", image: ProDocetImg, tags: ["EdTech", "LMS", "Laravel", "MySQL"], to: "/portfolio/prodocet-lms" },
     { number: "04", title: "GovHub, Public Sector Portal", description: "An accessibility-compliant (WCAG 2.1 AA) citizen services portal for a regional government body processing 20K+ form submissions monthly.", tags: ["Government", "Laravel", "Vue"] },
     { number: "05", title: "HealthDesk, Medical Practice", description: "A HIPAA-compliant patient portal with appointment booking, secure messaging, lab result delivery, and EHR integration.", tags: ["Healthcare", "React", "AWS"] },
     { number: "06", title: "PropMap, Real Estate Platform", description: "An interactive property search and listing platform with map-based exploration, mortgage calculators, and agent CRM integration.", tags: ["PropTech", "React", "Django"] },
