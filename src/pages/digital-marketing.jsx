@@ -9,10 +9,8 @@ import BannerLeftAnimation from "../components/animations/bannerleft";
 
 import {
   ArrowRight,
-  ArrowUpRight,
   Check,
   CheckCircle2,
-  Sparkles,
   Share2,
   Search,
   Target,
@@ -20,22 +18,16 @@ import {
   FileText,
   Video,
   BarChart3,
-  Layers,
-  Compass,
-  TrendingUp,
   Bot,
   Cpu,
   Calendar,
-  Clock,
   ChevronDown,
-  Megaphone,
   Zap,
   Activity,
   LineChart,
-  Eye,
   ShieldCheck,
-  MessageSquare,
   AlertCircle,
+  Compass,
 } from "lucide-react";
 
 import CTAButton from "../components/shared/CTAButton";
@@ -51,10 +43,9 @@ import {
   SiGoogleads,
   SiMeta,
   SiTiktok,
-  SiX,
   SiMailchimp,
 } from "react-icons/si";
-import { FaLinkedin, FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
@@ -538,7 +529,7 @@ const faqs = [
   },
 ];
 
-export default function AIMarketOptimization() {
+export default function DigitalMarketing() {
   const [activeToolTab, setActiveToolTab] = useState("Analytics & Measurement");
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
@@ -562,7 +553,7 @@ export default function AIMarketOptimization() {
       canonical.rel = "canonical";
       document.head.appendChild(canonical);
     }
-    canonical.href = "https://corehives.com/services/ai-market-optimization";
+    canonical.href = "https://corehives.com/services/digital-marketing";
 
     const setOgMeta = (property, content) => {
       let tag = document.querySelector(`meta[property="${property}"]`);
@@ -584,7 +575,7 @@ export default function AIMarketOptimization() {
     );
     setOgMeta(
       "og:url",
-      "https://corehives.com/services/ai-market-optimization"
+      "https://corehives.com/services/digital-marketing"
     );
     setOgMeta("og:type", "website");
   }, []);

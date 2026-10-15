@@ -49,7 +49,7 @@ const AboutUs = lazy(() => import("./pages/about-us.jsx"));
 const Branding = lazy(() => import("./pages/branding.jsx"));
 const IllustrationAnimation = lazy(() => import("./pages/illustration-animation.jsx"));
 const TechStaffOutsourcing = lazy(() => import("./pages/tech-staff-outsourcing.jsx"));
-const AIMarketOptimization = lazy(() => import("./pages/ai-market-optimization.jsx"));
+const DigitalMarketing = lazy(() => import("./pages/digital-marketing.jsx"));
 const Blockchain = lazy(() => import("./pages/blockchain.jsx"));
 
 // Product pages
@@ -87,7 +87,7 @@ import("./pages/about-us.jsx");
 import("./pages/branding.jsx");
 import("./pages/illustration-animation.jsx");
 import("./pages/tech-staff-outsourcing.jsx");
-import("./pages/ai-market-optimization.jsx");
+import("./pages/digital-marketing.jsx");
 import("./pages/blockchain.jsx");
 import("./pages/products/corehive-crm.jsx");
 import("./pages/products/corehive-analytics.jsx");
@@ -214,11 +214,11 @@ function AppRoutes() {
         <Route path="/services/tech-staff-outsourcing" element={
           <Suspense fallback={<LoadingScreen />}><TechStaffOutsourcing /></Suspense>
         } />
-        <Route path="/services/ai-market-optimization" element={
-          <Suspense fallback={<LoadingScreen />}><AIMarketOptimization /></Suspense>
-        } />
         <Route path="/services/digital-marketing" element={
-          <Suspense fallback={<LoadingScreen />}><AIMarketOptimization /></Suspense>
+          <Suspense fallback={<LoadingScreen />}><DigitalMarketing /></Suspense>
+        } />
+        <Route path="/services/ai-market-optimization" element={
+          <Navigate to="/services/digital-marketing" replace />
         } />
         <Route path="/services/blockchain" element={
           <Suspense fallback={<LoadingScreen />}><Blockchain /></Suspense>

@@ -13,7 +13,7 @@ const serviceLinks = [
     href: "/services/illustration-animation",
   },
   { label: "Tech Staff Outsourcing", href: "/services/tech-staff-outsourcing" },
-  { label: "Digital Marketing", href: "/services/ai-market-optimization" },
+  { label: "Digital Marketing", href: "/services/digital-marketing" },
   { label: "Blockchain", href: "/services/blockchain" },
 ];
 

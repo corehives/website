@@ -31,7 +31,7 @@ const cards = [
   {
     title: "Artificial Intelligence Solutions",
     desc: "Be Future-Ready with our Artificial Intelligence & Machine Learning Solutions",
-    to: "/services/ai-market-optimization",
+    to: "/services/digital-marketing",
     preview: (
       <div className="flex flex-col items-center w-full p-4 relative">
         <div className="flex justify-between w-full mb-6">
