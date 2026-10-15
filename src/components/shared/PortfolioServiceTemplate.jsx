@@ -145,7 +145,7 @@ function ProjectsGrid({ projects }) {
                     <>
                       <img
                         src={proj.image}
-                        alt={proj.title}
+                        alt={proj.alt || proj.title}
                         className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
