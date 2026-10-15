@@ -6,8 +6,17 @@ import BgOverview from "../assets/bg-overview-1x.webp";
 import BaileyBeauImg from "../assets/bailey-beau-showcase.webp";
 import DoorsImg from "../assets/doors-showcase.webp";
 import ProDocetImg from "../assets/prodocet-showcase.webp";
+import RescueSpotImg from "../assets/rescue-spot-showcase.webp";
 
 const projects = [
+  {
+    title: "Rescue Spot | Pet Adoption Platform",
+    desc: "A US-based pet adoption platform connecting adopters, foster families, volunteers, and rescue shelters through unified application workflows and search across 46,000+ animals.",
+    image: RescueSpotImg,
+    tag: "PetTech | Custom Software Development",
+    to: "/portfolio/rescue-spot",
+    ctaText: "View Case Study",
+  },
   {
     title: "Bailey & Beau | Interactive Family Reading Platform",
     desc: "An interactive family reading and learning platform that brings children and distant loved ones together through live video, synchronized storybooks, collaborative drawing, and engaging educational activities.",
