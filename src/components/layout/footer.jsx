@@ -15,6 +15,7 @@ const routeMap = {
   "Illustration & Animation": "/services/illustration-animation",
   "Tech Staff Outsourcing": "/services/tech-staff-outsourcing",
   "AI Market Optimization": "/services/ai-market-optimization",
+  "Digital Marketing": "/services/ai-market-optimization",
   Blockchain: "/services/blockchain",
   "Why CoreHives": "/about",
   "Our Approach": "/about",
@@ -33,7 +34,7 @@ const navLinks = {
   ],
   "MORE SERVICES": [
     "Tech Staff Outsourcing",
-    "AI Market Optimization",
+    "Digital Marketing",
     "Blockchain",
   ],
   COMPANY: ["Why CoreHives", "Privacy", "Cookie Policy"],

@@ -1,17 +1,18 @@
 [
   {
-    "id": "ai-seo",
-    "name": "AI SEO & Authority",
-    "eyebrow": "Organic intelligence",
-    "description": "Perfect for companies looking to establish topical authority, boost organic traffic, and optimize crawl efficiency.",
+    "id": "social-media-essentials",
+    "name": "Social Media Essentials",
+    "eyebrow": "Consistent Brand Presence",
+    "description": "For businesses that need consistent, high-quality social media content and active publishing across key channels.",
     "features": [
-      "Programmatic content cluster strategy",
-      "Semantic search & entity optimization",
-      "Daily keyword intelligence tracking",
-      "Core web vitals & technical SEO audit",
-      "Weekly performance dashboards"
+      "Monthly curated social media content calendar",
+      "12 custom branded post graphics & visual assets",
+      "Engaging captions, copywriting & hashtag research",
+      "Content publishing & scheduling (up to 2 platforms)",
+      "Social profile setup, bio optimization & link structure",
+      "Monthly performance and activity summary report"
     ],
-    "buttonText": "Start SEO Growth",
+    "buttonText": "Choose Social Essentials",
     "buttonHref": "/contact",
     "popular": false,
     "billing": {
@@ -19,75 +20,78 @@
         "price": "$499",
         "billing": "/month",
         "discountBadge": null,
-        "caption": "A data-driven organic search strategy to rank higher and capture search intent."
+        "caption": "A reliable monthly content workflow to keep your social channels active and professional."
       },
       "yearly": {
-        "price": "$4,500",
+        "price": "$4,490",
         "billing": "/year",
         "discountBadge": "Save 25%",
-        "caption": "Long-term compounding search value and ongoing keyword optimizations."
+        "caption": "Annual commitment for consistent long-term brand authority and scheduled publishing."
       }
     }
   },
   {
-    "id": "paid-media-ai",
-    "name": "Paid Media AI",
-    "eyebrow": "Most requested",
-    "description": "Designed to optimize paid search, social campaigns, and bidding loops to drive high-intent leads and reduce CAC.",
+    "id": "search-social-visibility",
+    "name": "Search & Social (SEO, AIO & Social Media)",
+    "eyebrow": "Most Popular",
+    "description": "For businesses looking to combine active social media posting with high-impact SEO and AI search optimization for complete organic visibility.",
     "features": [
-      "Cross-channel paid media orchestration",
-      "Meta Advantage+ & Google PMax setups",
-      "Real-time bid optimization loops",
-      "Dynamic creative generation & testing",
-      "Direct API integration & dashboard syncs",
-      "Priority communication channel"
+      "Active monthly social media posting & scheduling",
+      "Custom branded post graphics, captions & hashtags",
+      "Comprehensive technical SEO & crawlability audit",
+      "Targeted keyword research & search intent mapping",
+      "On-page content optimization & metadata refinement",
+      "AI Search Optimization (AIO) & entity clarity recommendations",
+      "Google Search Console & indexation health monitoring",
+      "Monthly combined organic search & social performance report"
     ],
-    "buttonText": "Book a Free Consultation",
+    "buttonText": "Start Search & Social",
     "buttonHref": "/contact",
     "popular": true,
     "billing": {
       "monthly": {
-        "price": "$999",
+        "price": "$900",
         "billing": "/month",
         "discountBadge": null,
-        "caption": "Ideal for scaling campaign budget efficiency, ROAS, and reducing acquisition costs."
+        "caption": "A dual-engine package combining organic search visibility, AI search optimization, and consistent social media posting."
       },
       "yearly": {
-        "price": "$8,999",
+        "price": "$8,100",
         "billing": "/year",
-        "discountBadge": "2 months free",
-        "caption": "Continuous cross-channel optimization sprints and dedicated strategy reviews."
+        "discountBadge": "Save 25%",
+        "caption": "Annual growth commitment with ongoing SEO sprints, AIO entity updates, and scheduled monthly social media publishing."
       }
     }
   },
   {
-    "id": "full-funnel-ai",
-    "name": "Full-Funnel AI",
-    "eyebrow": "Enterprise coverage",
-    "description": "A complete AI-driven growth partnership managing organic search, paid campaigns, predictive analytics, and CRO.",
+    "id": "full-digital-growth",
+    "name": "Full Digital Growth",
+    "eyebrow": "Complete Multi-Channel",
+    "description": "A comprehensive partnership managing your social presence, search engine visibility, local SEO, and paid ad campaigns.",
     "features": [
-      "Complete organic SEO & paid media ownership",
-      "Funnel CRO & dynamic landing page engines",
-      "Custom predictive ML models (LTV, churn)",
-      "GA4 + BigQuery pipeline setups",
-      "Dedicated growth squads & strategy cadences",
-      "Weekly engineering integrations"
+      "Multi-channel social media management (up to 3 platforms)",
+      "Ongoing technical & on-page SEO execution",
+      "Google Business Profile setup & local SEO optimization",
+      "Google Ads campaign setup, copy & bid management*",
+      "GA4 conversion tracking & analytics dashboard setup",
+      "Monthly marketing recommendations & strategy review",
+      "Dedicated marketing manager & priority Slack/email support"
     ],
-    "buttonText": "Talk to Our Team",
+    "buttonText": "Book Strategy Call",
     "buttonHref": "/contact",
     "popular": false,
     "billing": {
       "monthly": {
-        "price": "$1,999",
+        "price": "$1,799",
         "billing": "/month",
         "discountBadge": null,
-        "caption": "Best for established platforms needing full pipeline automation and machine learning models."
+        "caption": "Coordinated multi-channel marketing to drive awareness, traffic, and qualified leads. *Ad spend billed separately."
       },
       "yearly": {
-        "price": "$17,999",
+        "price": "$16,190",
         "billing": "/year",
-        "discountBadge": "Annual partner rate",
-        "caption": "Year-round end-to-end growth squads, ML model tuning, and data pipeline management."
+        "discountBadge": "Save 25%",
+        "caption": "Full-year dedicated growth partnership with cross-channel attribution and quarterly planning."
       }
     }
   }

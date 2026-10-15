@@ -24,6 +24,7 @@ async function generateAndSaveSitemap() {
       "/services/illustration-animation",
       "/services/tech-staff-outsourcing",
       "/services/ai-market-optimization",
+      "/services/digital-marketing",
       "/services/blockchain",
       "/products/corehive-crm",
       "/products/corehive-analytics",

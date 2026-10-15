@@ -217,6 +217,9 @@ function AppRoutes() {
         <Route path="/services/ai-market-optimization" element={
           <Suspense fallback={<LoadingScreen />}><AIMarketOptimization /></Suspense>
         } />
+        <Route path="/services/digital-marketing" element={
+          <Suspense fallback={<LoadingScreen />}><AIMarketOptimization /></Suspense>
+        } />
         <Route path="/services/blockchain" element={
           <Suspense fallback={<LoadingScreen />}><Blockchain /></Suspense>
         } />
