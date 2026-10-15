@@ -45,10 +45,41 @@ const projects = [
 
 export default function OverviewSection() {
   const [index, setIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+  const [isSwiping, setIsSwiping] = useState(false);
 
   const next = () => setIndex((prev) => (prev + 1) % projects.length);
   const prev = () =>
     setIndex((prev) => (prev - 1 + projects.length) % projects.length);
+
+  const minSwipeDistance = 35;
+
+  const onTouchStart = (e) => {
+    setTouchEndX(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+    setIsSwiping(false);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+    if (touchStartX !== null && Math.abs(e.targetTouches[0].clientX - touchStartX) > 10) {
+      setIsSwiping(true);
+    }
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    const distance = touchStartX - touchEndX;
+    if (distance > minSwipeDistance) {
+      next();
+    } else if (distance < -minSwipeDistance) {
+      prev();
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
+    setTimeout(() => setIsSwiping(false), 100);
+  };
 
   return (
     <div className="section-auto-render relative overflow-hidden">
@@ -149,12 +180,16 @@ export default function OverviewSection() {
             </div>
 
             {/* ───── Right Slider ───── */}
-            <div className="w-full lg:w-[70%] overflow-hidden">
+            <div
+              className="w-full lg:w-[70%] overflow-hidden touch-pan-y select-none"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               <div
-                className="flex transition-transform duration-500 ease-in-out"
+                className="flex transition-transform duration-500 ease-in-out gap-4 lg:gap-6 [--card-w:84%] sm:[--card-w:76%] lg:[--card-w:calc(72%-12px)] [--card-gap:16px] lg:[--card-gap:24px]"
                 style={{
-                  transform: `translateX(calc(-${index} * 72%))`,
-                  gap: "24px",
+                  transform: `translateX(calc(-${index} * (var(--card-w) + var(--card-gap))))`,
                 }}
               >
                 {projects.map((p, i) => {
@@ -164,12 +199,13 @@ export default function OverviewSection() {
                       <div className="relative">
                         <img
                           src={p.image}
-                          className="w-full aspect-[16/10] object-cover object-top"
+                          className="w-full aspect-[16/10] object-cover object-top pointer-events-none"
                           alt={p.title}
                           width={560}
                           height={350}
                           loading="lazy"
                           decoding="async"
+                          draggable={false}
                         />
                         {!isActive && (
                           <div className="absolute inset-0 bg-[#021b1a]/40" />
@@ -182,17 +218,23 @@ export default function OverviewSection() {
                     <Link
                       key={i}
                       to={p.to || "/contact"}
-                      className="flex-shrink-0 cursor-pointer"
-                      style={{ width: "calc(72% - 12px)" }}
+                      onClick={(e) => {
+                        if (isSwiping) e.preventDefault();
+                      }}
+                      className="w-[var(--card-w)] flex-shrink-0 cursor-pointer block"
                     >
                       {cardContent}
                     </Link>
                   ) : (
                     <div
                       key={i}
-                      className="flex-shrink-0 cursor-pointer"
-                      style={{ width: "calc(72% - 12px)" }}
+                      role="button"
+                      tabIndex={0}
+                      className="w-[var(--card-w)] flex-shrink-0 cursor-pointer block"
                       onClick={() => setIndex(i)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") setIndex(i);
+                      }}
                     >
                       {cardContent}
                     </div>
@@ -200,19 +242,46 @@ export default function OverviewSection() {
                 })}
               </div>
 
-              {/* Mobile dot indicators */}
-              <div className="flex gap-2 mt-5 lg:hidden">
-                {projects.map((_, i) => (
+              {/* Mobile controls: Dots + Arrows */}
+              <div className="flex items-center justify-between mt-6 lg:hidden">
+                <div className="flex items-center gap-1.5">
+                  {projects.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setIndex(i)}
+                      aria-label={`Go to slide ${i + 1}`}
+                      className="py-2 px-1 focus:outline-none"
+                    >
+                      <span
+                        className={`block h-1.5 rounded-full transition-all duration-300 ${
+                          i === index
+                            ? "w-8 bg-[#07BEB8]"
+                            : "w-3 bg-white/20 hover:bg-white/40"
+                        }`}
+                      />
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2">
                   <button
-                    key={i}
-                    onClick={() => setIndex(i)}
-                    className={`h-1 rounded-full transition-all duration-300 ${
-                      i === index
-                        ? "w-8 bg-[#07BEB8]"
-                        : "w-3 bg-white/20 hover:bg-white/40"
-                    }`}
-                  />
-                ))}
+                    type="button"
+                    onClick={prev}
+                    aria-label="Previous project"
+                    className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-[#07BEB8] hover:text-[#07BEB8] active:bg-[#07BEB8]/20 transition-colors"
+                  >
+                    <ArrowLeft size={15} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={next}
+                    aria-label="Next project"
+                    className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:border-[#07BEB8] hover:text-[#07BEB8] active:bg-[#07BEB8]/20 transition-colors"
+                  >
+                    <ArrowRight size={15} />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
