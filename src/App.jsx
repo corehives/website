@@ -69,6 +69,7 @@ const DoorsCaseStudy = lazy(() => import("./pages/portfolio/doors-ecommerce-mark
 const ProDocetLmsCaseStudy = lazy(() => import("./pages/portfolio/prodocet-lms.jsx"));
 const ProStartLeasingCaseStudy = lazy(() => import("./pages/portfolio/prostartleasing.jsx"));
 const RescueSpotCaseStudy = lazy(() => import("./pages/portfolio/rescue-spot.jsx"));
+const TenantismCaseStudy = lazy(() => import("./pages/portfolio/tenantism.jsx"));
 const Careers    = lazy(() => import("./pages/careers.jsx"));
 const Blogs      = lazy(() => import("./pages/blogs.jsx"));
 const BlogDetail = lazy(() => import("./pages/blog-detail.jsx"));
@@ -268,6 +269,9 @@ function AppRoutes() {
         } />
         <Route path="/portfolio/rescue-spot" element={
           <Suspense fallback={<LoadingScreen />}><RescueSpotCaseStudy /></Suspense>
+        } />
+        <Route path="/portfolio/tenantism" element={
+          <Suspense fallback={<LoadingScreen />}><TenantismCaseStudy /></Suspense>
         } />
 
         {/* Careers */}

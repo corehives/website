@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import PortfolioServiceTemplate from "../../components/shared/PortfolioServiceTemplate";
 import showcaseImg from "../../assets/mobile-app.webp";
+import tenantismCover from "../../assets/tenantism-cover.webp";
 
 const data = {
   banner: {
@@ -24,7 +26,16 @@ const data = {
     { num: "4.8★", label: "Avg App Store Rating", sub: "User ratings across our client app portfolio." },
   ],
   projects: [
-    { number: "01", title: "FinTrack, Personal Finance App", description: "A multi-currency budgeting and investment tracking application for iOS and Android with open banking integration and real-time portfolio analysis.", tags: ["FinTech", "iOS", "Android"] },
+    {
+      number: "01",
+      title: "Tenantism | Rent & Bill Settlement App",
+      description:
+        "Tenantism is a proposed mobile application designed to help tenants and property owners manage monthly rent, utility bills, deductions, supporting documents, and approval records in one organized place.",
+      image: tenantismCover,
+      alt: "Tenantism rent and bill settlement mobile app concept featuring monthly rent records, bill proof uploads, and approval history",
+      tags: ["PropTech", "Mobile App Concept", "Flutter / iOS & Android"],
+      to: "/portfolio/tenantism",
+    },
     { number: "02", title: "MediBook, Healthcare Scheduling", description: "Patient-facing appointment booking and telehealth platform integrated with NHS and private clinic EMR systems. Handles 50K+ bookings monthly.", tags: ["Healthcare", "React Native"] },
     { number: "03", title: "ShopNow, E-Commerce App", description: "A headless commerce mobile application supporting 200+ product categories, AR try-on, and one-tap checkout with Apple Pay and Google Pay.", tags: ["E-Commerce", "Flutter"] },
     { number: "04", title: "FitLoop, Fitness & Coaching", description: "A personalised workout and nutrition coaching app with Apple Watch integration, trainer video library, and adaptive programme generation.", tags: ["Health & Fitness", "iOS"] },
@@ -51,5 +62,26 @@ const data = {
 };
 
 export default function PortfolioMobileApp() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Mobile App Development Portfolio | CoreHives";
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content =
+      "Explore CoreHives mobile app portfolio including Tenantism, a proposed rent and bill settlement app concept, alongside custom iOS and Android solutions.";
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = "https://corehives.com/portfolio/mobile-app-development";
+  }, []);
+
   return <PortfolioServiceTemplate data={data} />;
 }
