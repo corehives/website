@@ -40,6 +40,8 @@ async function generateAndSaveSitemap() {
       "/portfolio/prostartleasing",
       "/portfolio/rescue-spot",
       "/portfolio/tenantism",
+      "/portfolio/betacompass",
+      "/portfolio/doors-mobile-app",
       "/careers",
       "/privacy",
       "/cookie-policy",
