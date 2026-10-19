@@ -71,6 +71,7 @@ const ProStartLeasingCaseStudy = lazy(() => import("./pages/portfolio/prostartle
 const RescueSpotCaseStudy = lazy(() => import("./pages/portfolio/rescue-spot.jsx"));
 const TenantismCaseStudy = lazy(() => import("./pages/portfolio/tenantism.jsx"));
 const BetaCompassCaseStudy = lazy(() => import("./pages/portfolio/betacompass.jsx"));
+const DoorsMobileAppCaseStudy = lazy(() => import("./pages/portfolio/doors-mobile-app.jsx"));
 const Careers    = lazy(() => import("./pages/careers.jsx"));
 const Blogs      = lazy(() => import("./pages/blogs.jsx"));
 const BlogDetail = lazy(() => import("./pages/blog-detail.jsx"));
@@ -107,6 +108,7 @@ import("./pages/portfolio/prostartleasing.jsx");
 import("./pages/portfolio/rescue-spot.jsx");
 import("./pages/portfolio/tenantism.jsx");
 import("./pages/portfolio/betacompass.jsx");
+import("./pages/portfolio/doors-mobile-app.jsx");
 import("./pages/careers.jsx");
 import("./pages/blogs.jsx");
 import("./pages/blog-detail.jsx");
@@ -281,6 +283,12 @@ function AppRoutes() {
         } />
         <Route path="/portfolio/propmap" element={
           <Navigate to="/portfolio/betacompass" replace />
+        } />
+        <Route path="/portfolio/doors-mobile-app" element={
+          <Suspense fallback={<LoadingScreen />}><DoorsMobileAppCaseStudy /></Suspense>
+        } />
+        <Route path="/portfolio/medibook" element={
+          <Navigate to="/portfolio/doors-mobile-app" replace />
         } />
 
         {/* Careers */}

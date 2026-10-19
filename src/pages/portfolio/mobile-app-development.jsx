@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import PortfolioServiceTemplate from "../../components/shared/PortfolioServiceTemplate";
 import showcaseImg from "../../assets/mobile-app.webp";
 import tenantismCover from "../../assets/tenantism-cover.webp";
+import DoorsMobileImg from "../../assets/doors-mobile-showcase.webp";
 
 const data = {
   banner: {
@@ -36,7 +37,16 @@ const data = {
       tags: ["PropTech", "Mobile App Concept", "Flutter / iOS & Android"],
       to: "/portfolio/tenantism",
     },
-    { number: "02", title: "MediBook, Healthcare Scheduling", description: "Patient-facing appointment booking and telehealth platform integrated with NHS and private clinic EMR systems. Handles 50K+ bookings monthly.", tags: ["Healthcare", "React Native"] },
+    {
+      number: "02",
+      title: "Doors | Multi-Vendor E-Commerce Mobile App",
+      description:
+        "A cross-platform e-commerce mobile application developed for a multi-vendor marketplace, designed to help shoppers interact with the wider Doors shopping ecosystem.",
+      image: DoorsMobileImg,
+      alt: "Doors multi-vendor e-commerce cross-platform mobile application developed with Flutter for Android and iOS",
+      tags: ["E-Commerce", "Flutter", "iOS & Android", "Dart"],
+      to: "/portfolio/doors-mobile-app",
+    },
     { number: "03", title: "ShopNow, E-Commerce App", description: "A headless commerce mobile application supporting 200+ product categories, AR try-on, and one-tap checkout with Apple Pay and Google Pay.", tags: ["E-Commerce", "Flutter"] },
     { number: "04", title: "FitLoop, Fitness & Coaching", description: "A personalised workout and nutrition coaching app with Apple Watch integration, trainer video library, and adaptive programme generation.", tags: ["Health & Fitness", "iOS"] },
     { number: "05", title: "EduPath, Learning Platform", description: "An adaptive learning mobile platform for K-12 students featuring gamification, offline course downloads, and AI-powered quiz generation.", tags: ["EdTech", "React Native"] },
@@ -72,7 +82,7 @@ export default function PortfolioMobileApp() {
       document.head.appendChild(metaDesc);
     }
     metaDesc.content =
-      "Explore CoreHives mobile app portfolio including Tenantism, a proposed rent and bill settlement app concept, alongside custom iOS and Android solutions.";
+      "Explore CoreHives mobile app portfolio including Doors (Flutter multi-vendor e-commerce app for Android and iOS), Tenantism, and custom mobile platforms.";
 
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
