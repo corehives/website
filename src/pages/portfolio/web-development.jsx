@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import PortfolioServiceTemplate from "../../components/shared/PortfolioServiceTemplate";
 import showcaseImg from "../../assets/web-cover.webp";
 import frontendShowcase from "../../assets/frontend-showcase.webp";
@@ -10,6 +11,7 @@ import DoorsImg from "../../assets/doors-showcase.webp";
 import ProDocetImg from "../../assets/prodocet-showcase.webp";
 import ProStartImg from "../../assets/prostart-showcase.webp";
 import RescueSpotImg from "../../assets/rescue-spot-showcase.webp";
+import BetaCompassImg from "../../assets/betacompass-showcase.webp";
 
 const data = {
   banner: {
@@ -58,7 +60,16 @@ const data = {
     { number: "03", title: "ProDocet LMS | School Learning Management System", description: "A comprehensive school management platform that centralizes curriculum planning, automated class scheduling, student attendance, academic grading, tuition tracking, and teacher invoicing in one system.", image: ProDocetImg, tags: ["EdTech", "LMS", "Laravel", "MySQL"], to: "/portfolio/prodocet-lms" },
     { number: "04", title: "ProStartLeasing | Lease-to-Own Equipment Management Portal", description: "A comprehensive lease-to-own equipment management portal featuring multi-tier dealer tools, live early purchase option payoff calculations, credit risk evaluation, and recurring Stripe AutoPay billing.", image: ProStartImg, tags: ["FinTech", "Laravel", "React", "Stripe"], to: "/portfolio/prostartleasing" },
     { number: "05", title: "Rescue Spot | Pet Adoption Platform", description: "A US-based pet adoption platform connecting adopters, foster families, volunteers, and rescue shelters through a unified digital experience.", image: RescueSpotImg, tags: ["PetTech", "Laravel", "MySQL", "Flutter"], to: "/portfolio/rescue-spot" },
-    { number: "06", title: "PropMap, Real Estate Platform", description: "An interactive property search and listing platform with map-based exploration, mortgage calculators, and agent CRM integration.", tags: ["PropTech", "React", "Django"] },
+    {
+      number: "06",
+      title: "BetaCompass | Property Intelligence SaaS",
+      description:
+        "An AI-assisted property intelligence platform combining property valuation estimates, property health scoring, area insights, evidence management, and premium reports for buyers and investors.",
+      image: BetaCompassImg,
+      alt: "BetaCompass AI-Powered UK Property Intelligence SaaS Platform",
+      tags: ["SaaS Development", "AI Integration", "PropTech", "React", "Laravel"],
+      to: "/portfolio/betacompass",
+    },
   ],
   process: [
     { number: "01", title: "Requirements & Architecture", description: "Stakeholder interviews, technical requirements gathering, and system architecture design before any code is committed." },
@@ -80,5 +91,26 @@ const data = {
 };
 
 export default function PortfolioWebDevelopment() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = "Web Development Portfolio | Custom SaaS & Platforms | CoreHives";
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content =
+      "Explore CoreHives web development portfolio including BetaCompass (AI-powered UK property intelligence platform), Bailey & Beau, Doors e-commerce, and ProDocet LMS.";
+
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = "https://corehives.com/portfolio/web-development";
+  }, []);
+
   return <PortfolioServiceTemplate data={data} />;
 }
