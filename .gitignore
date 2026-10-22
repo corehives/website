@@ -16,7 +16,6 @@ public_html/
 
 # Environment variables
 .env.*.local
-.env
 
 # Sitemaps (generated)
 sitemap.xml
