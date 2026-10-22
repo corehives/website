@@ -32,6 +32,21 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+// ─── Root route ─────────────────────────────────────────────────────────────
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "CoreHives API is running",
+    version: "1.0.0",
+    endpoints: {
+      health: "/health",
+      api: "/api/v1",
+      contact: "/api/contact",
+      sitemap: "/sitemap.xml",
+    },
+  });
+});
+
 // ─── Health check ───────────────────────────────────────────────────────────
 app.get("/health", (req, res) => {
   res.json({ success: true, message: "CoreHives API is running" });
