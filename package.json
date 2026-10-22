@@ -3,10 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "node api.js && concurrently \"npm run backend:dev\" \"vite\"",
+    "dev": "node init && concurrently \"npm run backend:dev\" \"vite\"",
     "backend:dev": "nodemon backend/src/server.js",
     "backend:start": "node backend/src/server.js",
-    "build": "vite build",
+    "build": "node init && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
