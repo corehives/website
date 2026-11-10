@@ -193,7 +193,7 @@ export default function Footer() {
               to help turn your ideas into reliable software.
             </p>
             <CTAButton href="/contact" className="mt-6 mb-10 w-fit">
-              Hire a Developer
+              Speak to an expert
             </CTAButton>
           </div>
 
