@@ -1,8 +1,21 @@
-import { ChevronUp, ArrowRight } from "lucide-react";
+import { ChevronUp, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import CTAButton from "../shared/CTAButton";
 import BgLeftContent from "../../assets/footer-bg-left.webp";
 import BgRightContent from "../../assets/footer-bg-right.webp";
+
+function WhatsAppIcon({ className = "h-4 w-4" }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12.031 0C5.394 0 0 5.394 0 12.031c0 2.124.555 4.195 1.609 6.02L.055 24l6.155-1.614a12.01 12.01 0 0 0 5.821 1.493h.005c6.632 0 12.026-5.395 12.026-12.031 0-3.212-1.251-6.233-3.522-8.506C18.267 1.25 15.245 0 12.031 0zm0 22.025h-.004a10.01 10.01 0 0 1-5.1-1.396l-.366-.217-3.791.994 1.012-3.696-.239-.38a10.03 10.03 0 0 1-1.536-5.3c0-5.524 4.495-10.02 10.027-10.02a9.96 9.96 0 0 1 7.09 2.936 9.96 9.96 0 0 1 2.934 7.09c0 5.525-4.496 10.022-10.027 10.022zm5.494-7.502c-.301-.151-1.782-.879-2.058-.979-.276-.1-.476-.151-.677.151-.201.301-.778.979-.954 1.18-.176.201-.351.226-.652.075-.301-.151-1.272-.469-2.423-1.496-.895-.799-1.5-1.786-1.676-2.087-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.151-.176.201-.301.301-.502.1-.201.05-.376-.025-.527-.075-.151-.677-1.631-.928-2.233-.244-.587-.492-.507-.677-.517-.175-.009-.376-.011-.577-.011s-.527.075-.803.376c-.276.301-1.054 1.029-1.054 2.509 0 1.48 1.079 2.91 1.229 3.111.151.201 2.124 3.243 5.145 4.549.719.311 1.28.497 1.718.636.722.229 1.378.197 1.898.119.579-.087 1.782-.728 2.033-1.431.251-.703.251-1.305.176-1.431-.076-.126-.277-.201-.578-.352z" />
+    </svg>
+  );
+}
 
 const routeMap = {
   Home: "/",
@@ -182,6 +195,67 @@ export default function Footer() {
             <CTAButton href="/contact" className="mt-6 mb-10 w-fit">
               Hire a Developer
             </CTAButton>
+          </div>
+
+          {/* ── Contact Details Bar ── */}
+          <div className="mx-auto max-w-4xl px-6 sm:px-10 lg:px-14 mb-8 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {/* Phone */}
+              <a
+                href="tel:+13072008084"
+                className="group flex items-center gap-3.5 p-4 rounded-2xl border border-white/10 bg-[#000405]/80 backdrop-blur-md transition-all duration-300 hover:border-[#07BEB8]/50 hover:bg-[#07BEB8]/[0.06] hover:shadow-[0_0_20px_rgba(7,190,184,0.18)]"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#07BEB8]/10 text-[#07BEB8] border border-[#07BEB8]/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#07BEB8] group-hover:text-black">
+                  <Phone className="h-4 w-4" />
+                </span>
+                <div className="flex flex-col min-w-0 text-left">
+                  <span className="text-[11px] font-semibold tracking-wider uppercase text-white/50">
+                    Call Us
+                  </span>
+                  <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#07BEB8] transition-colors truncate">
+                    +1 (307) 200-8084
+                  </span>
+                </div>
+              </a>
+
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/14157189679"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3.5 p-4 rounded-2xl border border-white/10 bg-[#000405]/80 backdrop-blur-md transition-all duration-300 hover:border-[#07BEB8]/50 hover:bg-[#07BEB8]/[0.06] hover:shadow-[0_0_20px_rgba(7,190,184,0.18)]"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#07BEB8]/10 text-[#07BEB8] border border-[#07BEB8]/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#07BEB8] group-hover:text-black">
+                  <WhatsAppIcon className="h-4 w-4" />
+                </span>
+                <div className="flex flex-col min-w-0 text-left">
+                  <span className="text-[11px] font-semibold tracking-wider uppercase text-white/50">
+                    WhatsApp
+                  </span>
+                  <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#07BEB8] transition-colors truncate">
+                    +1 (415) 718-9679
+                  </span>
+                </div>
+              </a>
+
+              {/* Email */}
+              <a
+                href="mailto:info@corehives.com"
+                className="group flex items-center gap-3.5 p-4 rounded-2xl border border-white/10 bg-[#000405]/80 backdrop-blur-md transition-all duration-300 hover:border-[#07BEB8]/50 hover:bg-[#07BEB8]/[0.06] hover:shadow-[0_0_20px_rgba(7,190,184,0.18)]"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#07BEB8]/10 text-[#07BEB8] border border-[#07BEB8]/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-[#07BEB8] group-hover:text-black">
+                  <Mail className="h-4 w-4" />
+                </span>
+                <div className="flex flex-col min-w-0 text-left">
+                  <span className="text-[11px] font-semibold tracking-wider uppercase text-white/50">
+                    Email
+                  </span>
+                  <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#07BEB8] transition-colors truncate">
+                    info@corehives.com
+                  </span>
+                </div>
+              </a>
+            </div>
           </div>
 
           {/* ── Nav Links Grid ── */}

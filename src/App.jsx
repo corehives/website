@@ -41,7 +41,6 @@ import CTASection from "./components/CTASection.jsx";
 import Testimonials from "./components/testimonials.jsx";
 import Awards from "./components/awards.jsx";
 import FAQSection from "./components/FAQSection.jsx";
-import ContactSection from "./components/contact.jsx";
 import Footer from "./components/layout/footer.jsx";
 
 // Service pages
@@ -137,7 +136,6 @@ function HomePage() {
           <Awards />
           <Testimonials />
           <FAQSection />
-          <ContactSection />
         </Suspense>
       </main>
       <Suspense fallback={null}>
