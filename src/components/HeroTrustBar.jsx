@@ -33,13 +33,8 @@ export default function HeroTrustBar() {
         <div className="grid grid-cols-2 gap-y-6 gap-x-4 sm:grid-cols-3 lg:flex lg:items-center lg:justify-between lg:gap-0">
           {/* Item 1: 5-Star Rated Agency */}
           <div className="flex items-center gap-3 sm:gap-3.5 justify-start">
-            <div className="flex items-center gap-1 rounded-full border border-white/15 bg-white/[0.04] px-3 sm:px-3.5 py-1.5 shadow-sm">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="h-3.5 w-3.5 fill-[#FFB800] text-[#FFB800]"
-                />
-              ))}
+            <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] shadow-sm">
+              <Star className="h-5 w-5 fill-[#FFB800] text-[#FFB800]" />
             </div>
             <div className="flex flex-col text-left">
               <span className="text-sm sm:text-base font-bold text-white tracking-tight leading-none">

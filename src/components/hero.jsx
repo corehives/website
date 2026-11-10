@@ -309,7 +309,7 @@ export default function Hero() {
 
         {/* Trustpilot Review Badge */}
         <div
-          className="mx-auto mt-6 flex items-center justify-center gap-1.5 text-xs text-white/50"
+          className="mx-auto mt-6 flex items-center justify-center text-xs text-white/60"
           style={{
             animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 1s both",
             willChange: "opacity, transform",
@@ -319,11 +319,30 @@ export default function Hero() {
             href="https://www.trustpilot.com/review/corehives.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 transition-colors duration-200 hover:text-[#07BEB8]"
+            className="group flex flex-wrap items-center justify-center gap-2 transition-colors duration-200 hover:text-white"
           >
-            <span className="text-[#07BEB8] text-sm tracking-wide leading-none">★★★★☆</span>
-            <span>4.5 Rated on</span>
-            <span className="font-semibold text-white/85">Trustpilot</span>
+            {/* 5-Star Rating Icons */}
+            <div className="flex items-center gap-1" aria-label="5 out of 5 stars">
+              {[...Array(5)].map((_, i) => (
+                <span
+                  key={i}
+                  className="flex h-4 w-4 items-center justify-center rounded-[2px] bg-[#00B67A] shadow-sm transition-transform duration-200 group-hover:scale-105"
+                >
+                  <svg className="h-2.5 w-2.5 fill-white" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M10 0L12.94 6.58L20 7.64L15 12.42L16.18 19.51L10 16.27L3.82 19.51L5 12.42L0 7.64L7.06 6.58L10 0Z" />
+                  </svg>
+                </span>
+              ))}
+            </div>
+
+            <span className="text-white/70">4.5 Rated on</span>
+
+            <span className="flex items-center gap-1 font-semibold text-white transition-colors group-hover:text-[#00B67A]">
+              <svg className="h-3.5 w-3.5 fill-[#00B67A]" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M10 0L12.94 6.58L20 7.64L15 12.42L16.18 19.51L10 16.27L3.82 19.51L5 12.42L0 7.64L7.06 6.58L10 0Z" />
+              </svg>
+              Trustpilot
+            </span>
           </a>
         </div>
 
