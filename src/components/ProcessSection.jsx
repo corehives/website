@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-// ── Icons mirroring the reference blueprint & strategy styling ───────────────
-function DiscoveryIcon({ className = "w-11 h-11 text-white/75" }) {
+// ── Icons mirroring the blueprint & strategy styling with Tech Stack accents ─
+function DiscoveryIcon({ className = "w-7 h-7 text-[#07BEB8]" }) {
   return (
     <svg
       className={className}
@@ -14,19 +14,16 @@ function DiscoveryIcon({ className = "w-11 h-11 text-white/75" }) {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      {/* Blueprint drafting board */}
       <rect x="6" y="8" width="28" height="28" rx="3" />
       <path d="M6 16h28M6 24h18M14 8v28M22 8v28" opacity="0.35" />
-      {/* Triangle ruler */}
       <path d="M22 26l16 14H22V26z" />
       <path d="M26 34l6 6H26v-6z" opacity="0.55" />
-      {/* Pencil */}
       <path d="M34 6l6 6-18 18-6 1 1-6L34 6z" />
     </svg>
   );
 }
 
-function StrategyIcon({ className = "w-11 h-11 text-white/75" }) {
+function StrategyIcon({ className = "w-7 h-7 text-[#07BEB8]" }) {
   return (
     <svg
       className={className}
@@ -38,23 +35,19 @@ function StrategyIcon({ className = "w-11 h-11 text-white/75" }) {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      {/* Lightbulb outline */}
       <path d="M16 20c0-4.4 3.6-8 8-8s8 3.6 8 8c0 3.2-1.9 6-4.6 7.3-.9.5-1.4 1.4-1.4 2.4V31h-4v-1.3c0-1-.5-1.9-1.4-2.4C17.9 26 16 23.2 16 20z" />
-      {/* Bulb base */}
       <path d="M20 35h8M22 39h4" />
-      {/* Gear inside */}
       <circle cx="24" cy="20" r="3" />
       <path
         d="M24 14v2M24 24v2M18 20h2M28 20h2M19.8 15.8l1.4 1.4M26.8 22.8l1.4 1.4M19.8 24.2l1.4-1.4M26.8 17.2l1.4-1.4"
         opacity="0.65"
       />
-      {/* Radiating idea rays */}
       <path d="M24 4v3M12 9l2.2 2.2M36 9l-2.2 2.2M8 20h3M37 20h3" opacity="0.5" />
     </svg>
   );
 }
 
-function DesignIcon({ className = "w-11 h-11 text-white/75" }) {
+function DesignIcon({ className = "w-7 h-7 text-[#07BEB8]" }) {
   return (
     <svg
       className={className}
@@ -79,7 +72,7 @@ function DesignIcon({ className = "w-11 h-11 text-white/75" }) {
   );
 }
 
-function DevelopmentIcon({ className = "w-11 h-11 text-white/75" }) {
+function DevelopmentIcon({ className = "w-7 h-7 text-[#07BEB8]" }) {
   return (
     <svg
       className={className}
@@ -99,7 +92,7 @@ function DevelopmentIcon({ className = "w-11 h-11 text-white/75" }) {
   );
 }
 
-function TestingIcon({ className = "w-11 h-11 text-white/75" }) {
+function TestingIcon({ className = "w-7 h-7 text-[#07BEB8]" }) {
   return (
     <svg
       className={className}
@@ -117,7 +110,7 @@ function TestingIcon({ className = "w-11 h-11 text-white/75" }) {
   );
 }
 
-function LaunchIcon({ className = "w-11 h-11 text-white/75" }) {
+function LaunchIcon({ className = "w-7 h-7 text-[#07BEB8]" }) {
   return (
     <svg
       className={className}
@@ -242,11 +235,11 @@ export default function ProcessSection() {
   return (
     <section
       aria-label="Our Process"
-      className="section-auto-render relative w-full overflow-hidden bg-black py-16 sm:py-20 md:py-28"
+      className="section-auto-render relative w-full overflow-hidden bg-[#000405] py-20 px-4 sm:px-6 lg:py-24 border-b border-white/5"
     >
       {/* ── Background Crosshair Grid Pattern ── */}
       <svg
-        className="pointer-events-none absolute inset-0 h-full w-full opacity-20"
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-15"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
@@ -263,10 +256,9 @@ export default function ProcessSection() {
               stroke="rgba(255, 255, 255, 0.08)"
               strokeWidth="1"
             />
-            {/* Crosshair at intersection */}
             <path
               d="M 27 30 L 33 30 M 30 27 L 30 33"
-              stroke="rgba(255, 255, 255, 0.22)"
+              stroke="rgba(7, 190, 184, 0.25)"
               strokeWidth="1"
             />
           </pattern>
@@ -274,11 +266,18 @@ export default function ProcessSection() {
         <rect width="100%" height="100%" fill="url(#process-cross-grid)" />
       </svg>
 
-      {/* Atmospheric purple glow top-left */}
+      {/* Subtle Background Mesh Glows (matching Our Tech Stack) */}
       <div
-        className="pointer-events-none absolute -top-20 -left-20 h-[380px] w-[380px] rounded-full blur-[120px] opacity-20"
+        className="pointer-events-none absolute left-0 top-1/4 w-[400px] h-[400px] z-0 opacity-15 blur-[120px]"
         style={{
-          background: "radial-gradient(circle, #A855F7 0%, transparent 70%)",
+          background: "radial-gradient(circle, #07BEB8 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute right-0 bottom-1/4 w-[400px] h-[400px] z-0 opacity-10 blur-[120px]"
+        style={{
+          background: "radial-gradient(circle, #07BEB8 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -287,24 +286,22 @@ export default function ProcessSection() {
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14">
           {/* ── Left Column: Headline & Description ── */}
           <div className="flex flex-col items-start lg:col-span-5 lg:sticky lg:top-28">
-            {/* Tag */}
-            <div className="mb-6 flex items-center gap-2">
-              <span className="text-xs sm:text-sm font-medium tracking-widest text-white/90 uppercase">
-                Our Process
-              </span>
-            </div>
+            {/* Pill Eyebrow Badge — Styled like Our Tech Stack */}
+            <span className="inline-block text-[#07BEB8] text-xs font-semibold tracking-[0.25em] uppercase mb-4 px-4 py-1.5 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8]/[0.06]">
+              Our Process
+            </span>
 
-            {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-bold leading-[1.18] text-white tracking-tight">
+            {/* Headline with Precision Gradient */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-extrabold leading-[1.18] text-white tracking-tight mt-1">
               Website Design &amp;
               <br />
-              Development in USA,
+              Development,
               <br />
-              <span className="text-white">Built Around You</span>
+              <span className="precision-gradient">Built Around You</span>
             </h2>
 
             {/* Description */}
-            <p className="mt-6 max-w-lg text-sm sm:text-base leading-relaxed text-gray-400">
+            <p className="mt-5 max-w-lg text-sm sm:text-base leading-relaxed text-white/50">
               Our portfolio of successful projects reflects our systematic
               framework to web design and web development. By focusing on your
               business goals, user expectations, and technology stack, we
@@ -319,7 +316,7 @@ export default function ProcessSection() {
                 onClick={() => scrollByCard(-1)}
                 disabled={!canScrollLeft}
                 aria-label="Previous step"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition-all hover:border-white/35 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-25"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all duration-300 hover:border-[#07BEB8] hover:bg-[#07BEB8] hover:text-black hover:shadow-[0_0_16px_rgba(7,190,184,0.35)] disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:bg-transparent disabled:hover:text-white/70 disabled:hover:border-white/20 disabled:hover:shadow-none"
               >
                 <ArrowLeft className="h-5 w-5" />
               </button>
@@ -328,12 +325,12 @@ export default function ProcessSection() {
                 onClick={() => scrollByCard(1)}
                 disabled={!canScrollRight}
                 aria-label="Next step"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition-all hover:border-white/35 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-25"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all duration-300 hover:border-[#07BEB8] hover:bg-[#07BEB8] hover:text-black hover:shadow-[0_0_16px_rgba(7,190,184,0.35)] disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:bg-transparent disabled:hover:text-white/70 disabled:hover:border-white/20 disabled:hover:shadow-none"
               >
                 <ArrowRight className="h-5 w-5" />
               </button>
-              <span className="ml-2 text-xs font-mono tracking-widest text-white/40">
-                SWIPE / CLICK TO NAVIGATE
+              <span className="ml-2 text-xs font-semibold tracking-[0.2em] text-[#07BEB8]/80 uppercase">
+                Step-by-Step Flow
               </span>
             </div>
           </div>
@@ -342,7 +339,7 @@ export default function ProcessSection() {
           <div className="relative w-full overflow-hidden lg:col-span-7">
             {/* Right edge fade gradient */}
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-16 sm:w-24 bg-gradient-to-l from-black via-black/80 to-transparent sm:block"
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-16 sm:w-24 bg-gradient-to-l from-[#000405] via-[#000405]/80 to-transparent sm:block"
               aria-hidden="true"
             />
 
@@ -359,16 +356,16 @@ export default function ProcessSection() {
                 return (
                   <div
                     key={idx}
-                    className="snap-start w-[285px] sm:w-[325px] shrink-0 rounded-[28px] border border-white/10 bg-[#12151d]/85 p-7 sm:p-8 backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-[#151923] hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] flex flex-col justify-between min-h-[460px] select-none"
+                    className="group snap-start w-[285px] sm:w-[325px] shrink-0 rounded-2xl border border-white/5 bg-[#031111]/40 p-7 sm:p-8 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-[#07BEB8]/40 hover:bg-[#051e1e]/50 hover:shadow-[0_0_30px_rgba(7,190,184,0.2)] flex flex-col justify-between min-h-[460px] select-none"
                   >
                     <div>
-                      {/* Icon */}
-                      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.03] border border-white/5 text-white/80">
-                        <IconComponent className="h-9 w-9 text-white/80" />
+                      {/* Logo Box (styled like Tech Stack's icon box) */}
+                      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#000405]/80 border border-white/10 transition-all duration-300 group-hover:border-[#07BEB8]/50 group-hover:shadow-[0_0_20px_rgba(7,190,184,0.2)]">
+                        <IconComponent className="h-7 w-7 text-[#07BEB8] transition-transform duration-300 group-hover:scale-110" />
                       </div>
 
                       {/* Title */}
-                      <h3 className="mb-6 text-2xl font-bold text-white tracking-tight">
+                      <h3 className="mb-6 text-2xl font-bold text-white tracking-tight group-hover:text-[#07BEB8] transition-colors duration-200">
                         {step.title}
                       </h3>
 
@@ -380,10 +377,10 @@ export default function ProcessSection() {
                             className="flex items-start gap-3 text-left"
                           >
                             <span
-                              className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#A855F7] shadow-[0_0_8px_#A855F7]"
+                              className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#07BEB8] shadow-[0_0_8px_#07BEB8]"
                               aria-hidden="true"
                             />
-                            <span className="text-sm font-medium leading-snug text-white/85">
+                            <span className="text-sm font-medium leading-snug text-white/80 group-hover:text-white transition-colors duration-200">
                               {pt}
                             </span>
                           </li>

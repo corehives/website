@@ -318,10 +318,10 @@ function ShopifyPlusBadge() {
   );
 }
 
-// ── Item Card Wrapper ────────────────────────────────────────────────────────
+// ── Card Wrapper (Styled like Our Tech Stack) ────────────────────────────────
 function CardItem({ children }) {
   return (
-    <div className="w-40 sm:w-48 h-24 sm:h-28 rounded-2xl bg-[#11141c]/90 border border-white/10 flex items-center justify-center px-4 py-2 hover:border-white/30 hover:bg-[#161a24] hover:shadow-[0_0_24px_rgba(255,255,255,0.06)] transition-all duration-300 shrink-0">
+    <div className="w-40 sm:w-48 h-24 sm:h-28 rounded-2xl border border-white/5 bg-[#031111]/40 flex items-center justify-center px-4 py-2 hover:border-[#07BEB8]/40 hover:bg-[#051e1e]/50 hover:shadow-[0_0_24px_rgba(7,190,184,0.18)] hover:scale-[1.03] transition-all duration-300 shrink-0 backdrop-blur-md">
       {children}
     </div>
   );
@@ -363,7 +363,7 @@ export default function PartnersRecognitionSlider() {
   return (
     <section
       aria-label="Partners and Recognition"
-      className="section-auto-render relative w-full overflow-hidden bg-black py-12 sm:py-16 md:py-20 border-b border-white/5"
+      className="section-auto-render relative w-full overflow-hidden bg-[#000405] py-20 px-4 sm:px-6 lg:py-24 border-b border-white/5"
     >
       <style>{`
         @keyframes marquee-left {
@@ -390,37 +390,43 @@ export default function PartnersRecognitionSlider() {
         }
       `}</style>
 
-      {/* Atmospheric purple glow top-center */}
+      {/* Subtle Background Mesh Glows (matching Our Tech Stack) */}
       <div
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[220px] rounded-full blur-[100px] opacity-25"
+        className="pointer-events-none absolute left-1/4 top-1/4 w-[400px] h-[400px] z-0 opacity-15 blur-[120px]"
         style={{
-          background:
-            "radial-gradient(ellipse at top, #A855F7 0%, transparent 70%)",
+          background: "radial-gradient(circle, #07BEB8 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute right-1/4 bottom-1/4 w-[400px] h-[400px] z-0 opacity-10 blur-[120px]"
+        style={{
+          background: "radial-gradient(circle, #07BEB8 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
 
       {/* Left/Right Edge Fades */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-36 md:w-48 bg-gradient-to-r from-black via-black/80 to-transparent z-10"
+        className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-36 md:w-48 bg-gradient-to-r from-[#000405] via-[#000405]/80 to-transparent z-10"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-36 md:w-48 bg-gradient-to-l from-black via-black/80 to-transparent z-10"
+        className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-36 md:w-48 bg-gradient-to-l from-[#000405] via-[#000405]/80 to-transparent z-10"
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header Pill */}
-        <div className="flex items-center justify-center gap-2 mb-8 sm:mb-10">
-          <span
-            className="w-2 h-2 rounded-full bg-[#A855F7] shadow-[0_0_10px_#A855F7]"
-            aria-hidden="true"
-          />
-          <h2 className="text-xs sm:text-sm font-medium tracking-widest text-white/90 uppercase">
-            Partners &amp; Recognition
-          </h2>
-        </div>
+      {/* Header — Styled like Our Tech Stack */}
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16">
+        <span className="inline-block text-[#07BEB8] text-xs font-semibold tracking-[0.25em] uppercase mb-4 px-4 py-1.5 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8]/[0.06]">
+          Partners &amp; Recognition
+        </span>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mt-2">
+          Recognized by <span className="precision-gradient">Industry Leaders</span>
+        </h2>
+        <p className="mt-4 text-white/50 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          Featured across world-renowned media publications and certified by global technology pioneers.
+        </p>
       </div>
 
       {/* Track 1: Moving Left */}
@@ -443,4 +449,3 @@ export default function PartnersRecognitionSlider() {
     </section>
   );
 }
-
