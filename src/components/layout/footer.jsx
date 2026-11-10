@@ -71,6 +71,7 @@ const socialLinks = [
   },
 ];
 
+/*
 const floatParams = [
   { dur: "5.2s", delay: "0s" },
   { dur: "4.7s", delay: "0.6s" },
@@ -131,6 +132,7 @@ const badgeStyle = {
   position: "absolute",
   zIndex: 10,
 };
+*/
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -344,8 +346,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Giant Floating Logo ── */}
-          <div
+          {/* ── Giant Floating Logo (commented out) ── */}
+          {/* <div
             className="relative flex items-end justify-center pb-0 px-2"
             style={{ overflow: "visible" }}
           >
@@ -398,7 +400,7 @@ export default function Footer() {
                 );
               })}
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* ── Copyright ── */}
