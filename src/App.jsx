@@ -127,13 +127,13 @@ function HomePage() {
           <Solution />
           <OverView />
           <PartnersRecognitionSlider />
-          <Testimonials />
           <ProcessSection />
           <TechnologiesSection />
           <IndustriesSection />
           <LowCodeSection />
           <CTASection />
           <Awards />
+          <Testimonials />
           <FAQSection />
           <ContactSection />
         </Suspense>
