@@ -28,6 +28,7 @@ function AdminFallback() {
 }
 
 // Home page sections
+import HeroTrustBar from "./components/HeroTrustBar.jsx";
 import Solution, { LowCodeSection } from "./components/solution.jsx";
 import ProcessSection from "./components/ProcessSection.jsx";
 import TechnologiesSection from "./components/TechnologiesSection.jsx";
@@ -120,6 +121,7 @@ function HomePage() {
     <>
       <main>
         <Hero />
+        <HeroTrustBar />
         <Suspense fallback={null}>
           <Solution />
           <OverView />
