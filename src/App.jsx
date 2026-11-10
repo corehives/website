@@ -34,6 +34,7 @@ import ProcessSection from "./components/ProcessSection.jsx";
 import TechnologiesSection from "./components/TechnologiesSection.jsx";
 import IndustriesSection from "./components/IndustriesSection.jsx";
 import OverView from "./components/overview.jsx";
+import PartnersRecognitionSlider from "./components/PartnersRecognitionSlider.jsx";
 import CTASection from "./components/CTASection.jsx";
 import Testimonials from "./components/testimonials.jsx";
 import Awards from "./components/awards.jsx";
@@ -125,6 +126,7 @@ function HomePage() {
         <Suspense fallback={null}>
           <Solution />
           <OverView />
+          <PartnersRecognitionSlider />
           <Testimonials />
           <ProcessSection />
           <TechnologiesSection />
