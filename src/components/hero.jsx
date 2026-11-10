@@ -1,14 +1,15 @@
 import hero_bg from "../assets/hero-bgs.webp";
 import leftLight from "../assets/left-light.webp";
 import rightLight from "../assets/right-light.webp";
-import GlobeLogo from "../assets/globe-frame.webp";
-import HalfLogo from "../assets/logo-half.webp";
+// import GlobeLogo from "../assets/globe-frame.webp";
+// import HalfLogo from "../assets/logo-half.webp";
 import zainAvatar from "../assets/founders/zain-haider.jpg";
+import heroVideo from "../assets/corehives_hero.mp4";
 import { ShieldCheck } from "lucide-react";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-const HeroVisuals = lazy(() => import("./heroVisuals.jsx"));
+// const HeroVisuals = lazy(() => import("./heroVisuals.jsx"));
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(
@@ -25,6 +26,7 @@ function useIsMobile() {
   return isMobile;
 }
 
+/*
 const GlobeFallback = () => (
   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
     <div
@@ -66,12 +68,25 @@ const GlobeFallback = () => (
     />
   </div>
 );
+*/
 
 export default function Hero() {
   const sectionRef = useRef(null);
-  const [shouldLoadVisuals, setShouldLoadVisuals] = useState(false);
+  const videoRef = useRef(null);
   const isMobile = useIsMobile();
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {
+        // Autoplay policy prevented playback, fallback remains
+      });
+    }
+  }, []);
+
+  /*
+  const [shouldLoadVisuals, setShouldLoadVisuals] = useState(false);
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) {
@@ -96,24 +111,32 @@ export default function Hero() {
   const visualsStyle = isMobile
     ? { marginTop: "1.5rem", height: "clamp(360px, 56vw, 530px)" }
     : { marginTop: "-2rem", aspectRatio: "18 / 10", minHeight: "480px" };
+  */
 
   return (
     <section
       id="home"
       ref={sectionRef}
-      className="relative z-0 flex min-h-screen items-stretch overflow-hidden"
+      className="relative z-0 flex min-h-[68vh] sm:min-h-[74vh] lg:min-h-[78vh] items-center justify-center overflow-hidden"
     >
-      {/* Layer 0: Background */}
-      <div className="absolute inset-0 -top-5 z-0">
-        <img
-          src={hero_bg}
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          fetchPriority="high"
-          className="h-full w-full object-cover object-top opacity-90"
-          decoding="async"
-        />
+      {/* Layer 0: Background Video */}
+      <div className="absolute inset-0 -top-5 z-0 overflow-hidden bg-[#000405]">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={hero_bg}
+          preload="auto"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-75"
+        >
+          <source src={heroVideo} type="video/mp4" />
+          <source src="/corehives_hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Ambient gradient vignette to blend top nav and bottom section seamlessly */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#000405]/50 via-transparent to-[#000405]" />
       </div>
 
       {/* Layer 1: Light accents — wide desktop only (>1150px) */}
@@ -149,7 +172,7 @@ export default function Hero() {
       )}
 
       {/* Layer 2: Main content */}
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-20 text-center mt-6 sm:px-6 sm:pt-22 lg:px-10 lg:pt-20">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-32 pb-20 text-center sm:px-6 sm:pt-36 sm:pb-24 lg:px-10 lg:pt-40 lg:pb-28">
         <h1
           className="max-w-4xl font-bold leading-[1.2] text-white"
           style={{
@@ -261,7 +284,8 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Visuals — responsive container */}
+        {/* Visuals — Globe & floating cards (commented out per preview request) */}
+        {/*
         <div className="relative w-full" style={visualsStyle}>
           {shouldLoadVisuals ? (
             <Suspense fallback={<GlobeFallback />}>
@@ -271,6 +295,7 @@ export default function Hero() {
             <GlobeFallback />
           )}
         </div>
+        */}
       </div>
     </section>
   );
