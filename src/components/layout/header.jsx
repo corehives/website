@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Mail, Phone } from "lucide-react";
 import CTAButton from "../shared/CTAButton";
 import Logo from "../../assets/logo.webp";
 
@@ -182,11 +182,30 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden items-center gap-3 sm:flex">
-            <CTAButton href="/contact">
-              Hire a Developer
-            </CTAButton>
+          {/* Desktop CTA (as per reference on the very right side corner) */}
+          <div className="hidden items-center gap-2.5 sm:flex">
+            <Link
+              to="/contact"
+              className="relative inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#07BEB8] via-[#05A39E] to-[#048782] px-5 py-2.5 text-xs sm:text-sm font-bold text-[#000405] shadow-[0_0_18px_rgba(7,190,184,0.35)] transition-all duration-300 hover:scale-105 hover:from-[#09d8d1] hover:to-[#059691] hover:shadow-[0_0_26px_rgba(7,190,184,0.65)] active:scale-95 whitespace-nowrap select-none"
+            >
+              Speak to an expert
+            </Link>
+
+            <a
+              href="mailto:info@corehives.com"
+              aria-label="Email CoreHives"
+              className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/90 shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#07BEB8] hover:text-[#07BEB8] hover:bg-[#07BEB8]/10 hover:shadow-[0_0_14px_rgba(7,190,184,0.35)] active:scale-95"
+            >
+              <Mail className="h-4 w-4" />
+            </a>
+
+            <a
+              href="tel:+13072008084"
+              aria-label="Call CoreHives"
+              className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/90 shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#07BEB8] hover:text-[#07BEB8] hover:bg-[#07BEB8]/10 hover:shadow-[0_0_14px_rgba(7,190,184,0.35)] active:scale-95"
+            >
+              <Phone className="h-4 w-4" />
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -264,9 +283,29 @@ export default function Header() {
           </nav>
 
           {/* Mobile CTA */}
-          <CTAButton href="/contact" onClick={closeAll} className="mt-4">
-            Hire a Developer
-          </CTAButton>
+          <div className="mt-4 flex items-center gap-2">
+            <Link
+              to="/contact"
+              onClick={closeAll}
+              className="flex-1 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#07BEB8] to-[#048782] px-4 py-2.5 text-xs font-bold text-[#000405] shadow-[0_0_18px_rgba(7,190,184,0.35)] active:scale-95"
+            >
+              Speak to an expert
+            </Link>
+            <a
+              href="mailto:info@corehives.com"
+              aria-label="Email CoreHives"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/90 active:scale-95"
+            >
+              <Mail className="h-4 w-4" />
+            </a>
+            <a
+              href="tel:+13072008084"
+              aria-label="Call CoreHives"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/90 active:scale-95"
+            >
+              <Phone className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </div>
     </header>
