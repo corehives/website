@@ -6,7 +6,6 @@ import AboutValues from "../components/about/AboutValues";
 import AboutWhyUs from "../components/about/AboutWhyUs";
 import AboutStats from "../components/about/AboutStats";
 import AboutTeam from "../components/about/AboutTeam";
-import AboutCTA from "../components/about/AboutCTA";
 
 const Footer = lazy(() => import("../components/layout/footer.jsx"));
 
@@ -18,8 +17,8 @@ export default function AboutUs() {
       <AboutStory />
       <AboutMissionVision />
       <AboutValues />
+      <AboutTeam />
       <AboutWhyUs />
-      {/* <AboutTeam />  */}
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
