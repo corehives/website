@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X, Mail, Phone } from "lucide-react";
-import CTAButton from "../shared/CTAButton";
 import Logo from "../../assets/logo.webp";
 
 const serviceLinks = [
@@ -17,6 +16,7 @@ const serviceLinks = [
   { label: "Blockchain", href: "/services/blockchain" },
 ];
 
+// eslint-disable-next-line no-unused-vars
 const productLinks = [
   { label: "Curelia", href: "/products/corehive-crm" },
   { label: "Ascendera", href: "/products/corehive-analytics" },
