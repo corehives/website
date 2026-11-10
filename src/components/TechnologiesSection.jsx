@@ -438,6 +438,32 @@ const LOGOS = {
       <path fill="#38BDF8" d="M8.726 8.728l-3.433 3.434c-2.692 2.693-2.692 7.126 0 9.819A6.92 6.92 0 0 0 10.203 24a6.93 6.93 0 0 0 4.911-2.02l3.432-3.432-3.271-3.272-3.433 3.433a2.284 2.284 0 0 1-3.277 0 2.28 2.28 0 0 1 0-3.276L12 12z"/>
     </svg>
   ),
+  redis: () => (
+    <svg viewBox="0 0 24 24" className="w-10 h-10" fill="none">
+      <path d="M21.94 13.11l-9.06 4.77a1.76 1.76 0 0 1-1.76 0l-9.06-4.77a1.8 1.8 0 0 1-.95-1.58V8.47a1.8 1.8 0 0 1 .95-1.58L11.12 2.12a1.76 1.76 0 0 1 1.76 0l9.06 4.77a1.8 1.8 0 0 1 .95 1.58v3.06a1.8 1.8 0 0 1-.95 1.58z" fill="#D82C20"/>
+      <path d="M12 4.1L4.85 7.87 12 11.64l7.15-3.77L12 4.1z" fill="#FF4438"/>
+    </svg>
+  ),
+  kubernetes: () => (
+    <svg viewBox="0 0 24 24" className="w-10 h-10" fill="#326CE5">
+      <path d="M12.001 0l-8.66 5v10l8.66 5 8.66-5V5l-8.66-5zm0 2.31l6.66 3.845v7.69l-6.66 3.846-6.66-3.846v-7.69l6.66-3.846zm0 2.69a6 6 0 1 0 0 12 6 6 0 0 0 0-12z" />
+    </svg>
+  ),
+  android: () => (
+    <svg viewBox="0 0 24 24" className="w-10 h-10" fill="#3DDC84">
+      <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 0 0-.1521-.5676.416.416 0 0 0-.5676.1521l-2.0223 3.503C15.5902 8.411 13.856 8 12 8s-3.5902.411-5.1368.9497L4.841 5.4467a.4161.4161 0 0 0-.5677-.1521.4157.4157 0 0 0-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/>
+    </svg>
+  ),
+  pytorch: () => (
+    <svg viewBox="0 0 24 24" className="w-10 h-10" fill="#EE4C2C">
+      <path d="M13.6 1.8a7.8 7.8 0 0 0-5.7 2.5l3.2 3.2a4.4 4.4 0 0 1 3-1.2 4.4 4.4 0 0 1 4.4 4.4c0 1.2-.5 2.3-1.3 3.1l3.2 3.2a8.8 8.8 0 0 0 2.5-6.3c0-4.9-4-8.9-9.3-8.9zm-3.2 3.2L7.2 1.8A8.8 8.8 0 0 0 1.8 9c0 4.9 3.9 8.9 9.3 8.9 2.2 0 4.3-.8 5.8-2.2l-3.2-3.2a4.4 4.4 0 0 1-2.6 1 4.4 4.4 0 0 1-4.4-4.4c0-1.2.5-2.3 1.3-3.1zM15 4a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/>
+    </svg>
+  ),
+  apple: () => (
+    <svg viewBox="0 0 24 24" className="w-10 h-10" fill="#FFFFFF">
+      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.42c.67-.82 1.13-1.96.99-3.1-.97.05-2.19.67-2.88 1.48-.6.69-1.13 1.86-.98 2.98 1.08.08 2.2-.54 2.87-1.36z" />
+    </svg>
+  ),
 };
 
 // —————————————————————————————————————————————————————————————————————————————
@@ -445,6 +471,7 @@ const LOGOS = {
 // —————————————————————————————————————————————————————————————————————————————
 
 const CATEGORIES = [
+  { id: "all", label: "All Stack" },
   { id: "frontend", label: "Frontend" },
   { id: "backend", label: "Backend" },
   { id: "mobile", label: "Mobile" },
@@ -455,16 +482,32 @@ const CATEGORIES = [
 ];
 
 const TECH_DATA = {
+  all: [
+    { name: "React", logo: "react" },
+    { name: "Next.js", logo: "nextjs" },
+    { name: "Node.js", logo: "nodejs" },
+    { name: "Python", logo: "python" },
+    { name: "Flutter", logo: "flutter" },
+    { name: "AWS", logo: "aws" },
+    { name: "TypeScript", logo: "typescript" },
+    { name: "Laravel", logo: "laravel" },
+    { name: "Docker", logo: "docker" },
+    { name: "PostgreSQL", logo: "postgresql" },
+    { name: "MongoDB", logo: "mongodb" },
+    { name: "OpenAI", logo: "openai" },
+  ],
   frontend: [
     { name: "React", logo: "react" },
     { name: "Next.js", logo: "nextjs" },
     { name: "Vue.js", logo: "vuejs" },
     { name: "Angular", logo: "angular" },
+    { name: "TypeScript", logo: "typescript" },
+    { name: "JavaScript", logo: "javascript" },
+    { name: "Tailwind CSS", logo: "tailwindcss" },
     { name: "HTML5", logo: "html5" },
     { name: "CSS3", logo: "css3" },
-    { name: "Tailwind CSS", logo: "tailwindcss" },
-    { name: "JavaScript", logo: "javascript" },
-    { name: "TypeScript", logo: "typescript" },
+    { name: "Webflow", logo: "webflow" },
+    { name: "React Native", logo: "reactnative" },
   ],
   backend: [
     { name: "Node.js", logo: "nodejs" },
@@ -479,6 +522,8 @@ const TECH_DATA = {
     { name: "Flutter", logo: "flutter" },
     { name: "Swift", logo: "swift" },
     { name: "Kotlin", logo: "kotlin" },
+    { name: "Android", logo: "android" },
+    { name: "iOS", logo: "apple" },
   ],
   cms: [
     { name: "WordPress", logo: "wordpress" },
@@ -492,18 +537,21 @@ const TECH_DATA = {
     { name: "MySQL", logo: "mysql" },
     { name: "PostgreSQL", logo: "postgresql" },
     { name: "Firebase", logo: "firebase" },
+    { name: "Redis", logo: "redis" },
   ],
   cloud: [
     { name: "AWS", logo: "aws" },
     { name: "Google Cloud", logo: "gcp" },
     { name: "Azure", logo: "azure" },
     { name: "Docker", logo: "docker" },
+    { name: "Kubernetes", logo: "kubernetes" },
   ],
   ai: [
     { name: "OpenAI / ChatGPT", logo: "openai" },
-    { name: "Lovable", logo: "lovable" },
     { name: "TensorFlow", logo: "tensorflow" },
     { name: "LangChain", logo: "langchain" },
+    { name: "Lovable", logo: "lovable" },
+    { name: "PyTorch", logo: "pytorch" },
   ],
 };
 
@@ -512,50 +560,91 @@ const TECH_DATA = {
 // —————————————————————————————————————————————————————————————————————————————
 
 export default function TechnologiesSection() {
-  const [activeTab, setActiveTab] = useState("frontend");
+  const [activeTab, setActiveTab] = useState("all");
+
+  const currentList = TECH_DATA[activeTab] || TECH_DATA.all;
 
   return (
-    <section className="section-auto-render w-full bg-[#000405] py-20 px-4 sm:px-6 lg:py-24 relative overflow-hidden">
-      {/* Subtle Background Mesh Glows */}
+    <section
+      aria-label="Technologies We Work With"
+      className="section-auto-render relative w-full overflow-hidden bg-[#000405] py-20 px-4 sm:px-6 lg:py-24 border-b border-white/5"
+    >
+      {/* ── Background Crosshair Grid Pattern (matching reference) ── */}
+      <svg
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-15"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern
+            id="tech-cross-grid"
+            width="60"
+            height="60"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M 60 0 L 0 0 0 60"
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.08)"
+              strokeWidth="1"
+            />
+            <path
+              d="M 27 30 L 33 30 M 30 27 L 30 33"
+              stroke="rgba(7, 190, 184, 0.25)"
+              strokeWidth="1"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#tech-cross-grid)" />
+      </svg>
+
+      {/* ── Atmospheric Radial Glows (CoreHives Teal Mesh) ── */}
       <div
-        className="pointer-events-none absolute left-1/4 top-1/4 w-[400px] h-[400px] z-0 opacity-15 blur-[120px]"
+        className="pointer-events-none absolute left-1/4 top-1/4 w-[450px] h-[450px] z-0 opacity-15 blur-[120px]"
         style={{
           background: "radial-gradient(circle, #07BEB8 0%, transparent 70%)",
         }}
+        aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute right-1/4 bottom-1/4 w-[400px] h-[400px] z-0 opacity-10 blur-[120px]"
+        className="pointer-events-none absolute right-1/4 bottom-1/4 w-[450px] h-[450px] z-0 opacity-10 blur-[120px]"
         style={{
           background: "radial-gradient(circle, #07BEB8 0%, transparent 70%)",
         }}
+        aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* ── Header ── */}
+        <div className="text-center mb-10 sm:mb-14">
           <span className="inline-block text-[#07BEB8] text-xs font-semibold tracking-[0.25em] uppercase mb-4 px-4 py-1.5 rounded-full border border-[#07BEB8]/30 bg-[#07BEB8]/[0.06]">
-            Our Tech Stack
+            Technologies We Work With
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mt-2">
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight max-w-4xl mx-auto mt-2">
             Technologies <span className="precision-gradient">We Work With</span>
           </h2>
+
           <p className="mt-4 text-white/50 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            We leverage a wide array of state-of-the-art languages, frameworks, databases, and cloud technologies to build scalable, secure, and future-proof digital assets.
+            We leverage a wide array of state-of-the-art languages, frameworks,
+            databases, and cloud architectures to engineer fast, resilient, and
+            future-proof digital solutions.
           </p>
         </div>
 
-        {/* Tab Controls */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10 sm:mb-14 border-b border-white/5 pb-6">
+        {/* ── Category Filter Tabs ── */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10 sm:mb-12 border-b border-white/5 pb-6">
           {CATEGORIES.map((tab) => {
             const isActive = tab.id === activeTab;
             return (
               <button
                 key={tab.id}
+                type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide rounded-full border transition-all duration-300 ${
+                className={`px-4 py-2 text-xs sm:text-sm font-medium tracking-wide rounded-full border transition-all duration-300 ${
                   isActive
-                    ? "border-[#07BEB8] bg-[#07BEB8]/10 text-white shadow-[0_0_20px_rgba(7,190,184,0.15)]"
-                    : "border-white/5 bg-transparent text-white/60 hover:border-white/20 hover:text-white"
+                    ? "border-[#07BEB8] bg-[#07BEB8]/15 text-white shadow-[0_0_20px_rgba(7,190,184,0.25)]"
+                    : "border-white/10 bg-black/40 text-white/60 hover:border-white/25 hover:text-white hover:bg-white/[0.04]"
                 }`}
               >
                 {tab.label}
@@ -564,26 +653,33 @@ export default function TechnologiesSection() {
           })}
         </div>
 
-        {/* Technologies Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {TECH_DATA[activeTab].map((tech) => {
-            const LogoComponent = LOGOS[tech.logo];
+        {/* ── Seamless Bordered Matrix Grid (matches reference image) ── */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-t border-l border-white/10 backdrop-blur-sm bg-black/20 shadow-2xl">
+          {currentList.map((item) => {
+            const LogoComponent = LOGOS[item.logo];
             return (
               <div
-                key={tech.name}
-                className="group flex flex-col items-center justify-center p-6 rounded-2xl border border-white/5 bg-[#031111]/30 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] hover:border-[#07BEB8]/40 hover:bg-[#051e1e]/40"
-                style={{
-                  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.2)",
-                }}
+                key={item.name}
+                className="group relative flex flex-col items-center justify-center p-6 min-h-[140px] sm:min-h-[160px] md:min-h-[175px] border-r border-b border-white/10 transition-all duration-300 hover:bg-[#07BEB8]/[0.05] hover:backdrop-blur-md select-none"
               >
-                {/* Logo wrapper with subtle inner shadow & flex center */}
-                <div className="w-16 h-16 rounded-2xl bg-[#000405]/80 border border-white/10 flex items-center justify-center mb-4 transition-all duration-300 group-hover:border-[#07BEB8]/50 group-hover:shadow-[0_0_20px_rgba(7,190,184,0.2)]">
+                {/* Subtle cell corner radial glow on hover */}
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background:
+                      "radial-gradient(circle at center, rgba(7,190,184,0.12) 0%, transparent 70%)",
+                  }}
+                  aria-hidden="true"
+                />
+
+                {/* Logo with smooth hover scale */}
+                <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center transition-all duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
                   {LogoComponent && <LogoComponent />}
                 </div>
 
-                {/* Name */}
-                <span className="text-white/80 font-semibold text-xs sm:text-sm tracking-wide text-center group-hover:text-white transition-colors duration-200">
-                  {tech.name}
+                {/* Tech Name */}
+                <span className="mt-3 text-xs sm:text-[13px] font-medium text-white/75 tracking-wide text-center group-hover:text-white group-hover:text-[#07BEB8] transition-colors duration-200">
+                  {item.name}
                 </span>
               </div>
             );
