@@ -73,16 +73,44 @@ const GlobeFallback = () => (
 export default function Hero() {
   const sectionRef = useRef(null);
   const videoRef = useRef(null);
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {
-        // Autoplay policy prevented playback, fallback remains
-      });
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Explicitly set DOM attributes for iOS Safari / WebKit and Android Chrome
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    video.defaultMuted = true;
+    video.muted = true;
+
+    const handleReady = () => setIsVideoReady(true);
+    video.addEventListener("playing", handleReady, { once: true });
+
+    const tryPlay = () => {
+      const p = video.play();
+      if (p !== undefined) {
+        p.then(handleReady).catch(() => {
+          // Autoplay policy prevented playback, poster remains smoothly visible
+        });
+      }
+    };
+
+    if (video.readyState >= 3) {
+      handleReady();
+    } else {
+      video.addEventListener("canplay", tryPlay, { once: true });
     }
+
+    tryPlay();
+
+    return () => {
+      video.removeEventListener("playing", handleReady);
+      video.removeEventListener("canplay", tryPlay);
+    };
   }, []);
 
   /*
@@ -119,17 +147,32 @@ export default function Hero() {
       ref={sectionRef}
       className="relative z-0 flex min-h-[68vh] sm:min-h-[74vh] lg:min-h-[78vh] items-center justify-center overflow-hidden"
     >
-      {/* Layer 0: Background Video */}
+      {/* Layer 0: Background Video & Seamless Fallback */}
       <div className="absolute inset-0 -top-5 z-0 overflow-hidden bg-[#000405]">
+        {/* Poster image visible while video buffers, fades out when video starts */}
+        <img
+          src={hero_bg}
+          alt=""
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-700 ${
+            isVideoReady ? "opacity-0" : "opacity-90"
+          }`}
+        />
+
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          poster={hero_bg}
+          webkit-playsinline="true"
+          disablePictureInPicture
+          disableRemotePlayback
           preload="auto"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-75"
+          onPlaying={() => setIsVideoReady(true)}
+          className={`pointer-events-none absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700 ${
+            isVideoReady ? "opacity-75" : "opacity-0"
+          }`}
         >
           <source src={heroVideo} type="video/mp4" />
           <source src="/corehives_hero.mp4" type="video/mp4" />
