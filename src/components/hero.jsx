@@ -145,7 +145,7 @@ export default function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative z-0 flex min-h-[68vh] sm:min-h-[74vh] lg:min-h-[78vh] items-center justify-center overflow-hidden"
+      className="relative z-0 flex sm:min-h-[74vh] lg:min-h-[78vh] items-center justify-center overflow-hidden"
     >
       {/* Layer 0: Background Video & Seamless Fallback */}
       <div className="absolute inset-0 -top-5 z-0 overflow-hidden bg-[#000405]">
@@ -215,7 +215,7 @@ export default function Hero() {
       )}
 
       {/* Layer 2: Main content */}
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-32 pb-20 text-center sm:px-6 sm:pt-36 sm:pb-24 lg:px-10 lg:pt-40 lg:pb-28">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-20 pb-12 text-center sm:px-6 sm:pt-28 sm:pb-16 lg:px-10 lg:pt-40 lg:pb-28">
         <h1
           className="max-w-4xl font-bold leading-[1.2] text-white"
           style={{

@@ -13,7 +13,6 @@ import avatar6 from "../assets/avatar-6.webp";
 import menu from "../assets/menu.webp";
 import avatarMale from "../assets/avatar-male.webp";
 import BGBoxes from "../assets/bg-boxes.webp";
-import { ArrowRight } from "lucide-react";
 import CTAButton from "./shared/CTAButton";
 
 const tagStyle = {
@@ -33,29 +32,29 @@ const cards = [
     desc: "Be Future-Ready with our Artificial Intelligence & Machine Learning Solutions",
     to: "/services/digital-marketing",
     preview: (
-      <div className="flex flex-col items-center w-full p-4 relative">
-        <div className="flex justify-between w-full mb-6">
+      <div className="flex flex-col items-center justify-center w-full h-full p-4 relative">
+        <div className="flex justify-between w-full mb-3">
           <span style={tagStyle}>AI</span>
           <span style={tagStyle}>Chatbots</span>
         </div>
         <div className="relative flex items-center justify-center w-full my-2">
           <img
             src={LineLeft}
-            className="absolute right-1/2 -mt-8 w-30 opacity-90"
+            className="absolute right-1/2 mr-6 w-24 sm:w-28 opacity-90 object-contain pointer-events-none"
             alt=""
           />
           <img
             src={LogoInitals}
-            className="w-15 h-15 object-contain relative z-10"
+            className="w-14 h-14 object-contain relative z-10"
             alt="logo"
           />
           <img
             src={LineRight}
-            className="absolute left-1/2 -mt-8 w-30 opacity-90"
+            className="absolute left-1/2 ml-6 w-24 sm:w-28 opacity-90 object-contain pointer-events-none"
             alt=""
           />
         </div>
-        <img src={LineBottom} className="h-10 opacity-70 -mt-2 mb-3" alt="" />
+        <img src={LineBottom} className="h-8 opacity-70 my-1 object-contain pointer-events-none" alt="" />
         <span style={{ ...tagStyle, width: "150px" }}>
           Predictive Analytics
         </span>
@@ -67,25 +66,25 @@ const cards = [
     desc: "Creating Powerful Web and Mobile Apps for Businesses of all kinds.",
     to: "/web-development",
     preview: (
-      <div className="flex items-end justify-center gap-3 w-full p-4 relative h-38 mb-21">
-        <div className="absolute top-5 right-0 flex flex-row gap-1 z-20">
-          <div className="w-5 h-[5px] rounded-full bg-white/60" />
-          <div className="w-5 h-[5px] rounded-full bg-white/40" />
-          <div className="w-5 h-[5px] rounded-full bg-white/50" />
+      <div className="relative w-full h-full flex items-center justify-center p-3 overflow-hidden">
+        <div className="absolute top-3 right-3 flex flex-row gap-1 z-20">
+          <div className="w-4 h-1 rounded-full bg-white/60" />
+          <div className="w-4 h-1 rounded-full bg-white/40" />
+          <div className="w-4 h-1 rounded-full bg-white/50" />
         </div>
         <div
-          className="w-20 h-30 rounded-xl absolute left-4 top-1/2"
+          className="w-14 sm:w-16 h-24 sm:h-28 rounded-xl absolute left-2 sm:left-3 top-1/2 -translate-y-1/2"
           style={{ background: "rgba(0,245,212,0.08)" }}
         />
         <div
-          className="w-20 h-30 rounded-xl absolute right-4 top-1/2"
+          className="w-14 sm:w-16 h-24 sm:h-28 rounded-xl absolute right-2 sm:right-3 top-1/2 -translate-y-1/2"
           style={{ background: "rgba(0,245,212,0.08)" }}
         />
-        <div className="w-60 h-58 absolute top-5 left-1/2 -translate-x-1/2 rounded-xl overflow-hidden flex items-center justify-center">
+        <div className="w-48 sm:w-56 h-36 sm:h-40 rounded-xl overflow-hidden flex items-center justify-center relative z-10 shadow-lg border border-white/10 bg-black/40">
           <img
             src={Preview}
             alt="preview"
-            className="w-[90%] h-[70%] object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>
@@ -185,7 +184,7 @@ const cards = [
 ];
 
 // ── Glow Card ──
-function GlowCard({ card }) {
+function GlowCard({ card, isLargeScreen }) {
   const cardRef = useRef(null);
   const frameRef = useRef(0);
   const pointerRef = useRef({ x: -999, y: -999 });
@@ -241,9 +240,9 @@ function GlowCard({ card }) {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="flex flex-col rounded-2xl p-6 transition-all duration-300 relative overflow-hidden"
+      className="flex flex-col w-full h-full rounded-2xl p-5 sm:p-6 transition-all duration-300 relative overflow-hidden"
       style={{
-        minHeight: "520px",
+        minHeight: isLargeScreen ? "520px" : "auto",
         background: "rgba(7,190,184,0.04)",
         border: "1px solid rgba(7,190,184,0.2)",
         boxShadow: "0 0 20px rgba(7,190,184,0.08)",
@@ -260,19 +259,19 @@ function GlowCard({ card }) {
       />
       <div className="relative z-10 flex flex-col h-full flex-1">
         <div
-          className="rounded-xl mb-6 relative overflow-hidden flex-shrink-0"
-          style={{ height: "250px" }}
+          className="rounded-xl mb-5 relative overflow-hidden flex-shrink-0 bg-white/[0.02] border border-white/5"
+          style={{ height: "230px" }}
         >
           {card.preview}
         </div>
         <div className="flex flex-col flex-1">
-          <h3 className="text-xl font-bold text-white mb-2 mt-10">
+          <h3 className="text-xl font-bold text-white mb-2">
             {card.title}
           </h3>
           <p className="text-sm text-[#8ca0b0] leading-relaxed mb-6 flex-1">
             {card.desc}
           </p>
-          <div className="mt-auto">
+          <div className="mt-auto pt-2">
             {card.to ? (
               <CTAButton to={card.to} aria-label={`Read more about ${card.title}`}>
                 Read More <span className="sr-only">about {card.title}</span>
@@ -366,11 +365,10 @@ function useIsLargeScreen() {
 
 // ── Main Section ──
 export default function PartnersSection() {
-  const [openIndex, setOpenIndex] = useState(0);
   const isLargeScreen = useIsLargeScreen();
 
   return (
-    <section className="section-auto-render min-h-screen flex flex-col justify-center text-[#e8f0f4] relative overflow-hidden">
+    <section className="section-auto-render relative overflow-hidden py-10 sm:py-16 lg:py-24 text-[#e8f0f4]">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
@@ -401,9 +399,9 @@ export default function PartnersSection() {
       </div>
 
       {/* ── Cards Section ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto pb-10 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Row */}
-        <div className="flex flex-col md:flex-row md:items-baseline-last md:justify-between gap-10 mb-14">
+        <div className="flex flex-col md:flex-row md:items-baseline-last md:justify-between gap-4 md:gap-10 mb-8 md:mb-14">
           <div className="flex-1 max-w-lg">
             <p
               className="text-xs uppercase text-[#07BEB8] mb-3 font-medium"
@@ -432,12 +430,11 @@ export default function PartnersSection() {
           </div>
         </div>
 
-        {/* Cards Grid — tri-fold mirror tilt on desktop, flat stack on mobile */}
+        {/* Cards Grid — tri-fold mirror tilt on desktop, responsive stack on mobile */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-md md:max-w-3xl lg:max-w-none mx-auto w-full"
           style={{
-            gap: "30px",
-            alignItems: "flex-end",
+            alignItems: isLargeScreen ? "flex-end" : "stretch",
             ...(isLargeScreen ? { perspective: "2000px" } : {}),
           }}
         >
@@ -461,13 +458,11 @@ export default function PartnersSection() {
                       }
                     : { transition: "transform 0.3s ease" }
                 }
-                className={
-                  isLargeScreen
-                    ? "hover:transform-[rotateY(0deg)]! hover:z-20"
-                    : ""
-                }
+                className={`w-full flex flex-col ${
+                  i === 2 ? "md:col-span-2 md:max-w-md md:mx-auto lg:col-span-1 lg:max-w-none" : ""
+                } ${isLargeScreen ? "hover:transform-[rotateY(0deg)]! hover:z-20" : ""}`}
               >
-                <GlowCard card={card} />
+                <GlowCard card={card} isLargeScreen={isLargeScreen} />
               </div>
             );
           })}

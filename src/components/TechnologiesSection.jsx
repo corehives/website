@@ -567,7 +567,7 @@ export default function TechnologiesSection() {
   return (
     <section
       aria-label="Technologies We Work With"
-      className="section-auto-render relative w-full overflow-hidden bg-[#000405] py-20 px-4 sm:px-6 lg:py-24 border-b border-white/5"
+      className="section-auto-render relative w-full overflow-hidden bg-[#000405] pt-10 pb-16 px-4 sm:px-6 sm:py-16 lg:py-24 border-b border-white/5"
     >
       {/* ── Background Crosshair Grid Pattern (matching reference) ── */}
       <svg
