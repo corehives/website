@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Header from "./components/layout/header.jsx";
 import SocialSidebar from "./components/layout/SocialSidebar.jsx";
+import RightStickyCTA from "./components/layout/RightStickyCTA.jsx";
 import TawkToChat from "./components/TawkToChat.jsx";
 import Hero from "./components/hero.jsx";
 import LoadingScreen from "./components/LoadingScreen.jsx";
@@ -336,6 +337,7 @@ function App() {
     <div className="min-h-screen overflow-x-hidden bg-[#000405] text-white">
       <Header />
       <SocialSidebar />
+      <RightStickyCTA />
       <AppRoutes />
       <TawkToChat />
     </div>
