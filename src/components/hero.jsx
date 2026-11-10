@@ -3,8 +3,10 @@ import leftLight from "../assets/left-light.webp";
 import rightLight from "../assets/right-light.webp";
 import GlobeLogo from "../assets/globe-frame.webp";
 import HalfLogo from "../assets/logo-half.webp";
+import zainAvatar from "../assets/founders/zain-haider.jpg";
 import { ShieldCheck } from "lucide-react";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const HeroVisuals = lazy(() => import("./heroVisuals.jsx"));
 
@@ -93,7 +95,7 @@ export default function Hero() {
 
   const visualsStyle = isMobile
     ? { marginTop: "1.5rem", height: "clamp(360px, 56vw, 530px)" }
-    : { top: "-5rem", aspectRatio: "18 / 10", minHeight: "480px" };
+    : { marginTop: "-2rem", aspectRatio: "18 / 10", minHeight: "480px" };
 
   return (
     <section
@@ -149,19 +151,19 @@ export default function Hero() {
       {/* Layer 2: Main content */}
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pt-20 text-center mt-6 sm:px-6 sm:pt-22 lg:px-10 lg:pt-20">
         <h1
-          className="max-w-5xl font-bold leading-[1.15] text-white"
+          className="max-w-4xl font-bold leading-[1.2] text-white"
           style={{
-            fontSize: "clamp(1.5rem, 3.5vw + 0.75rem, 3rem)",
+            fontSize: "clamp(1.85rem, 3.8vw + 0.6rem, 3.25rem)",
             animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.6s both",
             willChange: "opacity, transform",
           }}
         >
           Future-Proof Your{" "}
           <span
-            className="relative inline-flex items-center justify-center rounded-full align-middle p-[3px]"
+            className="relative inline-flex items-center justify-center rounded-full align-middle p-[3px] mx-1 sm:mx-1.5 -translate-y-0.5"
             style={{
-              width: "clamp(2.25rem, 5.5vw, 4rem)",
-              height: "clamp(2.25rem, 5.5vw, 4rem)",
+              width: "clamp(2.25rem, 4.5vw, 3.5rem)",
+              height: "clamp(2.25rem, 4.5vw, 3.5rem)",
               background: "linear-gradient(to bottom, #07BEB8, #33384B)",
             }}
           >
@@ -174,24 +176,26 @@ export default function Hero() {
             >
               <ShieldCheck
                 style={{
-                  width: "clamp(1.25rem, 3vw, 2.25rem)",
-                  height: "clamp(1.25rem, 3vw, 2.25rem)",
+                  width: "clamp(1.25rem, 2.5vw, 2rem)",
+                  height: "clamp(1.25rem, 2.5vw, 2rem)",
                 }}
                 color="#07BEB8"
-                strokeWidth={1}
+                strokeWidth={1.5}
                 fill="#ffffff"
               />
             </span>
           </span>{" "}
-          Business With our
-          <span className="precision-gradient">Web & App Solutions</span>
+          Business With Our{" "}
+          <span className="block mt-1 sm:mt-1.5 precision-gradient">
+            Web & App Solutions
+          </span>
         </h1>
 
         <p
-          className="mx-auto mt-4 max-w-3xl leading-relaxed text-white/80"
+          className="mx-auto mt-5 max-w-2xl leading-relaxed text-white/75"
           style={{
-            fontSize: "clamp(0.9375rem, 1.25vw + 0.35rem, 1.25rem)",
-            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.85s both",
+            fontSize: "clamp(0.9375rem, 1.15vw + 0.35rem, 1.125rem)",
+            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.8s both",
             willChange: "opacity, transform",
           }}
         >
@@ -199,11 +203,49 @@ export default function Hero() {
           and accelerate your digital transformation.
         </p>
 
+        {/* Hero CTAs */}
+        <div
+          className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-6 sm:gap-8"
+          style={{
+            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.9s both",
+            willChange: "opacity, transform",
+          }}
+        >
+          {/* Primary CTA: Schedule a call with Zain's circular photo */}
+          <Link
+            to="/contact"
+            className="group inline-flex items-center gap-3.5 rounded-full bg-white pl-6 pr-1.5 py-1.5 shadow-[0_4px_20px_rgba(0,0,0,0.25)] transition-all duration-300 hover:bg-[#f3faf9] hover:shadow-[0_0_30px_rgba(7,190,184,0.38)] hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <span className="text-sm sm:text-base font-semibold tracking-tight text-neutral-900 group-hover:text-black">
+              Schedule a call
+            </span>
+            <span className="relative flex h-9 w-9 sm:h-10 sm:w-10 overflow-hidden rounded-full ring-2 ring-neutral-200/90 shadow-sm transition-all duration-300 group-hover:ring-[#07BEB8]">
+              <img
+                src={zainAvatar}
+                alt="Zain Haider - CEO & Co-Founder"
+                className="h-full w-full object-cover object-top"
+                loading="eager"
+              />
+            </span>
+          </Link>
+
+          {/* Secondary CTA: See our work */}
+          <Link
+            to="/our-portfolio"
+            className="group relative inline-flex items-center text-sm sm:text-base font-medium text-white transition-colors duration-200 hover:text-[#07BEB8]"
+          >
+            <span className="relative pb-1">
+              See our work
+              <span className="absolute bottom-0 left-0 h-[1.5px] w-full bg-white/70 transition-colors duration-200 group-hover:bg-[#07BEB8]" />
+            </span>
+          </Link>
+        </div>
+
         {/* Trustpilot Review Badge */}
         <div
-          className="mx-auto mt-4 flex items-center justify-center gap-1.5 text-xs text-white/50"
+          className="mx-auto mt-6 flex items-center justify-center gap-1.5 text-xs text-white/50"
           style={{
-            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.95s both",
+            animation: "fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 1s both",
             willChange: "opacity, transform",
           }}
         >
