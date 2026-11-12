@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import CTAButton from "../components/shared/CTAButton";
 import { FaWhatsapp } from "react-icons/fa";
 import {
@@ -52,6 +52,13 @@ const tealMarker = new L.DivIcon({
 });
 
 const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL || "/api/contact";
+const CARTO_API_KEY = import.meta.env.VITE_CARTO_API_KEY;
+const MAP_TILE_URL = CARTO_API_KEY
+  ? `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=${CARTO_API_KEY}`
+  : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+const MAP_ATTRIBUTION = CARTO_API_KEY
+  ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 const OFFICE_LOCATIONS = [
   {
     id: "hq",
@@ -178,8 +185,10 @@ function ThemedMap({ activeLocation, onLocationChange }) {
             attributionControl={false}
           >
             <TileLayer
-              url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-              attribution='&copy; <a href="https://carto.com/">CARTO</a>'
+              url={MAP_TILE_URL}
+              attribution={MAP_ATTRIBUTION}
+              className={CARTO_API_KEY ? "" : "corehives-dark-tiles"}
+              maxZoom={19}
             />
             <ZoomControl position="topright" />
             <Marker position={activeLocation.position} icon={tealMarker}>

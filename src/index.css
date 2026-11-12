@@ -446,3 +446,12 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Leaflet dark mode styling (zero API key required) */
+.leaflet-container {
+  background-color: #031112 !important;
+}
+
+.corehives-dark-tiles {
+  filter: invert(100%) hue-rotate(180deg) brightness(88%) contrast(115%) saturate(35%);
+}
